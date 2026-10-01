@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://16alves02.com"),
   title: {
-    default: "16alves02 | Software Development Student",
+    default: "16alves02 | Websites & Software Projects",
     template: "%s | 16alves02",
   },
   description:
@@ -25,17 +25,18 @@ export const metadata: Metadata = {
     "16alves02",
     "Leonardo Alves",
     "software development student",
+    "website developer",
     "web developer",
-    "frontend developer",
-    "freelance developer",
+    "freelance website developer",
+    "software projects",
     "Portugal",
   ],
   authors: [{ name: "Leonardo Alves", url: "https://github.com/16alves02" }],
   creator: "Leonardo Alves",
   openGraph: {
-    title: "16alves02 | Software Development Student",
+    title: "16alves02 | Websites & Software Projects",
     description:
-      "Portfolio of Leonardo Alves, a Software Development student building websites, software projects and digital experiences.",
+      "Portfolio of Leonardo Alves from Portugal, featuring websites, software projects and selected freelance work.",
     type: "website",
     locale: "en_PT",
     siteName: "16alves02",
