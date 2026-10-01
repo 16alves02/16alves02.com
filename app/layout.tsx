@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/language-provider";
+import { AnalyticsTracker } from "@/components/analytics-tracker";
+import { AnalyticsConsent } from "@/components/analytics-consent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,7 +67,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}
     >
       <body>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <AnalyticsTracker />
+          <AnalyticsConsent />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
