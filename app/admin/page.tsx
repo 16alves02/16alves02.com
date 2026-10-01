@@ -42,6 +42,8 @@ type Summary = {
   clicksByTarget: Array<{ label: string; count: number }>;
   devices: Array<{ label: string; count: number }>;
   eventsByType: Array<{ label: string; count: number }>;
+  referrers: Array<{ label: string; count: number }>;
+  leadServices: Array<{ label: string; count: number }>;
   leads: Lead[];
 };
 
@@ -184,6 +186,12 @@ export default function AdminPage() {
   );
   const maxClick = Math.max(
     ...(summary?.clicksByTarget.map((item) => item.count) ?? [1]),
+  );
+  const maxReferrer = Math.max(
+    ...(summary?.referrers.map((item) => item.count) ?? [1]),
+  );
+  const maxLeadService = Math.max(
+    ...(summary?.leadServices.map((item) => item.count) ?? [1]),
   );
 
   return (
