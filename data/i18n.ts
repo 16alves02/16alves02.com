@@ -108,6 +108,17 @@ type Translation = {
     nextStep: string;
     nextTitle: string;
   };
+  process: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    steps: Array<{ number: string; title: string; description: string }>;
+  };
+  faq: {
+    eyebrow: string;
+    title: string;
+    items: Array<{ question: string; answer: string }>;
+  };
   projects: Record<string, ProjectTranslation>;
   footer: string;
 };
@@ -117,10 +128,10 @@ export const translations: Record<LanguageCode, Translation> = {
     nav: { work: "Work", services: "Services", about: "About", contact: "Contact", start: "Start a project", language: "Language", languageHint: "Select the language for this website", openMenu: "Open navigation menu", closeMenu: "Close navigation menu" },
     hero: {
       availability: "Open to selected website projects",
-      title: "Software development student.",
-      description: "Building websites, software projects and digital experiences while developing my professional path in software development.",
-      work: "View my work",
-      project: "Start a project",
+      title: "Websites that make your business look the part."
+      description: "I'm Leonardo, a Software Development student from Portugal. I build responsive websites for small businesses, professionals and personal brands."
+      work: "See my work"
+      project: "Start a website"
       web: "Web",
       webDetail: "React, TypeScript, responsive interfaces",
       mobile: "Mobile",
@@ -129,12 +140,12 @@ export const translations: Record<LanguageCode, Translation> = {
       backendDetail: "PHP, REST APIs and MySQL",
     },
     work: {
-      eyebrow: "Selected work",
-      title: "Projects that show how I build.",
-      description: "A mix of personal, academic and experimental software projects. No inflated metrics, just things I have actually built.",
-      moreProjects: "More projects",
-      moreProjectsDescription: "Smaller builds and fundamentals are part of the journey too.",
-      all: "View all",
+      eyebrow: "Selected work"
+      title: "Real projects. Built from scratch."
+      description: "A visual look at the websites, interfaces and software projects behind 16alves02."
+      moreProjects: "A closer look"
+      moreProjectsDescription: "Open a project to see what I built, the technology behind it and the live result."
+      all: "Explore all work"
     },
     services: {
       eyebrow: "Freelance",
@@ -195,6 +206,8 @@ export const translations: Record<LanguageCode, Translation> = {
       nextStep: "Next step",
       nextTitle: "Looking for the GitHub source or a live project?",
     },
+    process: {"eyebrow":"The process","title":"From idea to a website you can actually use.","description":"A straightforward process designed to keep the project clear, collaborative and focused on the final result.","steps":[{"number":"01","title":"Discover","description":"We define what you need, who it is for and what the website needs to achieve."},{"number":"02","title":"Plan","description":"I turn the idea into a clear structure, content direction and technical plan."},{"number":"03","title":"Build","description":"I develop the responsive website, refine the interface and keep you involved."},{"number":"04","title":"Launch","description":"We review the final result, make the last adjustments and get it ready to go live."}]},
+    faq: {"eyebrow":"Questions","title":"Before we start.","items":[{"question":"What kind of websites do you build?","answer":"Business websites, landing pages, personal websites, portfolios, e-commerce experiences and custom websites for small projects."},{"question":"Do you work with small businesses?","answer":"Yes. Restaurants, cafés, salons, shops, professionals and other small businesses are exactly the kind of projects I want to work on."},{"question":"Will the website work on mobile?","answer":"Yes. Responsive behaviour is part of the build, so the experience is designed for phones, tablets and desktop screens."},{"question":"How does a project start?","answer":"Send me the idea, the business or project context and what you already have. We can use that first conversation to define the next step."}]},
     projects: {
       hoop: {
         shortDescription: "A basketball-focused e-commerce experience built around product discovery, shopping flow and responsive UI.",
@@ -239,10 +252,10 @@ export const translations: Record<LanguageCode, Translation> = {
     nav: { work: "Projetos", services: "Serviços", about: "Sobre", contact: "Contacto", start: "Iniciar um projeto", language: "Idioma", languageHint: "Seleciona o idioma do website", openMenu: "Abrir menu de navegação", closeMenu: "Fechar menu de navegação" },
     hero: {
       availability: "Disponível para projetos web selecionados",
-      title: "Estudante de Desenvolvimento de Software.",
-      description: "Crio websites, projetos de software e experiências digitais enquanto desenvolvo o meu percurso profissional em desenvolvimento de software.",
-      work: "Ver os meus projetos",
-      project: "Iniciar um projeto",
+      title: "Websites que fazem o teu negócio estar à altura."
+      description: "Sou o Leonardo, estudante de Desenvolvimento de Software em Portugal. Crio websites responsivos para pequenos negócios, profissionais e projetos pessoais."
+      work: "Ver os meus projetos"
+      project: "Criar um website"
       web: "Web",
       webDetail: "React, TypeScript e interfaces responsivas",
       mobile: "Mobile",
@@ -251,12 +264,12 @@ export const translations: Record<LanguageCode, Translation> = {
       backendDetail: "PHP, APIs REST e MySQL",
     },
     work: {
-      eyebrow: "Projetos selecionados",
-      title: "Projetos que mostram como desenvolvo.",
-      description: "Uma mistura de projetos pessoais, académicos e experimentais. Sem métricas inventadas, apenas trabalho que construí.",
-      moreProjects: "Mais projetos",
-      moreProjectsDescription: "Projetos mais pequenos e fundamentos também fazem parte do percurso.",
-      all: "Ver todos",
+      eyebrow: "Projetos selecionados"
+      title: "Projetos reais. Feitos de raiz."
+      description: "Uma visão visual dos websites, interfaces e projetos de software por detrás da 16alves02."
+      moreProjects: "Ver em detalhe"
+      moreProjectsDescription: "Abre um projeto para veres o que construí, a tecnologia utilizada e o resultado online."
+      all: "Explorar projetos"
     },
     services: {
       eyebrow: "Freelance",
@@ -317,6 +330,8 @@ export const translations: Record<LanguageCode, Translation> = {
       nextStep: "Próximo passo",
       nextTitle: "Procuras o código no GitHub ou um projeto online?",
     },
+    process: {"eyebrow":"O processo","title":"Da ideia a um website que podes realmente usar.","description":"Um processo simples para manter o projeto claro, colaborativo e focado no resultado final.","steps":[{"number":"01","title":"Descobrir","description":"Definimos o que precisas, para quem é e o que o website deve alcançar."},{"number":"02","title":"Planear","description":"Transformo a ideia numa estrutura clara, numa direção de conteúdo e num plano técnico."},{"number":"03","title":"Construir","description":"Desenvolvo o website responsivo, aperfeiçoo a interface e mantenho-te envolvido."},{"number":"04","title":"Lançar","description":"Revemos o resultado final, fazemos os últimos ajustes e deixamos tudo pronto para publicar."}]},
+    faq: {"eyebrow":"Perguntas","title":"Antes de começarmos.","items":[{"question":"Que tipo de websites desenvolves?","answer":"Websites para negócios, landing pages, sites pessoais, portefólios, experiências de e-commerce e websites personalizados para projetos de pequena dimensão."},{"question":"Trabalhas com pequenos negócios?","answer":"Sim. Restaurantes, cafés, salões, lojas, profissionais e outros pequenos negócios são precisamente o tipo de projetos em que quero trabalhar."},{"question":"O website funciona em telemóvel?","answer":"Sim. O comportamento responsivo faz parte do desenvolvimento, por isso a experiência é pensada para telemóveis, tablets e computadores."},{"question":"Como começa um projeto?","answer":"Envia-me a ideia, o contexto do negócio ou projeto e aquilo que já tens. A partir dessa primeira conversa definimos o próximo passo."}]},
     projects: {
       hoop: {
         shortDescription: "Uma experiência de e-commerce focada em basquetebol, descoberta de produtos, navegação de compra e UI responsiva.",
@@ -361,10 +376,10 @@ export const translations: Record<LanguageCode, Translation> = {
     nav: { work: "Proyectos", services: "Servicios", about: "Sobre mí", contact: "Contacto", start: "Iniciar un proyecto", language: "Idioma", languageHint: "Selecciona el idioma del sitio web", openMenu: "Abrir menú de navegación", closeMenu: "Cerrar menú de navegación" },
     hero: {
       availability: "Disponible para proyectos web seleccionados",
-      title: "Estudiante de Desarrollo de Software.",
-      description: "Creo sitios web, proyectos de software y experiencias digitales mientras desarrollo mi trayectoria profesional.",
-      work: "Ver mi trabajo",
-      project: "Iniciar un proyecto",
+      title: "Sitios web que hacen que tu negocio esté a la altura."
+      description: "Soy Leonardo, estudiante de Desarrollo de Software en Portugal. Creo sitios web responsivos para pequeños negocios, profesionales y proyectos personales."
+      work: "Ver mi trabajo"
+      project: "Crear un sitio web"
       web: "Web",
       webDetail: "React, TypeScript e interfaces responsivas",
       mobile: "Móvil",
@@ -373,12 +388,12 @@ export const translations: Record<LanguageCode, Translation> = {
       backendDetail: "PHP, APIs REST y MySQL",
     },
     work: {
-      eyebrow: "Proyectos seleccionados",
-      title: "Proyectos que muestran cómo construyo.",
-      description: "Una mezcla de proyectos personales, académicos y experimentales. Sin métricas infladas, solo cosas que realmente he construido.",
-      moreProjects: "Más proyectos",
-      moreProjectsDescription: "Los proyectos pequeños y los fundamentos también forman parte del camino.",
-      all: "Ver todos",
+      eyebrow: "Proyectos seleccionados"
+      title: "Proyectos reales. Hechos desde cero."
+      description: "Una mirada visual a los sitios web, interfaces y proyectos de software detrás de 16alves02."
+      moreProjects: "Ver en detalle"
+      moreProjectsDescription: "Abre un proyecto para ver qué construí, la tecnología utilizada y el resultado online."
+      all: "Explorar proyectos"
     },
     services: {
       eyebrow: "Freelance",
@@ -439,6 +454,8 @@ export const translations: Record<LanguageCode, Translation> = {
       nextStep: "Siguiente paso",
       nextTitle: "¿Buscas el código de GitHub o un proyecto online?",
     },
+    process: {"eyebrow":"El proceso","title":"De la idea a un sitio web que realmente puedas usar.","description":"Un proceso directo para mantener el proyecto claro, colaborativo y centrado en el resultado final.","steps":[{"number":"01","title":"Descubrir","description":"Definimos qué necesitas, para quién es y qué debe conseguir el sitio."},{"number":"02","title":"Planificar","description":"Convierto la idea en una estructura clara, una dirección de contenido y un plan técnico."},{"number":"03","title":"Construir","description":"Desarrollo el sitio responsivo, refino la interfaz y mantengo tu participación."},{"number":"04","title":"Lanzar","description":"Revisamos el resultado, hacemos los últimos ajustes y lo dejamos listo para publicar."}]},
+    faq: {"eyebrow":"Preguntas","title":"Antes de empezar.","items":[{"question":"¿Qué tipo de sitios web construyes?","answer":"Sitios web para negocios, landing pages, páginas personales, portafolios, experiencias de e-commerce y sitios personalizados para proyectos pequeños."},{"question":"¿Trabajas con pequeños negocios?","answer":"Sí. Restaurantes, cafeterías, salones, tiendas, profesionales y otros pequeños negocios son exactamente el tipo de proyectos en los que quiero trabajar."},{"question":"¿El sitio funcionará en móvil?","answer":"Sí. El diseño responsive forma parte del desarrollo, por lo que la experiencia está pensada para móviles, tablets y ordenadores."},{"question":"¿Cómo empieza un proyecto?","answer":"Envíame la idea, el contexto del negocio o proyecto y lo que ya tienes. Con esa primera conversación podemos definir el siguiente paso."}]},
     projects: {
       hoop: {
         shortDescription: "Una experiencia de e-commerce centrada en el baloncesto, el descubrimiento de productos y una UI responsiva.",
@@ -605,10 +622,10 @@ export const translations: Record<LanguageCode, Translation> = {
     nav: { work: "Projets", services: "Services", about: "À propos", contact: "Contact", start: "Démarrer un projet", language: "Langue", languageHint: "Choisissez la langue du site", openMenu: "Ouvrir le menu de navigation", closeMenu: "Fermer le menu de navigation" },
     hero: {
       availability: "Ouvert à certains projets web",
-      title: "Étudiant en développement logiciel.",
-      description: "Je crée des sites web, des projets logiciels et des expériences numériques tout en développant mon parcours professionnel.",
-      work: "Voir mes projets",
-      project: "Démarrer un projet",
+      title: "Des sites web qui mettent votre activité à la hauteur."
+      description: "Je suis Leonardo, étudiant en développement logiciel au Portugal. Je crée des sites web responsifs pour les petites entreprises, les professionnels et les projets personnels."
+      work: "Voir mes projets"
+      project: "Créer un site web"
       web: "Web",
       webDetail: "React, TypeScript et interfaces responsives",
       mobile: "Mobile",
@@ -617,12 +634,12 @@ export const translations: Record<LanguageCode, Translation> = {
       backendDetail: "PHP, API REST et MySQL",
     },
     work: {
-      eyebrow: "Projets sélectionnés",
-      title: "Des projets qui montrent ma façon de construire.",
-      description: "Un mélange de projets personnels, académiques et expérimentaux. Pas de métriques gonflées, seulement ce que j'ai réellement construit.",
-      moreProjects: "Plus de projets",
-      moreProjectsDescription: "Les petits projets et les fondamentaux font aussi partie du parcours.",
-      all: "Tout voir",
+      eyebrow: "Projets sélectionnés"
+      title: "De vrais projets. Construits de zéro."
+      description: "Un aperçu visuel des sites, interfaces et projets logiciels derrière 16alves02."
+      moreProjects: "Voir en détail"
+      moreProjectsDescription: "Ouvrez un projet pour découvrir ce que j'ai construit, les technologies utilisées et le résultat en ligne."
+      all: "Explorer les projets"
     },
     services: {
       eyebrow: "Freelance",
@@ -683,6 +700,8 @@ export const translations: Record<LanguageCode, Translation> = {
       nextStep: "Étape suivante",
       nextTitle: "Vous cherchez le code GitHub ou un projet en ligne ?",
     },
+    process: {"eyebrow":"Le processus","title":"De l'idée à un site que vous pouvez réellement utiliser.","description":"Un processus simple pour garder le projet clair, collaboratif et centré sur le résultat final.","steps":[{"number":"01","title":"Découvrir","description":"Nous définissons vos besoins, votre public et ce que le site doit accomplir."},{"number":"02","title":"Planifier","description":"Je transforme l'idée en structure claire, direction de contenu et plan technique."},{"number":"03","title":"Construire","description":"Je développe le site responsif, affine l'interface et vous garde impliqué."},{"number":"04","title":"Lancer","description":"Nous vérifions le résultat, faisons les derniers ajustements et préparons la mise en ligne."}]},
+    faq: {"eyebrow":"Questions","title":"Avant de commencer.","items":[{"question":"Quels types de sites construisez-vous ?","answer":"Sites professionnels, landing pages, sites personnels, portfolios, expériences e-commerce et sites personnalisés pour les petits projets."},{"question":"Travaillez-vous avec les petites entreprises ?","answer":"Oui. Restaurants, cafés, salons, boutiques, professionnels et autres petites entreprises sont précisément le type de projets sur lesquels je souhaite travailler."},{"question":"Le site fonctionnera-t-il sur mobile ?","answer":"Oui. Le responsive fait partie du développement, avec une expérience pensée pour les téléphones, tablettes et ordinateurs."},{"question":"Comment commence un projet ?","answer":"Envoyez-moi votre idée, le contexte de votre activité ou projet et ce que vous avez déjà. Nous pouvons définir la prochaine étape à partir de ce premier échange."}]},
     projects: {
       hoop: {
         shortDescription: "Une expérience e-commerce orientée basket, centrée sur la découverte des produits, le parcours d'achat et une interface responsive.",
