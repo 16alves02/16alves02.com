@@ -7,7 +7,7 @@ const services = [
   {
     title: "Business websites",
     description:
-      "Responsive websites for restaurants, cafés, salons, shops, professionals and small businesses.",
+      "Responsive websites for restaurants, coffee shops, salons, shops, professionals and small businesses.",
     icon: Globe2,
   },
   {
