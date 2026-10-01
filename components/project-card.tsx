@@ -5,6 +5,7 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { useLanguage } from "@/components/language-provider";
+import { getProjectTranslation } from "@/data/i18n";
 
 export function ProjectCard({
   project,
@@ -13,7 +14,8 @@ export function ProjectCard({
   project: Project;
   compact?: boolean;
 }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const copy = getProjectTranslation(language, project.slug);
 
   return (
     <article
@@ -49,7 +51,7 @@ export function ProjectCard({
 
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#5F5A54]">
-              {project.type}
+              {copy.type}
             </p>
             <div className="mt-3 flex items-end justify-between gap-5">
               <h3 className="text-3xl font-semibold tracking-[-0.045em] text-[#F5F2ED]">
@@ -66,7 +68,7 @@ export function ProjectCard({
 
       <div className="px-2 pb-2 pt-5 sm:px-3 sm:pb-3">
         <p className="max-w-2xl text-sm leading-6 text-[#9B958D]">
-          {project.shortDescription}
+          {copy.shortDescription}
         </p>
 
         <div className="mt-5 flex flex-wrap gap-2">
