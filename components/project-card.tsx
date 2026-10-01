@@ -25,6 +25,7 @@ export function ProjectCard({
     >
       <Link
         href={`/work/${project.slug}`}
+        data-track={`project:${project.slug}`}
         className="block h-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB173]"
       >
         <div className="relative p-2.5 sm:p-3">
