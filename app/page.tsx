@@ -1,7 +1,10 @@
+"use client";
+
 import { ArrowDownRight, ArrowUpRight, BriefcaseBusiness, Code2, Globe2, Layers3 } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { ProjectCard } from "@/components/project-card";
 import { featuredProjects } from "@/data/projects";
+import { useLanguage } from "@/components/language-provider";
 
 const services = [
   {
@@ -55,6 +58,15 @@ function SectionIntro({
 }
 
 export default function Home() {
+  const { t } = useLanguage();
+
+  const services = [
+    { title: t.services.business, description: t.services.businessDescription, icon: Globe2 },
+    { title: t.services.landing, description: t.services.landingDescription, icon: Layers3 },
+    { title: t.services.ecommerce, description: t.services.ecommerceDescription, icon: BriefcaseBusiness },
+    { title: t.services.custom, description: t.services.customDescription, icon: Code2 },
+  ];
+
   return (
     <main className="overflow-x-hidden">
       <Navigation />
@@ -69,7 +81,7 @@ export default function Home() {
             <div className="mb-8 flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#FF7A18]/25 bg-[#FF7A18]/7 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[#FFB173]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#FF7A18] shadow-[0_0_10px_rgba(255,122,24,0.7)]" />
-                Open to selected website projects
+                {t.hero.availability}
               </span>
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#6D675F]">
                 Portugal
@@ -83,8 +95,7 @@ export default function Home() {
 
             <div className="mt-8 grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
               <p className="max-w-2xl text-base leading-7 text-[#A8A199] sm:text-lg">
-                Building websites, software projects and digital experiences while
-                developing my professional path in software development.
+                {t.hero.description}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -92,7 +103,7 @@ export default function Home() {
                   href="#work"
                   className="primary-button group px-5 py-3 text-sm"
                 >
-                  View my work
+                  {t.hero.work}
                   <ArrowDownRight
                     size={16}
                     className="transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"
@@ -102,7 +113,7 @@ export default function Home() {
                   href="#contact"
                   className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.025] px-5 py-3 text-sm font-medium text-[#F5F2ED] transition-colors hover:border-[#FF7A18]/45 hover:bg-[#FF7A18]/7"
                 >
-                  Start a project
+                  {t.hero.project}
                 </a>
               </div>
             </div>
@@ -110,9 +121,9 @@ export default function Home() {
 
           <div className="mt-20 grid max-w-5xl gap-4 border-t border-white/8 pt-6 sm:grid-cols-3">
             {[
-              ["01", "Web", "React, TypeScript, responsive interfaces"],
-              ["02", "Mobile", "Kotlin, Android and practical apps"],
-              ["03", "Backend", "PHP, REST APIs and MySQL"],
+              ["01", t.hero.web, t.hero.webDetail],
+              ["02", t.hero.mobile, t.hero.mobileDetail],
+              ["03", t.hero.backend, t.hero.backendDetail],
             ].map(([number, title, detail]) => (
               <div key={number} className="grid grid-cols-[auto_1fr] gap-4">
                 <span className="font-mono text-[10px] tracking-[0.18em] text-[#5F5A54]">
@@ -131,9 +142,9 @@ export default function Home() {
       <section id="work" className="scroll-mt-24 border-t border-white/6">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10">
           <SectionIntro
-            eyebrow="Selected work"
-            title="Projects that show how I build."
-            description="A mix of personal, academic and experimental software projects. No inflated metrics, just things I have actually built."
+            eyebrow={t.work.eyebrow}
+            title={t.work.title}
+            description={t.work.description}
           />
 
           <div className="grid gap-5 lg:grid-cols-2">
@@ -147,17 +158,17 @@ export default function Home() {
           <div className="mt-8 flex items-center justify-between gap-5 rounded-3xl border border-dashed border-white/10 bg-white/[0.015] p-5 sm:p-6">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#625D56]">
-                More projects
+                {t.work.selected}
               </p>
               <p className="mt-2 text-sm text-[#8D877F]">
-                Smaller builds and fundamentals are part of the journey too.
+                {t.work.selectedDescription}
               </p>
             </div>
             <a
               href="/work"
               className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-[#F5F2ED] transition-colors hover:text-[#FF9A4B]"
             >
-              View all <ArrowUpRight size={15} />
+              {t.work.all} <ArrowUpRight size={15} />
             </a>
           </div>
         </div>
@@ -166,9 +177,9 @@ export default function Home() {
       <section id="services" className="scroll-mt-24 border-t border-white/6">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10">
           <SectionIntro
-            eyebrow="Freelance"
-            title="What I can build with you."
-            description="Focused services for small projects, independent professionals and businesses that need something practical rather than over-engineered."
+            eyebrow={t.services.eyebrow}
+            title={t.services.title}
+            description={t.services.description}
           />
 
           <div className="grid gap-px overflow-hidden rounded-3xl border border-white/8 bg-white/8 sm:grid-cols-2 lg:grid-cols-4">
@@ -202,14 +213,14 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
               <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-[#FF8E3D]">
-                Who I want to work with
+                {t.clients.eyebrow}
               </p>
               <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[#F5F2ED] sm:text-5xl">
-                Real people, real businesses, real websites.
+                {t.clients.title}
               </h2>
             </div>
             <div className="flex flex-wrap gap-2 lg:justify-end">
-              {["Restaurants", "Coffee shops", "Hair salons", "Local shops", "Small businesses", "Professionals", "Personal projects", "Tech teams"].map((type) => (
+              {t.clients.types.map((type) => (
                 <span key={type} className="rounded-full border border-white/8 bg-white/[0.02] px-3 py-2 text-xs text-[#A8A199]">
                   {type}
                 </span>
@@ -223,27 +234,15 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-14 px-5 py-24 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
           <div>
             <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-[#FF8E3D]">
-              About
+              {t.about.eyebrow}
             </p>
             <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.035em] text-[#F5F2ED] sm:text-4xl">
-              Still learning. Already building.
+              {t.about.title}
             </h2>
             <div className="mt-7 max-w-2xl space-y-5 text-sm leading-7 text-[#8F8981] sm:text-base">
-              <p>
-                I&apos;m Leonardo, a Software Development student at the University of
-                Aveiro and the person behind 16alves02. I&apos;m building my
-                professional path through personal, academic and experimental
-                projects.
-              </p>
-              <p>
-                My course covers programming, web technologies, databases, software
-                engineering, mobile development, interaction design and the
-                development of complete software projects.
-              </p>
-              <p>
-                16alves02 is the public identity behind that work: a place for projects,
-                experiments and the beginning of my freelance journey.
-              </p>
+              <p>{t.about.body1}</p>
+              <p>{t.about.body2}</p>
+              <p>{t.about.body3}</p>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -277,18 +276,17 @@ export default function Home() {
           <div className="rounded-3xl border border-white/8 bg-white/[0.02] p-6 sm:p-8">
             <div className="mb-8 flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#6D675F]">
-                Currently building
+                {t.about.currently}
               </span>
               <span className="rounded-full border border-[#FF7A18]/20 bg-[#FF7A18]/7 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.18em] text-[#FF9A4B]">
-                In development
+                {t.about.development}
               </span>
             </div>
             <h3 className="text-2xl font-semibold tracking-tight text-[#F5F2ED]">
               SaborGest
             </h3>
             <p className="mt-3 text-sm leading-6 text-[#88827A]">
-              A management system for small bakeries and pastry shops,
-              developed as an academic software project.
+              {t.about.saborDescription}
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -315,15 +313,13 @@ export default function Home() {
 
             <div className="relative max-w-3xl">
               <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-[#FF8E3D]">
-                Contact
+                {t.contact.eyebrow}
               </p>
               <h2 className="text-4xl font-semibold tracking-[-0.04em] text-[#F5F2ED] sm:text-5xl">
-                Have something that needs building?
+                {t.contact.title}
               </h2>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-[#989189] sm:text-base">
-                Tell me what you are trying to build, what you already have
-                and what the end result needs to look like. We can start from
-                there.
+                {t.contact.description}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -333,7 +329,7 @@ export default function Home() {
                   rel="noreferrer"
                   className="primary-button px-5 py-3 text-sm"
                 >
-                  Start a conversation <ArrowUpRight size={15} />
+                  {t.contact.conversation} <ArrowUpRight size={15} />
                 </a>
                 <a
                   href="https://github.com/16alves02"
@@ -341,7 +337,7 @@ export default function Home() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.025] px-5 py-3 text-sm font-medium text-[#F5F2ED] transition-colors hover:border-white/20 hover:bg-white/5"
                 >
-                  View GitHub
+                  {t.contact.github}
                 </a>
               </div>
             </div>
@@ -356,21 +352,21 @@ export default function Home() {
               16alves02
             </p>
             <p className="mt-1 text-xs text-[#615C55]">
-              Software · Projects · Freelance
+              {t.footer}
             </p>
           </div>
           <div className="flex flex-wrap gap-5 text-xs text-[#746E67]">
             <a className="transition-colors hover:text-[#F5F2ED]" href="#work">
-              Work
+              {t.nav.work}
             </a>
             <a className="transition-colors hover:text-[#F5F2ED]" href="#services">
-              Services
+              {t.nav.services}
             </a>
             <a className="transition-colors hover:text-[#F5F2ED]" href="#about">
-              About
+              {t.nav.about}
             </a>
             <a className="transition-colors hover:text-[#F5F2ED]" href="#contact">
-              Contact
+              {t.nav.contact}
             </a>
             <a
               className="transition-colors hover:text-[#F5F2ED]"
