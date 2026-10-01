@@ -122,7 +122,7 @@ export async function POST(request: Request) {
 
       if (process.env.RESEND_AUTOREPLY_ENABLED === "true") {
         try {
-          const reply = buildAutoReply(name);
+          const reply = buildAutoReply(name, language);
           await sendEmail({
             to: email,
             subject: reply.subject,
