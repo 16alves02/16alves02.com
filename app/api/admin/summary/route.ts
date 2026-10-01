@@ -9,6 +9,7 @@ type EventRow = {
   language: string | null;
   target: string | null;
   device: string | null;
+  referrer: string | null;
   session_id: string | null;
 };
 
