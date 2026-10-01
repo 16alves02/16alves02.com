@@ -100,6 +100,8 @@ export async function GET(request: Request) {
       ),
       devices: groupCount(pageViews.map((event) => event.device ?? "")),
       eventsByType: groupCount(events.map((event) => event.event_name)),
+      referrers: groupCount(events.map((event) => event.referrer ?? "")),
+      leadServices: groupCount(leads.map((lead) => lead.service ?? "")),
       leads,
     });
   } catch {
