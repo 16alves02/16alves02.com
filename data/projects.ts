@@ -16,6 +16,7 @@ export type Project = {
   highlights: string[];
   visual: "image" | "raw" | "dashboard" | "tasks" | "terminal";
   image?: string;
+  images?: string[];
 };
 
 export const projects: Project[] = [
@@ -37,6 +38,11 @@ export const projects: Project[] = [
     repositoryUrl: "https://github.com/16alves02/hoop",
     visual: "image",
     image: "https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG",
+    images: [
+      "https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG",
+      "https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/produto.PNG",
+      "https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/carrinho.PNG",
+    ],
     highlights: [
       "Responsive product browsing and discovery",
       "Cart and favourites flows with local persistence",
