@@ -317,3 +317,50 @@ details > summary::-webkit-details-marker {
     transform: none;
   }
 }
+
+
+.contact-input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 0.9rem;
+  background: #0B0A09;
+  color: #F5F2ED;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.contact-input::placeholder {
+  color: #57524C;
+}
+
+.contact-input:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.contact-input:focus {
+  border-color: rgba(255, 122, 24, 0.42);
+  background: #0D0C0B;
+  box-shadow: 0 0 0 3px rgba(255, 122, 24, 0.1);
+}
+
+.contact-input option {
+  background: #0B0A09;
+  color: #F5F2ED;
+}
+
+textarea.contact-input {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid #ffb173;
+  outline-offset: 2px;
+}
