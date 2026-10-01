@@ -3,10 +3,12 @@
 import { ArrowLeft, Code2, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/components/language-provider";
+import { getProjectTranslation } from "@/data/i18n";
 import type { Project } from "@/data/projects";
 
 export function ProjectDetail({ project }: { project: Project }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const copy = getProjectTranslation(language, project.slug);
 
   return (
     <main className="min-h-screen overflow-x-hidden">
@@ -37,7 +39,7 @@ export function ProjectDetail({ project }: { project: Project }) {
               </h1>
 
               <p className="mt-6 max-w-3xl text-base leading-7 text-[#918A82] sm:text-lg">
-                {project.longDescription}
+                {copy.longDescription}
               </p>
             </div>
 
@@ -47,13 +49,13 @@ export function ProjectDetail({ project }: { project: Project }) {
                   <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#625D56]">
                     {t.common.type}
                   </p>
-                  <p className="mt-2 text-[#EAE4DC]">{project.type}</p>
+                  <p className="mt-2 text-[#EAE4DC]">{copy.type}</p>
                 </div>
                 <div>
                   <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#625D56]">
                     {t.common.status}
                   </p>
-                  <p className="mt-2 text-[#EAE4DC]">{project.status}</p>
+                  <p className="mt-2 text-[#EAE4DC]">{copy.status}</p>
                 </div>
                 <div>
                   <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#625D56]">
@@ -110,7 +112,7 @@ export function ProjectDetail({ project }: { project: Project }) {
           </div>
 
           <div className="space-y-4">
-            {project.highlights.map((highlight, index) => (
+            {copy.highlights.map((highlight, index) => (
               <div
                 key={highlight}
                 className="grid grid-cols-[auto_1fr] gap-5 border-t border-white/8 pt-5"
