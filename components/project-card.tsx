@@ -1,7 +1,10 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
+import { useLanguage } from "@/components/language-provider";
 
 export function ProjectCard({
   project,
@@ -10,6 +13,8 @@ export function ProjectCard({
   project: Project;
   compact?: boolean;
 }) {
+  const { t } = useLanguage();
+
   return (
     <article
       className={`group relative overflow-hidden rounded-3xl border border-white/8 bg-white/[0.025] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-white/15 hover:bg-white/[0.04] ${compact ? "" : "h-full"}`}
@@ -80,7 +85,7 @@ export function ProjectCard({
             href={`/work/${project.slug}`}
             className="inline-flex items-center gap-1.5 text-xs font-medium text-[#F5F2ED] transition-colors hover:text-[#FF9A4B]"
           >
-            View project <ArrowUpRight size={14} />
+            {t.common.viewProject} <ArrowUpRight size={14} />
           </Link>
         </div>
       </div>
