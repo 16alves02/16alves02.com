@@ -76,7 +76,7 @@ export function LanguageSelector() {
               <div>
                 <p className="text-xs font-medium text-[#F5F2ED]">{t.nav.language}</p>
                 <p className="mt-0.5 text-[10px] text-[#625D56]">
-                  Select the language for this website
+                  {t.nav.languageHint}
                 </p>
               </div>
             </div>
