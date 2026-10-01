@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, Database, Smartphone, ShoppingBag, Sparkles, Terminal, Zap } from "lucide-react";
+import {
+  ArrowUpRight,
+  Database,
+  Smartphone,
+  Sparkles,
+  Terminal,
+  Zap,
+} from "lucide-react";
 import type { Project } from "@/data/projects";
 import { useLanguage } from "@/components/language-provider";
 import { getProjectTranslation } from "@/data/i18n";
@@ -38,12 +45,13 @@ export function ProjectVisual({
   compact?: boolean;
   priority?: boolean;
 }) {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
   const copy = getProjectTranslation(language, project.slug);
+  const heightClass = compact ? "h-64" : "h-[30rem] lg:h-[34rem]";
 
   if (project.visual === "image" && project.image) {
     return (
-      <VisualShell color={project.color} className={compact ? "h-64" : "h-[30rem] lg:h-[34rem]"}>
+      <VisualShell color={project.color} className={heightClass}>
         <Image
           src={project.image}
           alt={copy.imageAlt}
@@ -59,44 +67,43 @@ export function ProjectVisual({
 
   if (project.visual === "raw") {
     return (
-      <VisualShell color={project.color} className={compact ? "h-64" : "h-[30rem] lg:h-[34rem]"}>
+      <VisualShell color={project.color} className={heightClass}>
         <div className="flex h-full min-h-full flex-col justify-between p-6 sm:p-8">
           <div className="flex items-center justify-between">
             <span className="rounded-full border border-[#00F0FF]/30 bg-[#00F0FF]/8 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.18em] text-[#8FFAFF]">
-              Interactive experience
+              {copy.type}
             </span>
             <Zap size={17} className="text-[#00F0FF]" />
           </div>
+
           <div className="relative mx-auto w-full max-w-2xl">
             <div className="absolute -inset-8 rounded-full bg-[#00F0FF]/7 blur-3xl" />
             <div className="relative rounded-[1.5rem] border border-white/10 bg-[#0C0C0C]/90 p-5 shadow-2xl shadow-black/30 backdrop-blur">
               <div className="mb-5 flex items-center justify-between">
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#77716A]">RAW.</span>
-                <span className="font-mono text-[9px] text-[#57524C]">01 / 03</span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#77716A]">
+                  {project.name}
+                </span>
+                <ArrowUpRight size={15} className="text-[#00F0FF]" />
               </div>
-              <p className="max-w-xl text-3xl font-semibold leading-tight tracking-[-0.045em] text-[#F4F4F4] sm:text-5xl">
-                Real conversations.
-                <span className="block text-[#00F0FF]">No filters.</span>
+              <p className="max-w-xl text-2xl font-semibold leading-tight tracking-[-0.04em] text-[#F4F4F4] sm:text-4xl">
+                {copy.shortDescription}
               </p>
               <div className="mt-7 flex flex-wrap gap-2">
-                {["THE DEEP END", "UNFILTERED", "THE LAB"].map((label, index) => (
+                {project.technologies.map((technology) => (
                   <span
-                    key={label}
-                    className={`rounded-full border px-3 py-1.5 font-mono text-[9px] tracking-[0.14em] ${
-                      index === 0
-                        ? "border-[#00F0FF]/35 bg-[#00F0FF]/8 text-[#8FFAFF]"
-                        : "border-white/10 text-[#7D776F]"
-                    }`}
+                    key={technology}
+                    className="rounded-full border border-white/10 px-3 py-1.5 font-mono text-[9px] text-[#77716A]"
                   >
-                    {label}
+                    {technology}
                   </span>
                 ))}
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[#66615B]">
+
+          <div className="flex items-center gap-2 text-[9px] uppercase tracking-[0.18em] text-[#66615B]">
             <Sparkles size={13} />
-            Motion · Haptics · Card interaction
+            {copy.status}
           </div>
         </div>
       </VisualShell>
@@ -105,12 +112,16 @@ export function ProjectVisual({
 
   if (project.visual === "dashboard") {
     return (
-      <VisualShell color={project.color} className={compact ? "h-64" : "h-[30rem] lg:h-[34rem]"}>
+      <VisualShell color={project.color} className={heightClass}>
         <div className="flex h-full min-h-full flex-col justify-between p-6 sm:p-8">
           <div className="flex items-center justify-between">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#78716A]">SaborGest</p>
-              <p className="mt-1 text-sm font-semibold text-[#F5F2ED]">Operations dashboard concept</p>
+              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#78716A]">
+                {copy.type}
+              </p>
+              <p className="mt-1 text-sm font-semibold text-[#F5F2ED]">
+                {project.name}
+              </p>
             </div>
             <div className="rounded-xl border border-[#FF7A18]/25 bg-[#FF7A18]/8 p-2.5">
               <Smartphone size={16} className="text-[#FF9A4B]" />
@@ -119,17 +130,19 @@ export function ProjectVisual({
 
           <div className="grid gap-3 sm:grid-cols-3">
             {[
-              ["Shifts", "08:00 - 14:00", "6h"],
-              ["Hours", "This week", "32h"],
-              ["Stock", "Current", "Live"],
-            ].map(([label, detail, value]) => (
+              ["Kotlin", "01"],
+              ["PHP", "02"],
+              ["MySQL", "03"],
+            ].map(([label, number]) => (
               <div
                 key={label}
                 className="rounded-2xl border border-white/8 bg-black/20 p-4 backdrop-blur"
               >
-                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#625D56]">{label}</p>
-                <p className="mt-3 text-lg font-semibold text-[#F5F2ED]">{value}</p>
-                <p className="mt-1 text-[10px] text-[#7E786F]">{detail}</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#625D56]">
+                  {t.projectPage.technologies}
+                </p>
+                <p className="mt-3 text-lg font-semibold text-[#F5F2ED]">{label}</p>
+                <p className="mt-1 font-mono text-[9px] text-[#7E786F]">{number}</p>
               </div>
             ))}
           </div>
@@ -137,8 +150,12 @@ export function ProjectVisual({
           <div className="grid gap-3 sm:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-2xl border border-white/8 bg-[#0C0B0A]/90 p-4">
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-xs font-medium text-[#D9D3CB]">Today</span>
-                <span className="font-mono text-[9px] text-[#625D56]">OPERATIONS</span>
+                <span className="text-xs font-medium text-[#D9D3CB]">
+                  {t.common.preview}
+                </span>
+                <span className="font-mono text-[9px] text-[#625D56]">
+                  {copy.status}
+                </span>
               </div>
               <div className="space-y-2">
                 {[72, 48, 86, 61].map((width, index) => (
@@ -154,7 +171,7 @@ export function ProjectVisual({
             <div className="rounded-2xl border border-white/8 bg-[#0C0B0A]/90 p-4">
               <div className="flex items-center gap-2 text-xs font-medium text-[#D9D3CB]">
                 <Database size={14} className="text-[#FF9A4B]" />
-                Production
+                {project.name}
               </div>
               <div className="mt-5 flex items-end gap-1.5">
                 {[24, 38, 31, 48, 42, 55].map((height, index) => (
@@ -174,7 +191,7 @@ export function ProjectVisual({
 
   if (project.visual === "tasks" && project.image) {
     return (
-      <VisualShell color={project.color} className={compact ? "h-64" : "h-[30rem] lg:h-[34rem]"}>
+      <VisualShell color={project.color} className={heightClass}>
         <Image
           src={project.image}
           alt={copy.imageAlt}
@@ -188,32 +205,37 @@ export function ProjectVisual({
   }
 
   return (
-    <VisualShell color={project.color} className={compact ? "h-64" : "h-[30rem] lg:h-[34rem]"}>
+    <VisualShell color={project.color} className={heightClass}>
       <div className="flex h-full min-h-full flex-col justify-between p-6 sm:p-8">
         <div className="flex items-center justify-between">
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#77716A]">Console study</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#77716A]">
+            {copy.type}
+          </span>
           <Terminal size={16} className="text-[#A8B9CC]" />
         </div>
 
         <div className="rounded-[1.5rem] border border-white/8 bg-[#0A0A09]/90 p-5 font-mono shadow-2xl shadow-black/20">
           <div className="mb-5 flex items-center gap-2 text-[9px] text-[#5F5A54]">
             <span>$</span>
-            <span>./ArraySorting</span>
+            <span>{project.name}</span>
           </div>
           <div className="space-y-2 text-sm text-[#D7D4CE] sm:text-base">
-            <p><span className="text-[#A8B9CC]">01</span> Selection Sort</p>
-            <p><span className="text-[#A8B9CC]">02</span> Insertion Sort</p>
-            <p><span className="text-[#A8B9CC]">03</span> Bubble Sort</p>
-            <p><span className="text-[#A8B9CC]">04</span> Bogo Sort</p>
+            {project.technologies.map((technology, index) => (
+              <p key={technology}>
+                <span className="text-[#A8B9CC]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>{" "}
+                {technology}
+              </p>
+            ))}
           </div>
           <div className="mt-6 border-t border-white/8 pt-4 text-[10px] text-[#625D56]">
-            C · Arrays · Algorithms · Functions
+            {copy.shortDescription}
           </div>
         </div>
 
-        <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-[#5F5A54]">
-          <ShoppingBag size={13} />
-          Early portfolio project
+        <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#5F5A54]">
+          {copy.status}
         </div>
       </div>
     </VisualShell>
