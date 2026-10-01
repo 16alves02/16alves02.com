@@ -107,26 +107,75 @@ export function buildNotificationEmail({
   return { subject, text, html };
 }
 
-export function buildAutoReply(name: string) {
-  const subject = "I received your 16alves02 enquiry";
+export function buildAutoReply(
+  name: string,
+  language: string,
+) {
+  const messages: Record<
+    string,
+    { subject: string; greeting: string; received: string; automatic: string }
+  > = {
+    en: {
+      subject: "I received your 16alves02 enquiry",
+      greeting: `Hi ${name},`,
+      received:
+        "Thanks for reaching out through 16alves02. I received your enquiry and have it safely recorded.",
+      automatic:
+        "This is an automatic confirmation. I will reply to your message by email.",
+    },
+    "pt-PT": {
+      subject: "Recebi o teu pedido na 16alves02",
+      greeting: `Olá ${name},`,
+      received:
+        "Obrigado por entrares em contacto através da 16alves02. Recebi o teu pedido e ficou registado.",
+      automatic:
+        "Esta é uma confirmação automática. Responderei ao teu pedido por email.",
+    },
+    es: {
+      subject: "He recibido tu consulta en 16alves02",
+      greeting: `Hola ${name},`,
+      received:
+        "Gracias por contactar con 16alves02. He recibido tu consulta y ha quedado registrada.",
+      automatic:
+        "Este es un mensaje automático de confirmación. Responderé por email.",
+    },
+    "zh-CN": {
+      subject: "已收到你的 16alves02 咨询",
+      greeting: `你好 ${name}，`,
+      received:
+        "感谢你通过 16alves02 联系我。我已经收到你的咨询，并已记录。",
+      automatic:
+        "这是一封自动确认邮件，我会通过邮箱回复你的消息。",
+    },
+    fr: {
+      subject: "J'ai reçu votre demande 16alves02",
+      greeting: `Bonjour ${name},`,
+      received:
+        "Merci d'avoir contacté 16alves02. J'ai bien reçu votre demande et elle est enregistrée.",
+      automatic:
+        "Ceci est une confirmation automatique. Je vous répondrai par e-mail.",
+    },
+  };
+
+  const current = messages[language] ?? messages.en;
 
   const text = [
-    `Hi ${name},`,
+    current.greeting,
     "",
-    "Thanks for reaching out through 16alves02. I received your enquiry and have it safely recorded.",
+    current.received,
     "",
-    "This is an automatic confirmation. I will reply to your message by email.",
+    current.automatic,
     "",
     "Leonardo Alves",
     "16alves02",
   ].join("\n");
 
   const html = `
-    <p>Hi ${escapeHtml(name)},</p>
-    <p>Thanks for reaching out through 16alves02. I received your enquiry and have it safely recorded.</p>
-    <p>This is an automatic confirmation. I will reply to your message by email.</p>
+    <p>${escapeHtml(current.greeting)}</p>
+    <p>${escapeHtml(current.received)}</p>
+    <p>${escapeHtml(current.automatic)}</p>
     <p>Leonardo Alves<br />16alves02</p>
   `;
 
-  return { subject, text, html };
+  return { subject: current.subject, text, html };
 }
