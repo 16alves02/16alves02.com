@@ -206,15 +206,15 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
   "pt-PT": {
     hoop: {
       shortDescription:
-        "Uma experiência de e-commerce focada em basquetebol, descoberta de produtos, navegação de compra e UI responsiva.",
+        "Uma experiência de loja online focada em basquetebol, descoberta de produtos, navegação de compra e UI responsiva.",
       longDescription:
-        "Um projeto pessoal de frontend que explora como uma loja de artigos desportivos pode transformar um catálogo numa experiência de compra completa.",
-      type: "E-commerce / Web",
+        "Um projeto pessoal de desenvolvimento de interface que explora como uma loja de artigos desportivos pode transformar um catálogo numa experiência de compra completa.",
+      type: "Loja online / Web",
       status: "Projeto pessoal concluído",
       highlights: [
         "Navegação e descoberta de produtos responsiva",
         "Carrinho e favoritos com persistência local",
-        "Processo de checkout simulado em várias etapas",
+        "Processo de compra simulado em várias etapas",
       ],
       imageAlt: "Pré-visualização da homepage do HOOP",
     },
@@ -222,12 +222,12 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
       shortDescription:
         "Uma experiência interativa de conversas e jogos baseada em perguntas, movimento e interação no mundo real.",
       longDescription:
-        "Um projeto experimental de frontend focado em design de interação, modos de jogo orientados por conteúdo e uma identidade visual forte.",
+        "Um projeto experimental de desenvolvimento de interface em design de interação, modos de jogo orientados por conteúdo e uma identidade visual forte.",
       type: "Web Interativa",
       status: "Projeto pessoal concluído",
       highlights: [
         "Três modos distintos de conversa e jogo",
-        "Interação com cartões através de toque e swipe",
+        "Interação com cartões através de toque e deslize",
         "Movimento, haptics e feedback responsivo",
       ],
       imageAlt: "Pré-visualização da experiência interativa RAW.",
@@ -244,13 +244,13 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
         "API REST e fluxos ligados à base de dados",
         "Requisitos, testes e documentação de software",
       ],
-      imageAlt: "Pré-visualização conceptual do dashboard operacional do SaborGest",
+      imageAlt: "Pré-visualização conceptual do painel operacional do SaborGest",
     },
     "todo-app": {
       shortDescription:
         "Um gestor de tarefas leve para browser, focado em interação com o DOM, filtros e persistência local.",
       longDescription:
-        "Um pequeno projeto pessoal usado para praticar os fundamentos de aplicações interativas no browser sem um framework frontend.",
+        "Um pequeno projeto pessoal usado para praticar os fundamentos de aplicações interativas no navegador sem uma estrutura de interface.",
       type: "Fundamentos Web",
       status: "Projeto de aprendizagem concluído",
       highlights: [
@@ -278,15 +278,15 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
   es: {
     hoop: {
       shortDescription:
-        "Una experiencia de e-commerce centrada en el baloncesto, el descubrimiento de productos y una UI responsiva.",
+        "Una experiencia de comercio electrónico centrada en el baloncesto, el descubrimiento de productos y una UI responsiva.",
       longDescription:
-        "Un proyecto personal de frontend que explora cómo una tienda deportiva puede convertir un catálogo en una experiencia de compra completa.",
-      type: "E-commerce / Web",
+        "Un proyecto personal de desarrollo de interfaz que explora cómo una tienda deportiva puede convertir un catálogo en una experiencia de compra completa.",
+      type: "Comercio electrónico / Web",
       status: "Proyecto personal terminado",
       highlights: [
         "Navegación y descubrimiento de productos responsivos",
         "Carrito y favoritos con persistencia local",
-        "Proceso de checkout simulado en varios pasos",
+        "Proceso de compra simulado en varios pasos",
       ],
       imageAlt: "Vista previa de la homepage de HOOP",
     },
@@ -294,12 +294,12 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
       shortDescription:
         "Una experiencia interactiva de conversación basada en preguntas, juegos, movimiento e interacción real.",
       longDescription:
-        "Un proyecto experimental de frontend centrado en el diseño de interacción, modos de juego y una identidad visual marcada.",
+        "Un proyecto experimental de desarrollo de interfaz centrado en el diseño de interacción, modos de juego y una identidad visual marcada.",
       type: "Web Interactiva",
       status: "Proyecto personal terminado",
       highlights: [
         "Tres modos distintos de conversación y juego",
-        "Interacción con tarjetas mediante toque y swipe",
+        "Interacción con tarjetas mediante toque y deslizamiento",
         "Movimiento, hápticos y feedback responsivo",
       ],
       imageAlt: "Vista previa de la experiencia interactiva RAW.",
@@ -316,13 +316,13 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
         "API REST y flujos conectados a base de datos",
         "Requisitos, pruebas y documentación del software",
       ],
-      imageAlt: "Vista previa conceptual del dashboard de SaborGest",
+      imageAlt: "Vista previa conceptual del panel de SaborGest",
     },
     "todo-app": {
       shortDescription:
         "Un gestor de tareas ligero para navegador, centrado en el DOM, filtros y persistencia local.",
       longDescription:
-        "Un pequeño proyecto personal para practicar los fundamentos de aplicaciones interactivas en el navegador sin un framework frontend.",
+        "Un pequeño proyecto personal para practicar los fundamentos de aplicaciones interactivas en el navegador sin una estructura de interfaz.",
       type: "Fundamentos Web",
       status: "Proyecto de aprendizaje terminado",
       highlights: [
@@ -336,7 +336,7 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
       shortDescription:
         "Un proyecto de consola en C que explora algoritmos clásicos de ordenación mediante implementaciones explícitas y un menú sencillo.",
       longDescription:
-        "Uno de los primeros proyectos del portfolio, creado para practicar algoritmos, arrays, funciones y flujo de ejecución.",
+        "Uno de los primeros proyectos del portafolio, creado para practicar algoritmos, arrays, funciones y flujo de ejecución.",
       type: "Algoritmos / C",
       status: "Proyecto de aprendizaje terminado",
       highlights: [
@@ -353,7 +353,7 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
         "一个以篮球为主题的电商体验，专注于产品发现、购物流程和响应式界面。",
       longDescription:
         "一个个人前端项目，探索如何将体育用品目录转化为完整的数字购物体验。",
-      type: "电商 / Web",
+      type: "电商 / 网站",
       status: "已完成的个人项目",
       highlights: [
         "响应式产品浏览与发现",
@@ -367,7 +367,7 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
         "一个围绕问题、游戏、动作和现实互动设计的互动式社交对话体验。",
       longDescription:
         "一个实验性前端项目，专注于交互设计、内容驱动的游戏模式和鲜明的视觉风格。",
-      type: "互动 Web",
+      type: "互动网站",
       status: "已完成的个人项目",
       highlights: [
         "三种不同的对话与游戏模式",
@@ -388,14 +388,14 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
         "REST API 与数据库驱动的工作流程",
         "软件需求、测试和项目文档",
       ],
-      imageAlt: "SaborGest 运营 dashboard 概念预览",
+      imageAlt: "SaborGest 运营面板概念预览",
     },
     "todo-app": {
       shortDescription:
         "一个轻量级浏览器任务管理器，专注于 DOM 交互、筛选和本地持久化。",
       longDescription:
         "一个用于练习浏览器交互应用基础的小型个人项目，没有使用前端框架。",
-      type: "Web 基础",
+      type: "网站基础",
       status: "已完成的学习项目",
       highlights: [
         "任务创建与完成流程",
@@ -422,13 +422,13 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
   fr: {
     hoop: {
       shortDescription:
-        "Une expérience e-commerce orientée basket, centrée sur la découverte des produits, le parcours d'achat et une interface responsive.",
+        "Une expérience de commerce en ligne orientée basket, centrée sur la découverte des produits, le parcours d'achat et une interface adaptative.",
       longDescription:
-        "Un projet frontend personnel qui explore comment une boutique sportive peut transformer un catalogue en expérience d'achat complète.",
-      type: "E-commerce / Web",
+        "Un projet personnel de développement d'interface qui explore comment une boutique sportive peut transformer un catalogue en expérience d'achat complète.",
+      type: "Commerce en ligne / Web",
       status: "Projet personnel terminé",
       highlights: [
-        "Navigation et découverte de produits responsives",
+        "Navigation et découverte de produits adaptatifs",
         "Panier et favoris avec persistance locale",
         "Parcours de paiement simulé en plusieurs étapes",
       ],
@@ -438,13 +438,13 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
       shortDescription:
         "Une expérience interactive de conversation basée sur les questions, les jeux, le mouvement et l'interaction réelle.",
       longDescription:
-        "Un projet frontend expérimental axé sur le design d'interaction, les modes de jeu et une identité visuelle forte.",
+        "Un projet expérimental de développement d'interface axé sur le design d'interaction, les modes de jeu et une identité visuelle forte.",
       type: "Web interactif",
       status: "Projet personnel terminé",
       highlights: [
         "Trois modes distincts de conversation et de jeu",
-        "Interaction avec cartes par toucher et swipe",
-        "Mouvement, haptique et feedback responsive",
+        "Interaction avec cartes par toucher et glissement",
+        "Mouvement, haptique et retours adaptatifs",
       ],
       imageAlt: "Aperçu de l'expérience interactive RAW.",
     },
@@ -466,7 +466,7 @@ const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslatio
       shortDescription:
         "Un gestionnaire de tâches léger pour navigateur, centré sur le DOM, le filtrage et la persistance locale.",
       longDescription:
-        "Un petit projet personnel utilisé pour pratiquer les bases des applications web interactives sans framework frontend.",
+        "Un petit projet personnel utilisé pour pratiquer les bases des applications web interactives sans structure d'interface.",
       type: "Fondamentaux Web",
       status: "Projet d'apprentissage terminé",
       highlights: [
