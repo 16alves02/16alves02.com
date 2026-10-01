@@ -50,6 +50,32 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: #ff7a18;
+  color: #0a0908 !important;
+  font-weight: 600;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.primary-button:hover {
+  background: #ff8a34;
+  box-shadow: 0 10px 30px rgba(255, 122, 24, 0.18);
+  transform: translateY(-2px);
+}
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+  outline: 2px solid #ffb173;
+  outline-offset: 3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
