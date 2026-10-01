@@ -128,7 +128,7 @@ type Translation = {
   footer: string;
 };
 
-const projectTranslations = {
+const projectTranslations: Record<LanguageCode, Record<string, ProjectTranslation>> = {
   en: {
     hoop: {
       shortDescription:
