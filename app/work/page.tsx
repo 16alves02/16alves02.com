@@ -1,8 +1,11 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "@/components/navigation";
 import { ProjectCard } from "@/components/project-card";
 import { featuredProjects, projects } from "@/data/projects";
+import { useLanguage } from "@/components/language-provider";
 
 export const metadata = {
   title: "Work",
@@ -10,6 +13,7 @@ export const metadata = {
 };
 
 export default function WorkPage() {
+  const { t } = useLanguage();
   const otherProjects = projects.filter((project) => !project.featured);
 
   return (
@@ -19,16 +23,15 @@ export default function WorkPage() {
       <section className="border-b border-white/6 pt-36">
         <div className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:px-10">
           <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-[#FF8E3D]">
-            01 / Work
+            {t.workPage.eyebrow}
           </p>
           <div className="max-w-4xl">
             <h1 className="text-5xl font-semibold tracking-[-0.055em] text-[#F5F2ED] sm:text-7xl">
-              Projects, experiments
-              <span className="block text-[#FF8B32]">and things I&apos;ve built.</span>
+              {t.workPage.title}
+              <span className="block text-[#FF8B32]">{t.workPage.accent}</span>
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-7 text-[#918A82] sm:text-lg">
-              A collection of personal, academic and learning projects that
-              document how I am developing my software skills.
+              {t.workPage.description}
             </p>
           </div>
         </div>
@@ -50,10 +53,10 @@ export default function WorkPage() {
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
           <div className="mb-10">
             <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-[#FF8E3D]">
-              More work
+              {t.workPage.moreEyebrow}
             </p>
             <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[#F5F2ED] sm:text-4xl">
-              Smaller projects and fundamentals
+              {t.workPage.moreTitle}
             </h2>
           </div>
 
@@ -69,11 +72,11 @@ export default function WorkPage() {
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
           <div className="rounded-[2rem] border border-white/8 bg-[#11100E] p-7 sm:p-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#FF8E3D]">
-              Next step
+              {t.workPage.nextStep}
             </p>
             <div className="mt-4 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
               <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.04em] text-[#F5F2ED] sm:text-4xl">
-                Looking for the GitHub source or a live project?
+                {t.workPage.nextTitle}
               </h2>
               <div className="flex flex-wrap gap-3">
                 <a
@@ -85,7 +88,7 @@ export default function WorkPage() {
                   GitHub <ArrowUpRight size={15} />
                 </a>
                 <Link href="/#contact" className="primary-button px-4 py-2.5 text-sm">
-                  Start a project
+                  {t.nav.start}
                 </Link>
               </div>
             </div>
