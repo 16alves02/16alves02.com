@@ -31,8 +31,32 @@ function VisualShell({
         style={{ background: color }}
       />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.028)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.028)_1px,transparent_1px)] bg-[size:36px_36px]" />
-      <div className="relative">{children}</div>
+      <div className="relative h-full">{children}</div>
     </div>
+  );
+}
+
+function ProjectImage({
+  src,
+  alt,
+  priority,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  priority: boolean;
+  className?: string;
+}) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={1600}
+      height={1000}
+      priority={priority}
+      sizes="(max-width: 1024px) 100vw, 75vw"
+      className={`block h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025] ${className}`}
+    />
   );
 }
 
@@ -50,17 +74,42 @@ export function ProjectVisual({
   const heightClass = compact ? "h-64" : "h-[30rem] lg:h-[34rem]";
 
   if (project.visual === "image" && project.image) {
+    const images = project.images?.length ? project.images : [project.image];
+
     return (
       <VisualShell color={project.color} className={heightClass}>
-        <Image
-          src={project.image}
-          alt={copy.imageAlt}
-          fill
-          priority={priority}
-          sizes={compact ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 100vw, 75vw"}
-          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
-        />
-        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/70 to-transparent" />
+        {images.length >= 3 ? (
+          <div className="grid h-full grid-cols-[1.45fr_0.75fr] gap-2 p-2">
+            <div className="relative min-h-0 overflow-hidden rounded-xl border border-white/8 bg-black/15">
+              <ProjectImage
+                src={images[0]}
+                alt={copy.imageAlt}
+                priority={priority}
+              />
+            </div>
+            <div className="grid min-h-0 grid-rows-2 gap-2">
+              {images.slice(1, 3).map((src, index) => (
+                <div
+                  key={src}
+                  className="relative min-h-0 overflow-hidden rounded-xl border border-white/8 bg-black/15"
+                >
+                  <ProjectImage
+                    src={src}
+                    alt={`${copy.imageAlt} ${index + 2}`}
+                    priority={priority && index === 0}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <ProjectImage
+            src={images[0]}
+            alt={copy.imageAlt}
+            priority={priority}
+          />
+        )}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/70 to-transparent" />
       </VisualShell>
     );
   }
@@ -153,9 +202,7 @@ export function ProjectVisual({
                 <span className="text-xs font-medium text-[#D9D3CB]">
                   {t.common.preview}
                 </span>
-                <span className="font-mono text-[9px] text-[#625D56]">
-                  {copy.status}
-                </span>
+                <span className="font-mono text-[9px] text-[#625D56]">{copy.status}</span>
               </div>
               <div className="space-y-2">
                 {[72, 48, 86, 61].map((width, index) => (
@@ -192,13 +239,10 @@ export function ProjectVisual({
   if (project.visual === "tasks" && project.image) {
     return (
       <VisualShell color={project.color} className={heightClass}>
-        <Image
+        <ProjectImage
           src={project.image}
           alt={copy.imageAlt}
-          fill
           priority={priority}
-          sizes={compact ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 100vw, 75vw"}
-          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
         />
       </VisualShell>
     );
@@ -213,7 +257,6 @@ export function ProjectVisual({
           </span>
           <Terminal size={16} className="text-[#A8B9CC]" />
         </div>
-
         <div className="rounded-[1.5rem] border border-white/8 bg-[#0A0A09]/90 p-5 font-mono shadow-2xl shadow-black/20">
           <div className="mb-5 flex items-center gap-2 text-[9px] text-[#5F5A54]">
             <span>$</span>
@@ -233,7 +276,6 @@ export function ProjectVisual({
             {copy.shortDescription}
           </div>
         </div>
-
         <div className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#5F5A54]">
           {copy.status}
         </div>
