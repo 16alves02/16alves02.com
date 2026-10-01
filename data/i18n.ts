@@ -42,6 +42,8 @@ type Translation = {
     mobileDetail: string;
     backend: string;
     backendDetail: string;
+    focus: string;
+    focusDetail: string;
   };
   work: {
     eyebrow: string;
@@ -505,7 +507,7 @@ const ui = {
       work: "See my work", project: "Start a website",
       web: "Web", webDetail: "React, TypeScript, responsive interfaces",
       mobile: "Mobile", mobileDetail: "Kotlin, Android and practical apps",
-      backend: "Backend", backendDetail: "PHP, REST APIs and MySQL",
+      backend: "Backend", backendDetail: "PHP, REST APIs and MySQL", focus: "Current focus", focusDetail: "Websites & digital experiences",
     },
     work: {
       eyebrow: "Selected work", title: "Real projects. Built from scratch.",
@@ -586,7 +588,7 @@ const ui = {
       work: "Ver os meus projetos", project: "Criar um website",
       web: "Web", webDetail: "React, TypeScript e interfaces responsivas",
       mobile: "Mobile", mobileDetail: "Kotlin, Android e aplicações práticas",
-      backend: "Backend", backendDetail: "PHP, APIs REST e MySQL",
+      backend: "Backend", backendDetail: "PHP, APIs REST e MySQL", focus: "Foco atual", focusDetail: "Websites e experiências digitais",
     },
     work: {
       eyebrow: "Projetos selecionados", title: "Projetos reais. Feitos de raiz.",
@@ -666,7 +668,7 @@ const ui = {
       work: "Ver mi trabajo", project: "Crear un sitio web",
       web: "Web", webDetail: "React, TypeScript e interfaces responsivas",
       mobile: "Móvil", mobileDetail: "Kotlin, Android y aplicaciones prácticas",
-      backend: "Backend", backendDetail: "PHP, APIs REST y MySQL",
+      backend: "Backend", backendDetail: "PHP, APIs REST y MySQL", focus: "Enfoque actual", focusDetail: "Sitios web y experiencias digitales",
     },
     work: {
       eyebrow: "Proyectos seleccionados", title: "Proyectos reales. Hechos desde cero.",
@@ -746,7 +748,7 @@ const ui = {
       work: "查看我的项目", project: "创建网站",
       web: "Web", webDetail: "React、TypeScript、响应式界面",
       mobile: "移动端", mobileDetail: "Kotlin、Android 和实用应用",
-      backend: "后端", backendDetail: "PHP、REST API 和 MySQL",
+      backend: "后端", backendDetail: "PHP、REST API 和 MySQL", focus: "当前方向", focusDetail: "网站与数字体验",
     },
     work: {
       eyebrow: "精选项目", title: "真实项目，从零开始构建。",
@@ -826,7 +828,7 @@ const ui = {
       work: "Voir mes projets", project: "Créer un site web",
       web: "Web", webDetail: "React, TypeScript et interfaces responsives",
       mobile: "Mobile", mobileDetail: "Kotlin, Android et applications pratiques",
-      backend: "Backend", backendDetail: "PHP, API REST et MySQL",
+      backend: "Backend", backendDetail: "PHP, API REST et MySQL", focus: "Focus actuel", focusDetail: "Sites web et expériences numériques",
     },
     work: {
       eyebrow: "Projets sélectionnés", title: "De vrais projets. Construits de zéro.",
