@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Code2 } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -61,7 +61,8 @@ export function ProjectCard({ project }: { project: Project }) {
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-medium text-[#8F8981] transition-colors hover:text-[#F5F2ED]"
           >
-            GitHub <Github size={14} />
+            <Code2 size={14} />
+            GitHub
           </a>
         </div>
       </div>
