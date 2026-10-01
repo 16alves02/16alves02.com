@@ -8,7 +8,7 @@ import {
   Code2,
   Globe2,
   Layers3,
-  MessageCircle,
+  Mail,
   ShoppingBag,
   Sparkles,
 } from "lucide-react";
@@ -18,6 +18,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ProjectVisual } from "@/components/project-visual";
 import { Reveal } from "@/components/reveal";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { ContactForm } from "@/components/contact-form";
 import { featuredProjects, projects } from "@/data/projects";
 import { useLanguage } from "@/components/language-provider";
 
@@ -85,7 +86,7 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href="#contact" className="primary-button group px-5 py-3.5 text-sm">
+              <a href="#contact" data-track="cta:hero" className="primary-button group px-5 py-3.5 text-sm">
                 {t.hero.project}
                 <ArrowUpRight
                   size={16}
@@ -94,6 +95,7 @@ export default function Home() {
               </a>
               <a
                 href="#work"
+                data-track="cta:work"
                 className="secondary-button group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-5 py-3.5 text-sm font-medium text-[#E9E4DD] transition-all hover:border-white/20 hover:bg-white/[0.05]"
               >
                 {t.hero.work}
@@ -364,14 +366,16 @@ export default function Home() {
 
               <div className="mt-8 flex flex-wrap gap-2.5">
                 {[
-                  ["LinkedIn", "https://www.linkedin.com/in/leonardo-alves-502ba8291/"],
-                  ["Uiverse", "https://uiverse.io/16alves02"],
-                  ["GitHub", "https://github.com/16alves02"],
-                  ["Instagram", "https://www.instagram.com/16alves02/"],
-                ].map(([label, href]) => (
+                  ["GitHub", "https://github.com/16alves02", "social:github"],
+                  ["LinkedIn", "https://www.linkedin.com/in/leonardo-alves-502ba8291/", "social:linkedin"],
+                  ["Instagram", "https://www.instagram.com/16alves02/", "social:instagram"],
+                  ["YouTube", "https://www.youtube.com/@16alves02", "social:youtube"],
+                  ["Uiverse", "https://uiverse.io/16alves02", "social:uiverse"],
+                ].map(([label, href, track]) => (
                   <a
                     key={label}
                     href={href}
+                    data-track={track}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-white/9 bg-white/[0.018] px-3.5 py-2.5 text-xs font-medium text-[#B8B1A8] transition-all hover:border-white/20 hover:bg-white/[0.05] hover:text-[#F5F2ED]"
@@ -445,54 +449,62 @@ export default function Home() {
 
       <section id="contact" className="scroll-mt-32 border-t border-white/7">
         <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
-          <Reveal>
-            <div className="contact-panel relative overflow-hidden rounded-[2.5rem] border border-[#FF7A18]/25 p-7 sm:p-12 lg:p-16">
-              <div className="contact-panel-grid absolute inset-0" />
-              <div className="contact-panel-glow absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#FF7A18]/18 blur-[100px]" />
-
-              <div className="relative max-w-4xl">
+          <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+            <Reveal>
+              <div className="pt-2">
                 <p className="section-eyebrow">{t.contact.eyebrow}</p>
-                <h2 className="mt-4 text-5xl font-semibold leading-[0.95] tracking-[-0.055em] text-[#F8F3ED] sm:text-6xl lg:text-7xl">
+                <h2 className="mt-4 text-5xl font-semibold leading-[0.95] tracking-[-0.055em] text-[#F8F3ED] sm:text-6xl">
                   {t.contact.title}
                 </h2>
-                <p className="mt-6 max-w-2xl text-sm leading-7 text-[#AAA39A] sm:text-base">
+                <p className="mt-6 max-w-xl text-sm leading-7 text-[#AAA39A] sm:text-base">
                   {t.contact.description}
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href="https://www.linkedin.com/in/leonardo-alves-502ba8291/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="primary-button px-5 py-3.5 text-sm"
-                  >
-                    <MessageCircle size={16} />
+                <div className="mt-8 rounded-[1.75rem] border border-white/8 bg-[#11100E] p-5 sm:p-6">
+                  <p className="text-xs uppercase tracking-[0.16em] text-[#625D56]">
                     {t.contact.conversation}
-                  </a>
+                  </p>
                   <a
-                    href="https://github.com/16alves02"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.025] px-5 py-3.5 text-sm font-medium text-[#F5F2ED] transition-all hover:border-white/20 hover:bg-white/[0.05]"
+                    href="mailto:16alves02@gmail.com"
+                    data-track="contact:email"
+                    className="mt-3 inline-flex items-center gap-2 text-lg font-medium text-[#F5F2ED] transition-colors hover:text-[#FF9A4B]"
                   >
-                    {t.contact.github}
-                    <ArrowUpRight size={15} />
+                    <Mail size={17} className="text-[#FF9A4B]" />
+                    16alves02@gmail.com
                   </a>
-                </div>
+                  <p className="mt-2 text-xs leading-5 text-[#716B64]">
+                    Email is the direct contact channel. Social profiles are available for background and work.
+                  </p>
 
-                <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-white/8 pt-6 text-xs text-[#746E67]">
-                  <span className="inline-flex items-center gap-2">
-                    <Check size={14} className="text-[#FF9A4B]" />
-                    {t.hero.availability}
-                  </span>
-                  <span className="hidden h-1 w-1 rounded-full bg-[#504A44] sm:block" />
-                  <span>Portugal</span>
-                  <span className="hidden h-1 w-1 rounded-full bg-[#504A44] sm:block" />
-                  <span>{t.hero.availability}</span>
+                  <div className="mt-5 flex flex-wrap gap-2.5 border-t border-white/8 pt-5">
+                    {[
+                      ["GitHub", "https://github.com/16alves02", "social:github"],
+                      ["LinkedIn", "https://www.linkedin.com/in/leonardo-alves-502ba8291/", "social:linkedin"],
+                      ["Instagram", "https://www.instagram.com/16alves02/", "social:instagram"],
+                      ["YouTube", "https://www.youtube.com/@16alves02", "social:youtube"],
+                      ["Uiverse", "https://uiverse.io/16alves02", "social:uiverse"],
+                    ].map(([label, href, track]) => (
+                      <a
+                        key={label}
+                        href={href}
+                        data-track={track}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-white/9 bg-white/[0.018] px-3.5 py-2.5 text-xs font-medium text-[#B8B1A8] transition-all hover:border-white/20 hover:bg-white/[0.05] hover:text-[#F5F2ED]"
+                      >
+                        {label}
+                        <ArrowUpRight size={13} />
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <ContactForm />
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -508,6 +520,7 @@ export default function Home() {
             <a className="hover:text-[#F5F2ED]" href="#process">{t.nav.process}</a>
             <a className="hover:text-[#F5F2ED]" href="#about">{t.nav.about}</a>
             <a className="hover:text-[#F5F2ED]" href="#contact">{t.nav.contact}</a>
+            <a className="hover:text-[#F5F2ED]" href="mailto:16alves02@gmail.com">16alves02@gmail.com</a>
           </div>
         </div>
       </footer>
