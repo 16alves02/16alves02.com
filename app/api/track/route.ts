@@ -7,6 +7,7 @@ const allowedEvents = new Set([
   "language_change",
   "contact_form_start",
   "contact_submit",
+  "scroll_depth",
 ]);
 
 function cleanString(value: unknown, max = 180) {
