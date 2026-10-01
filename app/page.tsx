@@ -209,7 +209,7 @@ export default function Home() {
               </h2>
             </div>
             <div className="flex flex-wrap gap-2 lg:justify-end">
-              {["Restaurants", "Cafés", "Hair salons", "Local shops", "Small businesses", "Professionals", "Personal projects", "Tech teams"].map((type) => (
+              {["Restaurants", "Coffee shops", "Hair salons", "Local shops", "Small businesses", "Professionals", "Personal projects", "Tech teams"].map((type) => (
                 <span key={type} className="rounded-full border border-white/8 bg-white/[0.02] px-3 py-2 text-xs text-[#A8A199]">
                   {type}
                 </span>
