@@ -34,7 +34,7 @@ export function LanguageProvider({
 
   useEffect(() => {
     document.documentElement.lang = language === "pt-PT" ? "pt-PT" : language;
-    document.documentElement.dir = language === "ar" || language === "ur" ? "rtl" : "ltr";
+    document.documentElement.dir = "ltr";
   }, [language]);
 
   const setLanguage = (nextLanguage: LanguageCode) => {
