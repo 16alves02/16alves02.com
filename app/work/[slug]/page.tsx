@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/navigation";
 import { ProjectDetail } from "@/components/project-detail";
