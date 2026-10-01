@@ -14,6 +14,7 @@ export type ProjectTranslation = {
   type: string;
   status: string;
   highlights: string[];
+  imageAlt: string;
 };
 
 type Translation = {
@@ -210,6 +211,7 @@ export const translations: Record<LanguageCode, Translation> = {
     faq: {"eyebrow":"Questions","title":"Before we start.","items":[{"question":"What kind of websites do you build?","answer":"Business websites, landing pages, personal websites, portfolios, e-commerce experiences and custom websites for small projects."},{"question":"Do you work with small businesses?","answer":"Yes. Restaurants, cafés, salons, shops, professionals and other small businesses are exactly the kind of projects I want to work on."},{"question":"Will the website work on mobile?","answer":"Yes. Responsive behaviour is part of the build, so the experience is designed for phones, tablets and desktop screens."},{"question":"How does a project start?","answer":"Send me the idea, the business or project context and what you already have. We can use that first conversation to define the next step."}]},
     projects: {
       hoop: {
+        imageAlt: "HOOP homepage interface preview",
         shortDescription: "A basketball-focused e-commerce experience built around product discovery, shopping flow and responsive UI.",
         longDescription: "A personal frontend project exploring how a sports-focused store could turn a catalogue into a complete digital shopping experience.",
         type: "E-commerce / Web",
@@ -217,6 +219,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Responsive product browsing and discovery", "Cart and favourites flows with local persistence", "Multi-step simulated checkout experience"],
       },
       raw: {
+        imageAlt: "RAW interactive conversation experience preview",
         shortDescription: "An interactive social conversation experience built around questions, games, movement and real-world interaction.",
         longDescription: "An experimental frontend project focused on interaction design, content-driven game modes and a strong visual identity.",
         type: "Interactive Web",
@@ -224,6 +227,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Three distinct conversation and game modes", "Tap and swipe-driven card interaction", "Motion, haptics and responsive UI feedback"],
       },
       saborgest: {
+        imageAlt: "SaborGest operations dashboard concept preview",
         shortDescription: "A management system designed around operational workflows found in small bakeries and pastry shops.",
         longDescription: "An academic software project developed around a realistic business scenario, covering employee management, shifts, working hours, production, stock and operational information.",
         type: "Academic Software Project",
@@ -231,6 +235,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Android applications for different user roles", "REST API and database-backed workflows", "Software requirements, testing and project documentation"],
       },
       "todo-app": {
+        imageAlt: "Todo App task manager interface preview",
         shortDescription: "A lightweight browser task manager focused on DOM interaction, filtering and local persistence.",
         longDescription: "A small personal project used to practise the fundamentals of interactive browser applications without a frontend framework.",
         type: "Web Fundamentals",
@@ -238,6 +243,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Task creation and completion flows", "Filtering and dynamic DOM updates", "Persistent browser storage"],
       },
       arraysorting: {
+        imageAlt: "ArraySorting terminal interface preview",
         shortDescription: "A C console project exploring classic sorting algorithms through explicit implementations and a simple terminal menu.",
         longDescription: "One of the earliest projects in the portfolio, built to practise algorithms, arrays, functions and program flow.",
         type: "Algorithms / C",
@@ -334,6 +340,7 @@ export const translations: Record<LanguageCode, Translation> = {
     faq: {"eyebrow":"Perguntas","title":"Antes de começarmos.","items":[{"question":"Que tipo de websites desenvolves?","answer":"Websites para negócios, landing pages, sites pessoais, portefólios, experiências de e-commerce e websites personalizados para projetos de pequena dimensão."},{"question":"Trabalhas com pequenos negócios?","answer":"Sim. Restaurantes, cafés, salões, lojas, profissionais e outros pequenos negócios são precisamente o tipo de projetos em que quero trabalhar."},{"question":"O website funciona em telemóvel?","answer":"Sim. O comportamento responsivo faz parte do desenvolvimento, por isso a experiência é pensada para telemóveis, tablets e computadores."},{"question":"Como começa um projeto?","answer":"Envia-me a ideia, o contexto do negócio ou projeto e aquilo que já tens. A partir dessa primeira conversa definimos o próximo passo."}]},
     projects: {
       hoop: {
+        imageAlt: "Pré-visualização da homepage do HOOP",
         shortDescription: "Uma experiência de e-commerce focada em basquetebol, descoberta de produtos, navegação de compra e UI responsiva.",
         longDescription: "Um projeto pessoal de frontend que explora como uma loja de artigos desportivos pode transformar um catálogo numa experiência de compra completa.",
         type: "E-commerce / Web",
@@ -341,6 +348,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Navegação e descoberta de produtos responsiva", "Carrinho e favoritos com persistência local", "Processo de checkout simulado em várias etapas"],
       },
       raw: {
+        imageAlt: "Pré-visualização da experiência interativa RAW.",
         shortDescription: "Uma experiência interativa de conversas e jogos baseada em perguntas, movimento e interação no mundo real.",
         longDescription: "Um projeto experimental de frontend focado em design de interação, modos de jogo orientados por conteúdo e uma identidade visual forte.",
         type: "Web Interativa",
@@ -348,6 +356,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Três modos distintos de conversa e jogo", "Interação com cartões através de toque e swipe", "Movimento, haptics e feedback responsivo"],
       },
       saborgest: {
+        imageAlt: "Pré-visualização conceptual do dashboard operacional do SaborGest",
         shortDescription: "Um sistema de gestão pensado para os fluxos operacionais de pequenas padarias e pastelarias.",
         longDescription: "Um projeto académico de software baseado num cenário empresarial realista, abrangendo gestão de funcionários, turnos, horas de trabalho, produção, stock e informação operacional.",
         type: "Projeto Académico de Software",
@@ -355,6 +364,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Aplicações Android para diferentes perfis de utilizador", "API REST e fluxos ligados à base de dados", "Requisitos, testes e documentação de software"],
       },
       "todo-app": {
+        imageAlt: "Pré-visualização da interface do gestor de tarefas Todo App",
         shortDescription: "Um gestor de tarefas leve para browser, focado em interação com o DOM, filtros e persistência local.",
         longDescription: "Um pequeno projeto pessoal usado para praticar os fundamentos de aplicações interativas no browser sem um framework frontend.",
         type: "Fundamentos Web",
@@ -362,6 +372,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Criação e conclusão de tarefas", "Filtros e atualizações dinâmicas do DOM", "Armazenamento persistente no browser"],
       },
       arraysorting: {
+        imageAlt: "Pré-visualização da interface de consola do ArraySorting",
         shortDescription: "Um projeto de consola em C que explora algoritmos clássicos de ordenação através de implementações explícitas e um menu simples.",
         longDescription: "Um dos primeiros projetos do portefólio, criado para praticar algoritmos, arrays, funções e fluxo de execução.",
         type: "Algoritmos / C",
@@ -458,6 +469,7 @@ export const translations: Record<LanguageCode, Translation> = {
     faq: {"eyebrow":"Preguntas","title":"Antes de empezar.","items":[{"question":"¿Qué tipo de sitios web construyes?","answer":"Sitios web para negocios, landing pages, páginas personales, portafolios, experiencias de e-commerce y sitios personalizados para proyectos pequeños."},{"question":"¿Trabajas con pequeños negocios?","answer":"Sí. Restaurantes, cafeterías, salones, tiendas, profesionales y otros pequeños negocios son exactamente el tipo de proyectos en los que quiero trabajar."},{"question":"¿El sitio funcionará en móvil?","answer":"Sí. El diseño responsive forma parte del desarrollo, por lo que la experiencia está pensada para móviles, tablets y ordenadores."},{"question":"¿Cómo empieza un proyecto?","answer":"Envíame la idea, el contexto del negocio o proyecto y lo que ya tienes. Con esa primera conversación podemos definir el siguiente paso."}]},
     projects: {
       hoop: {
+        imageAlt: "Vista previa de la homepage de HOOP",
         shortDescription: "Una experiencia de e-commerce centrada en el baloncesto, el descubrimiento de productos y una UI responsiva.",
         longDescription: "Un proyecto personal de frontend que explora cómo una tienda deportiva puede convertir un catálogo en una experiencia de compra completa.",
         type: "E-commerce / Web",
@@ -465,6 +477,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Navegación y descubrimiento de productos responsivos", "Carrito y favoritos con persistencia local", "Proceso de checkout simulado en varios pasos"],
       },
       raw: {
+        imageAlt: "Vista previa de la experiencia interactiva RAW.",
         shortDescription: "Una experiencia interactiva de conversación basada en preguntas, juegos, movimiento e interacción real.",
         longDescription: "Un proyecto experimental de frontend centrado en el diseño de interacción, modos de juego y una identidad visual marcada.",
         type: "Web Interactiva",
@@ -472,6 +485,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Tres modos distintos de conversación y juego", "Interacción con tarjetas mediante toque y swipe", "Movimiento, hápticos y feedback responsivo"],
       },
       saborgest: {
+        imageAlt: "Vista previa conceptual del dashboard de SaborGest",
         shortDescription: "Un sistema de gestión diseñado para los flujos operativos de pequeñas panaderías y pastelerías.",
         longDescription: "Un proyecto académico de software basado en un escenario empresarial realista, con gestión de empleados, turnos, horas de trabajo, producción, stock e información operativa.",
         type: "Proyecto Académico de Software",
@@ -479,6 +493,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Aplicaciones Android para diferentes perfiles", "API REST y flujos conectados a base de datos", "Requisitos, pruebas y documentación del software"],
       },
       "todo-app": {
+        imageAlt: "Vista previa de la interfaz de Todo App",
         shortDescription: "Un gestor de tareas ligero para navegador, centrado en el DOM, filtros y persistencia local.",
         longDescription: "Un pequeño proyecto personal para practicar los fundamentos de aplicaciones interactivas en el navegador sin un framework frontend.",
         type: "Fundamentos Web",
@@ -486,6 +501,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Creación y finalización de tareas", "Filtros y actualizaciones dinámicas del DOM", "Almacenamiento persistente en el navegador"],
       },
       arraysorting: {
+        imageAlt: "Vista previa de la interfaz de consola de ArraySorting",
         shortDescription: "Un proyecto de consola en C que explora algoritmos clásicos de ordenación mediante implementaciones explícitas y un menú sencillo.",
         longDescription: "Uno de los primeros proyectos del portfolio, creado para practicar algoritmos, arrays, funciones y flujo de ejecución.",
         type: "Algoritmos / C",
@@ -601,6 +617,7 @@ export const translations: Record<LanguageCode, Translation> = {
     },
     projects: {
       hoop: {
+        imageAlt: "HOOP homepage interface preview",
         shortDescription: "一个以篮球为主题的电商体验，专注于产品发现、购物流程和响应式界面。",
         longDescription: "一个个人前端项目，探索如何将体育用品目录转化为完整的数字购物体验。",
         type: "电商 / Web",
@@ -608,6 +625,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["响应式产品浏览与发现", "购物车和收藏夹支持本地持久化", "多步骤模拟结账流程"],
       },
       raw: {
+        imageAlt: "RAW interactive conversation experience preview",
         shortDescription: "一个围绕问题、游戏、动作和现实互动设计的互动式社交对话体验。",
         longDescription: "一个实验性前端项目，专注于交互设计、内容驱动的游戏模式和鲜明的视觉风格。",
         type: "互动 Web",
@@ -615,6 +633,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["三种不同的对话与游戏模式", "支持点击和滑动的卡片交互", "动画、触感反馈和响应式 UI"],
       },
       saborgest: {
+        imageAlt: "SaborGest operations dashboard concept preview",
         shortDescription: "一个围绕小型面包店和糕点店运营流程设计的管理系统。",
         longDescription: "一个基于真实商业场景的学术软件项目，涵盖员工管理、班次、工时、生产、库存和运营信息。",
         type: "学术软件项目",
@@ -622,6 +641,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["面向不同用户角色的 Android 应用", "REST API 与数据库驱动的工作流程", "软件需求、测试和项目文档"],
       },
       "todo-app": {
+        imageAlt: "Todo App task manager interface preview",
         shortDescription: "一个轻量级浏览器任务管理器，专注于 DOM 交互、筛选和本地持久化。",
         longDescription: "一个用于练习浏览器交互应用基础的小型个人项目，没有使用前端框架。",
         type: "Web 基础",
@@ -629,6 +649,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["任务创建与完成流程", "筛选与动态 DOM 更新", "浏览器持久化存储"],
       },
       arraysorting: {
+        imageAlt: "ArraySorting terminal interface preview",
         shortDescription: "一个 C 控制台项目，通过明确实现和简单终端菜单探索经典排序算法。",
         longDescription: "作品集最早的项目之一，用于练习算法、数组、函数和程序流程。",
         type: "算法 / C",
@@ -725,6 +746,7 @@ export const translations: Record<LanguageCode, Translation> = {
     faq: {"eyebrow":"Questions","title":"Avant de commencer.","items":[{"question":"Quels types de sites construisez-vous ?","answer":"Sites professionnels, landing pages, sites personnels, portfolios, expériences e-commerce et sites personnalisés pour les petits projets."},{"question":"Travaillez-vous avec les petites entreprises ?","answer":"Oui. Restaurants, cafés, salons, boutiques, professionnels et autres petites entreprises sont précisément le type de projets sur lesquels je souhaite travailler."},{"question":"Le site fonctionnera-t-il sur mobile ?","answer":"Oui. Le responsive fait partie du développement, avec une expérience pensée pour les téléphones, tablettes et ordinateurs."},{"question":"Comment commence un projet ?","answer":"Envoyez-moi votre idée, le contexte de votre activité ou projet et ce que vous avez déjà. Nous pouvons définir la prochaine étape à partir de ce premier échange."}]},
     projects: {
       hoop: {
+        imageAlt: "HOOP homepage interface preview",
         shortDescription: "Une expérience e-commerce orientée basket, centrée sur la découverte des produits, le parcours d'achat et une interface responsive.",
         longDescription: "Un projet frontend personnel qui explore comment une boutique sportive peut transformer un catalogue en expérience d'achat complète.",
         type: "E-commerce / Web",
@@ -732,6 +754,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Navigation et découverte de produits responsives", "Panier et favoris avec persistance locale", "Parcours de paiement simulé en plusieurs étapes"],
       },
       raw: {
+        imageAlt: "RAW interactive conversation experience preview",
         shortDescription: "Une expérience interactive de conversation basée sur les questions, les jeux, le mouvement et l'interaction réelle.",
         longDescription: "Un projet frontend expérimental axé sur le design d'interaction, les modes de jeu et une identité visuelle forte.",
         type: "Web interactif",
@@ -739,6 +762,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Trois modes distincts de conversation et de jeu", "Interaction avec cartes par toucher et swipe", "Mouvement, haptique et feedback responsive"],
       },
       saborgest: {
+        imageAlt: "SaborGest operations dashboard concept preview",
         shortDescription: "Un système de gestion conçu autour des flux opérationnels des petites boulangeries et pâtisseries.",
         longDescription: "Un projet académique basé sur un scénario métier réaliste, couvrant la gestion des employés, des équipes, des heures de travail, de la production, des stocks et des informations opérationnelles.",
         type: "Projet logiciel académique",
@@ -746,6 +770,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Applications Android pour différents rôles", "API REST et flux connectés à la base de données", "Exigences, tests et documentation logicielle"],
       },
       "todo-app": {
+        imageAlt: "Todo App task manager interface preview",
         shortDescription: "Un gestionnaire de tâches léger pour navigateur, centré sur le DOM, le filtrage et la persistance locale.",
         longDescription: "Un petit projet personnel utilisé pour pratiquer les bases des applications web interactives sans framework frontend.",
         type: "Fondamentaux Web",
@@ -753,6 +778,7 @@ export const translations: Record<LanguageCode, Translation> = {
         highlights: ["Création et achèvement des tâches", "Filtrage et mises à jour dynamiques du DOM", "Stockage persistant dans le navigateur"],
       },
       arraysorting: {
+        imageAlt: "ArraySorting terminal interface preview",
         shortDescription: "Un projet console en C qui explore les algorithmes de tri classiques avec des implémentations explicites et un menu terminal simple.",
         longDescription: "L'un des premiers projets du portfolio, créé pour pratiquer les algorithmes, les tableaux, les fonctions et le flux d'exécution.",
         type: "Algorithmes / C",
