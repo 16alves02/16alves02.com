@@ -23,6 +23,7 @@ type Translation = {
     services: string;
     about: string;
     contact: string;
+    process: string;
     start: string;
     language: string;
     languageHint: string;
@@ -126,7 +127,7 @@ type Translation = {
 
 export const translations: Record<LanguageCode, Translation> = {
   en: {
-    nav: { work: "Work", services: "Services", about: "About", contact: "Contact", start: "Start a project", language: "Language", languageHint: "Select the language for this website", openMenu: "Open navigation menu", closeMenu: "Close navigation menu" },
+    nav: { work: "Work", services: "Services", about: "About", contact: "Contact", process: "Process", start: "Start a project", language: "Language", languageHint: "Select the language for this website", openMenu: "Open navigation menu", closeMenu: "Close navigation menu" },
     hero: {
       availability: "Open to selected website projects",
       title: "Websites that make your business look the part."
@@ -255,7 +256,7 @@ export const translations: Record<LanguageCode, Translation> = {
   },
 
   "pt-PT": {
-    nav: { work: "Projetos", services: "Serviços", about: "Sobre", contact: "Contacto", start: "Iniciar um projeto", language: "Idioma", languageHint: "Seleciona o idioma do website", openMenu: "Abrir menu de navegação", closeMenu: "Fechar menu de navegação" },
+    nav: { work: "Projetos", services: "Serviços", about: "Sobre", contact: "Contacto", process: "Processo", start: "Iniciar um projeto", language: "Idioma", languageHint: "Seleciona o idioma do website", openMenu: "Abrir menu de navegação", closeMenu: "Fechar menu de navegação" },
     hero: {
       availability: "Disponível para projetos web selecionados",
       title: "Websites que fazem o teu negócio estar à altura."
@@ -384,7 +385,7 @@ export const translations: Record<LanguageCode, Translation> = {
   },
 
   es: {
-    nav: { work: "Proyectos", services: "Servicios", about: "Sobre mí", contact: "Contacto", start: "Iniciar un proyecto", language: "Idioma", languageHint: "Selecciona el idioma del sitio web", openMenu: "Abrir menú de navegación", closeMenu: "Cerrar menú de navegación" },
+    nav: { work: "Proyectos", services: "Servicios", about: "Sobre mí", contact: "Contacto", process: "Proceso", start: "Iniciar un proyecto", language: "Idioma", languageHint: "Selecciona el idioma del sitio web", openMenu: "Abrir menú de navegación", closeMenu: "Cerrar menú de navegación" },
     hero: {
       availability: "Disponible para proyectos web seleccionados",
       title: "Sitios web que hacen que tu negocio esté a la altura."
@@ -513,7 +514,7 @@ export const translations: Record<LanguageCode, Translation> = {
   },
 
   "zh-CN": {
-    nav: { work: "项目", services: "服务", about: "关于", contact: "联系", start: "开始项目", language: "语言", languageHint: "选择网站语言", openMenu: "打开导航菜单", closeMenu: "关闭导航菜单" },
+    nav: { work: "项目", services: "服务", about: "关于", contact: "联系", process: "流程", start: "开始项目", language: "语言", languageHint: "选择网站语言", openMenu: "打开导航菜单", closeMenu: "关闭导航菜单" },
     hero: {
       availability: "接受精选网站项目",
       title: "软件开发专业学生。",
@@ -661,7 +662,7 @@ export const translations: Record<LanguageCode, Translation> = {
   },
 
   fr: {
-    nav: { work: "Projets", services: "Services", about: "À propos", contact: "Contact", start: "Démarrer un projet", language: "Langue", languageHint: "Choisissez la langue du site", openMenu: "Ouvrir le menu de navigation", closeMenu: "Fermer le menu de navigation" },
+    nav: { work: "Projets", services: "Services", about: "À propos", contact: "Contact", process: "Processus", start: "Démarrer un projet", language: "Langue", languageHint: "Choisissez la langue du site", openMenu: "Ouvrir le menu de navigation", closeMenu: "Fermer le menu de navigation" },
     hero: {
       availability: "Ouvert à certains projets web",
       title: "Des sites web qui mettent votre activité à la hauteur."
