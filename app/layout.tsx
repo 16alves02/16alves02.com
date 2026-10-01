@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://16alves02.com"),
   title: {
-    default: "16alves02 | Software Developer",
+    default: "16alves02 | Software Development Student",
     template: "%s | 16alves02",
   },
   description:
-    "Portfolio and freelance work of Leonardo Alves, a software developer from Portugal building web applications, mobile experiences and practical software.",
+    "Portfolio of Leonardo Alves, a Software Development student from Portugal building websites, software projects and digital experiences.",
   keywords: [
     "16alves02",
     "Leonardo Alves",
