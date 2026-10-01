@@ -52,7 +52,7 @@ function SectionHeading({
 }
 
 export default function Home() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const featuredProject = featuredProjects[0];
 
   return (
@@ -104,8 +104,11 @@ export default function Home() {
             </div>
 
             <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/8 pt-5">
-              <span className="hero-proof-item">Software development student</span>
-              <span className="hero-proof-item">Web · Mobile · Backend</span>
+              {[t.hero.web, t.hero.mobile, t.hero.backend].map((item) => (
+                <span key={item} className="hero-proof-item">
+                  {item}
+                </span>
+              ))}
               <span className="hero-proof-item">University of Aveiro</span>
             </div>
           </Reveal>
@@ -390,8 +393,8 @@ export default function Home() {
               <div className="grid gap-3 p-4 sm:grid-cols-3 sm:p-5">
                 {[
                   [t.about.currently, "SaborGest"],
-                  ["Status", t.about.development],
-                  ["Stack", "Kotlin · PHP · MySQL"],
+                  [t.common.status, t.about.development],
+                  [t.projectPage.technologies, "Kotlin · PHP · MySQL"],
                 ].map(([label, value]) => (
                   <div key={label} className="rounded-2xl border border-white/8 bg-black/15 p-4">
                     <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#625D56]">
@@ -414,7 +417,6 @@ export default function Home() {
             <SectionHeading
               eyebrow={t.faq.eyebrow}
               title={t.faq.title}
-              description="Clear answers remove friction before a conversation even starts."
             />
           </Reveal>
 
@@ -480,12 +482,12 @@ export default function Home() {
                 <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-white/8 pt-6 text-xs text-[#746E67]">
                   <span className="inline-flex items-center gap-2">
                     <Check size={14} className="text-[#FF9A4B]" />
-                    Website-focused freelance work
+                    {t.hero.availability}
                   </span>
                   <span className="hidden h-1 w-1 rounded-full bg-[#504A44] sm:block" />
                   <span>Portugal</span>
                   <span className="hidden h-1 w-1 rounded-full bg-[#504A44] sm:block" />
-                  <span>{language === "pt-PT" ? "Disponível para projetos selecionados" : "Open to selected projects"}</span>
+                  <span>{t.hero.availability}</span>
                 </div>
               </div>
             </div>
