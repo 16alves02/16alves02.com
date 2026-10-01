@@ -89,8 +89,7 @@ export default function Home() {
             </div>
 
             <h1 className="max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.06em] text-[#F5F2ED] sm:text-7xl lg:text-[6.6rem]">
-              Software development
-              <span className="block text-[#FF8B32]">student.</span>
+              {t.hero.title}
             </h1>
 
             <div className="mt-8 grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
