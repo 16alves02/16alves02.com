@@ -43,7 +43,7 @@ export function ProjectCard({
                 background: `${project.color}10`,
               }}
             >
-              {project.status === "In development" ? "In development" : project.year}
+              {project.status === "In development" ? t.about.development : project.year}
             </span>
           </div>
 
