@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 
@@ -18,7 +19,7 @@ export function ProjectCard({
         style={
           {
             "--project-accent": project.color,
-          } as React.CSSProperties
+          } as CSSProperties
         }
       >
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px]" />
