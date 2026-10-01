@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0908;
+  --background: #080706;
   --foreground: #f5f2ed;
-  --muted: #9b958d;
+  --muted: #918b83;
   --accent: #ff7a18;
   --accent-soft: #ffb173;
+  --surface: #11100e;
+  --surface-2: #151311;
+  --line: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
@@ -22,22 +25,25 @@
 html {
   background: var(--background);
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
+  overflow-x: hidden;
   background:
-    radial-gradient(circle at 80% 0%, rgba(255, 122, 24, 0.08), transparent 28rem),
-    radial-gradient(circle at 15% 38%, rgba(255, 122, 24, 0.035), transparent 24rem),
+    radial-gradient(circle at 50% -15%, rgba(255, 122, 24, 0.11), transparent 32rem),
+    radial-gradient(circle at 92% 38%, rgba(255, 122, 24, 0.045), transparent 28rem),
     var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(255, 122, 24, 0.28);
-  color: #fff5eb;
+  background: rgba(255, 122, 24, 0.3);
+  color: #fff7ef;
 }
 
 a {
@@ -46,18 +52,21 @@ a {
 }
 
 button,
-a {
+a,
+summary {
   -webkit-tap-highlight-color: transparent;
 }
 
 .primary-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  min-height: 44px;
   border-radius: 9999px;
   background: #ff7a18;
   color: #0a0908 !important;
-  font-weight: 600;
+  font-weight: 650;
   transition:
     transform 180ms ease,
     background-color 180ms ease,
@@ -66,14 +75,228 @@ a {
 
 .primary-button:hover {
   background: #ff8a34;
-  box-shadow: 0 10px 30px rgba(255, 122, 24, 0.18);
+  box-shadow: 0 14px 36px rgba(255, 122, 24, 0.18);
   transform: translateY(-2px);
 }
 
+.primary-button:active {
+  transform: translateY(0);
+}
+
 .primary-button:focus-visible,
-.secondary-button:focus-visible {
+.secondary-button:focus-visible,
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
   outline: 2px solid #ffb173;
   outline-offset: 3px;
+}
+
+.section-eyebrow {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: #ff8e3d;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(255, 122, 24, 0.22);
+  border-radius: 9999px;
+  background: rgba(255, 122, 24, 0.06);
+  padding: 0.45rem 0.75rem;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ffb173;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #ff7a18;
+  box-shadow: 0 0 14px rgba(255, 122, 24, 0.7);
+}
+
+.hero-meta {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #68625b;
+}
+
+.hero-proof-item {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #656059;
+}
+
+.hero-section {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.012) 0%,
+      transparent 35%,
+      rgba(255, 255, 255, 0.008) 100%
+    );
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black 0%, black 68%, transparent 100%);
+}
+
+.hero-glow {
+  border-radius: 9999px;
+  filter: blur(110px);
+  pointer-events: none;
+}
+
+.hero-glow-one {
+  width: 20rem;
+  height: 20rem;
+  background: rgba(255, 122, 24, 0.08);
+}
+
+.hero-glow-two {
+  width: 28rem;
+  height: 28rem;
+  background: rgba(255, 122, 24, 0.06);
+}
+
+.browser-frame {
+  isolation: isolate;
+}
+
+.nav-shell {
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.nav-shell:hover {
+  border-color: rgba(255, 255, 255, 0.13);
+}
+
+.marquee-track {
+  width: max-content;
+  min-width: 100%;
+  animation: marquee 34s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, #ff7a18, transparent);
+  transition: transform 350ms ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.process-card {
+  position: relative;
+}
+
+.process-card::after {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 0;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: rgba(255, 122, 24, 0.55);
+  transition: transform 350ms ease;
+}
+
+.process-card:hover::after {
+  transform: scaleX(1);
+}
+
+.contact-panel {
+  background:
+    linear-gradient(135deg, rgba(255, 122, 24, 0.07), rgba(255, 255, 255, 0.012) 55%),
+    #11100e;
+  box-shadow: 0 34px 120px rgba(0, 0, 0, 0.28);
+}
+
+.contact-panel-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.contact-panel-glow {
+  pointer-events: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 650ms cubic-bezier(0.2, 0.65, 0.25, 1),
+    transform 650ms cubic-bezier(0.2, 0.65, 0.25, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card {
+  will-change: transform;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-grid {
+    background-size: 54px 54px;
+  }
+
+  .marquee-track {
+    animation-duration: 26s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -82,11 +305,15 @@ a {
   }
 
   *,
-  *::before,
-  *::after {
+  *::before {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
