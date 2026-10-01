@@ -1,7 +1,7 @@
 import { ArrowDownRight, ArrowUpRight, Code2, Database, Globe2, Smartphone } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { ProjectCard } from "@/components/project-card";
-import { projects } from "@/data/projects";
+import { featuredProjects, projects } from "@/data/projects";
 
 const services = [
   {
@@ -69,22 +69,22 @@ export default function Home() {
             <div className="mb-8 flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#FF7A18]/25 bg-[#FF7A18]/7 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[#FFB173]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#FF7A18] shadow-[0_0_10px_rgba(255,122,24,0.7)]" />
-                Available for selected freelance projects
+                Open to selected website projects
               </span>
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#6D675F]">
                 Portugal
               </span>
             </div>
 
-            <h1 className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-[#F5F2ED] sm:text-7xl lg:text-[6.6rem]">
-              I build software
-              <span className="block text-[#FF8B32]">with purpose.</span>
+            <h1 className="max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.06em] text-[#F5F2ED] sm:text-7xl lg:text-[6.6rem]">
+              Software development
+              <span className="block text-[#FF8B32]">student.</span>
             </h1>
 
             <div className="mt-8 grid gap-7 lg:grid-cols-[1fr_auto] lg:items-end">
               <p className="max-w-2xl text-base leading-7 text-[#A8A199] sm:text-lg">
-                Web applications, mobile experiences and practical digital
-                tools built by Leonardo Alves, also known online as 16alves02.
+                Building websites, software projects and digital experiences while
+                developing my professional path in software development.
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -137,19 +137,27 @@ export default function Home() {
           />
 
           <div className="grid gap-5 lg:grid-cols-2">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
+            {featuredProjects.map((project, index) => (
+              <div key={project.slug} className={index === 0 ? "lg:col-span-2" : ""}>
+                <ProjectCard project={project} />
+              </div>
             ))}
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 flex items-center justify-between gap-5 rounded-3xl border border-dashed border-white/10 bg-white/[0.015] p-5 sm:p-6">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#625D56]">
+                More projects
+              </p>
+              <p className="mt-2 text-sm text-[#8D877F]">
+                Smaller builds and fundamentals are part of the journey too.
+              </p>
+            </div>
             <a
-              href="https://github.com/16alves02"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#A8A199] transition-colors hover:text-[#F5F2ED]"
+              href="/work"
+              className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-[#F5F2ED] transition-colors hover:text-[#FF9A4B]"
             >
-              See more on GitHub <ArrowUpRight size={15} />
+              View all <ArrowUpRight size={15} />
             </a>
           </div>
         </div>
@@ -188,6 +196,29 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section className="border-t border-white/6">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-[#FF8E3D]">
+                Who I want to work with
+              </p>
+              <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[#F5F2ED] sm:text-5xl">
+                Real people, real businesses, real websites.
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-2 lg:justify-end">
+              {["Restaurants", "Cafés", "Hair salons", "Local shops", "Small businesses", "Professionals", "Personal projects", "Tech teams"].map((type) => (
+                <span key={type} className="rounded-full border border-white/8 bg-white/[0.02] px-3 py-2 text-xs text-[#A8A199]">
+                  {type}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="about" className="scroll-mt-24 border-t border-white/6">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 py-24 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
           <div>
@@ -195,22 +226,23 @@ export default function Home() {
               About
             </p>
             <h2 className="max-w-3xl text-3xl font-semibold tracking-[-0.035em] text-[#F5F2ED] sm:text-4xl">
-              A developer building a serious career one project at a time.
+              Still learning. Already building.
             </h2>
             <div className="mt-7 max-w-2xl space-y-5 text-sm leading-7 text-[#8F8981] sm:text-base">
               <p>
-                I&apos;m Leonardo, a software developer based in Portugal. My
-                work sits between useful software, clean interfaces and the
-                technical details that make an application actually work.
+                I&apos;m Leonardo, a Software Development student at the University of
+                Aveiro and the person behind 16alves02. I&apos;m building my
+                professional path through personal, academic and experimental
+                projects.
               </p>
               <p>
-                I learn by building. That means working across frontend,
-                mobile, backend, APIs and databases, then improving the result
-                through iteration.
+                My course covers programming, web technologies, databases, software
+                engineering, mobile development, interaction design and the
+                development of complete software projects.
               </p>
               <p>
-                16alves02 is the public identity behind that work: a place for
-                projects, experiments and, now, freelance development.
+                16alves02 is the public identity behind that work: a place for projects,
+                experiments and the beginning of my freelance journey.
               </p>
             </div>
 
