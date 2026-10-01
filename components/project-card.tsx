@@ -1,96 +1,86 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import type { CSSProperties } from "react";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { useLanguage } from "@/components/language-provider";
 import { getProjectTranslation } from "@/data/i18n";
+import { ProjectVisual } from "@/components/project-visual";
 
 export function ProjectCard({
   project,
   compact = false,
+  featured = false,
 }: {
   project: Project;
   compact?: boolean;
+  featured?: boolean;
 }) {
   const { t, language } = useLanguage();
   const copy = getProjectTranslation(language, project.slug);
 
   return (
     <article
-      className={`group relative overflow-hidden rounded-3xl border border-white/8 bg-white/[0.025] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-white/15 hover:bg-white/[0.04] ${compact ? "" : "h-full"}`}
+      className={`project-card group h-full overflow-hidden rounded-[2rem] border border-white/9 bg-[#11100E] shadow-[0_18px_70px_rgba(0,0,0,0.18)] transition-all duration-500 hover:-translate-y-1 hover:border-white/15 hover:shadow-[0_28px_90px_rgba(0,0,0,0.3)] ${featured ? "ring-1 ring-white/5" : ""}`}
     >
-      <div
-        className={`relative overflow-hidden rounded-[1.4rem] border border-white/8 bg-[#11100E] p-5 ${compact ? "min-h-52" : "min-h-72"}`}
-        style={
-          {
-            "--project-accent": project.color,
-          } as CSSProperties
-        }
+      <Link
+        href={`/work/${project.slug}`}
+        className="block h-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB173]"
       >
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px]" />
-        <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full opacity-15 blur-[85px] transition-transform duration-500 group-hover:scale-125" style={{ background: project.color }} />
-
-        <div className="relative z-10 flex h-full min-h-[inherit] flex-col justify-between">
-          <div className="flex items-start justify-between gap-4">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#77716A]">
-              {project.accent}
-            </span>
+        <div className="relative p-2.5 sm:p-3">
+          <ProjectVisual project={project} compact={compact} priority={featured && project.slug === "hoop"} />
+          <div className="pointer-events-none absolute inset-x-7 bottom-7 flex items-center justify-between">
             <span
-              className="rounded-full border px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.16em]"
+              className="rounded-full border bg-[#0B0A09]/70 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.16em] backdrop-blur-md"
               style={{
-                borderColor: `${project.color}35`,
+                borderColor: `${project.color}40`,
                 color: project.color,
-                background: `${project.color}10`,
               }}
             >
-              {project.status === "In development" ? t.about.development : project.year}
+              {project.accent}
+            </span>
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-black/25 text-[#F5F2ED] backdrop-blur-md transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <ArrowUpRight size={16} />
             </span>
           </div>
+        </div>
 
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#5F5A54]">
+        <div className={`px-5 pb-5 pt-2 sm:px-7 sm:pb-7 ${compact ? "" : "lg:px-8 lg:pb-8"}`}>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-mono text-[9px] uppercase tracking-[0.17em] text-[#6F6962]">
               {copy.type}
-            </p>
-            <div className="mt-3 flex items-end justify-between gap-5">
-              <h3 className="text-3xl font-semibold tracking-[-0.045em] text-[#F5F2ED]">
-                {project.name}
-              </h3>
-              <ArrowUpRight
-                size={20}
-                className="mb-1 shrink-0 text-[#5F5A54] transition-colors group-hover:text-[#F5F2ED]"
-              />
-            </div>
+            </span>
+            <span className="h-1 w-1 rounded-full bg-[#4F4A44]" />
+            <span className="font-mono text-[9px] uppercase tracking-[0.17em] text-[#77716A]">
+              {copy.status}
+            </span>
+          </div>
+
+          <div className="mt-3 flex items-end justify-between gap-6">
+            <h3 className={`font-semibold tracking-[-0.045em] text-[#F5F2ED] ${featured ? "text-4xl sm:text-5xl" : "text-3xl"}`}>
+              {project.name}
+            </h3>
+            <span className="hidden shrink-0 text-xs font-medium text-[#8F8981] transition-colors group-hover:text-[#FF9A4B] sm:block">
+              {t.common.viewProject}
+            </span>
+          </div>
+
+          <p className={`mt-4 max-w-3xl leading-7 text-[#8D877F] ${featured ? "text-base" : "text-sm"}`}>
+            {copy.shortDescription}
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.technologies.map((technology) => (
+              <span
+                key={technology}
+                className="rounded-full border border-white/8 bg-white/[0.025] px-2.5 py-1.5 font-mono text-[9px] tracking-wide text-[#AFA9A0]"
+              >
+                {technology}
+              </span>
+            ))}
           </div>
         </div>
-      </div>
-
-      <div className="px-2 pb-2 pt-5 sm:px-3 sm:pb-3">
-        <p className="max-w-2xl text-sm leading-6 text-[#9B958D]">
-          {copy.shortDescription}
-        </p>
-
-        <div className="mt-5 flex flex-wrap gap-2">
-          {project.technologies.map((technology) => (
-            <span
-              key={technology}
-              className="rounded-full border border-white/8 bg-white/[0.025] px-2.5 py-1 font-mono text-[10px] tracking-wide text-[#AFA9A0]"
-            >
-              {technology}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-5 border-t border-white/8 pt-4">
-          <Link
-            href={`/work/${project.slug}`}
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-[#F5F2ED] transition-colors hover:text-[#FF9A4B]"
-          >
-            {t.common.viewProject} <ArrowUpRight size={14} />
-          </Link>
-        </div>
-      </div>
+      </Link>
     </article>
   );
 }
