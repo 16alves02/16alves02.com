@@ -14,6 +14,8 @@ export type Project = {
   liveUrl?: string;
   repositoryUrl?: string;
   highlights: string[];
+  visual: "image" | "raw" | "dashboard" | "tasks" | "terminal";
+  image?: string;
 };
 
 export const projects: Project[] = [
@@ -33,6 +35,8 @@ export const projects: Project[] = [
     featured: true,
     liveUrl: "https://hoop-16alves02.netlify.app",
     repositoryUrl: "https://github.com/16alves02/hoop",
+    visual: "image",
+    image: "https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG",
     highlights: [
       "Responsive product browsing and discovery",
       "Cart and favourites flows with local persistence",
@@ -55,6 +59,7 @@ export const projects: Project[] = [
     featured: true,
     liveUrl: "https://raw-app-bice.vercel.app",
     repositoryUrl: "https://github.com/16alves02/raw-app",
+    visual: "raw",
     highlights: [
       "Three distinct conversation and game modes",
       "Tap and swipe-driven card interaction",
@@ -76,6 +81,7 @@ export const projects: Project[] = [
     color: "#FF7A18",
     featured: true,
     academic: true,
+    visual: "dashboard",
     highlights: [
       "Android applications for different user roles",
       "REST API and database-backed workflows",
@@ -95,6 +101,8 @@ export const projects: Project[] = [
     technologies: ["HTML", "CSS", "JavaScript", "localStorage"],
     accent: "04 / TODO",
     color: "#BDB8AF",
+    visual: "tasks",
+    image: "https://raw.githubusercontent.com/16alves02/todo-app/main/assets/screenshot.png",
     highlights: [
       "Task creation and completion flows",
       "Filtering and dynamic DOM updates",
@@ -114,6 +122,7 @@ export const projects: Project[] = [
     technologies: ["C", "Algorithms", "Arrays", "Functions"],
     accent: "05 / C",
     color: "#A8B9CC",
+    visual: "terminal",
     highlights: [
       "Selection, insertion and bubble sort",
       "Bogo Sort as an educational demonstration",
