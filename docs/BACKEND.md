@@ -5,10 +5,11 @@ The website includes a server-side backend foundation built into the Next.js App
 ## What it covers
 
 - First-party analytics with explicit consent.
-- Page views, clicks, language usage, device category and referrer.
+- Page views, clicks, language usage, device category, referral source and scroll-depth milestones.
 - Contact enquiries with project context, service, budget and timeline.
 - Private /admin dashboard with traffic summaries and lead management.
 - Lead statuses: new, contacted, qualified and closed.
+- Enquiry reason breakdown by requested service.
 - Transactional email notifications through Resend.
 - Optional automatic acknowledgement emails to people who submit the form.
 - Supabase Postgres storage with row-level security enabled.
