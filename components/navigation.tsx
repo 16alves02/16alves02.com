@@ -3,16 +3,21 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { useLanguage } from "@/components/language-provider";
+import { LanguageSelector } from "@/components/language-selector";
 
-const links = [
-  { label: "Work", href: "/work" },
-  { label: "Services", href: "/#services" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
-];
+
 
 export function Navigation() {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const links = [
+    { label: t.nav.work, href: "/work" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.about, href: "/#about" },
+    { label: t.nav.contact, href: "/#contact" },
+  ];
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/8 bg-[#0A0908]/82 backdrop-blur-xl">
@@ -39,11 +44,12 @@ export function Navigation() {
               {link.label}
             </Link>
           ))}
+          <LanguageSelector />
           <Link
             href="/#contact"
             className="rounded-full border border-[#FF7A18]/35 bg-[#FF7A18]/8 px-4 py-2 text-sm font-medium text-[#FFB173] transition-all hover:border-[#FF7A18]/65 hover:bg-[#FF7A18]/14 hover:text-[#FFF4EA]"
           >
-            Start a project
+            {t.nav.start}
           </Link>
         </nav>
 
@@ -74,12 +80,16 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
+            <div className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-white/8 bg-white/[0.02] px-3 py-2">
+              <span className="text-xs text-[#77716A]">{t.nav.language}</span>
+              <LanguageSelector />
+            </div>
             <Link
               href="/#contact"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-xl border border-[#FF7A18]/25 bg-[#FF7A18]/10 px-3 py-3 text-sm font-medium text-[#FFB173]"
             >
-              Start a project
+              {t.nav.start}
             </Link>
           </div>
         </nav>
