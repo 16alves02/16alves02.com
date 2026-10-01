@@ -19,6 +19,32 @@ export function AnalyticsTracker() {
   useEffect(() => {
     if (pathname.startsWith("/admin")) return;
 
+    const firedDepths = new Set<number>();
+
+    const handleScroll = () => {
+      if (getAnalyticsConsent() !== "granted") return;
+
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+
+      const depth = Math.min(
+        100,
+        Math.round((window.scrollY / scrollable) * 100),
+      );
+      const milestones = [25, 50, 75, 100];
+
+      for (const milestone of milestones) {
+        if (depth >= milestone && !firedDepths.has(milestone)) {
+          firedDepths.add(milestone);
+          trackEvent("scroll_depth", {
+            page: pathname,
+            language,
+            target: String(milestone),
+          });
+        }
+      }
+    };
+
     const handleConsent = () => {
       if (getAnalyticsConsent() === "granted") {
         trackEvent("page_view", { page: pathname, language });
@@ -43,10 +69,12 @@ export function AnalyticsTracker() {
 
     window.addEventListener("analytics-consent-change", handleConsent);
     document.addEventListener("click", handleClick, true);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("analytics-consent-change", handleConsent);
       document.removeEventListener("click", handleClick, true);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [pathname, language]);
 
