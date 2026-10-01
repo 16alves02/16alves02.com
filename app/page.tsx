@@ -9,6 +9,7 @@ import {
   Globe2,
   Layers3,
   MessageCircle,
+  ShoppingBag,
   Sparkles,
 } from "lucide-react";
 import Link from "next/link";
