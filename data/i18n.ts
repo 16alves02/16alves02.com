@@ -121,6 +121,9 @@ type Translation = {
     title: string;
     items: Array<{ question: string; answer: string }>;
   };
+  projectPage: {
+    technologies: string;
+  };
   projects: Record<string, ProjectTranslation>;
   footer: string;
 };
