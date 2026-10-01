@@ -472,10 +472,6 @@ export default function Home() {
                     <Mail size={17} className="text-[#FF9A4B]" />
                     16alves02@gmail.com
                   </a>
-                  <p className="mt-2 text-xs leading-5 text-[#716B64]">
-                    Email is the direct contact channel. Social profiles are available for background and work.
-                  </p>
-
                   <div className="mt-5 flex flex-wrap gap-2.5 border-t border-white/8 pt-5">
                     {[
                       ["GitHub", "https://github.com/16alves02", "social:github"],
@@ -521,6 +517,7 @@ export default function Home() {
             <a className="hover:text-[#F5F2ED]" href="#about">{t.nav.about}</a>
             <a className="hover:text-[#F5F2ED]" href="#contact">{t.nav.contact}</a>
             <a className="hover:text-[#F5F2ED]" href="mailto:16alves02@gmail.com">16alves02@gmail.com</a>
+            <Link className="hover:text-[#F5F2ED]" href="/privacy">Privacy</Link>
           </div>
         </div>
       </footer>
