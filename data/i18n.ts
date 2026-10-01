@@ -578,6 +578,27 @@ export const translations: Record<LanguageCode, Translation> = {
       nextStep: "下一步",
       nextTitle: "想查看 GitHub 源码或在线项目吗？",
     },
+    process: {
+      eyebrow: "开发流程",
+      title: "从想法到真正可以使用的网站。",
+      description: "一个直接清晰的流程，让项目保持透明、协作和以最终结果为中心。",
+      steps: [
+        { number: "01", title: "了解", description: "明确需求、目标用户以及网站需要实现的目标。" },
+        { number: "02", title: "规划", description: "将想法转化为清晰的结构、内容方向和技术计划。" },
+        { number: "03", title: "构建", description: "开发响应式网站、完善界面，并保持与你的沟通。" },
+        { number: "04", title: "上线", description: "检查最终结果，完成最后调整并准备正式发布。" },
+      ],
+    },
+    faq: {
+      eyebrow: "常见问题",
+      title: "开始之前。",
+      items: [
+        { question: "你开发什么类型的网站？", answer: "企业网站、落地页、个人网站、作品集、电商体验以及适合小型项目的定制网站。" },
+        { question: "你接受小型企业项目吗？", answer: "接受。餐厅、咖啡馆、美容院、商店、专业人士和其他小型企业正是我希望合作的对象。" },
+        { question: "网站会适配手机吗？", answer: "会。响应式设计属于开发的一部分，网站会针对手机、平板和桌面屏幕进行设计。" },
+        { question: "项目如何开始？", answer: "把你的想法、业务或项目背景以及现有内容发给我。我们可以从第一次沟通开始确定下一步。" },
+      ],
+    },
     projects: {
       hoop: {
         shortDescription: "一个以篮球为主题的电商体验，专注于产品发现、购物流程和响应式界面。",
