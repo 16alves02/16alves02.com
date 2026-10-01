@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 const links = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navigation() {
@@ -31,20 +31,20 @@ export function Navigation() {
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="Main navigation">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm text-[#9B958D] transition-colors hover:text-[#F5F2ED]"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="rounded-full border border-[#FF7A18]/35 bg-[#FF7A18]/8 px-4 py-2 text-sm font-medium text-[#FFB173] transition-all hover:border-[#FF7A18]/65 hover:bg-[#FF7A18]/14 hover:text-[#FFF4EA]"
           >
             Start a project
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -65,22 +65,22 @@ export function Navigation() {
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-2">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="rounded-xl px-3 py-3 text-sm text-[#D5D0C8] transition-colors hover:bg-white/5 hover:text-white"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-xl border border-[#FF7A18]/25 bg-[#FF7A18]/10 px-3 py-3 text-sm font-medium text-[#FFB173]"
             >
               Start a project
-            </a>
+            </Link>
           </div>
         </nav>
       )}
