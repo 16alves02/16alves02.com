@@ -70,6 +70,19 @@ export async function POST(request: Request) {
       );
     }
 
+    const recent = await supabaseRequest<Array<{ id: string }>>(
+      `contact_submissions?select=id&email=eq.${encodeURIComponent(email)}&created_at=gte.${encodeURIComponent(
+        new Date(Date.now() - 60 * 60 * 1000).toISOString(),
+      )}&limit=4`,
+    );
+
+    if (recent.length >= 3) {
+      return NextResponse.json(
+        { message: "Too many enquiries from this address right now." },
+        { status: 429 },
+      );
+    }
+
     const leadIdRows = await supabaseRequest<Array<{ id: string }>>(
       "contact_submissions?select=id",
       {
