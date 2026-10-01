@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/components/language-provider";
 import { getAnalyticsConsent, trackEvent } from "@/lib/analytics";
