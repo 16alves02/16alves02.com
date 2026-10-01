@@ -90,7 +90,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="#work"
-                  className="group inline-flex items-center gap-2 rounded-full bg-[#F5F2ED] px-5 py-3 text-sm font-medium text-[#0A0908] transition-transform hover:-translate-y-0.5"
+                  className="primary-button px-5 py-3 text-sm"
                 >
                   View my work
                   <ArrowDownRight
@@ -299,7 +299,7 @@ export default function Home() {
                   href="https://www.linkedin.com/in/leonardo-alves-502ba8291/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#F5F2ED] px-5 py-3 text-sm font-medium text-[#0A0908] transition-transform hover:-translate-y-0.5"
+                  className="primary-button px-5 py-3 text-sm"
                 >
                   Start a conversation <ArrowUpRight size={15} />
                 </a>
