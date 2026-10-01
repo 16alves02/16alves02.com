@@ -41,6 +41,7 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
+                data-track={`nav:${link.label.toLowerCase()}`}
                 className="rounded-xl px-3 py-2.5 text-sm text-[#8F8981] transition-all hover:bg-white/[0.045] hover:text-[#F5F2ED] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFB173]"
               >
                 {link.label}
@@ -52,6 +53,7 @@ export function Navigation() {
             <LanguageSelector />
             <Link
               href="/#contact"
+              data-track="nav:start"
               className="primary-button group px-4 py-2.5 text-sm"
             >
               {t.nav.start}
@@ -80,6 +82,7 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  data-track={`mobile-nav:${link.label.toLowerCase()}`}
                   onClick={() => setOpen(false)}
                   className="rounded-xl px-3.5 py-3 text-sm text-[#D5D0C8] transition-colors hover:bg-white/[0.05] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFB173]"
                 >
