@@ -153,12 +153,12 @@ export default function Home() {
               <div className="absolute -bottom-5 -left-3 hidden w-52 rounded-2xl border border-white/10 bg-[#0C0B0A]/92 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:block lg:-left-8">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#625D56]">
-                    Current focus
+                    {t.hero.focus}
                   </span>
                   <Sparkles size={14} className="text-[#FF9A4B]" />
                 </div>
                 <p className="mt-3 text-sm font-semibold text-[#F5F2ED]">
-                  Websites & digital experiences
+                  {t.hero.focusDetail}
                 </p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {["React", "TypeScript", "Next.js"].map((item) => (
