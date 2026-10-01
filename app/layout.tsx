@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   keywords: [
     "16alves02",
     "Leonardo Alves",
-    "software developer",
+    "software development student",
     "web developer",
     "frontend developer",
     "freelance developer",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Leonardo Alves", url: "https://github.com/16alves02" }],
   creator: "Leonardo Alves",
   openGraph: {
-    title: "16alves02 | Software Developer",
+    title: "16alves02 | Software Development Student",
     description:
-      "Web, mobile, backend and practical software projects by Leonardo Alves.",
+      "Portfolio of Leonardo Alves, a Software Development student building websites, software projects and digital experiences.",
     type: "website",
     locale: "en_PT",
     siteName: "16alves02",
