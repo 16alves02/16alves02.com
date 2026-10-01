@@ -21,8 +21,8 @@ The analytics endpoint does not store IP addresses.
 1. Create a Supabase project.
 2. Open the SQL editor.
 3. Run supabase/schema.sql.
-4. Add SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to the deployment environment.
-5. Never expose SUPABASE_SERVICE_ROLE_KEY to the browser.
+4. Add SUPABASE_URL and SUPABASE_SECRET_KEY to the deployment environment.
+5. Never expose SUPABASE_SECRET_KEY to the browser.
 
 The website only uses the Supabase service role from server-side route handlers.
 
