@@ -57,7 +57,7 @@ export function Navigation() {
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-[#F5F2ED] transition-colors hover:bg-white/5 md:hidden"
           aria-expanded={open}
-          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
           onClick={() => setOpen((value) => !value)}
         >
           {open ? <X size={18} /> : <Menu size={18} />}
