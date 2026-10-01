@@ -7,11 +7,6 @@ import { ProjectCard } from "@/components/project-card";
 import { featuredProjects, projects } from "@/data/projects";
 import { useLanguage } from "@/components/language-provider";
 
-export const metadata = {
-  title: "Work",
-  description: "Projects and software work by Leonardo Alves, also known as 16alves02.",
-};
-
 export default function WorkPage() {
   const { t } = useLanguage();
   const otherProjects = projects.filter((project) => !project.featured);
