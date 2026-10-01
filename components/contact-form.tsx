@@ -2,7 +2,7 @@
 
 import { Check, Mail, Send } from "lucide-react";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { contactFormCopy } from "@/data/contact-form";
 import { getAnalyticsConsent, trackEvent } from "@/lib/analytics";
@@ -37,6 +37,7 @@ export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<"idle" | "sending" | "success">("idle");
   const [error, setError] = useState("");
+  const formStarted = useRef(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -115,7 +116,8 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit}
       onFocus={() => {
-        if (status === "idle") {
+        if (!formStarted.current) {
+          formStarted.current = true;
           trackEvent("contact_form_start", { target: "contact-form" });
         }
       }}
