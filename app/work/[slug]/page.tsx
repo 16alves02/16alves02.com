@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight, Code2, ExternalLink } from "lucide-react";
+import { ArrowLeft, Code2, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/navigation";
