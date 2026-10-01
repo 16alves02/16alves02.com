@@ -1,32 +1,32 @@
-import { ArrowDownRight, ArrowUpRight, Code2, Database, Globe2, Smartphone } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, BriefcaseBusiness, Code2, Globe2, Layers3 } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { ProjectCard } from "@/components/project-card";
-import { featuredProjects, projects } from "@/data/projects";
+import { featuredProjects } from "@/data/projects";
 
 const services = [
   {
-    title: "Websites",
+    title: "Business websites",
     description:
-      "Responsive websites and landing pages for people, professionals and small businesses.",
+      "Responsive websites for restaurants, cafés, salons, shops, professionals and small businesses.",
     icon: Globe2,
   },
   {
-    title: "Web Applications",
+    title: "Landing pages",
     description:
-      "Interactive frontend experiences built around real workflows, data and useful features.",
+      "Focused pages for services, campaigns, products, portfolios and personal projects.",
+    icon: Layers3,
+  },
+  {
+    title: "E-commerce",
+    description:
+      "Product-focused web experiences with clear browsing, responsive layouts and practical shopping flows.",
+    icon: BriefcaseBusiness,
+  },
+  {
+    title: "Custom websites",
+    description:
+      "Websites that need more than a standard template, including data, integrations and custom functionality.",
     icon: Code2,
-  },
-  {
-    title: "Custom Software",
-    description:
-      "Small software systems designed around a specific process instead of a generic template.",
-    icon: Database,
-  },
-  {
-    title: "Mobile",
-    description:
-      "Android applications and mobile interfaces with a focus on practical everyday use.",
-    icon: Smartphone,
   },
 ];
 
@@ -90,7 +90,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="#work"
-                  className="primary-button px-5 py-3 text-sm"
+                  className="primary-button group px-5 py-3 text-sm"
                 >
                   View my work
                   <ArrowDownRight
