@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#F3F0E8"/>
+  <path d="M0 90H1200M0 548H1200M70 90V548M1130 90V548" stroke="#211F1B" stroke-opacity=".18"/>
+  <path d="M88 124H136" stroke="#EB4520" stroke-width="8"/>
+  <text x="88" y="172" fill="#68645D" font-family="monospace" font-size="17" letter-spacing="5">OLIVEIRA DE AZEMÉIS / PORTUGAL</text>
+  <text x="82" y="306" fill="#211F1B" font-family="Arial, Helvetica, sans-serif" font-size="95" font-weight="700" letter-spacing="-5">I build the</text>
+  <text x="82" y="408" fill="#EB4520" font-family="Arial, Helvetica, sans-serif" font-size="112" font-weight="700" letter-spacing="-7">front end.</text>
+  <text x="89" y="470" fill="#68645D" font-family="monospace" font-size="20" letter-spacing="3">DETAILS COUNT, TOO.</text>
+  <rect x="930" y="160" width="130" height="240" fill="#CCD7D2" fill-opacity=".9" stroke="#82928C"/>
+  <rect x="994" y="219" width="94" height="240" fill="#EB4520" fill-opacity=".94" stroke="#EB4520"/>
+  <rect x="880" y="248" width="112" height="216" fill="#FFFFFF" fill-opacity=".4" stroke="#9BA8A2"/>
+  <text x="1110" y="512" fill="#EB4520" font-family="monospace" font-size="18" text-anchor="end">LA / 16—02</text>
+</svg>
