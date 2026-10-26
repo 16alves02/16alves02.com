@@ -3,13 +3,58 @@ import { projects } from './data/projects.js';
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
-  { label: 'LinkedIn', short: 'in', url: 'https://www.linkedin.com/in/leonardo-alves-502ba8291/', kind: 'work' },
+  { label: 'LinkedIn', short: 'in', url: 'https://www.linkedin.com/in/16alves02/', kind: 'work' },
   { label: 'Instagram', short: 'IG', url: 'https://www.instagram.com/16alves02/', kind: 'social' },
   { label: 'YouTube', short: 'YT', url: 'https://www.youtube.com/16alves02', kind: 'social' },
   { label: 'Twitch', short: 'TW', url: 'https://www.twitch.tv/16alves02', kind: 'social' },
   { label: 'Linktree', short: '↗', url: 'https://linktr.ee/16alves02', kind: 'more' },
   { label: 'Uiverse', short: 'UV', url: 'https://uiverse.io/16alves02', kind: 'social' },
 ];
+
+const experienceByLanguage = {
+  en: [
+    { id: 'cnc', date: 'Feb 2025 – May 2026', role: 'CNC machine operator', company: 'Schmidt Light Metal Group · Temporary', description: 'Industrial, on-site experience as a CNC machine operator in Oliveira de Azeméis, Portugal.', tags: ['CNC', 'Manufacturing'] },
+    { id: 'mc', date: 'May – Aug 2024', role: 'Store operator', company: 'MC · Temporary', description: 'Customer service and in-store support; stock management and replenishment; store and warehouse organization; teamwork in a fast-paced retail environment.', tags: ['Customer service', 'Stock management', 'Retail', 'Teamwork'] },
+    { id: 'clickbeauty', date: 'Apr – Jul 2023', role: 'Backend developer intern', company: 'ClickBeauty / Alvocromático · Internship', description: 'Backend development with PHP, MySQL databases, internal web systems and code structuring and maintenance.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'Jul 2022', role: 'Web development intern', company: 'Associação Estamos Juntos (AEJ) · Internship', description: 'Built a website with HTML, CSS, JavaScript and PHP; created and managed databases; processed registration information and updated web content.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+  ],
+  'pt-PT': [
+    { id: 'cnc', date: 'fev. 2025 – mai. 2026', role: 'Operador de máquina CNC', company: 'Schmidt Light Metal Group · Temporário', description: 'Experiência presencial em contexto industrial como operador de máquina CNC, em Oliveira de Azeméis.', tags: ['CNC', 'Indústria'] },
+    { id: 'mc', date: 'mai. – ago. 2024', role: 'Operador de loja', company: 'MC · Temporário', description: 'Atendimento ao cliente e apoio em loja; gestão e reposição de stock; organização da loja e do armazém; colaboração com a equipa num ambiente de retalho dinâmico.', tags: ['Atendimento', 'Gestão de stock', 'Retalho', 'Trabalho em equipa'] },
+    { id: 'clickbeauty', date: 'abr. – jul. 2023', role: 'Estagiário de desenvolvimento back-end', company: 'ClickBeauty / Alvocromático · Estágio', description: 'Desenvolvimento backend em PHP, gestão de bases de dados MySQL, apoio a sistemas web internos e estruturação e manutenção de código.', tags: ['PHP', 'MySQL', 'Back-end'] },
+    { id: 'aej', date: 'jul. 2022', role: 'Estagiário de desenvolvimento web', company: 'Associação Estamos Juntos (AEJ) · Estágio', description: 'Desenvolvimento de website com HTML, CSS, JavaScript e PHP; criação e gestão de bases de dados; processamento de inscrições e tratamento de conteúdos web.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+  ],
+  es: [
+    { id: 'cnc', date: 'feb. 2025 – may. 2026', role: 'Operador de máquina CNC', company: 'Schmidt Light Metal Group · Temporal', description: 'Experiencia presencial en un entorno industrial como operador de máquina CNC en Oliveira de Azeméis, Portugal.', tags: ['CNC', 'Industria'] },
+    { id: 'mc', date: 'may. – ago. 2024', role: 'Operador de tienda', company: 'MC · Temporal', description: 'Atención al cliente, apoyo en tienda, control y reposición de stock, organización de tienda y almacén y colaboración en equipo.', tags: ['Atención al cliente', 'Stock', 'Comercio', 'Equipo'] },
+    { id: 'clickbeauty', date: 'abr. – jul. 2023', role: 'Prácticas de desarrollo backend', company: 'ClickBeauty / Alvocromático · Prácticas', description: 'Desarrollo backend con PHP, bases de datos MySQL, sistemas web internos y mantenimiento y estructuración del código.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'jul. 2022', role: 'Prácticas de desarrollo web', company: 'Associação Estamos Juntos (AEJ) · Prácticas', description: 'Desarrollo de un sitio con HTML, CSS, JavaScript y PHP; creación y gestión de bases de datos; procesamiento de inscripciones y contenidos web.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+  ],
+  fr: [
+    { id: 'cnc', date: 'févr. 2025 – mai 2026', role: 'Opérateur de machine CNC', company: 'Schmidt Light Metal Group · Temporaire', description: 'Expérience en présentiel dans un environnement industriel comme opérateur de machine CNC à Oliveira de Azeméis, au Portugal.', tags: ['CNC', 'Industrie'] },
+    { id: 'mc', date: 'mai – août 2024', role: 'Employé de magasin', company: 'MC · Temporaire', description: 'Service client, assistance en magasin, gestion et réapprovisionnement des stocks, organisation du magasin et de l’entrepôt et travail en équipe.', tags: ['Service client', 'Stocks', 'Commerce', 'Équipe'] },
+    { id: 'clickbeauty', date: 'avr. – juil. 2023', role: 'Stagiaire développeur backend', company: 'ClickBeauty / Alvocromático · Stage', description: 'Développement backend en PHP, bases de données MySQL, systèmes web internes et structuration et maintenance du code.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'juil. 2022', role: 'Stagiaire en développement web', company: 'Associação Estamos Juntos (AEJ) · Stage', description: 'Création d’un site avec HTML, CSS, JavaScript et PHP, gestion de bases de données, traitement des inscriptions et mise à jour des contenus web.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+  ],
+  it: [
+    { id: 'cnc', date: 'feb. 2025 – mag. 2026', role: 'Operatore macchina CNC', company: 'Schmidt Light Metal Group · Temporaneo', description: 'Esperienza in presenza in un ambiente industriale come operatore di macchina CNC a Oliveira de Azeméis, Portogallo.', tags: ['CNC', 'Industria'] },
+    { id: 'mc', date: 'mag. – ago. 2024', role: 'Addetto alle vendite', company: 'MC · Temporaneo', description: 'Assistenza ai clienti, supporto in negozio, gestione e rifornimento delle scorte, organizzazione del negozio e del magazzino e lavoro di squadra.', tags: ['Clienti', 'Scorte', 'Vendita al dettaglio', 'Squadra'] },
+    { id: 'clickbeauty', date: 'apr. – lug. 2023', role: 'Tirocinante sviluppatore backend', company: 'ClickBeauty / Alvocromático · Tirocinio', description: 'Sviluppo backend con PHP, database MySQL, sistemi web interni e strutturazione e manutenzione del codice.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'lug. 2022', role: 'Tirocinante sviluppo web', company: 'Associação Estamos Juntos (AEJ) · Tirocinio', description: 'Realizzazione di un sito con HTML, CSS, JavaScript e PHP, gestione dei database, elaborazione delle iscrizioni e aggiornamento dei contenuti web.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+  ],
+  de: [
+    { id: 'cnc', date: 'Feb. 2025 – Mai 2026', role: 'CNC-Maschinenbediener', company: 'Schmidt Light Metal Group · Befristet', description: 'Vor-Ort-Erfahrung in einem industriellen Umfeld als CNC-Maschinenbediener in Oliveira de Azeméis, Portugal.', tags: ['CNC', 'Industrie'] },
+    { id: 'mc', date: 'Mai – Aug. 2024', role: 'Mitarbeiter im Einzelhandel', company: 'MC · Befristet', description: 'Kundenservice, Unterstützung im Geschäft, Bestandsverwaltung und Warenauffüllung, Organisation von Laden und Lager sowie Teamarbeit.', tags: ['Kundenservice', 'Bestand', 'Einzelhandel', 'Teamarbeit'] },
+    { id: 'clickbeauty', date: 'Apr. – Jul. 2023', role: 'Praktikant Backend-Entwicklung', company: 'ClickBeauty / Alvocromático · Praktikum', description: 'Backend-Entwicklung mit PHP, MySQL-Datenbanken, internen Websystemen sowie Strukturierung und Pflege von Code.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'Jul. 2022', role: 'Praktikant Webentwicklung', company: 'Associação Estamos Juntos (AEJ) · Praktikum', description: 'Erstellung einer Website mit HTML, CSS, JavaScript und PHP; Datenbankverwaltung, Verarbeitung von Anmeldungen und Pflege von Webinhalten.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+  ],
+  ja: [
+    { id: 'cnc', date: '2025年2月 – 2026年5月', role: 'CNC機械オペレーター', company: 'Schmidt Light Metal Group · 有期雇用', description: 'ポルトガルのOliveira de Azeméisで、工業環境におけるCNC機械オペレーターとして勤務。', tags: ['CNC', '製造'] },
+    { id: 'mc', date: '2024年5月 – 8月', role: '店舗スタッフ', company: 'MC · 有期雇用', description: '接客、店舗サポート、在庫管理と補充、店舗と倉庫の整理、チームでの協力。', tags: ['接客', '在庫管理', '小売', 'チームワーク'] },
+    { id: 'clickbeauty', date: '2023年4月 – 7月', role: 'バックエンド開発インターン', company: 'ClickBeauty / Alvocromático · インターン', description: 'PHPによるバックエンド開発、MySQLデータベース、社内Webシステム、コードの構成と保守。', tags: ['PHP', 'MySQL', 'バックエンド'] },
+    { id: 'aej', date: '2022年7月', role: 'Web開発インターン', company: 'Associação Estamos Juntos (AEJ) · インターン', description: 'HTML、CSS、JavaScript、PHPを使ったサイト開発、データベース作成と管理、登録情報の処理、Webコンテンツの更新。', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+  ],
+};
 
 const projectTranslations = {
   pt: {
@@ -79,20 +124,20 @@ const copy = {
     workIntro: 'A few real projects. What they do, what I used, and a link to try them or read the code.',
     viewLive: 'Open project', viewCode: 'Source code', inProgress: 'In development', previewUnavailable: 'No public screenshot is available yet.',
     aboutKicker: '02 / THE SHORT VERSION', aboutTitle: 'Still learning. Already building.',
-    about1: 'I’m studying Software Development at Escola Superior Aveiro Norte, part of the University of Aveiro. My main focus right now is building useful, responsive web interfaces.',
-    about2: 'My current projects use React, JavaScript and TypeScript, alongside PHP, REST APIs, MySQL/MariaDB, Kotlin for Android and C fundamentals.',
-    about3: 'I prefer showing what I’ve made over claiming to know everything. The projects here are labelled honestly, including the ones that are still in progress.',
-    skillsKicker: 'TOOLS I’VE WORKED WITH', skillsTitle: 'My current toolkit', skillsIntro: 'No percentages or made-up skill levels. Just the tools and concepts I’ve used in projects or coursework.',
+    about1: 'I’m studying Software Development (CTeSP) at Escola Superior Aveiro Norte, part of the University of Aveiro. My interests are frontend development, web applications and software engineering fundamentals.',
+    about2: 'My coursework includes algorithms, object-oriented programming, web and mobile development, databases, software engineering and systems analysis. My practical work includes web projects and internships in backend and web development.',
+    about3: 'I’m especially interested in frontend development, user interfaces and modern, functional, responsive web applications. I’ve worked with HTML, CSS, JavaScript, PHP and MySQL through projects and internships.',
+    servicesKicker: 'SERVICES', servicesTitle: 'What I can help with', servicesIntro: 'Practical support for small websites and digital projects.', serviceItems: [['Web development', 'Responsive sites and practical web experiences.'], ['Database development', 'SQL data structures and database-backed features.'], ['Software testing', 'Manual checks, validation and troubleshooting.'], ['Web design', 'Clear, responsive interfaces with attention to usability.']],
     skillGroups: [
       ['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'],
       ['BACKEND + DATA', 'PHP', 'Node.js', 'REST APIs', 'SQL', 'MySQL / MariaDB'],
       ['LANGUAGES + TOOLS', 'C', 'Kotlin / Android', 'Python', 'Git', 'GitHub', 'npm', 'Affinity'],
     ],
     pathKicker: '03 / EXPERIENCE THAT MATTERS HERE', pathTitle: 'A bit of experience beyond personal projects.',
-    expOneRole: 'Back-end development', expOneDate: '2023', expOneText: 'Worked on PHP features, MySQL databases, internal web tools and maintenance of existing code.',
-    expTwoRole: 'Web development', expTwoDate: '2022', expTwoText: 'Built websites with HTML, CSS, JavaScript and PHP, with some database setup and management.',
-    educationKicker: 'EDUCATION', educationTitle: 'Software Development', educationDate: '2025-2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro',
-    priorEducation: 'Technical course in Systems Management and Programming · 2020-2023',
+    pathKicker: '03 / PROFESSIONAL EXPERIENCE', pathTitle: 'Technical internships and experience beyond software projects.',
+    educationKicker: 'EDUCATION', educationTitle: 'Software Development', educationDate: 'Sep 2025 – Jul 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro',
+    educationAdditional: 'CTeSP, CNC Programmer · Oct 2024 – Jul 2025 · Enrolment currently frozen',
+    priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
     internshipKicker: 'NEXT STEP / 2027', internshipTitle: 'Looking for a team to learn with.', internshipText: 'I’m looking for a 680-hour curricular internship where I can contribute to real work, learn from a team and improve through feedback. Remote is my preference.',
     targetStart: 'Target start: February 2027', mode: 'Remote preferred', internshipCta: 'Talk about an internship', internshipMeta: '01 OPPORTUNITY / 680 HOURS', internshipBottom: 'LEARN IN A TEAM. CONTRIBUTE TO REAL WORK.', contactMeta: 'EMAIL / LINKS / NEXT STEP',
     contactKicker: '04 / CONTACT', contactTitle: 'Got something in mind?', contactText: 'For internship opportunities, collaboration or a web project, email is the easiest way to reach me.', emailLabel: 'EMAIL ME', socialsLabel: 'ELSEWHERE ON THE INTERNET', socialNote: 'Follow the work, not the oversharing.',
@@ -110,20 +155,20 @@ const copy = {
     workIntro: 'Projetos reais. O que fazem, as tecnologias usadas e ligações para experimentar ou consultar o código.',
     viewLive: 'Abrir projeto', viewCode: 'Código-fonte', inProgress: 'Em desenvolvimento', previewUnavailable: 'Ainda não existe uma captura de ecrã pública.',
     aboutKicker: '02 / VERSÃO CURTA', aboutTitle: 'Ainda a aprender. Já a construir.',
-    about1: 'Estou a estudar Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. Neste momento, o meu foco principal é criar interfaces web úteis e responsivas.',
-    about2: 'Os meus projetos atuais usam React, JavaScript e TypeScript, além de PHP, APIs REST, MySQL/MariaDB, Kotlin para Android e fundamentos de C.',
-    about3: 'Prefiro mostrar aquilo que fiz a dizer que sei tudo. Os projetos estão descritos com honestidade, incluindo os que ainda estão em desenvolvimento.',
-    skillsKicker: 'FERRAMENTAS COM QUE JÁ TRABALHEI', skillsTitle: 'O meu toolkit atual', skillsIntro: 'Sem percentagens ou níveis inventados. Apenas ferramentas e conceitos que já usei em projetos ou trabalhos académicos.',
+    about1: 'Sou estudante do CTeSP de Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. Interesso-me sobretudo por desenvolvimento frontend, aplicações web e fundamentos de engenharia de software.',
+    about2: 'A minha formação inclui algoritmos, programação orientada a objetos, desenvolvimento web e mobile, bases de dados, engenharia de software e análise de sistemas, com uma forte componente prática.',
+    about3: 'Tenho experiência prática com HTML, CSS, JavaScript, PHP e MySQL, incluindo estágios de desenvolvimento backend na ClickBeauty / Alvocromático e de desenvolvimento web na Associação Estamos Juntos. O meu foco é criar aplicações web modernas, funcionais e responsivas.',
+    servicesKicker: 'SERVIÇOS', servicesTitle: 'Como posso ajudar', servicesIntro: 'Apoio prático para websites e projetos digitais de pequena dimensão.', serviceItems: [['Desenvolvimento web', 'Websites responsivos e experiências web funcionais.'], ['Desenvolvimento de bases de dados', 'Estruturas SQL e funcionalidades ligadas a bases de dados.'], ['Teste de software', 'Verificações manuais, validação e identificação de problemas.'], ['Web design', 'Interfaces claras e responsivas, com atenção à usabilidade.']],
     skillGroups: [
       ['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'],
       ['BACKEND + DADOS', 'PHP', 'Node.js', 'APIs REST', 'SQL', 'MySQL / MariaDB'],
       ['LINGUAGENS + FERRAMENTAS', 'C', 'Kotlin / Android', 'Python', 'Git', 'GitHub', 'npm', 'Affinity'],
     ],
     pathKicker: '03 / EXPERIÊNCIA RELEVANTE', pathTitle: 'Alguma experiência para lá dos projetos pessoais.',
-    expOneRole: 'Desenvolvimento back-end', expOneDate: '2023', expOneText: 'Trabalho com funcionalidades PHP, bases de dados MySQL, ferramentas web internas e manutenção de código existente.',
-    expTwoRole: 'Desenvolvimento web', expTwoDate: '2022', expTwoText: 'Criação de websites com HTML, CSS, JavaScript e PHP, incluindo configuração e gestão de bases de dados.',
-    educationKicker: 'FORMAÇÃO', educationTitle: 'Desenvolvimento de Software', educationDate: '2025-2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro',
-    priorEducation: 'Curso profissional de Gestão e Programação de Sistemas Informáticos · 2020-2023',
+    pathKicker: '03 / EXPERIÊNCIA PROFISSIONAL', pathTitle: 'Estágios técnicos e experiência para lá dos projetos de software.',
+    educationKicker: 'FORMAÇÃO', educationTitle: 'Desenvolvimento de Software', educationDate: 'set. 2025 – jul. 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro',
+    educationAdditional: 'CTeSP, Programador CNC · out. 2024 – jul. 2025 · Matrícula congelada',
+    priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
     internshipKicker: 'PRÓXIMO PASSO / 2027', internshipTitle: 'À procura de uma equipa com quem aprender.', internshipText: 'Procuro um estágio curricular de 680 horas onde possa contribuir para trabalho real, aprender com uma equipa e evoluir com feedback. Tenho preferência por remoto.',
     targetStart: 'Início pretendido: fevereiro de 2027', mode: 'Preferência por remoto', internshipCta: 'Falar sobre estágio', internshipMeta: 'OPORTUNIDADE / 680 HORAS', internshipBottom: 'APRENDER EM EQUIPA. CONTRIBUIR PARA TRABALHO REAL.', contactMeta: 'EMAIL / LIGAÇÕES / PRÓXIMO PASSO',
     contactKicker: '04 / CONTACTO', contactTitle: 'Tens algo em mente?', contactText: 'Para oportunidades de estágio, colaboração ou um projeto web, o email é a forma mais simples de falar comigo.',
@@ -160,12 +205,11 @@ const localeCopy = {
     about1: 'Estudio Desarrollo de Software en la Escola Superior Aveiro Norte, parte de la Universidad de Aveiro. Mi prioridad actual es crear interfaces web útiles y adaptables.',
     about2: 'Mis proyectos actuales utilizan React, JavaScript y TypeScript, además de PHP, API REST, MySQL/MariaDB, Kotlin para Android y fundamentos de C.',
     about3: 'Prefiero mostrar lo que he hecho antes que afirmar que lo sé todo. Los proyectos se describen con honestidad, incluidos los que siguen en desarrollo.',
-    skillsKicker: 'HERRAMIENTAS QUE HE UTILIZADO', skillsTitle: 'Mi conjunto de herramientas', skillsIntro: 'Sin porcentajes ni niveles inventados. Solo tecnologías y conceptos utilizados en proyectos o estudios.',
+    servicesKicker: 'SERVICIOS', servicesTitle: 'En qué puedo ayudar', servicesIntro: 'Apoyo práctico para sitios web y pequeños proyectos digitales.', serviceItems: [['Desarrollo web', 'Sitios adaptables y experiencias web funcionales.'], ['Desarrollo de bases de datos', 'Estructuras SQL y funciones conectadas a bases de datos.'], ['Pruebas de software', 'Comprobaciones manuales, validación y resolución de problemas.'], ['Diseño web', 'Interfaces claras y adaptables centradas en la usabilidad.']],
     skillGroups: [['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'], ['BACKEND + DATOS', 'PHP', 'Node.js', 'API REST', 'SQL', 'MySQL / MariaDB'], ['LENGUAJES + HERRAMIENTAS', 'C', 'Kotlin / Android', 'Python', 'Git', 'GitHub', 'npm', 'Affinity']],
     pathKicker: '03 / EXPERIENCIA RELEVANTE', pathTitle: 'Experiencia más allá de los proyectos personales.',
-    expOneRole: 'Desarrollo back-end', expOneDate: '2023', expOneText: 'Desarrollo de funcionalidades PHP, bases de datos MySQL, herramientas web internas y mantenimiento de código.',
-    expTwoRole: 'Desarrollo web', expTwoDate: '2022', expTwoText: 'Creación de sitios web con HTML, CSS, JavaScript y PHP, además de configuración y gestión de bases de datos.',
-    educationKicker: 'FORMACIÓN', educationTitle: 'Desarrollo de Software', educationDate: '2025-2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', priorEducation: 'Curso profesional de Gestión y Programación de Sistemas Informáticos · 2020-2023',
+    pathKicker: '03 / EXPERIENCIA PROFESIONAL', pathTitle: 'Prácticas técnicas y experiencia más allá de los proyectos de software.',
+    educationKicker: 'FORMACIÓN', educationTitle: 'Desarrollo de Software', educationDate: 'sep. 2025 – jul. 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', educationAdditional: 'CTeSP, Programador CNC · oct. 2024 – jul. 2025 · Matrícula congelada', priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
     internshipKicker: 'SIGUIENTE PASO / 2027', internshipTitle: 'Busco un equipo con el que aprender.', internshipText: 'Busco prácticas curriculares de 680 horas para contribuir a trabajo real, aprender de un equipo y mejorar con feedback. Prefiero el trabajo remoto.', targetStart: 'Inicio previsto: febrero de 2027', mode: 'Preferencia remota', internshipCta: 'Hablar de prácticas', internshipMeta: 'OPORTUNIDAD / 680 HORAS', internshipBottom: 'APRENDER EN EQUIPO. CONTRIBUIR A PROYECTOS REALES.', contactMeta: 'EMAIL / ENLACES / SIGUIENTE PASO',
     contactKicker: '04 / CONTACTO', contactTitle: '¿Tienes algo en mente?', contactText: 'Para prácticas, colaboraciones o proyectos web, el correo electrónico es la forma más sencilla de contactar conmigo.', emailLabel: 'ESCRÍBEME', socialsLabel: 'EN INTERNET', socialNote: 'Sigue el trabajo, sin compartir de más.',
     footerNote: 'Diseñado y desarrollado por Leonardo Alves.', footerTop: 'Volver arriba ↑', email: 'Copiar email', copied: 'Email copiado',
@@ -185,12 +229,11 @@ const localeCopy = {
     about1: 'J’étudie le développement logiciel à l’Escola Superior Aveiro Norte, qui fait partie de l’Université d’Aveiro. Je me concentre sur des interfaces web utiles et adaptatives.',
     about2: 'Mes projets actuels utilisent React, JavaScript et TypeScript, ainsi que PHP, les API REST, MySQL/MariaDB, Kotlin pour Android et les bases du C.',
     about3: 'Je préfère montrer ce que j’ai réalisé plutôt que prétendre tout savoir. Les projets sont présentés honnêtement, y compris ceux encore en cours.',
-    skillsKicker: 'OUTILS DÉJÀ UTILISÉS', skillsTitle: 'Ma boîte à outils actuelle', skillsIntro: 'Pas de pourcentages ni de niveaux inventés. Seulement les outils et concepts utilisés dans mes projets ou mes études.',
+    servicesKicker: 'SERVICES', servicesTitle: 'Comment je peux aider', servicesIntro: 'Un accompagnement pratique pour les sites web et les petits projets numériques.', serviceItems: [['Développement web', 'Sites adaptatifs et expériences web fonctionnelles.'], ['Développement de bases de données', 'Structures SQL et fonctionnalités connectées aux données.'], ['Tests logiciels', 'Vérifications manuelles, validation et diagnostic.'], ['Web design', 'Interfaces claires et adaptatives, pensées pour l’utilisabilité.']],
     skillGroups: [['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'], ['BACKEND + DONNÉES', 'PHP', 'Node.js', 'API REST', 'SQL', 'MySQL / MariaDB'], ['LANGAGES + OUTILS', 'C', 'Kotlin / Android', 'Python', 'Git', 'GitHub', 'npm', 'Affinity']],
     pathKicker: '03 / EXPÉRIENCE PERTINENTE', pathTitle: 'Une expérience au-delà des projets personnels.',
-    expOneRole: 'Développement back-end', expOneDate: '2023', expOneText: 'Développement de fonctionnalités PHP, bases de données MySQL, outils web internes et maintenance de code.',
-    expTwoRole: 'Développement web', expTwoDate: '2022', expTwoText: 'Création de sites avec HTML, CSS, JavaScript et PHP, ainsi que configuration et gestion de bases de données.',
-    educationKicker: 'FORMATION', educationTitle: 'Développement logiciel', educationDate: '2025-2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', priorEducation: 'Formation professionnelle en gestion et programmation de systèmes informatiques · 2020-2023',
+    pathKicker: '03 / EXPÉRIENCE PROFESSIONNELLE', pathTitle: 'Stages techniques et expérience au-delà des projets logiciels.',
+    educationKicker: 'FORMATION', educationTitle: 'Développement logiciel', educationDate: 'sept. 2025 – juil. 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', educationAdditional: 'CTeSP, programmation CNC · oct. 2024 – juil. 2025 · Inscription suspendue', priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
     internshipKicker: 'PROCHAINE ÉTAPE / 2027', internshipTitle: 'Je cherche une équipe pour apprendre.', internshipText: 'Je recherche un stage curriculaire de 680 heures pour contribuer à des projets réels, apprendre en équipe et progresser grâce aux retours. Je privilégie le télétravail.', targetStart: 'Début souhaité : février 2027', mode: 'Télétravail privilégié', internshipCta: 'Parler du stage', internshipMeta: 'OPPORTUNITÉ / 680 HEURES', internshipBottom: 'APPRENDRE EN ÉQUIPE. CONTRIBUER À DES PROJETS RÉELS.', contactMeta: 'EMAIL / LIENS / PROCHAINE ÉTAPE',
     contactKicker: '04 / CONTACT', contactTitle: 'Un projet en tête ?', contactText: 'Pour un stage, une collaboration ou un projet web, le plus simple est de me contacter par e-mail.', emailLabel: 'M’ÉCRIRE', socialsLabel: 'AILLEURS SUR INTERNET', socialNote: 'Suivez le travail, sans trop en dévoiler.',
     footerNote: 'Conçu et développé par Leonardo Alves.', footerTop: 'Retour en haut ↑', email: 'Copier l’e-mail', copied: 'E-mail copié',
@@ -210,12 +253,11 @@ const localeCopy = {
     about1: 'Studio Sviluppo Software presso la Escola Superior Aveiro Norte, parte dell’Università di Aveiro. Al momento mi concentro su interfacce web utili e responsive.',
     about2: 'I miei progetti attuali utilizzano React, JavaScript e TypeScript, oltre a PHP, API REST, MySQL/MariaDB, Kotlin per Android e le basi del C.',
     about3: 'Preferisco mostrare ciò che ho realizzato invece di affermare di sapere tutto. I progetti sono descritti con sincerità, compresi quelli ancora in corso.',
-    skillsKicker: 'STRUMENTI GIÀ UTILIZZATI', skillsTitle: 'Il mio toolkit', skillsIntro: 'Niente percentuali o livelli inventati. Solo strumenti e concetti usati nei progetti o durante gli studi.',
+    servicesKicker: 'SERVIZI', servicesTitle: 'Come posso aiutare', servicesIntro: 'Supporto pratico per siti web e piccoli progetti digitali.', serviceItems: [['Sviluppo web', 'Siti responsive ed esperienze web funzionali.'], ['Sviluppo di database', 'Strutture SQL e funzionalità collegate ai dati.'], ['Test del software', 'Controlli manuali, validazione e risoluzione dei problemi.'], ['Web design', 'Interfacce chiare e responsive, attente all’usabilità.']],
     skillGroups: [['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'], ['BACKEND + DATI', 'PHP', 'Node.js', 'API REST', 'SQL', 'MySQL / MariaDB'], ['LINGUAGGI + STRUMENTI', 'C', 'Kotlin / Android', 'Python', 'Git', 'GitHub', 'npm', 'Affinity']],
     pathKicker: '03 / ESPERIENZA RILEVANTE', pathTitle: 'Esperienza oltre i progetti personali.',
-    expOneRole: 'Sviluppo back-end', expOneDate: '2023', expOneText: 'Sviluppo di funzionalità PHP, database MySQL, strumenti web interni e manutenzione del codice.',
-    expTwoRole: 'Sviluppo web', expTwoDate: '2022', expTwoText: 'Creazione di siti con HTML, CSS, JavaScript e PHP, oltre alla configurazione e gestione dei database.',
-    educationKicker: 'FORMAZIONE', educationTitle: 'Sviluppo Software', educationDate: '2025-2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', priorEducation: 'Corso professionale di gestione e programmazione dei sistemi informatici · 2020-2023',
+    pathKicker: '03 / ESPERIENZA PROFESSIONALE', pathTitle: 'Tirocini tecnici ed esperienza oltre i progetti software.',
+    educationKicker: 'FORMAZIONE', educationTitle: 'Sviluppo Software', educationDate: 'set. 2025 – lug. 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', educationAdditional: 'CTeSP, programmazione CNC · ott. 2024 – lug. 2025 · Iscrizione sospesa', priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
     internshipKicker: 'PROSSIMO PASSO / 2027', internshipTitle: 'Cerco un team con cui imparare.', internshipText: 'Cerco un tirocinio curricolare di 680 ore in cui contribuire a progetti reali, imparare da un team e migliorare grazie ai feedback. Preferisco il lavoro da remoto.', targetStart: 'Inizio previsto: febbraio 2027', mode: 'Preferenza da remoto', internshipCta: 'Parliamo del tirocinio', internshipMeta: 'OPPORTUNITÀ / 680 ORE', internshipBottom: 'IMPARARE INSIEME. CONTRIBUIRE A PROGETTI REALI.', contactMeta: 'EMAIL / LINK / PROSSIMO PASSO',
     contactKicker: '04 / CONTATTI', contactTitle: 'Hai un’idea in mente?', contactText: 'Per opportunità di tirocinio, collaborazioni o progetti web, l’e-mail è il modo più semplice per contattarmi.', emailLabel: 'SCRIVIMI', socialsLabel: 'ALTROVE SU INTERNET', socialNote: 'Segui il lavoro, senza condividere troppo.',
     footerNote: 'Design e sviluppo di Leonardo Alves.', footerTop: 'Torna in alto ↑', email: 'Copia e-mail', copied: 'E-mail copiata',
@@ -235,12 +277,11 @@ const localeCopy = {
     about1: 'Ich studiere Softwareentwicklung an der Escola Superior Aveiro Norte, einem Teil der Universität Aveiro. Mein aktueller Schwerpunkt sind nützliche, responsive Weboberflächen.',
     about2: 'Meine aktuellen Projekte nutzen React, JavaScript und TypeScript sowie PHP, REST-APIs, MySQL/MariaDB, Kotlin für Android und C-Grundlagen.',
     about3: 'Ich zeige lieber, was ich gebaut habe, statt zu behaupten, alles zu können. Die Projekte sind ehrlich beschrieben, auch wenn sie noch in Arbeit sind.',
-    skillsKicker: 'BEREITS VERWENDETE TOOLS', skillsTitle: 'Mein aktueller Werkzeugkasten', skillsIntro: 'Keine erfundenen Prozentwerte oder Fähigkeitsstufen. Nur Werkzeuge und Konzepte, die ich in Projekten oder im Studium genutzt habe.',
+    servicesKicker: 'LEISTUNGEN', servicesTitle: 'Wobei ich unterstützen kann', servicesIntro: 'Praktische Unterstützung für Websites und kleinere digitale Projekte.', serviceItems: [['Webentwicklung', 'Responsive Websites und funktionale Web-Erlebnisse.'], ['Datenbankentwicklung', 'SQL-Strukturen und datenbankgestützte Funktionen.'], ['Softwaretests', 'Manuelle Prüfungen, Validierung und Fehlersuche.'], ['Webdesign', 'Klare, responsive und benutzerfreundliche Oberflächen.']],
     skillGroups: [['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'], ['BACKEND + DATEN', 'PHP', 'Node.js', 'REST-APIs', 'SQL', 'MySQL / MariaDB'], ['SPRACHEN + TOOLS', 'C', 'Kotlin / Android', 'Python', 'Git', 'GitHub', 'npm', 'Affinity']],
     pathKicker: '03 / RELEVANTE ERFAHRUNG', pathTitle: 'Erfahrung über persönliche Projekte hinaus.',
-    expOneRole: 'Backend-Entwicklung', expOneDate: '2023', expOneText: 'Entwicklung von PHP-Funktionen, MySQL-Datenbanken, internen Webtools und Wartung bestehenden Codes.',
-    expTwoRole: 'Webentwicklung', expTwoDate: '2022', expTwoText: 'Erstellung von Websites mit HTML, CSS, JavaScript und PHP sowie Einrichtung und Verwaltung von Datenbanken.',
-    educationKicker: 'AUSBILDUNG', educationTitle: 'Softwareentwicklung', educationDate: '2025-2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', priorEducation: 'Berufsausbildung in Systemverwaltung und Programmierung · 2020-2023',
+    pathKicker: '03 / BERUFSERFAHRUNG', pathTitle: 'Technische Praktika und Erfahrung über Softwareprojekte hinaus.',
+    educationKicker: 'AUSBILDUNG', educationTitle: 'Softwareentwicklung', educationDate: 'Sep. 2025 – Jul. 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', educationAdditional: 'CTeSP, CNC-Programmierung · Okt. 2024 – Jul. 2025 · Einschreibung derzeit ausgesetzt', priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
     internshipKicker: 'NÄCHSTER SCHRITT / 2027', internshipTitle: 'Ich suche ein Team, von dem ich lernen kann.', internshipText: 'Ich suche ein 680-stündiges Pflichtpraktikum, um an realen Aufgaben mitzuwirken, im Team zu lernen und mich durch Feedback zu verbessern. Remote-Arbeit ist meine Präferenz.', targetStart: 'Geplanter Beginn: Februar 2027', mode: 'Remote bevorzugt', internshipCta: 'Über ein Praktikum sprechen', internshipMeta: 'CHANCE / 680 STUNDEN', internshipBottom: 'IM TEAM LERNEN. AN REALEN PROJEKTEN MITARBEITEN.', contactMeta: 'E-MAIL / LINKS / NÄCHSTER SCHRITT',
     contactKicker: '04 / KONTAKT', contactTitle: 'Hast du etwas im Sinn?', contactText: 'Für Praktika, Zusammenarbeit oder Webprojekte ist eine E-Mail der einfachste Weg, mich zu erreichen.', emailLabel: 'SCHREIB MIR', socialsLabel: 'SONST IM INTERNET', socialNote: 'Verfolge die Arbeit, nicht zu viele persönliche Details.',
     footerNote: 'Design und Entwicklung von Leonardo Alves.', footerTop: 'Nach oben ↑', email: 'E-Mail kopieren', copied: 'E-Mail kopiert',
@@ -260,12 +301,11 @@ const localeCopy = {
     about1: 'アヴェイロ大学の Escola Superior Aveiro Norte でソフトウェア開発を学んでいます。現在は、使いやすくレスポンシブなWebインターフェースに重点を置いています。',
     about2: '現在のプロジェクトではReact、JavaScript、TypeScriptに加え、PHP、REST API、MySQL/MariaDB、Android向けKotlin、C言語の基礎を扱っています。',
     about3: '何でもできると主張するより、実際に作ったものを見せたいと考えています。開発中のものも含め、各プロジェクトの状態を正直に記載しています。',
-    skillsKicker: '使用経験のある技術', skillsTitle: '現在のツールセット', skillsIntro: '根拠のないスキル評価は載せず、プロジェクトや学業で使用した技術と概念を紹介します。',
+    servicesKicker: 'サービス', servicesTitle: 'お手伝いできること', servicesIntro: 'Webサイトや小規模なデジタルプロジェクトへの実践的なサポート。', serviceItems: [['Web開発', 'レスポンシブなサイトと実用的なWeb体験。'], ['データベース開発', 'SQL構造とデータベース連携機能。'], ['ソフトウェアテスト', '手動確認、検証、問題の切り分け。'], ['Webデザイン', '使いやすさを重視した明快でレスポンシブなUI。']],
     skillGroups: [['フロントエンド', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'], ['バックエンド・データ', 'PHP', 'Node.js', 'REST API', 'SQL', 'MySQL / MariaDB'], ['言語・ツール', 'C', 'Kotlin / Android', 'Python', 'Git', 'GitHub', 'npm', 'Affinity']],
     pathKicker: '03 / 関連する経験', pathTitle: '個人プロジェクト以外の経験。',
-    expOneRole: 'バックエンド開発', expOneDate: '2023', expOneText: 'PHP機能、MySQLデータベース、社内Webツールの開発と既存コードの保守に携わりました。',
-    expTwoRole: 'Web開発', expTwoDate: '2022', expTwoText: 'HTML、CSS、JavaScript、PHPを用いたWebサイト制作とデータベースの設定・管理を行いました。',
-    educationKicker: '学歴', educationTitle: 'ソフトウェア開発', educationDate: '2025-2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', priorEducation: '情報システム管理・プログラミングの職業課程 · 2020-2023',
+    pathKicker: '03 / 職務経験', pathTitle: '技術系インターンシップとソフトウェア制作以外の経験。'
+    educationKicker: '学歴', educationTitle: 'ソフトウェア開発', educationDate: '2025年9月 – 2027年7月', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro', educationAdditional: 'CTeSP CNCプログラマー課程 · 2024年10月 – 2025年7月 · 現在休学', priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
     internshipKicker: '次のステップ / 2027', internshipTitle: 'チームで学べる環境を探しています。', internshipText: '実際の仕事に参加し、チームから学び、フィードバックを通して成長できる680時間のカリキュラム実習を希望しています。リモート勤務を希望します。', targetStart: '開始希望：2027年2月', mode: 'リモート勤務を希望', internshipCta: 'インターンについて連絡', internshipMeta: '機会 / 680時間', internshipBottom: 'チームで学び、実際のプロジェクトに貢献する。', contactMeta: 'メール / リンク / 次のステップ',
     contactKicker: '04 / お問い合わせ', contactTitle: '一緒に何かしませんか？', contactText: 'インターン、共同作業、Webプロジェクトについては、メールでの連絡が一番簡単です。', emailLabel: 'メールを送る', socialsLabel: 'ほかのSNS', socialNote: '個人情報を出しすぎず、作品を見てください。',
     footerNote: 'Leonardo Alves がデザイン・開発。', footerTop: 'トップへ戻る ↑', email: 'メールをコピー', copied: 'メールをコピーしました',
@@ -596,9 +636,14 @@ export default function App() {
           <div className="skills-rows">{t.skillGroups.map((group, i) => <div className="skill-row" key={group[0]}><div className="skill-label"><span>0{i + 1}</span>{group[0]}</div><div className="skill-items">{group.slice(1).map((skill) => <span key={skill}>{skill}</span>)}</div></div>)}</div>
         </section>
 
+        <section className="services-section section-pad" id="services">
+          <div className="section-heading"><div><p className="section-kicker">{t.servicesKicker}</p><h2>{t.servicesTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.servicesIntro}</p></div>
+          <div className="services-grid">{t.serviceItems.map(([title, description], index) => <article className="service-card" key={title}><span className="service-index">0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+        </section>
+
         <section className="background-section section-pad" id="background">
-          <div className="section-heading"><div><p className="section-kicker">{t.pathKicker}</p><h2>{t.pathTitle}<span className="brand-dot">.</span></h2></div><div className="education-card"><span className="education-label">{t.educationKicker}</span><h3>{t.educationTitle}</h3><span className="education-date">{t.educationDate}</span><p>{t.educationWhere}</p><div className="education-rule"/><p className="prior-education">{t.priorEducation}</p></div></div>
-          <div className="experience-list"><article className="experience-item"><span className="experience-year">{t.expOneDate}</span><div><h3>{t.expOneRole}</h3><p>{t.expOneText}</p><div className="tag-list"><span>PHP</span><span>MySQL</span><span>Maintenance</span></div></div><span className="experience-symbol">↗</span></article><article className="experience-item"><span className="experience-year">{t.expTwoDate}</span><div><h3>{t.expTwoRole}</h3><p>{t.expTwoText}</p><div className="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span></div></div><span className="experience-symbol">↗</span></article></div>
+          <div className="section-heading"><div><p className="section-kicker">{t.pathKicker}</p><h2>{t.pathTitle}<span className="brand-dot">.</span></h2></div><div className="education-card"><span className="education-label">{t.educationKicker}</span><h3>{t.educationTitle}</h3><span className="education-date">{t.educationDate}</span><p>{t.educationWhere}</p><div className="education-rule"/><p className="education-additional">{t.educationAdditional}</p><p className="prior-education">{t.priorEducation}</p></div></div>
+          <div className="experience-list">{experienceByLanguage[language] ? experienceByLanguage[language].map((experience) => <article className="experience-item" key={experience.id}><span className="experience-year">{experience.date}</span><div><h3>{experience.role}</h3><p className="experience-company">{experience.company}</p><p>{experience.description}</p><div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div><span className="experience-symbol" aria-hidden="true">↗</span></article>) : experienceByLanguage.en.map((experience) => <article className="experience-item" key={experience.id}><span className="experience-year">{experience.date}</span><div><h3>{experience.role}</h3><p className="experience-company">{experience.company}</p><p>{experience.description}</p><div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div><span className="experience-symbol" aria-hidden="true">↗</span></article>)}</div>
         </section>
 
         <section className="internship-section" id="internship">
