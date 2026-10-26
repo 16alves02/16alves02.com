@@ -1453,3 +1453,34 @@ html[data-theme="dark"] .social-link:hover .social-mark {
 }
 .social-link:focus-visible { outline: 2px solid #ff876b; outline-offset: 3px; }
 
+
+
+/* Launch audit: keyboard skip link and CV download action */
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+  transform: translateY(calc(-100% - 20px));
+  padding: 12px 16px;
+  border: 2px solid var(--ink);
+  background: var(--orange);
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.skip-link:focus,
+.skip-link:focus-visible { transform: translateY(0); }
+.cv-download-button { cursor: pointer; }
+.cv-download-button:focus-visible,
+.hero-actions .button:focus-visible,
+.project-link:focus-visible,
+.social-link:focus-visible,
+.site-header button:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+@media (max-width: 560px) {
+  .hero-actions { align-items: stretch; }
+  .hero-actions .button { justify-content: space-between; }
+}

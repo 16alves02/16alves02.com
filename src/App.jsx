@@ -117,7 +117,7 @@ const copy = {
     role: 'SOFTWARE DEVELOPMENT STUDENT / JUNIOR SOFTWARE DEVELOPER', eyebrow: 'PERSONAL SITE / PORTUGAL / 2026',
     titleOne: 'I make things', titleTwo: 'for the web', titleEnd: '.',
     intro: 'I’m Leonardo, the person behind 16alves02. I build web projects, pay attention to the details, and like understanding what happens behind the interface too.',
-    workButton: 'See selected work', internshipButton: 'Looking for a 680h internship',
+    workButton: 'See selected work', cvButton: 'Download CV (PDF)', internshipButton: 'Looking for a 680h internship', skipToContent: 'Skip to content',
     sideNote: 'FRONTEND MINDED. FULL-STACK CURIOUS.', scroll: 'SCROLL A LITTLE',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'BUILD / TEST / LEARN'],
     workKicker: '01 / THINGS I’VE BUILT', workTitle: 'Selected work',
@@ -147,7 +147,7 @@ const copy = {
     role: 'ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE / JUNIOR DEVELOPER', eyebrow: 'SITE PESSOAL / PORTUGAL / 2026',
     titleOne: 'Faço coisas', titleTwo: 'para a web', titleEnd: '.',
     intro: 'Sou o Leonardo, a pessoa por trás de 16alves02. Desenvolvo projetos web, presto atenção aos detalhes e gosto de perceber o que acontece para lá da interface.',
-    workButton: 'Ver projetos', internshipButton: 'À procura de estágio de 680h',
+    workButton: 'Ver projetos', cvButton: 'Descarregar CV (PDF)', internshipButton: 'À procura de estágio de 680h', skipToContent: 'Saltar para o conteúdo',
     sideNote: 'FOCO NO FRONTEND. CURIOSIDADE PELO RESTO.', scroll: 'CONTINUA A DESCER',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CRIAR / TESTAR / APRENDER'],
     workKicker: '01 / COISAS QUE CONSTRUÍ', workTitle: 'Projetos selecionados',
@@ -195,7 +195,7 @@ const localeCopy = {
     role: 'ESTUDIANTE DE DESARROLLO DE SOFTWARE / DESARROLLADOR JUNIOR', eyebrow: 'SITIO PERSONAL / PORTUGAL / 2026',
     titleOne: 'Creo cosas', titleTwo: 'para la web', titleEnd: '.',
     intro: 'Soy Leonardo, la persona detrás de 16alves02. Desarrollo proyectos web, cuido los detalles y me gusta entender también lo que ocurre detrás de la interfaz.',
-    workButton: 'Ver proyectos', internshipButton: 'Busco prácticas de 680 h', sideNote: 'ENFOQUE FRONTEND. CURIOSIDAD FULL-STACK.', scroll: 'SIGUE BAJANDO',
+    workButton: 'Ver proyectos', cvButton: 'Descargar CV (PDF)', internshipButton: 'Busco prácticas de 680 h', skipToContent: 'Saltar al contenido', sideNote: 'ENFOQUE FRONTEND. CURIOSIDAD FULL-STACK.', scroll: 'SIGUE BAJANDO',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CREAR / PROBAR / APRENDER'],
     workKicker: '01 / COSAS QUE HE CREADO', workTitle: 'Proyectos seleccionados', workIntro: 'Proyectos reales: qué hacen, qué tecnologías utilizan y enlaces para probarlos o consultar el código.',
     viewLive: 'Abrir proyecto', viewCode: 'Código fuente', inProgress: 'En desarrollo', previewUnavailable: 'Todavía no hay una captura pública disponible.',
@@ -218,7 +218,7 @@ const localeCopy = {
     role: 'ÉTUDIANT EN DÉVELOPPEMENT LOGICIEL / DÉVELOPPEUR JUNIOR', eyebrow: 'SITE PERSONNEL / PORTUGAL / 2026',
     titleOne: 'Je crée des choses', titleTwo: 'pour le web', titleEnd: '.',
     intro: 'Je suis Leonardo, la personne derrière 16alves02. Je crée des projets web, soigne les détails et aime comprendre ce qui se passe derrière l’interface.',
-    workButton: 'Voir les projets', internshipButton: 'Stage de 680 h recherché', sideNote: 'FOCUS FRONTEND. CURIOSITÉ FULL-STACK.', scroll: 'CONTINUER À DÉFILER',
+    workButton: 'Voir les projets', cvButton: 'Télécharger le CV (PDF)', internshipButton: 'Stage de 680 h recherché', skipToContent: 'Aller au contenu', sideNote: 'FOCUS FRONTEND. CURIOSITÉ FULL-STACK.', scroll: 'CONTINUER À DÉFILER',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CRÉER / TESTER / APPRENDRE'],
     workKicker: '01 / CE QUE J’AI CRÉÉ', workTitle: 'Projets sélectionnés', workIntro: 'Des projets réels : leur objectif, les technologies utilisées et les liens pour les tester ou consulter le code.',
     viewLive: 'Ouvrir le projet', viewCode: 'Code source', inProgress: 'En développement', previewUnavailable: 'Aucune capture publique n’est disponible pour le moment.',
@@ -241,7 +241,7 @@ const localeCopy = {
     role: 'STUDENTE DI SVILUPPO SOFTWARE / SVILUPPATORE JUNIOR', eyebrow: 'SITO PERSONALE / PORTOGALLO / 2026',
     titleOne: 'Creo cose', titleTwo: 'per il web', titleEnd: '.',
     intro: 'Sono Leonardo, la persona dietro 16alves02. Creo progetti web, curo i dettagli e mi piace capire cosa succede anche dietro l’interfaccia.',
-    workButton: 'Vedi i progetti', internshipButton: 'Cerco tirocinio di 680 ore', sideNote: 'FOCUS FRONTEND. CURIOSITÀ FULL-STACK.', scroll: 'CONTINUA A SCORRERE',
+    workButton: 'Vedi i progetti', cvButton: 'Scarica il CV (PDF)', internshipButton: 'Cerco tirocinio di 680 ore', skipToContent: 'Vai al contenuto', sideNote: 'FOCUS FRONTEND. CURIOSITÀ FULL-STACK.', scroll: 'CONTINUA A SCORRERE',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CREARE / TESTARE / IMPARARE'],
     workKicker: '01 / COSE CHE HO REALIZZATO', workTitle: 'Progetti selezionati', workIntro: 'Progetti reali: cosa fanno, quali tecnologie usano e link per provarli o consultare il codice.',
     viewLive: 'Apri progetto', viewCode: 'Codice sorgente', inProgress: 'In sviluppo', previewUnavailable: 'Non è ancora disponibile uno screenshot pubblico.',
@@ -264,7 +264,7 @@ const localeCopy = {
     role: 'SOFTWAREENTWICKLUNGSSTUDENT / JUNIOR-ENTWICKLER', eyebrow: 'PERSÖNLICHE WEBSITE / PORTUGAL / 2026',
     titleOne: 'Ich entwickle Dinge', titleTwo: 'für das Web', titleEnd: '.',
     intro: 'Ich bin Leonardo, die Person hinter 16alves02. Ich entwickle Webprojekte, achte auf Details und möchte verstehen, was hinter der Oberfläche passiert.',
-    workButton: 'Projekte ansehen', internshipButton: 'Suche ein 680-Stunden-Praktikum', sideNote: 'FRONTEND-FOKUS. FULL-STACK-NEUGIER.', scroll: 'WEITER SCROLLEN',
+    workButton: 'Projekte ansehen', cvButton: 'Lebenslauf herunterladen (PDF)', internshipButton: 'Suche ein 680-Stunden-Praktikum', skipToContent: 'Zum Inhalt springen', sideNote: 'FRONTEND-FOKUS. FULL-STACK-NEUGIER.', scroll: 'WEITER SCROLLEN',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'ENTWICKELN / TESTEN / LERNEN'],
     workKicker: '01 / MEINE PROJEKTE', workTitle: 'Ausgewählte Projekte', workIntro: 'Echte Projekte mit kurzer Beschreibung, verwendeten Technologien und Links zur Demo oder zum Quellcode.',
     viewLive: 'Projekt öffnen', viewCode: 'Quellcode', inProgress: 'In Entwicklung', previewUnavailable: 'Derzeit ist kein öffentlicher Screenshot verfügbar.',
@@ -287,7 +287,7 @@ const localeCopy = {
     role: 'ソフトウェア開発学生 / ジュニアソフトウェア開発者', eyebrow: '個人サイト / ポルトガル / 2026',
     titleOne: 'Webのために', titleTwo: 'ものを作る', titleEnd: '。',
     intro: 'Leonardoです。16alves02として活動しています。Webプロジェクトを作り、細部に気を配り、画面の裏側の仕組みを理解することも大切にしています。',
-    workButton: '制作実績を見る', internshipButton: '680時間のインターンを希望', sideNote: 'フロントエンド中心。フルスタックにも関心。', scroll: 'スクロールして続ける',
+    workButton: '制作実績を見る', cvButton: '履歴書をダウンロード (PDF)', internshipButton: '680時間のインターンを希望', skipToContent: 'メインコンテンツへ移動', sideNote: 'フロントエンド中心。フルスタックにも関心。', scroll: 'スクロールして続ける',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', '作る / 試す / 学ぶ'],
     workKicker: '01 / 制作したもの', workTitle: '主なプロジェクト', workIntro: '実際のプロジェクト、使用技術、デモやソースコードへのリンクを紹介します。',
     viewLive: 'プロジェクトを開く', viewCode: 'ソースコード', inProgress: '開発中', previewUnavailable: '公開できるスクリーンショットはまだありません。',
@@ -509,6 +509,7 @@ export default function App() {
 
   return (
     <div className="site-shell" data-theme={theme}>
+      <a className="skip-link" href="#main-content">{t.skipToContent}</a>
       <header className="site-header">
         <div className="header-inner">
           <a className="brand" href="#home" aria-label="16alves02 home">
@@ -586,7 +587,7 @@ export default function App() {
         </div>
       </header>
 
-      <main>
+      <main id="main-content">
         <section className="hero" id="home">
           <div className="hero-back-number" aria-hidden="true">16</div>
           <div className="hero-inner">
@@ -594,7 +595,7 @@ export default function App() {
               <div className="hero-meta"><span className="status-dot" />{t.role}<span className="meta-slash">/</span>{t.eyebrow}</div>
               <h1>{t.titleOne}<br /><span className="hero-orange">{t.titleTwo}</span><span className="hero-period">{t.titleEnd}</span></h1>
               <p className="hero-intro">{t.intro}</p>
-              <div className="hero-actions"><button className="button button-dark" onClick={() => goTo('work')}>{t.workButton}<span>↘</span></button><button className="button button-outline" onClick={() => goTo('internship')}>{t.internshipButton}<span>↗</span></button></div>
+              <div className="hero-actions"><button className="button button-dark" onClick={() => goTo('work')}>{t.workButton}<span aria-hidden="true">↘</span></button><a className="button button-outline cv-download-button" href={language === 'pt-PT' ? '/cv/Leonardo_Alves_CV_Frontend_PT.pdf' : '/cv/Leonardo_Alves_CV_Frontend_EN.pdf'} download={language === 'pt-PT' ? 'Leonardo_Alves_CV_PT.pdf' : 'Leonardo_Alves_CV_EN.pdf'}>{t.cvButton}<span aria-hidden="true">↓</span></a><button className="button button-outline" onClick={() => goTo('internship')}>{t.internshipButton}<span aria-hidden="true">↗</span></button></div>
               <div className="hero-footnote"><span className="footnote-mark">✳</span><span>{t.sideNote}</span><span className="hero-small-mark">16 / 02</span></div>
             </div>
             <div className="hero-art" role="img" aria-label={t.brandVisualLabel}>

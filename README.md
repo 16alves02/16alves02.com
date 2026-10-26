@@ -94,3 +94,20 @@ The production build is generated in `dist/`.
 ## Author
 
 Leonardo Alves · [GitHub](https://github.com/16alves02) · [LinkedIn](https://www.linkedin.com/in/16alves02/) · [Email](mailto:16alves02@gmail.com)
+
+
+## Launch readiness
+
+- Language-aware CV download: Portuguese (Portugal) serves the Portuguese PDF; every other interface language serves the English PDF.
+- Search indexing files are included in public/robots.txt and public/sitemap.xml.
+- A canonical URL and Open Graph/Twitter metadata are configured in index.html, using a dedicated 1200 × 630 preview image.
+- public/404.html provides a branded not-found page on Vercel.
+- A skip-to-content link supports keyboard navigation. Theme and language preferences are saved locally in the browser; no analytics package is installed.
+
+## Launch checks
+
+- Run npm run build to validate the production bundle.
+- Check that the CV button downloads the PT-PT PDF only when Portuguese (Portugal) is selected, and the English PDF for all other language options.
+- Verify /robots.txt, /sitemap.xml, /og-cover.png and an invalid URL on the deployed preview.
+- Test keyboard navigation, focus visibility, mobile layouts, social links, live demos and contact actions.
+- Performance scores and external-link availability must be measured against the deployed build; they are not inferred from a successful compile.
