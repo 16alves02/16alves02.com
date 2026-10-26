@@ -55,6 +55,7 @@ const projectTranslations = {
     '03': { type: 'PROJETO ACADÉMICO / EM DESENVOLVIMENTO', description: 'Um projeto de software pensado para as operações do dia a dia de pequenas padarias e pastelarias. O foco atual é compreender os fluxos de trabalho, sobretudo turnos e horas dos funcionários.' },
     '04': { type: 'FUNDAMENTOS WEB', description: 'Um pequeno gestor de tarefas desenvolvido sem framework de frontend. Um exercício prático de eventos, atualizações do DOM, filtros e armazenamento no browser.' },
     '05': { type: 'FUNDAMENTOS DE PROGRAMAÇÃO', description: 'Um dos primeiros projetos de consola, criado para explorar algoritmos clássicos de ordenação através de implementações diretas e um menu simples.' },
+    '06': { type: 'FUNDAMENTOS DE PROGRAMAÇÃO', description: 'Um projeto de consola para explorar algoritmos clássicos de ordenação através de implementações diretas.' },
   },
 };
 
