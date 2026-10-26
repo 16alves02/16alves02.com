@@ -63,7 +63,7 @@ The production build is generated in `dist/`.
 - `src/App.jsx` — page sections, project data and language copy.
 - `src/styles.css` — component and layout styling.
 - `src/index.css` — base styles and design tokens.
-- `src/data/projects.js` — project metadata module; check whether it is used before editing because the main page defines its own project list.
+- `src/data/projects.js` — the single source of truth for project descriptions, stacks, public links and real preview assets.
 - `public/` — logos, favicon and social preview assets.
 
 ## Author
