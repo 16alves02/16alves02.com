@@ -332,6 +332,33 @@ for (const [code, additions] of Object.entries(extraUiCopy)) {
 }
 
 function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
+  // Use the official itch.io player for RAW., with a direct link as a fallback.
+  if (type === 'raw') {
+    return (
+      <div className="raw-itch-embed">
+        <div className="raw-embed-heading">
+          <span className="raw-embed-mark">RAW.</span>
+          <span className="raw-embed-caption">INTERACTIVE CONVERSATION GAME / ITCH.IO</span>
+        </div>
+        <iframe
+          src="https://itch.io/embed/5239051?bg_color=F7F5F0&fg_color=171717&link_color=E5483F&border_color=E5E2DC"
+          width="100%"
+          height="167"
+          frameBorder="0"
+          title="RAW. by ALV16 STUDIOS"
+          loading="lazy"
+        >
+          <a href="https://alv16studios.itch.io/raw-conversation-game" target="_blank" rel="noreferrer">
+            RAW. by ALV16 STUDIOS
+          </a>
+        </iframe>
+        <a className="raw-embed-external" href="https://alv16studios.itch.io/raw-conversation-game" target="_blank" rel="noreferrer">
+          Play RAW. on itch.io <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    );
+  }
+
   if (image) {
     return (
       <div className={`project-preview-photo project-preview-${type}`}>

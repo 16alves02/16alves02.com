@@ -1496,3 +1496,68 @@ html[data-theme="dark"] .project-status { color: #17100e; }
 /* The contact button uses an inverted surface; keep its arrow as readable as its text. */
 .header-contact span,
 html[data-theme="dark"] .header-contact span { color: var(--paper); }
+
+
+/* Official itch.io player for RAW. */
+.raw-itch-embed {
+  width: 100%;
+  max-width: 552px;
+  margin: auto;
+  padding: clamp(10px, 2vw, 15px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+}
+.raw-embed-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.raw-embed-mark {
+  color: var(--accent);
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -.08em;
+  line-height: 1;
+}
+.raw-embed-caption {
+  color: var(--muted);
+  font: 8px/1.5 var(--mono);
+  letter-spacing: .07em;
+  text-align: right;
+  text-transform: uppercase;
+}
+.raw-itch-embed iframe {
+  display: block;
+  width: 100%;
+  height: 167px;
+  flex: 0 0 167px;
+  border: 0;
+  border-radius: 4px;
+  background: #F7F5F0;
+}
+.raw-embed-external {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+}
+.raw-embed-external span { color: var(--accent); }
+.raw-embed-external:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+@media (max-width: 420px) {
+  .raw-embed-caption { font-size: 7px; letter-spacing: .03em; }
+  .raw-itch-embed { padding: 9px; }
+}
