@@ -1492,3 +1492,7 @@ html[data-theme="dark"] .social-note {
 
 /* Keep the project status text readable in the dark theme as well. */
 html[data-theme="dark"] .project-status { color: #17100e; }
+
+/* The contact button uses an inverted surface; keep its arrow as readable as its text. */
+.header-contact span,
+html[data-theme="dark"] .header-contact span { color: var(--paper); }
