@@ -107,6 +107,8 @@ Leonardo Alves · [GitHub](https://github.com/16alves02) · [LinkedIn](https://w
 
 ## Asset and release notes
 
-- Project previews use the actual public screenshots and final artwork from the projects. The original asset links are preserved.
-- The existing 1200 × 630 `og-cover.svg` is used for Open Graph and Twitter sharing metadata.
+- Project cards use the real public screenshots and final artwork, served as resized WebP through the `wsrv.nl` image transformation service to reduce download size. Their original source assets remain in the linked project repositories or demos.
+- Open Graph and Twitter previews use a 1200 × 630 PNG rendition of the existing `public/og-cover.svg`, delivered through the same image service.
+- The image previews depend on that external image service being available. If the service is unavailable, the source assets are still available in their original locations.
 - Google Fonts are consolidated into one stylesheet request and loaded non-blockingly, with system-font fallbacks.
+- Public search metadata includes a canonical URL, `robots.txt`, a sitemap, and a branded 404 page.
