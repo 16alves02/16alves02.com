@@ -762,3 +762,109 @@ html[data-theme="dark"] .site-header { border-bottom-color: var(--line); }
   .project-preview-unavailable { padding: 24px; }
   .real-code-sample { font-size: 9px; }
 }
+
+
+
+/* Readability pass: consistent contrast, clearer labels and comfortable text sizes. */
+:root {
+  --muted: #5b544d;
+  --secondary-copy: #5b544d;
+  --body-copy: #514a43;
+  --accent-readable: #b9341b;
+}
+html[data-theme="dark"] {
+  --muted: #bdb5ab;
+  --secondary-copy: #bdb5ab;
+  --body-copy: #d0c8be;
+  --accent-readable: #ff795f;
+}
+
+/* Small interface labels were previously set to 6-9px and became hard to read. */
+.hero-meta { font-size: 11px; line-height: 1.7; letter-spacing: .055em; color: var(--secondary-copy); }
+.hero-footnote { font-size: 11px; line-height: 1.6; color: var(--secondary-copy); letter-spacing: .045em; }
+.hero-art-label, .logo-panel-note { font-size: 10.5px; color: var(--secondary-copy); letter-spacing: .055em; }
+.hero-scroll { font-size: 10px; color: var(--secondary-copy); letter-spacing: .08em; }
+.ticker-track { font-size: 11px; letter-spacing: .08em; }
+.ticker-track b { color: var(--accent-readable); -webkit-text-stroke: 0; }
+.section-kicker { font-size: 11px; color: var(--secondary-copy); letter-spacing: .055em; }
+.about-section .section-kicker { color: var(--secondary-copy); }
+.about-section .section-kicker > span:first-child { border-color: var(--line); }
+.about-logo span { font-size: 11px; line-height: 1.65; letter-spacing: .045em; }
+.about-signoff { font-size: 10.5px; line-height: 1.6; letter-spacing: .055em; }
+.project-number { font-size: 10px; letter-spacing: .04em; }
+.project-meta { font-size: 10.5px; line-height: 1.6; letter-spacing: .025em; color: var(--secondary-copy); }
+.project-info p,
+.project-card:not(.project-featured) .project-info p { font-size: 14px; line-height: 1.75; }
+.tag-list span { font-size: 11px; line-height: 1.4; }
+.project-link { font-size: 12.5px; line-height: 1.6; }
+.project-status { font-size: 10.5px; line-height: 1.5; }
+.about-band { font-size: 10.5px; line-height: 1.6; letter-spacing: .07em; }
+.skill-label { font-size: 11.5px; line-height: 1.5; letter-spacing: .055em; }
+.skill-items span { font-size: 13px; line-height: 1.45; }
+.education-label { font-size: 10.5px; line-height: 1.5; letter-spacing: .09em; }
+.education-date { font-size: 11px; line-height: 1.5; }
+.education-card p { font-size: 13px; line-height: 1.7; }
+.education-card .prior-education { font-size: 12px; line-height: 1.65; color: #514a43; }
+.experience-year { font-size: 12px; line-height: 1.5; color: var(--secondary-copy); }
+.experience-item p { font-size: 14px; line-height: 1.75; }
+.internship-top, .internship-bottom { font-size: 11px; line-height: 1.7; letter-spacing: .065em; }
+.internship-facts { font-size: 12px; line-height: 1.7; }
+.internship-number { color: #211a1f; -webkit-text-stroke: 0; }
+.contact-top { font-size: 11px; line-height: 1.65; letter-spacing: .065em; }
+.contact-email-label { font-size: 11px; line-height: 1.5; letter-spacing: .08em; }
+.copy-email { font-size: 11px; line-height: 1.6; }
+.social-link { font-size: 14px; line-height: 1.5; min-height: 50px; }
+.social-mark { font-size: 10.5px; }
+.social-note { font-size: 11px; line-height: 1.7; color: var(--secondary-copy); }
+.site-footer { font-size: 11px; line-height: 1.7; color: var(--secondary-copy); }
+.footer-brand { font-size: 13px; }
+.back-top { font-size: 11px; line-height: 1.7; }
+.footer-year { color: var(--secondary-copy); }
+.artwork-footer { font-size: 10px; line-height: 1.6; letter-spacing: .045em; }
+.terminal-top { font-size: 10.5px; line-height: 1.5; }
+.terminal-top small { font-size: 10px; }
+.real-code-sample { font-size: 11px; line-height: 1.8; }
+
+/* Keep foreground/background pairs readable on both themes and hover states. */
+html[data-theme="dark"] .about-section .section-kicker { color: var(--secondary-copy); }
+html[data-theme="dark"] .education-card .prior-education { color: #c9c1b6; }
+html[data-theme="dark"] .social-mark { color: #211a1f; }
+html[data-theme="dark"] .internship-number { color: #211a1f; -webkit-text-stroke: 0; }
+.header-contact:hover,
+.header-contact:hover span,
+.button-dark:hover,
+.button-outline:hover,
+.skill-items span:hover { color: #211a1f; }
+html[data-theme="dark"] .header-contact:hover,
+html[data-theme="dark"] .header-contact:hover span,
+html[data-theme="dark"] .button-dark:hover,
+html[data-theme="dark"] .button-outline:hover,
+html[data-theme="dark"] .skill-items span:hover { color: #211a1f; }
+.project-photo-fallback span { font-size: 12px; line-height: 1.75; }
+
+@media (max-width: 760px) {
+  .hero-meta { font-size: 10.5px; }
+  .hero-footnote { font-size: 10.5px; }
+  .section-kicker { font-size: 10.5px; }
+  .project-meta { font-size: 10px; }
+  .project-info p,
+  .project-card:not(.project-featured) .project-info p { font-size: 14px; }
+  .skill-items span { font-size: 12.5px; }
+  .internship-top, .internship-bottom { font-size: 10.5px; }
+  .internship-facts { font-size: 12px; }
+  .contact-top { font-size: 10.5px; }
+  .social-link { font-size: 14px; }
+  .site-footer { font-size: 11px; }
+  .real-code-sample { font-size: 10.5px; }
+  .ticker-track { font-size: 10.5px; letter-spacing: .06em; }
+}
+
+@media (max-width: 420px) {
+  .hero-meta { font-size: 10px; }
+  .hero-footnote { font-size: 10px; }
+  .contact-top { align-items: flex-start; flex-direction: column; }
+  .social-links { grid-template-columns: 1fr; }
+  .social-link:nth-child(odd), .social-link:nth-child(even) { margin-inline: 0; }
+  .internship-top, .internship-bottom { align-items: flex-start; }
+  .about-band { font-size: 10px; }
+}
