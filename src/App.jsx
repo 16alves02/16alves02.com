@@ -586,7 +586,7 @@ export default function App() {
         </div>
       </header>
 
-      <main>
+      <main id="main-content">
         <section className="hero" id="home">
           <div className="hero-back-number" aria-hidden="true">16</div>
           <div className="hero-inner">
