@@ -2,7 +2,7 @@ export const projects = [
   {
     number: '01',
     name: 'HOOP',
-    category: 'Frontend / e-commerce concept',
+    type: 'Frontend / e-commerce concept',
     year: '2025-26',
     description: 'An educational basketball-store frontend with product discovery, filters, product pages, favourites, a cart and a simulated checkout. It does not process real purchases.',
     stack: ['React', 'TypeScript', 'Vite', 'React Router'],
@@ -15,7 +15,7 @@ export const projects = [
   {
     number: '02',
     name: 'RAW.',
-    category: 'Interactive web / personal project',
+    type: 'Interactive web / personal project',
     year: '2025-26',
     description: 'A social conversation experience built around question decks and game modes, with card-based interaction, swipe gestures and motion. The source repository is private.',
     stack: ['React', 'JavaScript', 'Tailwind CSS', 'Framer Motion'],
@@ -27,7 +27,7 @@ export const projects = [
   {
     number: '03',
     name: 'SaborGest',
-    category: 'Academic project / in development',
+    type: 'Academic project / in development',
     year: '2026-27',
     description: 'An academic software project for bakeries, pastry shops, cafés and restaurants. The current repository documents staff scheduling and attendance through a PHP management portal, REST API and Kotlin Android kiosk. The project remains in development.',
     stack: ['Kotlin (Android)', 'PHP', 'REST API', 'MySQL / MariaDB'],
@@ -36,7 +36,7 @@ export const projects = [
   {
     number: '04',
     name: 'Todo App',
-    category: 'Web fundamentals',
+    type: 'Web fundamentals',
     year: '2025-26',
     description: 'A browser-based task manager built with HTML, CSS and vanilla JavaScript. It supports adding and completing tasks, filters, keyboard controls and local persistence in the browser.',
     stack: ['HTML', 'CSS', 'JavaScript', 'localStorage'],
@@ -49,7 +49,7 @@ export const projects = [
   {
     number: '05',
     name: 'Two of Hearts',
-    category: 'Vector illustration / Portuguese folk art',
+    type: 'Vector illustration / Portuguese folk art',
     year: '2026',
     description: 'A playing-card illustration inspired by Lenços de Namorados, the traditional love handkerchiefs of the Minho region. The final vector artwork was developed in Affinity.',
     stack: ['Affinity', 'Vector illustration', 'Portuguese folk art'],
@@ -61,7 +61,7 @@ export const projects = [
   {
     number: '06',
     name: 'ArraySorting',
-    category: 'Programming fundamentals',
+    type: 'Programming fundamentals',
     year: '2023',
     description: 'A C console program demonstrating Selection Sort, Insertion Sort, Bubble Sort and a small Bogo Sort example, with an interactive menu and input validation.',
     stack: ['C', 'Arrays', 'Sorting algorithms'],
