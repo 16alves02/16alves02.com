@@ -14,6 +14,7 @@ Personal portfolio for Leonardo Alves, built with React 19 and Vite. The page pr
 - A clear no-screenshot state is used when a project has no public preview asset.
 - Accessible focus states and reduced-motion support.
 - Orange `#EB4520` brand accent with neutral paper, charcoal and grey surfaces.
+- Chamfer-inspired editorial direction: warm paper-and-ink surfaces, clipped 45-degree corners, serif display headings and monospace labels, adapted to the existing orange brand rather than copying a template.
 
 ## Featured projects
 
