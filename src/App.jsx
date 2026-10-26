@@ -509,6 +509,7 @@ export default function App() {
 
   return (
     <div className="site-shell" data-theme={theme}>
+      <a className="skip-link" href="#main-content">{language === 'pt-PT' ? 'Saltar para o conteúdo' : language === 'es' ? 'Saltar al contenido' : language === 'fr' ? 'Aller au contenu' : language === 'it' ? 'Vai al contenuto' : language === 'de' ? 'Zum Inhalt springen' : language === 'ja' ? 'コンテンツへスキップ' : 'Skip to content'}</a>
       <header className="site-header">
         <div className="header-inner">
           <a className="brand" href="#home" aria-label="16alves02 home">
