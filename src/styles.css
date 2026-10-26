@@ -1489,3 +1489,6 @@ html[data-theme="dark"] .social-note {
 
 /* The contact panel reverses the page palette, so its supporting note follows the panel's foreground color. */
 .contact-section .social-note { color: var(--paper); }
+
+/* Keep the project status text readable in the dark theme as well. */
+html[data-theme="dark"] .project-status { color: #17100e; }
