@@ -625,3 +625,37 @@ html[data-theme="dark"] .site-header { border-bottom-color: var(--line); }
 .ticker-track span { gap: 18px; }
 .ticker-track b { color: var(--accent); -webkit-text-stroke: 0; font-size: 12px; }
 @media (max-width: 760px) { .ticker-track { justify-content: flex-start; gap: 10px 20px; font-size: 8px; } .ticker-track span { gap: 12px; } }
+
+
+/* Accessible interaction states and restrained motion. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.project-card,
+.project-link,
+.button,
+.header-icon-button,
+.language-option {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.project-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+}
+
+.project-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
