@@ -868,3 +868,35 @@ html[data-theme="dark"] .skill-items span:hover { color: #211a1f; }
   .internship-top, .internship-bottom { align-items: flex-start; }
   .about-band { font-size: 10px; }
 }
+
+
+/* Final contrast fixes for elements whose previous fixed colours ignored the active theme. */
+html[data-theme="dark"] .education-card { color: var(--ink); }
+html[data-theme="dark"] .education-card h3,
+html[data-theme="dark"] .education-card > p,
+html[data-theme="dark"] .education-card > .education-label,
+html[data-theme="dark"] .education-card > .education-date { color: var(--ink); }
+html[data-theme="dark"] .education-card .prior-education { color: #c9c1b6; }
+html[data-theme="dark"] .internship-number { color: #211a1f; -webkit-text-stroke: 0; }
+.internship-number { color: #211a1f; -webkit-text-stroke: 0; }
+.internship-facts span:first-letter { color: #211a1f; }
+.skill-label span, .nav-links button:hover, .back-top:hover { color: var(--accent-readable); }
+.contact-top .section-kicker,
+.contact-top .section-kicker > span:first-child,
+.contact-email span { color: #ff795f; }
+html[data-theme="dark"] .contact-top .section-kicker,
+html[data-theme="dark"] .contact-top .section-kicker > span:first-child,
+html[data-theme="dark"] .contact-email span { color: #ff795f; }
+.header-contact span { color: #ff795f; }
+html[data-theme="dark"] .header-contact span { color: #b9341b; }
+.header-contact:hover span,
+html[data-theme="dark"] .header-contact:hover span { color: #211a1f; }
+
+@media (max-width: 760px) {
+  .education-card { transform: none; }
+  .experience-item { grid-template-columns: 64px minmax(0, 1fr) 18px; gap: 12px; }
+}
+@media (max-width: 420px) {
+  .experience-item { grid-template-columns: 1fr 22px; }
+  .experience-year { grid-column: 1 / -1; }
+}
