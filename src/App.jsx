@@ -36,8 +36,8 @@ const projects = [
   },
   {
     number: '05', name: 'Two of Hearts', type: 'WEB / PORTUGUESE FOLK ART', year: '2026',
-    description: 'A project inspired by Portuguese folk art. Explore the repository for the current implementation and project details.',
-    stack: ['Web development'],
+    description: 'A vector playing-card illustration inspired by Lenços de Namorados, the traditional love handkerchiefs of the Minho region. The design was developed in Affinity.',
+    stack: ['Affinity', 'Vector illustration', 'Portuguese folk art'],
     source: 'https://github.com/16alves02/two-of-hearts-portuguese-folk-art', visual: 'terminal',
   },
   {
@@ -54,7 +54,7 @@ const projectTranslations = {
     '02': { type: 'WEB INTERATIVA / PROJETO PESSOAL', description: 'Uma experiência social de conversas e jogos, com vários modos, cartões interativos, gestos de deslize, animações e uma identidade visual própria.' },
     '03': { type: 'PROJETO ACADÉMICO / EM DESENVOLVIMENTO', description: 'Um projeto de software pensado para as operações do dia a dia de pequenas padarias e pastelarias. O foco atual é compreender os fluxos de trabalho, sobretudo turnos e horas dos funcionários.' },
     '04': { type: 'FUNDAMENTOS WEB', description: 'Um pequeno gestor de tarefas desenvolvido sem framework de frontend. Um exercício prático de eventos, atualizações do DOM, filtros e armazenamento no browser.' },
-    '05': { type: 'FUNDAMENTOS DE PROGRAMAÇÃO', description: 'Um dos primeiros projetos de consola, criado para explorar algoritmos clássicos de ordenação através de implementações diretas e um menu simples.' },
+    '05': { type: 'ILUSTRAÇÃO VETORIAL / ARTE POPULAR PORTUGUESA', description: 'Uma ilustração de uma carta de jogar inspirada nos Lenços de Namorados do Minho, desenvolvida em Affinity.' },
     '06': { type: 'FUNDAMENTOS DE PROGRAMAÇÃO', description: 'Um projeto de consola para explorar algoritmos clássicos de ordenação através de implementações diretas.' },
   },
 };
@@ -66,35 +66,35 @@ const extraProjectTranslations = {
     '02': { type: 'WEB INTERACTIVA / PROYECTO PERSONAL', description: 'Experiencia social de conversación y juegos con varios modos, tarjetas interactivas, gestos y animaciones.' },
     '03': { type: 'PROYECTO ACADÉMICO / EN DESARROLLO', description: 'Proyecto de software para las operaciones diarias de pequeñas panaderías y pastelerías, con atención a turnos y horas de trabajo.' },
     '04': { type: 'FUNDAMENTOS WEB', description: 'Gestor de tareas sencillo sin framework de frontend, centrado en eventos, DOM, filtros y almacenamiento local.' },
-    '05': { type: 'FUNDAMENTOS DE PROGRAMACIÓN', description: 'Proyecto de consola para aprender algoritmos clásicos de ordenación mediante implementaciones propias.' },
+    '05': { type: 'ILUSTRACIÓN VECTORIAL / ARTE POPULAR PORTUGUÉS', description: 'Ilustración de una carta inspirada en los pañuelos de enamorados tradicionales de la región del Minho, creada en Affinity.' },
   },
   fr: {
     '01': { type: 'FRONTEND / CONCEPT E-COMMERCE', description: 'Concept de boutique de basketball avec catalogue, filtres, pages produit, favoris, panier et paiement simulé.' },
     '02': { type: 'WEB INTERACTIVE / PROJET PERSONNEL', description: 'Expérience sociale de conversation et de jeux avec plusieurs modes, cartes interactives, gestes et animations.' },
     '03': { type: 'PROJET ACADÉMIQUE / EN COURS', description: 'Projet logiciel pour les opérations quotidiennes de petites boulangeries et pâtisseries, notamment les horaires et les heures de travail.' },
     '04': { type: 'FONDAMENTAUX DU WEB', description: 'Gestionnaire de tâches sans framework frontend, axé sur les événements, le DOM, les filtres et le stockage local.' },
-    '05': { type: 'BASES DE LA PROGRAMMATION', description: 'Projet console pour découvrir les algorithmes de tri classiques grâce à des implémentations directes.' },
+    '05': { type: 'ILLUSTRATION VECTORIELLE / ART POPULAIRE PORTUGAIS', description: 'Illustration d’une carte inspirée des mouchoirs d’amour traditionnels du Minho, réalisée dans Affinity.' },
   },
   it: {
     '01': { type: 'FRONTEND / CONCEPT E-COMMERCE', description: 'Concept di negozio di basket con catalogo, filtri, pagine prodotto, preferiti, carrello e checkout simulato.' },
     '02': { type: 'WEB INTERATTIVO / PROGETTO PERSONALE', description: 'Esperienza sociale di conversazioni e giochi con modalità diverse, schede interattive, gesti e animazioni.' },
     '03': { type: 'PROGETTO ACCADEMICO / IN SVILUPPO', description: 'Progetto software per le attività quotidiane di piccoli panifici e pasticcerie, con attenzione a turni e orari di lavoro.' },
     '04': { type: 'FONDAMENTI WEB', description: 'Gestore di attività senza framework frontend, focalizzato su eventi, DOM, filtri e archiviazione locale.' },
-    '05': { type: 'FONDAMENTI DI PROGRAMMAZIONE', description: 'Progetto da console per studiare gli algoritmi di ordinamento classici con implementazioni dirette.' },
+    '05': { type: 'ILLUSTRAZIONE VETTORIALE / ARTE POPOLARE PORTOGHESE', description: 'Illustrazione di una carta ispirata ai tradizionali fazzoletti degli innamorati del Minho, realizzata in Affinity.' },
   },
   de: {
     '01': { type: 'FRONTEND / E-COMMERCE-KONZEPT', description: 'Konzept für einen Basketball-Shop mit Katalog, Filtern, Produktseiten, Favoriten, Warenkorb und simuliertem Checkout.' },
     '02': { type: 'INTERAKTIVES WEB / PRIVATES PROJEKT', description: 'Interaktives Konzept für Gespräche und Spiele mit mehreren Modi, Karteninteraktionen, Gesten und Animationen.' },
     '03': { type: 'AKADEMISCHES PROJEKT / IN ENTWICKLUNG', description: 'Softwareprojekt für tägliche Abläufe kleiner Bäckereien und Konditoreien, mit Schwerpunkt auf Schichten und Arbeitszeiten.' },
     '04': { type: 'WEB-GRUNDLAGEN', description: 'Kleiner Aufgabenmanager ohne Frontend-Framework, mit Events, DOM-Updates, Filtern und lokalem Speicher.' },
-    '05': { type: 'PROGRAMMIERGRUNDLAGEN', description: 'Konsolenprojekt zum Lernen klassischer Sortieralgorithmen mit eigenen Implementierungen.' },
+    '05': { type: 'VEKTORILLUSTRATION / PORTUGIESISCHE VOLKSKUNST', description: 'Spielkartenillustration, inspiriert von den traditionellen Liebestüchern aus dem Minho, erstellt mit Affinity.' },
   },
   ja: {
     '01': { type: 'フロントエンド / ECコンセプト', description: '商品一覧、検索・フィルター、商品ページ、お気に入り、カート、模擬チェックアウトを備えたバスケットボール店のコンセプト。' },
     '02': { type: 'インタラクティブWeb / 個人プロジェクト', description: '複数のモード、カード操作、スワイプ、アニメーションを組み合わせた会話とゲームの体験。' },
     '03': { type: '学業プロジェクト / 開発中', description: '小規模なパン屋や菓子店の業務を支援するソフトウェア。シフトと勤務時間の管理に重点を置いています。' },
     '04': { type: 'Webの基礎', description: 'フロントエンドフレームワークを使わず、イベント、DOM、フィルター、ローカル保存を学ぶタスク管理アプリ。' },
-    '05': { type: 'プログラミングの基礎', description: '基本的なソートアルゴリズムを自分で実装して学ぶコンソールプロジェクト。' },
+    '05': { type: 'ベクターイラスト / ポルトガルの民芸', description: 'ミーニョ地方の伝統的な恋人たちのハンカチに着想を得たトランプのイラスト。Affinityで制作。' },
   },
 };
 
