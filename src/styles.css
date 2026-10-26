@@ -1488,3 +1488,6 @@ html[data-theme="dark"] .project-preview-unavailable .preview-label {
 html[data-theme="dark"] .social-note {
   color: var(--secondary-copy);
 }
+
+/* The contact panel reverses the page palette, so its supporting note follows the panel's foreground color. */
+.contact-section .social-note { color: var(--paper); }
