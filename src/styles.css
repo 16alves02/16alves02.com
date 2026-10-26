@@ -1318,3 +1318,8 @@ html[data-theme="dark"] .contact-bottom > div:first-child > p { color: #d8d0c5; 
 html[data-theme="dark"] .social-link { color: #f4eee4; }
 html[data-theme="dark"] .header-contact span { color: #a83217; }
 html[data-theme="dark"] .header-contact:hover span { color: #211a1f; }
+
+/* The header action uses an ink fill in light mode and a paper fill in dark mode. */
+.header-contact span { color: #ff876b; }
+html[data-theme="dark"] .header-contact span { color: #a83217; }
+html[data-theme="dark"] .header-contact:hover span { color: #211a1f; }
