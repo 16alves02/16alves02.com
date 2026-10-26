@@ -103,3 +103,10 @@ Leonardo Alves · [GitHub](https://github.com/16alves02) · [LinkedIn](https://w
 - The main React page updates the document language to match the selected locale and includes a keyboard skip link.
 - No analytics scripts or marketing cookies are installed. The selected language and theme are stored in local browser storage.
 - Before release, verify the live page across viewport sizes, run link checks and a performance/accessibility audit, and confirm the production build status in Vercel.
+
+
+## Asset optimisation
+
+- Local WebP thumbnails are resized derivatives of the original project screenshots and artwork, preserving the actual visuals while reducing transfer size.
+- The social preview uses a 1200 × 630 PNG generated from the existing portfolio cover artwork.
+- Google Fonts are consolidated into one stylesheet request and loaded non-blockingly, with system-font fallbacks.
