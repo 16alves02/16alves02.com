@@ -471,6 +471,79 @@ function getInitialLanguage() {
   return 'en';
 }
 
+const scrollProgressLabels = {
+  en: 'Page reading progress',
+  'pt-PT': 'Progresso de leitura da página',
+  es: 'Progreso de lectura de la página',
+  fr: 'Progression de lecture de la page',
+  it: 'Avanzamento di lettura della pagina',
+  de: 'Lesefortschritt der Seite',
+  ja: 'ページのスクロール進捗',
+};
+
+function ScrollProgress({ language }) {
+  const progressRef = useRef(null);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollableHeight = Math.max(0, documentHeight - window.innerHeight);
+      const progress = scrollableHeight > 0
+        ? Math.min(100, Math.max(0, (window.scrollY / scrollableHeight) * 100))
+        : 0;
+      const roundedProgress = Math.round(progress);
+
+      if (!progressRef.current) return;
+      progressRef.current.style.transform = 'scaleX(' + progress / 100 + ')';
+      progressRef.current.setAttribute('aria-valuenow', String(roundedProgress));
+      progressRef.current.setAttribute('aria-valuetext', roundedProgress + '%');
+    };
+
+    let frameId = 0;
+    const scheduleUpdate = () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      frameId = requestAnimationFrame(() => {
+        frameId = 0;
+        updateProgress();
+      });
+    };
+
+    updateProgress();
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate, { passive: true });
+
+    const resizeObserver = typeof ResizeObserver !== 'undefined'
+      ? new ResizeObserver(scheduleUpdate)
+      : null;
+    if (resizeObserver) {
+      resizeObserver.observe(document.documentElement);
+      resizeObserver.observe(document.body);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+      if (frameId) cancelAnimationFrame(frameId);
+      resizeObserver?.disconnect();
+    };
+  }, []);
+
+  return (
+    <div className="reading-progress-track">
+      <div
+        ref={progressRef}
+        className="reading-progress-fill"
+        role="progressbar"
+        aria-label={scrollProgressLabels[language] || scrollProgressLabels.en}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={0}
+        aria-valuetext="0%"
+      />
+    </div>
+  );
+}
+
 export default function App() {
   const [language, setLanguage] = useState(getInitialLanguage);
   const [theme, setTheme] = useState(getInitialTheme);
@@ -536,6 +609,7 @@ export default function App() {
 
   return (
     <div className="site-shell" data-theme={theme}>
+      <ScrollProgress language={language} />
       <a className="skip-link" href="#main-content">{language === 'pt-PT' ? 'Saltar para o conteúdo' : language === 'es' ? 'Saltar al contenido' : language === 'fr' ? 'Aller au contenu' : language === 'it' ? 'Vai al contenuto' : language === 'de' ? 'Zum Inhalt springen' : language === 'ja' ? 'コンテンツへスキップ' : 'Skip to content'}</a>
       <header className="site-header">
         <div className="header-inner">
