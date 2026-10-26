@@ -1302,3 +1302,19 @@ html[data-theme="dark"] .language-option { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   .project-card, .service-card, .hero-logo-panel, .button { transition: none; }
 }
+
+
+/* High-contrast safeguards for the dark contact panel and both theme modes. */
+.contact-section { color: #f6f0e5; }
+html[data-theme="dark"] .contact-section { background: #080807; color: #f4eee4; }
+.contact-bottom > div:first-child > p,
+html[data-theme="dark"] .contact-bottom > div:first-child > p { color: #d8d0c5; }
+.contact-top, .contact-email-label, .copy-email { color: #c5bbae; }
+.contact-top .section-kicker, .contact-email span,
+.socials-block > .section-kicker, .social-arrow,
+.copy-email:hover, .social-link:hover { color: #ff876b; }
+.social-link { color: #f4eee4; }
+.social-link:hover { color: #ff876b; }
+html[data-theme="dark"] .social-link { color: #f4eee4; }
+html[data-theme="dark"] .header-contact span { color: #a83217; }
+html[data-theme="dark"] .header-contact:hover span { color: #211a1f; }
