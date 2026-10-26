@@ -28,6 +28,30 @@ Personal portfolio for Leonardo Alves, built with React 19 and Vite. The page pr
 
 The portfolio does not link to the private GitHub repositories for RAW. or SaborGest. The SaborGest card intentionally has no image: no public screenshot or demo was found in the available project documentation.
 
+## Professional experience
+
+The portfolio includes the professional roles described in Leonardo's profile, ordered from most recent to oldest:
+
+| Role | Organization | Period |
+| --- | --- | --- |
+| CNC machine operator | Schmidt Light Metal Group | Feb 2025 – May 2026 |
+| Store operator | MC | May – Aug 2024 |
+| Backend developer intern | ClickBeauty / Alvocromático | Apr – Jul 2023 |
+| Web development intern | Associação Estamos Juntos (AEJ) | Jul 2022 |
+
+## Education
+
+- **CTeSP, Software Development** — Escola Superior Aveiro Norte, Universidade de Aveiro · Sep 2025 – Jul 2027
+- **CTeSP, CNC Programmer** — Oct 2024 – Jul 2025 · Enrolment currently frozen
+- **Escola Secundária Dr. Serafim Leite** · 2020–2023
+
+## Services shown on the portfolio
+
+- Web development
+- Database development
+- Software testing
+- Web design
+
 ## Run locally
 
 Requirements: Node.js and npm.
@@ -68,4 +92,4 @@ The production build is generated in `dist/`.
 
 ## Author
 
-Leonardo Alves · [GitHub](https://github.com/16alves02) · [Email](mailto:16alves02@gmail.com)
+Leonardo Alves · [GitHub](https://github.com/16alves02) · [LinkedIn](https://www.linkedin.com/in/16alves02/) · [Email](mailto:16alves02@gmail.com)
