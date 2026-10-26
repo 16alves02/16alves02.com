@@ -900,3 +900,45 @@ html[data-theme="dark"] .header-contact:hover span { color: #211a1f; }
   .experience-item { grid-template-columns: 1fr 22px; }
   .experience-year { grid-column: 1 / -1; }
 }
+
+
+/* Professional background additions: education, four roles and services from the profile. */
+.experience-item { grid-template-columns: 150px minmax(0, 1fr) 24px; }
+.experience-year { font-size: 12px; line-height: 1.6; overflow-wrap: normal; }
+.experience-item h3 { line-height: 1.25; }
+.experience-company { color: var(--secondary-copy); font-size: 12.5px !important; font-weight: 600; line-height: 1.65 !important; margin-top: 5px !important; }
+.experience-item p:not(.experience-company) { margin-top: 8px; }
+.education-additional { font-size: 12px !important; line-height: 1.65 !important; color: var(--body-copy); }
+.education-card .prior-education { font-size: 12px; line-height: 1.65; color: var(--secondary-copy); }
+html[data-theme="dark"] .education-additional,
+html[data-theme="dark"] .education-card .prior-education { color: var(--body-copy); }
+
+.services-section { background: var(--paper); border-block: 1px solid var(--line); }
+.services-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.service-card { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); color: var(--ink); }
+.service-index { display: inline-flex; align-items: center; justify-content: center; width: 31px; height: 31px; border-radius: 9px; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent-readable, #b9341b); font: 600 11px var(--mono); }
+.service-card h3 { margin: 8px 0 0; font-size: clamp(16px, 1.5vw, 21px); line-height: 1.25; letter-spacing: -.035em; }
+.service-card p { margin: 0; color: var(--body-copy); font-size: 13.5px; line-height: 1.75; }
+html[data-theme="dark"] .service-index { color: #ff795f; }
+html[data-theme="dark"] .service-card p { color: var(--body-copy); }
+html[data-theme="dark"] .service-card { background: var(--card); border-color: var(--line); }
+
+@media (max-width: 1050px) {
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .experience-item { grid-template-columns: 135px minmax(0, 1fr) 22px; }
+}
+@media (max-width: 760px) {
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .service-card { padding: 17px; }
+  .service-card h3 { font-size: 17px; }
+  .service-card p { font-size: 13px; }
+  .experience-item { grid-template-columns: 120px minmax(0, 1fr) 18px; gap: 12px; }
+  .experience-company { font-size: 12px !important; }
+}
+@media (max-width: 500px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 19px; }
+  .experience-item { grid-template-columns: minmax(0, 1fr) 20px; }
+  .experience-year { grid-column: 1 / -1; font-size: 12px; color: var(--accent-readable); }
+  html[data-theme="dark"] .experience-year { color: #ff795f; }
+}
