@@ -2,49 +2,61 @@ import { useEffect, useRef, useState } from 'react';
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
-  { label: 'LinkedIn', short: 'in', url: 'https://www.linkedin.com/in/16alves02/', kind: 'work' },
-  { label: 'Instagram', short: 'IG', url: 'https://www.instagram.com/16alves02/', kind: 'social' },
-  { label: 'YouTube', short: 'YT', url: 'https://www.youtube.com/16alves02', kind: 'social' },
-  { label: 'Twitch', short: 'TW', url: 'https://www.twitch.tv/16alves02', kind: 'social' },
-  { label: 'Linktree', short: '↗', url: 'https://linktr.ee/16alves02', kind: 'more' },
+  { label: 'LinkedIn', short: 'in', url: 'https://www.linkedin.com/in/leonardo-alves-502ba8291/', kind: 'work' },
+  { label: 'Uiverse', short: 'UV', url: 'https://uiverse.io/16alves02', kind: 'social' },
 ];
 
 const projects = [
   {
     number: '01', name: 'HOOP', type: 'FRONTEND / E-COMMERCE CONCEPT', year: '2025-26',
-    description: 'A basketball store concept with product discovery, filters, product pages, favourites, a cart and a simulated checkout. Built to explore a complete shopping journey from the frontend.',
+    description: 'A fictional basketball-store frontend built for educational purposes, with product discovery, filters, product pages, favourites, a cart and a simulated checkout. It does not process real purchases.',
     stack: ['React', 'TypeScript', 'Vite', 'React Router'],
-    live: 'https://hoop-16alves02.netlify.app', source: 'https://github.com/16alves02/hoop', visual: 'hoop',
+    live: 'https://hoop-16alves02.netlify.app',
+    source: 'https://github.com/16alves02/hoop',
+    image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG',
+    imageAlt: 'Actual homepage screenshot from the HOOP basketball-store project',
+    visual: 'hoop',
   },
   {
     number: '02', name: 'RAW.', type: 'INTERACTIVE WEB / PERSONAL PROJECT', year: '2025-26',
-    description: 'A social conversation experience built around questions and game modes, with card-based interaction, motion and swipe gestures.',
+    description: 'A social conversation experience built around question decks and game modes, with card-based interaction, swipe gestures and motion. The web demo is public; the source repository is private.',
     stack: ['React', 'JavaScript', 'Tailwind CSS', 'Framer Motion'],
-    live: 'https://raw-app-bice.vercel.app', source: 'https://github.com/16alves02/raw-app', visual: 'raw',
+    live: 'https://raw-app-bice.vercel.app',
+    image: 'https://raw-app-bice.vercel.app/images/home.png',
+    imageAlt: 'Actual RAW. home-screen asset from the deployed app',
+    visual: 'raw',
   },
   {
-    number: '03', name: 'SaborGest', type: 'ACADEMIC PROJECT / IN DEVELOPMENT', year: '2026',
-    description: 'An academic management system for bakeries and pastry shops. The project scope includes stock management; it remains in development, so it is presented as work in progress.',
-    stack: ['Kotlin', 'PHP', 'REST APIs', 'MySQL'],
+    number: '03', name: 'SaborGest', type: 'ACADEMIC PROJECT / IN DEVELOPMENT', year: '2026-27',
+    description: 'An academic software project for bakeries, pastry shops, cafés and restaurants. The current repository documents staff scheduling and attendance through a PHP management portal, REST API and Kotlin Android kiosk. The project remains in development.',
+    stack: ['Kotlin (Android)', 'PHP', 'REST API', 'MySQL / MariaDB'],
     visual: 'sabor',
   },
   {
     number: '04', name: 'Todo App', type: 'WEB FUNDAMENTALS', year: '2025-26',
-    description: 'A browser-based task manager built without a frontend framework, featuring task filters, keyboard controls and local persistence.',
+    description: 'A browser-based task manager built with HTML, CSS and vanilla JavaScript. It supports adding and completing tasks, filters, keyboard controls and local persistence in the browser.',
     stack: ['HTML', 'CSS', 'JavaScript', 'localStorage'],
-    live: 'https://todo-app-three-beta-56.vercel.app', source: 'https://github.com/16alves02/todo-app', visual: 'todo',
+    live: 'https://todo-app-three-beta-56.vercel.app',
+    source: 'https://github.com/16alves02/todo-app',
+    image: 'https://raw.githubusercontent.com/16alves02/todo-app/main/assets/screenshot.png',
+    imageAlt: 'Actual Todo App screenshot from the public repository',
+    visual: 'todo',
   },
   {
-    number: '05', name: 'Two of Hearts', type: 'WEB / PORTUGUESE FOLK ART', year: '2026',
-    description: 'A vector playing-card illustration inspired by Lenços de Namorados, the traditional love handkerchiefs of the Minho region. The design was developed in Affinity.',
+    number: '05', name: 'Two of Hearts', type: 'VECTOR ILLUSTRATION / PORTUGUESE FOLK ART', year: '2026',
+    description: 'A playing-card illustration inspired by Lenços de Namorados, the traditional love handkerchiefs of the Minho region. The final vector artwork was developed in Affinity.',
     stack: ['Affinity', 'Vector illustration', 'Portuguese folk art'],
-    source: 'https://github.com/16alves02/two-of-hearts-portuguese-folk-art', visual: 'terminal',
+    source: 'https://github.com/16alves02/two-of-hearts-portuguese-folk-art',
+    image: 'https://raw.githubusercontent.com/16alves02/two-of-hearts-portuguese-folk-art/main/assets/front.png',
+    imageAlt: 'Final front design of the Two of Hearts playing card',
+    visual: 'hearts',
   },
   {
     number: '06', name: 'ArraySorting', type: 'PROGRAMMING FUNDAMENTALS', year: '2023',
-    description: 'A console project exploring classic sorting algorithms through direct implementations and a simple terminal menu.',
-    stack: ['C', 'Arrays', 'Algorithms'],
-    source: 'https://github.com/16alves02/ArraySorting', visual: 'terminal',
+    description: 'A C console program that demonstrates Selection Sort, Insertion Sort, Bubble Sort and a small Bogo Sort example. It includes an interactive menu and input validation.',
+    stack: ['C', 'Arrays', 'Sorting algorithms'],
+    source: 'https://github.com/16alves02/ArraySorting',
+    visual: 'array',
   },
 ];
 
@@ -52,7 +64,7 @@ const projectTranslations = {
   pt: {
     '01': { type: 'FRONTEND / CONCEITO DE E-COMMERCE', description: 'Um conceito de loja de basquetebol com descoberta e filtros de produtos, páginas de produto, favoritos, carrinho e um processo de compra simulado. Um projeto para explorar a experiência de compra do lado do frontend.' },
     '02': { type: 'WEB INTERATIVA / PROJETO PESSOAL', description: 'Uma experiência social de conversas e jogos, com vários modos, cartões interativos, gestos de deslize, animações e uma identidade visual própria.' },
-    '03': { type: 'PROJETO ACADÉMICO / EM DESENVOLVIMENTO', description: 'Um projeto de software pensado para as operações do dia a dia de pequenas padarias e pastelarias. O foco atual é compreender os fluxos de trabalho, sobretudo turnos e horas dos funcionários.' },
+    '03': { type: 'PROJETO ACADÉMICO / EM DESENVOLVIMENTO', description: 'Projeto académico para padarias, pastelarias, cafés e restaurantes. A versão documentada gere horários e assiduidade através de um painel Web em PHP, uma API REST e um quiosque Android em Kotlin; continua em desenvolvimento.' },
     '04': { type: 'FUNDAMENTOS WEB', description: 'Um pequeno gestor de tarefas desenvolvido sem framework de frontend. Um exercício prático de eventos, atualizações do DOM, filtros e armazenamento no browser.' },
     '05': { type: 'ILUSTRAÇÃO VETORIAL / ARTE POPULAR PORTUGUESA', description: 'Uma ilustração de uma carta de jogar inspirada nos Lenços de Namorados do Minho, desenvolvida em Affinity.' },
     '06': { type: 'FUNDAMENTOS DE PROGRAMAÇÃO', description: 'Um projeto de consola para explorar algoritmos clássicos de ordenação através de implementações diretas.' },
@@ -64,35 +76,35 @@ const extraProjectTranslations = {
   es: {
     '01': { type: 'FRONTEND / CONCEPTO DE E-COMMERCE', description: 'Concepto de tienda de baloncesto con catálogo, filtros, páginas de producto, favoritos, carrito y compra simulada.' },
     '02': { type: 'WEB INTERACTIVA / PROYECTO PERSONAL', description: 'Experiencia social de conversación y juegos con varios modos, tarjetas interactivas, gestos y animaciones.' },
-    '03': { type: 'PROYECTO ACADÉMICO / EN DESARROLLO', description: 'Proyecto de software para las operaciones diarias de pequeñas panaderías y pastelerías, con atención a turnos y horas de trabajo.' },
+    '03': { type: 'PROYECTO ACADÉMICO / EN DESARROLLO', description: 'Proyecto académico para panaderías, pastelerías, cafeterías y restaurantes. La versión documentada gestiona horarios y asistencia mediante un panel web PHP, una API REST y un quiosco Android en Kotlin; sigue en desarrollo.' },
     '04': { type: 'FUNDAMENTOS WEB', description: 'Gestor de tareas sencillo sin framework de frontend, centrado en eventos, DOM, filtros y almacenamiento local.' },
     '05': { type: 'ILUSTRACIÓN VECTORIAL / ARTE POPULAR PORTUGUÉS', description: 'Ilustración de una carta inspirada en los pañuelos de enamorados tradicionales de la región del Minho, creada en Affinity.' },
   },
   fr: {
     '01': { type: 'FRONTEND / CONCEPT E-COMMERCE', description: 'Concept de boutique de basketball avec catalogue, filtres, pages produit, favoris, panier et paiement simulé.' },
     '02': { type: 'WEB INTERACTIVE / PROJET PERSONNEL', description: 'Expérience sociale de conversation et de jeux avec plusieurs modes, cartes interactives, gestes et animations.' },
-    '03': { type: 'PROJET ACADÉMIQUE / EN COURS', description: 'Projet logiciel pour les opérations quotidiennes de petites boulangeries et pâtisseries, notamment les horaires et les heures de travail.' },
+    '03': { type: 'PROJET ACADÉMIQUE / EN COURS', description: 'Projet académique pour boulangeries, pâtisseries, cafés et restaurants. La version documentée gère les horaires et la présence via un panneau web PHP, une API REST et une borne Android en Kotlin ; le développement continue.' },
     '04': { type: 'FONDAMENTAUX DU WEB', description: 'Gestionnaire de tâches sans framework frontend, axé sur les événements, le DOM, les filtres et le stockage local.' },
     '05': { type: 'ILLUSTRATION VECTORIELLE / ART POPULAIRE PORTUGAIS', description: 'Illustration d’une carte inspirée des mouchoirs d’amour traditionnels du Minho, réalisée dans Affinity.' },
   },
   it: {
     '01': { type: 'FRONTEND / CONCEPT E-COMMERCE', description: 'Concept di negozio di basket con catalogo, filtri, pagine prodotto, preferiti, carrello e checkout simulato.' },
     '02': { type: 'WEB INTERATTIVO / PROGETTO PERSONALE', description: 'Esperienza sociale di conversazioni e giochi con modalità diverse, schede interattive, gesti e animazioni.' },
-    '03': { type: 'PROGETTO ACCADEMICO / IN SVILUPPO', description: 'Progetto software per le attività quotidiane di piccoli panifici e pasticcerie, con attenzione a turni e orari di lavoro.' },
+    '03': { type: 'PROGETTO ACCADEMICO / IN SVILUPPO', description: 'Progetto accademico per panifici, pasticcerie, caffè e ristoranti. La versione documentata gestisce turni e presenze tramite un pannello web PHP, un’API REST e un chiosco Android in Kotlin; il progetto è ancora in sviluppo.' },
     '04': { type: 'FONDAMENTI WEB', description: 'Gestore di attività senza framework frontend, focalizzato su eventi, DOM, filtri e archiviazione locale.' },
     '05': { type: 'ILLUSTRAZIONE VETTORIALE / ARTE POPOLARE PORTOGHESE', description: 'Illustrazione di una carta ispirata ai tradizionali fazzoletti degli innamorati del Minho, realizzata in Affinity.' },
   },
   de: {
     '01': { type: 'FRONTEND / E-COMMERCE-KONZEPT', description: 'Konzept für einen Basketball-Shop mit Katalog, Filtern, Produktseiten, Favoriten, Warenkorb und simuliertem Checkout.' },
     '02': { type: 'INTERAKTIVES WEB / PRIVATES PROJEKT', description: 'Interaktives Konzept für Gespräche und Spiele mit mehreren Modi, Karteninteraktionen, Gesten und Animationen.' },
-    '03': { type: 'AKADEMISCHES PROJEKT / IN ENTWICKLUNG', description: 'Softwareprojekt für tägliche Abläufe kleiner Bäckereien und Konditoreien, mit Schwerpunkt auf Schichten und Arbeitszeiten.' },
+    '03': { type: 'AKADEMISCHES PROJEKT / IN ENTWICKLUNG', description: 'Akademisches Softwareprojekt für Bäckereien, Konditoreien, Cafés und Restaurants. Die dokumentierte Version verwaltet Dienstpläne und Anwesenheit über ein PHP-Webportal, eine REST-API und ein Kotlin-Android-Terminal; das Projekt ist in Entwicklung.' },
     '04': { type: 'WEB-GRUNDLAGEN', description: 'Kleiner Aufgabenmanager ohne Frontend-Framework, mit Events, DOM-Updates, Filtern und lokalem Speicher.' },
     '05': { type: 'VEKTORILLUSTRATION / PORTUGIESISCHE VOLKSKUNST', description: 'Spielkartenillustration, inspiriert von den traditionellen Liebestüchern aus dem Minho, erstellt mit Affinity.' },
   },
   ja: {
     '01': { type: 'フロントエンド / ECコンセプト', description: '商品一覧、検索・フィルター、商品ページ、お気に入り、カート、模擬チェックアウトを備えたバスケットボール店のコンセプト。' },
     '02': { type: 'インタラクティブWeb / 個人プロジェクト', description: '複数のモード、カード操作、スワイプ、アニメーションを組み合わせた会話とゲームの体験。' },
-    '03': { type: '学業プロジェクト / 開発中', description: '小規模なパン屋や菓子店の業務を支援するソフトウェア。シフトと勤務時間の管理に重点を置いています。' },
+    '03': { type: '学業プロジェクト / 開発中', description: 'パン屋、菓子店、カフェ、レストラン向けの学業プロジェクトです。現在のREADMEでは、PHP管理画面、REST API、Kotlin製Android端末による勤務シフトと出退勤の管理を説明しています。開発中です。' },
     '04': { type: 'Webの基礎', description: 'フロントエンドフレームワークを使わず、イベント、DOM、フィルター、ローカル保存を学ぶタスク管理アプリ。' },
     '05': { type: 'ベクターイラスト / ポルトガルの民芸', description: 'ミーニョ地方の伝統的な恋人たちのハンカチに着想を得たトランプのイラスト。Affinityで制作。' },
   },
@@ -109,7 +121,7 @@ const copy = {
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'BUILD / TEST / LEARN'],
     workKicker: '01 / THINGS I’VE BUILT', workTitle: 'Selected work',
     workIntro: 'A few real projects. What they do, what I used, and a link to try them or read the code.',
-    viewLive: 'Open project', viewCode: 'Source code', inProgress: 'In development',
+    viewLive: 'Open project', viewCode: 'Source code', inProgress: 'In development', previewUnavailable: 'No public screenshot is available yet.',
     aboutKicker: '02 / THE SHORT VERSION', aboutTitle: 'Still learning. Already building.',
     about1: 'I’m studying Software Development at Escola Superior Aveiro Norte, part of the University of Aveiro. My main focus right now is building useful, responsive web interfaces.',
     about2: 'I’ve worked with React, JavaScript and TypeScript, and explored PHP, SQL/MySQL, REST APIs, Vue, Node.js and Git through coursework and practical projects.',
@@ -140,7 +152,7 @@ const copy = {
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CRIAR / TESTAR / APRENDER'],
     workKicker: '01 / COISAS QUE CONSTRUÍ', workTitle: 'Projetos selecionados',
     workIntro: 'Projetos reais. O que fazem, as tecnologias usadas e ligações para experimentar ou consultar o código.',
-    viewLive: 'Abrir projeto', viewCode: 'Código-fonte', inProgress: 'Em desenvolvimento',
+    viewLive: 'Abrir projeto', viewCode: 'Código-fonte', inProgress: 'Em desenvolvimento', previewUnavailable: 'Ainda não existe uma captura de ecrã pública.',
     aboutKicker: '02 / VERSÃO CURTA', aboutTitle: 'Ainda a aprender. Já a construir.',
     about1: 'Estou a estudar Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. Neste momento, o meu foco principal é criar interfaces web úteis e responsivas.',
     about2: 'Já trabalhei com React, JavaScript e TypeScript, e explorei PHP, SQL/MySQL, APIs REST, Vue, Node.js e Git em projetos práticos e trabalhos académicos.',
@@ -187,7 +199,7 @@ const localeCopy = {
     workButton: 'Ver proyectos', internshipButton: 'Busco prácticas de 680 h', sideNote: 'ENFOQUE FRONTEND. CURIOSIDAD FULL-STACK.', scroll: 'SIGUE BAJANDO',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CREAR / PROBAR / APRENDER'],
     workKicker: '01 / COSAS QUE HE CREADO', workTitle: 'Proyectos seleccionados', workIntro: 'Proyectos reales: qué hacen, qué tecnologías utilizan y enlaces para probarlos o consultar el código.',
-    viewLive: 'Abrir proyecto', viewCode: 'Código fuente', inProgress: 'En desarrollo',
+    viewLive: 'Abrir proyecto', viewCode: 'Código fuente', inProgress: 'En desarrollo', previewUnavailable: 'Todavía no hay una captura pública disponible.',
     aboutKicker: '02 / VERSIÓN BREVE', aboutTitle: 'Sigo aprendiendo. Ya estoy creando.',
     about1: 'Estudio Desarrollo de Software en la Escola Superior Aveiro Norte, parte de la Universidad de Aveiro. Mi prioridad actual es crear interfaces web útiles y adaptables.',
     about2: 'He trabajado con React, JavaScript y TypeScript, y he explorado PHP, SQL/MySQL, API REST, Vue, Node.js y Git en proyectos prácticos y académicos.',
@@ -212,7 +224,7 @@ const localeCopy = {
     workButton: 'Voir les projets', internshipButton: 'Stage de 680 h recherché', sideNote: 'FOCUS FRONTEND. CURIOSITÉ FULL-STACK.', scroll: 'CONTINUER À DÉFILER',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CRÉER / TESTER / APPRENDRE'],
     workKicker: '01 / CE QUE J’AI CRÉÉ', workTitle: 'Projets sélectionnés', workIntro: 'Des projets réels : leur objectif, les technologies utilisées et les liens pour les tester ou consulter le code.',
-    viewLive: 'Ouvrir le projet', viewCode: 'Code source', inProgress: 'En développement',
+    viewLive: 'Ouvrir le projet', viewCode: 'Code source', inProgress: 'En développement', previewUnavailable: 'Aucune capture publique n’est disponible pour le moment.',
     aboutKicker: '02 / EN BREF', aboutTitle: 'J’apprends encore. Je construis déjà.',
     about1: 'J’étudie le développement logiciel à l’Escola Superior Aveiro Norte, qui fait partie de l’Université d’Aveiro. Je me concentre sur des interfaces web utiles et adaptatives.',
     about2: 'J’ai utilisé React, JavaScript et TypeScript, et exploré PHP, SQL/MySQL, les API REST, Vue, Node.js et Git dans des projets pratiques et académiques.',
@@ -237,7 +249,7 @@ const localeCopy = {
     workButton: 'Vedi i progetti', internshipButton: 'Cerco tirocinio di 680 ore', sideNote: 'FOCUS FRONTEND. CURIOSITÀ FULL-STACK.', scroll: 'CONTINUA A SCORRERE',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CREARE / TESTARE / IMPARARE'],
     workKicker: '01 / COSE CHE HO REALIZZATO', workTitle: 'Progetti selezionati', workIntro: 'Progetti reali: cosa fanno, quali tecnologie usano e link per provarli o consultare il codice.',
-    viewLive: 'Apri progetto', viewCode: 'Codice sorgente', inProgress: 'In sviluppo',
+    viewLive: 'Apri progetto', viewCode: 'Codice sorgente', inProgress: 'In sviluppo', previewUnavailable: 'Non è ancora disponibile uno screenshot pubblico.',
     aboutKicker: '02 / IN BREVE', aboutTitle: 'Sto ancora imparando. Intanto costruisco.',
     about1: 'Studio Sviluppo Software presso la Escola Superior Aveiro Norte, parte dell’Università di Aveiro. Al momento mi concentro su interfacce web utili e responsive.',
     about2: 'Ho lavorato con React, JavaScript e TypeScript, ed esplorato PHP, SQL/MySQL, API REST, Vue, Node.js e Git in progetti pratici e accademici.',
@@ -262,7 +274,7 @@ const localeCopy = {
     workButton: 'Projekte ansehen', internshipButton: 'Suche ein 680-Stunden-Praktikum', sideNote: 'FRONTEND-FOKUS. FULL-STACK-NEUGIER.', scroll: 'WEITER SCROLLEN',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'ENTWICKELN / TESTEN / LERNEN'],
     workKicker: '01 / MEINE PROJEKTE', workTitle: 'Ausgewählte Projekte', workIntro: 'Echte Projekte mit kurzer Beschreibung, verwendeten Technologien und Links zur Demo oder zum Quellcode.',
-    viewLive: 'Projekt öffnen', viewCode: 'Quellcode', inProgress: 'In Entwicklung',
+    viewLive: 'Projekt öffnen', viewCode: 'Quellcode', inProgress: 'In Entwicklung', previewUnavailable: 'Derzeit ist kein öffentlicher Screenshot verfügbar.',
     aboutKicker: '02 / KURZ ÜBER MICH', aboutTitle: 'Ich lerne weiter und setze Ideen um.',
     about1: 'Ich studiere Softwareentwicklung an der Escola Superior Aveiro Norte, einem Teil der Universität Aveiro. Mein aktueller Schwerpunkt sind nützliche, responsive Weboberflächen.',
     about2: 'Ich habe mit React, JavaScript und TypeScript gearbeitet und PHP, SQL/MySQL, REST-APIs, Vue, Node.js und Git in praktischen und akademischen Projekten eingesetzt.',
@@ -287,7 +299,7 @@ const localeCopy = {
     workButton: '制作実績を見る', internshipButton: '680時間のインターンを希望', sideNote: 'フロントエンド中心。フルスタックにも関心。', scroll: 'スクロールして続ける',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', '作る / 試す / 学ぶ'],
     workKicker: '01 / 制作したもの', workTitle: '主なプロジェクト', workIntro: '実際のプロジェクト、使用技術、デモやソースコードへのリンクを紹介します。',
-    viewLive: 'プロジェクトを開く', viewCode: 'ソースコード', inProgress: '開発中',
+    viewLive: 'プロジェクトを開く', viewCode: 'ソースコード', inProgress: '開発中', previewUnavailable: '公開できるスクリーンショットはまだありません。
     aboutKicker: '02 / 簡単な自己紹介', aboutTitle: '学びながら、作り続ける。',
     about1: 'アヴェイロ大学の Escola Superior Aveiro Norte でソフトウェア開発を学んでいます。現在は、使いやすくレスポンシブなWebインターフェースに重点を置いています。',
     about2: 'React、JavaScript、TypeScriptを使ったほか、実習や学業のプロジェクトでPHP、SQL/MySQL、REST API、Vue、Node.js、Gitにも取り組みました。',
@@ -330,40 +342,54 @@ for (const [code, additions] of Object.entries(extraUiCopy)) {
   localeCopy[code] = { ...localeCopy[code], ...additions };
 }
 
-function ProjectArtwork({ type, name }) {
-  if (type === 'hoop') return (
-    <div className="artwork artwork-hoop" aria-label="Abstract preview of the HOOP basketball store project">
-      <div className="mini-browser"><span /><span /><span /><b>HOOP / STORE</b><i>MENU&nbsp; +</i></div>
-      <div className="hoop-layout"><div className="hoop-title">COURT<br /><em>READY.</em><small>THE NEXT PLAY STARTS HERE.</small></div><div className="hoop-ball">◎</div></div>
-      <div className="hoop-products"><div className="shoe-shape shoe-one">01</div><div className="shoe-shape shoe-two">02</div><div className="shoe-shape shoe-three">03</div></div>
-      <img className="real-project-shot" src="https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG" alt="Screenshot of the HOOP web store" onError={(event) => event.currentTarget.remove()} />
-      <div className="artwork-footer"><span>PRODUCT DISCOVERY</span><span>REACT / TYPESCRIPT</span></div>
-    </div>
-  );
-  if (type === 'raw') return (
-    <div className="artwork artwork-raw" aria-label="Abstract preview of the RAW social conversation project">
-      <div className="raw-top"><span>RAW.</span><span>NO FILTERS / MODE 02</span></div>
-      <div className="raw-cards"><div className="raw-card raw-card-a"><small>01 / DEEP END</small><strong>Ask<br />better<br />questions.</strong><b>↗</b></div><div className="raw-card raw-card-b"><small>02 / UNFILTERED</small><strong>Truth or<br />chaos?</strong><b>✳</b></div><div className="raw-card raw-card-c"><small>03 / THE LAB</small><strong>PLAY<br />AGAIN.</strong><b>+</b></div></div>
-      <div className="raw-bottom"><span>MOVE · TALK · REPEAT</span><span>REACT / MOTION</span></div>
-    </div>
-  );
-  if (type === 'sabor') return (
-    <div className="artwork artwork-sabor" aria-label="Abstract workflow diagram for the SaborGest academic project">
-      <div className="sabor-head"><span>SABOR<span>GEST</span></span><small>WORKFLOW STUDY / 01</small></div>
-      <div className="sabor-board"><div className="sabor-sidebar"><b>SG</b><span>OV</span><span>EQ</span><span>HR</span><span>ST</span></div><div className="sabor-content"><div className="sabor-welcome">Operações de hoje <i>•••</i></div><div className="sabor-stats"><span><small>TURNOS</small><b>06</b></span><span><small>EQUIPA</small><b>08</b></span><span><small>HORAS</small><b>42h</b></span></div><div className="sabor-line"><i /><i /><i /><i /></div><div className="sabor-line short"><i /><i /><i /></div></div></div>
-      <div className="artwork-footer"><span>ACADEMIC PROJECT</span><span>IN DEVELOPMENT</span></div>
-    </div>
-  );
-  if (type === 'todo') return (
-    <div className="artwork artwork-todo" aria-label="Abstract preview of the Todo App task manager">
-      <div className="todo-window"><div className="todo-window-top"><span>today, sorted.</span><small>MY TASKS / 04</small></div><div className="todo-date">MONDAY, GET IT DONE.</div>{[['Check project details', true], ['Polish the interface', true], ['Push the next commit', false], ['Take a break', false]].map(([text, checked]) => <div className="todo-task" key={text}><i className={checked ? 'task-checked' : ''}>{checked ? '✓' : ''}</i><span className={checked ? 'task-done' : ''}>{text}</span><b>↗</b></div>)}<div className="todo-add">+ &nbsp; add a task</div></div>
-      <img className="real-project-shot real-project-shot-todo" src="https://raw.githubusercontent.com/16alves02/todo-app/main/assets/screenshot.png" alt="Screenshot of the Todo App" onError={(event) => event.currentTarget.remove()} />
-      <div className="artwork-footer"><span>DOM / LOCAL STORAGE</span><span>VANILLA JS</span></div>
-    </div>
-  );
+function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
+  if (image) {
+    return (
+      <div className={`project-preview-photo project-preview-${type}`}>
+        <img
+          className="project-photo"
+          src={image}
+          alt={imageAlt || `Actual project preview for ${name}`}
+          loading="lazy"
+          decoding="async"
+          onError={(event) => {
+            event.currentTarget.hidden = true;
+            const fallback = event.currentTarget.nextElementSibling;
+            if (fallback) fallback.hidden = false;
+          }}
+        />
+        <div className="project-photo-fallback" hidden>
+          <strong>{name}</strong>
+          <span>{previewUnavailable}</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'sabor') {
+    return (
+      <div className="project-preview-unavailable">
+        <span className="preview-label">PRIVATE PROJECT / IN DEVELOPMENT</span>
+        <strong>{name}</strong>
+        <p>{previewUnavailable}</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="artwork artwork-terminal" aria-label="Terminal-style visual for the ArraySorting C project">
-      <div className="terminal-top"><span>●</span><span>array_sorting.c</span><small>C / CONSOLE</small></div><div className="terminal-code"><p><b>#include</b> &lt;stdio.h&gt;</p><p><b>int</b> main() {'{'}</p><p className="term-indent"><i>int</i> values[] = {'{'} 8, 3, 5, 1 {'}'};</p><p className="term-indent">selection_sort(values);</p><p className="term-indent">print_array(values);</p><p>{'}'}</p><div className="term-output"><span>OUTPUT</span><b>1&nbsp; 3&nbsp; 5&nbsp; 8</b></div></div><div className="artwork-footer"><span>ALGORITHMS</span><span>C / ARRAYS</span></div>
+    <div className="artwork artwork-code-real" aria-label="Real code excerpt from the ArraySorting repository">
+      <div className="terminal-top"><span>CODE SAMPLE</span><small>Array Sorting.c / C</small></div>
+      <pre className="real-code-sample"><code>{`void SelectionSort(int numbers[LIMIT]) {
+    for (int i = 0; i < LIMIT - 1; i++) {
+        int smallest = i;
+        for (int j = i + 1; j < LIMIT; j++) {
+            if (numbers[j] < numbers[smallest]) {
+                smallest = j;
+            }
+        }
+    }
+}`}</code></pre>
+      <div className="artwork-footer"><span>REAL SOURCE EXCERPT</span><span>C / ARRAYS</span></div>
     </div>
   );
 }
@@ -373,7 +399,7 @@ function ProjectCard({ project, t, featured = false, language = 'en' }) {
   const details = extraProjectTranslations[language]?.[project.number] || projectTranslations[projectLocale]?.[project.number] || project;
   return (
     <article className={`project-card project-${project.visual} ${featured ? 'project-featured' : ''}`}>
-      <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} /><span className="project-number">{project.number} / 05</span></div>
+      <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} image={project.image} imageAlt={project.imageAlt} previewUnavailable={t.previewUnavailable} /><span className="project-number">{project.number} / 06</span></div>
       <div className="project-info">
         <div className="project-meta"><span>{details.type}</span><span>{project.year}</span></div>
         <h3>{project.name}<span className="brand-dot">.</span></h3>
