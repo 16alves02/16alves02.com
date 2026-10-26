@@ -5,7 +5,7 @@ const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
   { label: 'LinkedIn', short: 'in', url: 'https://www.linkedin.com/in/16alves02/', kind: 'work' },
   { label: 'Instagram', short: 'IG', url: 'https://www.instagram.com/16alves02/', kind: 'social' },
-  { label: 'YouTube', short: 'YT', url: 'https://www.youtube.com/16alves02', kind: 'social' },
+  { label: 'YouTube', short: 'YT', url: 'https://www.youtube.com/@16alves02', kind: 'social' },
   { label: 'Twitch', short: 'TW', url: 'https://www.twitch.tv/16alves02', kind: 'social' },
   { label: 'Linktree', short: '↗', url: 'https://linktr.ee/16alves02', kind: 'more' },
   { label: 'Uiverse', short: 'UV', url: 'https://uiverse.io/16alves02', kind: 'social' },
