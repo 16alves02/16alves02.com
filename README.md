@@ -94,3 +94,12 @@ The production build is generated in `dist/`.
 ## Author
 
 Leonardo Alves · [GitHub](https://github.com/16alves02) · [LinkedIn](https://www.linkedin.com/in/16alves02/) · [Email](mailto:16alves02@gmail.com)
+
+## SEO, accessibility and release checks
+
+- A public `robots.txt` and a one-URL `sitemap.xml` are generated from `public/`.
+- The document declares a canonical URL and Open Graph/Twitter share metadata using the portfolio's social preview artwork.
+- `public/404.html` supplies a branded not-found page on static hosting.
+- The main React page updates the document language to match the selected locale and includes a keyboard skip link.
+- No analytics scripts or marketing cookies are installed. The selected language and theme are stored in local browser storage.
+- Before release, verify the live page across viewport sizes, run link checks and a performance/accessibility audit, and confirm the production build status in Vercel.
