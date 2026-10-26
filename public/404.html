@@ -142,6 +142,7 @@
     }
   </style>
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
     (() => {
       const translations = {
         en: {
@@ -234,11 +235,12 @@
       document.getElementById('eyebrow').textContent = copy.eyebrow;
       document.getElementById('heading').innerHTML = copy.heading;
       document.getElementById('message').textContent = copy.message;
-      document.getElementById('home-link').textContent = copy.home;
-      document.getElementById('projects-link').textContent = copy.projects;
+      document.getElementById('home-label').textContent = copy.home;
+      document.getElementById('projects-label').textContent = copy.projects;
       document.getElementById('footer-label').textContent = copy.footer;
       document.getElementById('status').textContent = copy.status;
     })();
+    });
   </script>
 </head>
 <body>
@@ -253,8 +255,8 @@
       <h1 id="heading">Wrong turn<span>.</span></h1>
       <p class="message" id="message">This page seems to have taken a different route. The address may be out of date, or the page may have moved. Let’s get you back to something useful.</p>
       <div class="actions">
-        <a class="button" id="home-link" href="/#home">Back to home <span aria-hidden="true">↗</span></a>
-        <a class="button button-secondary" id="projects-link" href="/#work">Explore projects <span aria-hidden="true">↗</span></a>
+        <a class="button" id="home-link" href="/#home"><span id="home-label">Back to home</span><span aria-hidden="true">↗</span></a>
+        <a class="button button-secondary" id="projects-link" href="/#work"><span id="projects-label">Explore projects</span><span aria-hidden="true">↗</span></a>
       </div>
     </main>
     <footer>
