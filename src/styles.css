@@ -1459,3 +1459,32 @@ html[data-theme="dark"] .social-link:hover .social-mark {
 .skip-link{position:fixed;z-index:1000;top:12px;left:12px;transform:translateY(-160%);padding:12px 16px;background:var(--ink);color:var(--paper);border:2px solid var(--orange);font-weight:700;text-decoration:none;transition:transform .15s ease}
 .skip-link:focus{transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){.skip-link{transition:none}}
+
+
+/* Final contrast adjustments verified against WCAG AA text thresholds. */
+.ticker-track,
+.project-link-primary,
+.project-status,
+.social-mark,
+html[data-theme="dark"] .social-mark,
+.header-contact:hover,
+.header-contact:hover span,
+.button-dark:hover,
+.button-outline:hover,
+.skill-items span:hover,
+.internship-section .button-dark:hover,
+html[data-theme="dark"] .internship-section .button-dark:hover {
+  color: #17100e;
+}
+
+.project-preview-unavailable .preview-label {
+  color: var(--accent-readable);
+}
+
+html[data-theme="dark"] .project-preview-unavailable .preview-label {
+  color: var(--accent-readable);
+}
+
+html[data-theme="dark"] .social-note {
+  color: var(--secondary-copy);
+}
