@@ -251,7 +251,7 @@ const localeCopy = {
     workButton: '制作実績を見る', internshipButton: '680時間のインターンを希望', sideNote: 'フロントエンド中心。フルスタックにも関心。', scroll: 'スクロールして続ける',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', '作る / 試す / 学ぶ'],
     workKicker: '01 / 制作したもの', workTitle: '主なプロジェクト', workIntro: '実際のプロジェクト、使用技術、デモやソースコードへのリンクを紹介します。',
-    viewLive: 'プロジェクトを開く', viewCode: 'ソースコード', inProgress: '開発中', previewUnavailable: '公開できるスクリーンショットはまだありません。
+    viewLive: 'プロジェクトを開く', viewCode: 'ソースコード', inProgress: '開発中', previewUnavailable: '公開できるスクリーンショットはまだありません。',
     aboutKicker: '02 / 簡単な自己紹介', aboutTitle: '学びながら、作り続ける。',
     about1: 'アヴェイロ大学の Escola Superior Aveiro Norte でソフトウェア開発を学んでいます。現在は、使いやすくレスポンシブなWebインターフェースに重点を置いています。',
     about2: '現在のプロジェクトではReact、JavaScript、TypeScriptに加え、PHP、REST API、MySQL/MariaDB、Android向けKotlin、C言語の基礎を扱っています。',
