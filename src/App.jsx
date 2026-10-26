@@ -368,7 +368,7 @@ function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
   return (
     <div className="artwork artwork-code-real" aria-label="Real code excerpt from the ArraySorting repository">
       <div className="terminal-top"><span>CODE SAMPLE</span><small>Array Sorting.c / C</small></div>
-      <pre className="real-code-sample"><code>{`void SelectionSort(int numbers[LIMIT]) {
+      <pre className="real-code-sample" tabIndex={0}><code>{`void SelectionSort(int numbers[LIMIT]) {
     for (int i = 0; i < LIMIT - 1; i++) {
         int smallest = i;
         for (int j = i + 1; j < LIMIT; j++) {
@@ -529,7 +529,7 @@ export default function App() {
               <button
                 type="button"
                 className="header-icon-button language-trigger"
-                aria-label={t.chooseLanguage}
+                aria-label={`${t.chooseLanguage}: ${activeLanguage.short} / ${activeLanguage.compact}`}
                 aria-haspopup="listbox"
                 aria-expanded={languageOpen}
                 aria-controls="language-options"
