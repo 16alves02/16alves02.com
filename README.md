@@ -105,8 +105,8 @@ Leonardo Alves · [GitHub](https://github.com/16alves02) · [LinkedIn](https://w
 - Before release, verify the live page across viewport sizes, run link checks and a performance/accessibility audit, and confirm the production build status in Vercel.
 
 
-## Asset optimisation
+## Asset and release notes
 
-- Local WebP thumbnails are resized derivatives of the original project screenshots and artwork, preserving the actual visuals while reducing transfer size.
-- The social preview uses a 1200 × 630 PNG generated from the existing portfolio cover artwork.
+- Project previews use the actual public screenshots and final artwork from the projects. The original asset links are preserved.
+- The existing 1200 × 630 `og-cover.svg` is used for Open Graph and Twitter sharing metadata.
 - Google Fonts are consolidated into one stylesheet request and loaded non-blockingly, with system-font fallbacks.
