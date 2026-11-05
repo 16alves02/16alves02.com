@@ -1,57 +1,73 @@
 # 16alves02 Portfolio
 
-Personal portfolio for Leonardo Alves, built with React 19 and Vite. The page presents selected projects, technical interests, education and contact details.
+Personal portfolio for Leonardo Alves, a Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro.
 
-**[Open the live portfolio](https://16alves02-com.vercel.app)** · **[View this repository](https://github.com/16alves02/16alves02.com)**
+**[Open the live portfolio](https://16alves02-com.vercel.app)** · **[View the repository](https://github.com/16alves02/16alves02.com)**
 
-## Highlights
+## Internship availability
 
-- Responsive layout for desktop, tablet and mobile.
-- Light and dark themes, with the selected theme saved locally.
-- Seven language options: English, Portuguese (Portugal), Spanish, French, Italian, German and Japanese.
-- Project previews use real screenshots or final artwork from the projects where those assets are available.
-- Source links are only shown for public repositories; private repository URLs are deliberately omitted.
-- A clear no-screenshot state is used when a project has no public preview asset.
-- Accessible focus states and reduced-motion support.
-- Orange `#EB4520` brand accent with neutral paper, charcoal and grey surfaces.
-- Chamfer-inspired editorial direction: warm paper-and-ink surfaces, clipped 45-degree corners, serif display headings and monospace labels, adapted to the existing orange brand rather than copying a template.
+Leonardo is seeking a **paid 680-hour curricular internship starting in February 2027**, preferably in **Coimbra, Portugal**. On-site, hybrid and remote arrangements are considered.
+
+Language-aware CV downloads:
+- English: `/cv-leonardo-alves-en.pdf`
+- Portuguese: `/cv-leonardo-alves-pt.pdf`
 
 ## Featured projects
 
-| Project | Status / focus | Public links |
+| Project | Focus | Status |
 | --- | --- | --- |
-| HOOP | Educational basketball e-commerce frontend concept; checkout is simulated | [Public repository](https://github.com/16alves02/hoop) · [Live demo](https://hoop-16alves02.netlify.app) |
-| RAW. | Interactive social conversation app; source repository is private | [Live demo](https://raw-app-bice.vercel.app) |
-| SaborGest | Academic software project in development; source repository is private | No public demo or screenshot is available |
-| Todo App | Vanilla JavaScript task manager with browser-local persistence | [Public repository](https://github.com/16alves02/todo-app) · [Live demo](https://todo-app-three-beta-56.vercel.app) |
-| Two of Hearts | Vector playing-card illustration inspired by Lenços de Namorados | [Public repository and final artwork](https://github.com/16alves02/two-of-hearts-portuguese-folk-art) |
-| ArraySorting | C console project demonstrating common sorting algorithms | [Public repository](https://github.com/16alves02/ArraySorting) |
+| SaborGest | PHP 8.3, PDO, REST API, MySQL/MariaDB, Kotlin Android kiosk | Academic project in development |
+| RunLattice | Next.js, React, TypeScript, PostgreSQL, Prisma, Redis, BullMQ | Prototype in development |
+| MRDR. | React 19, TypeScript, Zustand, Vitest, Capacitor | In development |
+| RAW. | React, JavaScript, Tailwind CSS, Framer Motion | Live interactive project |
 
-The portfolio does not link to the private GitHub repositories for RAW. or SaborGest. The SaborGest card intentionally has no image: no public screenshot or demo was found in the available project documentation.
+SaborGest and RunLattice include expandable technical case studies on the portfolio covering problem context, architecture, contribution, engineering challenges and current result/limitations.
 
-## Professional experience
+### Project status and accuracy
 
-The portfolio includes the professional roles described in Leonardo's profile, ordered from most recent to oldest:
+- **SaborGest** is an academic prototype. It is still being integrated and validated and is not production-ready.
+- **RunLattice** persists workflow definitions and run records and queues simulated graph traversal through BullMQ. The worker does not yet call external services. Authentication and workspace isolation are not implemented.
+- **MRDR.** is still in development.
+- **RAW.** links to its live application. Its source repository is private.
+- **HOOP** remains in the project list as an educational frontend concept; authentication and checkout are simulated and no real payments are processed.
 
-| Role | Organization | Period |
-| --- | --- | --- |
-| CNC machine operator | Schmidt Light Metal Group | Feb 2025 – May 2026 |
-| Store operator | MC | May – Aug 2024 |
-| Backend developer intern | ClickBeauty / Alvocromático | Apr – Jul 2023 |
-| Web development intern | Associação Estamos Juntos (AEJ) | Jul 2022 |
+Source links are shown only for public repositories. Private repositories are not exposed.
 
-## Education
+## Profile and experience
 
-- **CTeSP, Software Development** — Escola Superior Aveiro Norte, Universidade de Aveiro · Sep 2025 – Jul 2027
-- **CTeSP, CNC Programmer** — Oct 2024 – Jul 2025 · Enrolment currently frozen
-- **Escola Secundária Dr. Serafim Leite** · 2020–2023
+The portfolio presents software development across frontend, backend, data and mobile projects. It also connects Leonardo's previous CNC machine operation experience with precision, quality checks and systematic troubleshooting.
 
-## Services shown on the portfolio
+Professional experience:
+- CNC Machine Operator — Schmidt Light Metal Group · Feb 2025–May 2026
+- Store Operator — MC · May–Aug 2024
+- Backend Developer Intern — ClickBeauty / Alvocromático · Apr–Jul 2023
+- Web Development Intern — Associação Estamos Juntos (AEJ) · Jul 2022
 
-- Web development
-- Database development
-- Software testing
-- Web design
+Education:
+- CTeSP in Software Development — Escola Superior Aveiro Norte, Universidade de Aveiro · 2025–2027, in progress
+- Professional Course in IT Systems Management and Programming — Escola Secundária Dr. Serafim Leite · 2020–2023
+
+## Technical stack shown
+
+- **Frontend:** React, TypeScript, JavaScript, Next.js, Vite, React Router, Tailwind CSS
+- **Backend and APIs:** PHP, Node.js, REST APIs, PDO, Prisma
+- **Data and queues:** SQL, MySQL/MariaDB, PostgreSQL, Redis, BullMQ
+- **Mobile and quality:** Kotlin/Android, Capacitor, Vitest, C, Git, GitHub
+
+The site lists technologies used in coursework and projects; experience varies by tool.
+
+## Site features
+
+- Responsive layout for desktop, tablet and mobile.
+- Light and dark themes.
+- Seven language options: English, Portuguese (Portugal), Spanish, French, Italian, German and Japanese.
+- Expandable project case studies for SaborGest and RunLattice.
+- English and Portuguese CV downloads.
+- Internship availability visible in the hero and dedicated section.
+- Prefilled email subject and body for internship enquiries.
+- Public screenshots or final artwork where available.
+- Accessible focus states, skip link and reduced-motion support.
+- No analytics scripts or marketing cookies.
 
 ## Run locally
 
@@ -64,8 +80,6 @@ npm install
 npm run dev
 ```
 
-Vite prints the local development URL in the terminal.
-
 ## Production build
 
 ```bash
@@ -77,38 +91,16 @@ The production build is generated in `dist/`.
 
 ## Deploy to Vercel
 
-1. Import this repository into Vercel.
-2. Select the Vite framework preset.
-3. Set the build command to `npm run build`.
-4. Set the output directory to `dist`.
-5. Review a preview deployment before promoting changes to production.
+The repository is connected to the `16alves02-com` Vercel project. Pushes to `main` trigger production deployments; branches generate previews.
 
 ## Project structure
 
-- `src/App.jsx` — page sections, project data and language copy.
+- `src/App.jsx` — page sections, copy, navigation, case-study presentation and language handling.
 - `src/styles.css` — component and layout styling.
 - `src/index.css` — base styles and design tokens.
-- `src/data/projects.js` — the single source of truth for project descriptions, stacks, public links and real preview assets.
-- `public/` — logos, favicon and social preview assets.
+- `src/data/projects.js` — project descriptions, stacks, links, case studies and preview assets.
+- `public/` — logos, favicon, social preview assets and downloadable CV PDFs.
 
 ## Author
 
 Leonardo Alves · [GitHub](https://github.com/16alves02) · [LinkedIn](https://www.linkedin.com/in/16alves02/) · [Email](mailto:16alves02@gmail.com)
-
-## SEO, accessibility and release checks
-
-- A public `robots.txt` and a one-URL `sitemap.xml` are generated from `public/`.
-- The document declares a canonical URL and Open Graph/Twitter share metadata using the portfolio's social preview artwork.
-- `public/404.html` supplies a branded not-found page on static hosting.
-- The main React page updates the document language to match the selected locale and includes a keyboard skip link.
-- No analytics scripts or marketing cookies are installed. The selected language and theme are stored in local browser storage.
-- Before release, verify the live page across viewport sizes, run link checks and a performance/accessibility audit, and confirm the production build status in Vercel.
-
-
-## Asset and release notes
-
-- Project cards use the real public screenshots and final artwork, served as resized WebP through the `wsrv.nl` image transformation service to reduce download size. Their original source assets remain in the linked project repositories or demos.
-- Open Graph and Twitter previews use a 1200 × 630 PNG rendition of the existing `public/og-cover.svg`, delivered through the same image service.
-- The image previews depend on that external image service being available. If the service is unavailable, the source assets are still available in their original locations.
-- Google Fonts are consolidated into one stylesheet request and loaded non-blockingly, with system-font fallbacks.
-- Public search metadata includes a canonical URL, `robots.txt`, a sitemap, and a branded 404 page.
