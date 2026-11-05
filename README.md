@@ -1,73 +1,85 @@
 # 16alves02 Portfolio
 
-Personal portfolio for Leonardo Alves, a Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro.
+Personal portfolio for Leonardo Alves, a Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro (2025–2027), building a path towards software engineering.
 
-**[Open the live portfolio](https://16alves02-com.vercel.app)** · **[View the repository](https://github.com/16alves02/16alves02.com)**
+**[Open the portfolio](https://16alves02-com.vercel.app)** · **[GitHub profile](https://github.com/16alves02)**
+
+## Professional direction
+
+The long-term goal is to become a software engineer who can reason about and contribute to complete systems: interfaces, business logic, APIs, data persistence, background processing, testing and mobile applications.
+
+The portfolio presents academic and personal projects as evidence of this learning path. It distinguishes what is implemented from what is still a prototype, in development or planned.
 
 ## Internship availability
 
-Leonardo is seeking a **paid 680-hour curricular internship starting in February 2027**, preferably in **Coimbra, Portugal**. On-site, hybrid and remote arrangements are considered.
+Seeking a **paid 680-hour curricular software development internship starting in February 2027**, preferably in **Coimbra, Portugal**. Open to on-site, hybrid or remote opportunities.
 
-Language-aware CV downloads:
+- Start: February 2027
+- Duration: 680 hours
+- Preferred location: Coimbra, Portugal
+- Work arrangement: On-site / hybrid / remote
+- Type: Paid curricular internship
+
+CV downloads:
 - English: `/cv-leonardo-alves-en.pdf`
 - Portuguese: `/cv-leonardo-alves-pt.pdf`
 
-## Featured projects
+## Four featured projects
 
-| Project | Focus | Status |
-| --- | --- | --- |
-| SaborGest | PHP 8.3, PDO, REST API, MySQL/MariaDB, Kotlin Android kiosk | Academic project in development |
-| RunLattice | Next.js, React, TypeScript, PostgreSQL, Prisma, Redis, BullMQ | Prototype in development |
-| MRDR. | React 19, TypeScript, Zustand, Vitest, Capacitor | In development |
-| RAW. | React, JavaScript, Tailwind CSS, Framer Motion | Live interactive project |
+The portfolio highlights these projects in the same order.
 
-SaborGest and RunLattice include expandable technical case studies on the portfolio covering problem context, architecture, contribution, engineering challenges and current result/limitations.
+| Project | Engineering focus | Technologies | Current status |
+| --- | --- | --- | --- |
+| **SaborGest** | Integrated management system with a PHP web panel, REST API, relational database and Kotlin Android kiosk. Scope includes schedules, attendance, stock and communication between clients. | PHP 8.3, PDO, REST API, MySQL/MariaDB, Kotlin, Android, Retrofit | Academic project in development; integration, acceptance and security validation remain. Not production-ready. |
+| **RunLattice** | Workflow automation prototype exploring a visual editor, graph validation, API operations, persistence, execution history and asynchronous processing. | Next.js, React, TypeScript, Route Handlers, Zod, PostgreSQL, Prisma, Redis, BullMQ, Vitest | Worker simulates workflow traversal. External integrations, authentication and workspace isolation are not implemented. |
+| **MRDR.** | Original deduction game exploring case generation and validation, a modular logic engine, campaign progression, achievements and automated tests. | React 19, TypeScript, Vite, Zustand, Vitest, Capacitor | In development. Project documentation describes 200 cases and automated checks for validity and unique solutions. |
+| **RAW.** | Interactive conversation and party-game application with multiple modes, card interactions, swipe gestures, animated transitions, localisation and a mobile/PWA-oriented experience. | React, JavaScript, Tailwind CSS, Framer Motion, PWA, localisation | Live interactive project; source repository is private. |
 
-### Project status and accuracy
+## Additional projects
 
-- **SaborGest** is an academic prototype. It is still being integrated and validated and is not production-ready.
-- **RunLattice** persists workflow definitions and run records and queues simulated graph traversal through BullMQ. The worker does not yet call external services. Authentication and workspace isolation are not implemented.
-- **MRDR.** is still in development.
-- **RAW.** links to its live application. Its source repository is private.
-- **HOOP** remains in the project list as an educational frontend concept; authentication and checkout are simulated and no real payments are processed.
+- **Nova Imagem by Maura Pereira** — client website in preparation with the salon owner. Service descriptions, imagery, opening hours and publication details require confirmation. A CMS-based content editing workflow is planned but not yet implemented or validated.
+- **HOOP** — educational basketball-store frontend with product discovery, filters, favourites, cart and a simulated checkout; no real payments. [Repository](https://github.com/16alves02/hoop) · [Demo](https://hoop-16alves02.netlify.app)
+- **Todo App** — browser task manager with filters and local persistence. [Repository](https://github.com/16alves02/todo-app) · [Demo](https://todo-app-three-beta-56.vercel.app)
+- **ArraySorting** — C console program demonstrating Selection Sort, Insertion Sort, Bubble Sort and a small Bogo Sort example. [Repository](https://github.com/16alves02/ArraySorting)
+- **Two of Hearts** — vector playing-card illustration inspired by Lenços de Namorados from Minho. [Repository](https://github.com/16alves02/two-of-hearts-portuguese-folk-art)
 
-Source links are shown only for public repositories. Private repositories are not exposed.
+## Technical foundation
 
-## Profile and experience
+These technologies are connected to coursework, previous software internships or the projects above; experience varies by tool.
 
-The portfolio presents software development across frontend, backend, data and mobile projects. It also connects Leonardo's previous CNC machine operation experience with precision, quality checks and systematic troubleshooting.
+- **Languages:** JavaScript, TypeScript, PHP, Kotlin, C
+- **Frontend:** React, Next.js, Vite, React Router, HTML5, CSS3, Tailwind CSS, Framer Motion
+- **Backend and APIs:** PHP, PDO, REST APIs, Next.js Route Handlers, Zod
+- **Data and persistence:** SQL, MySQL/MariaDB, PostgreSQL, Prisma
+- **Background processing:** Redis, BullMQ
+- **Mobile:** Kotlin, Android, Capacitor
+- **Testing and tools:** Vitest, Git, GitHub, Docker Compose
 
-Professional experience:
-- CNC Machine Operator — Schmidt Light Metal Group · Feb 2025–May 2026
-- Store Operator — MC · May–Aug 2024
-- Backend Developer Intern — ClickBeauty / Alvocromático · Apr–Jul 2023
-- Web Development Intern — Associação Estamos Juntos (AEJ) · Jul 2022
+Node.js is used as the runtime environment for the Next.js project; it is not presented as a separate production backend project.
+
+## Experience and education
+
+Software development experience:
+- Backend Development Intern — ClickBeauty / Alvocromático · Apr–Jul 2023 · PHP, MySQL, internal web systems and code maintenance.
+- Web Development Intern — Associação Estamos Juntos (AEJ) · Jul 2022 · HTML, CSS, JavaScript, PHP and database integration.
+
+Additional professional experience:
+- CNC Machine Operator — Schmidt Light Metal Group · Feb 2025–May 2026.
+- Store Operator — MC · May–Aug 2024.
 
 Education:
-- CTeSP in Software Development — Escola Superior Aveiro Norte, Universidade de Aveiro · 2025–2027, in progress
-- Professional Course in IT Systems Management and Programming — Escola Secundária Dr. Serafim Leite · 2020–2023
-
-## Technical stack shown
-
-- **Frontend:** React, TypeScript, JavaScript, Next.js, Vite, React Router, Tailwind CSS
-- **Backend and APIs:** PHP, Node.js, REST APIs, PDO, Prisma
-- **Data and queues:** SQL, MySQL/MariaDB, PostgreSQL, Redis, BullMQ
-- **Mobile and quality:** Kotlin/Android, Capacitor, Vitest, C, Git, GitHub
-
-The site lists technologies used in coursework and projects; experience varies by tool.
+- CTeSP in Software Development — Escola Superior Aveiro Norte, Universidade de Aveiro · 2025–2027 · In progress.
+- Professional Course in IT Systems Management and Programming — Escola Secundária Dr. Serafim Leite · 2020–2023.
 
 ## Site features
 
-- Responsive layout for desktop, tablet and mobile.
-- Light and dark themes.
-- Seven language options: English, Portuguese (Portugal), Spanish, French, Italian, German and Japanese.
-- Expandable project case studies for SaborGest and RunLattice.
-- English and Portuguese CV downloads.
-- Internship availability visible in the hero and dedicated section.
-- Prefilled email subject and body for internship enquiries.
-- Public screenshots or final artwork where available.
-- Accessible focus states, skip link and reduced-motion support.
-- No analytics scripts or marketing cookies.
+- Responsive layout and seven languages: English, Portuguese (Portugal), Spanish, French, Italian, German and Japanese.
+- Light/dark themes, keyboard navigation, skip link and reduced-motion support.
+- CSS 3D project carousel with keyboard, pointer, touch and scroll controls.
+- Editorial engineering stories with scroll-linked chapter emphasis and factual architecture diagrams.
+- Language-aware CV downloads and prefilled internship enquiry email.
+- Project cards distinguish public links, private repositories and development status.
+- No WebGL or Three.js dependency.
 
 ## Run locally
 
@@ -89,17 +101,14 @@ npm run preview
 
 The production build is generated in `dist/`.
 
-## Deploy to Vercel
-
-The repository is connected to the `16alves02-com` Vercel project. Pushes to `main` trigger production deployments; branches generate previews.
-
 ## Project structure
 
-- `src/App.jsx` — page sections, copy, navigation, case-study presentation and language handling.
-- `src/styles.css` — component and layout styling.
-- `src/index.css` — base styles and design tokens.
-- `src/data/projects.js` — project descriptions, stacks, links, case studies and preview assets.
-- `public/` — logos, favicon, social preview assets and downloadable CV PDFs.
+- `src/App.jsx` — page sections, copy, language handling and navigation.
+- `src/components/ProjectCarousel.jsx` — CSS 3D featured-project carousel and input handling.
+- `src/components/EngineeringStories.jsx` — editorial engineering case studies and scroll progress.
+- `src/styles.css` — layout, themes, responsive styling and motion preferences.
+- `src/data/projects.js` — project descriptions, technology stacks, links and status.
+- `public/` — downloadable CVs and site assets.
 
 ## Author
 
