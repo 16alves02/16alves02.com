@@ -19,8 +19,8 @@ export default function ProjectCarousel({ t }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [entered, setEntered] = useState(false);
   const dragRef = useRef(null);
+  const suppressClickRef = useRef(false);
   const wheelLockRef = useRef(0);
-  const ringRef = useRef(null);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -69,6 +69,7 @@ export default function ProjectCarousel({ t }) {
 
   function handlePointerDown(event) {
     if (event.button !== undefined && event.button !== 0) return;
+    suppressClickRef.current = false;
     dragRef.current = {
       pointerId: event.pointerId,
       startX: event.clientX,
@@ -84,6 +85,7 @@ export default function ProjectCarousel({ t }) {
     const distance = event.clientX - drag.startX;
     if (Math.abs(distance) < 24) return;
     drag.moved = true;
+    suppressClickRef.current = true;
     const steps = Math.round(-distance / 115);
     selectProject(drag.startIndex + steps);
   }
@@ -91,7 +93,15 @@ export default function ProjectCarousel({ t }) {
   function handlePointerUp(event) {
     if (dragRef.current?.pointerId === event.pointerId) {
       dragRef.current = null;
+      if (suppressClickRef.current) {
+        window.setTimeout(() => { suppressClickRef.current = false; }, 0);
+      }
     }
+  }
+
+  function handleCardClick(index) {
+    if (suppressClickRef.current) return;
+    selectProject(index);
   }
 
   function handleWheel(event) {
@@ -118,7 +128,6 @@ export default function ProjectCarousel({ t }) {
       </div>
 
       <div
-        ref={ringRef}
         className="carousel-stage"
         role="region"
         aria-label={t.carouselRegionLabel}
@@ -144,7 +153,7 @@ export default function ProjectCarousel({ t }) {
                 style={{ '--card-angle': `${index * 90}deg` }}
                 aria-pressed={isActive}
                 aria-label={`${project.name}. ${t.carouselSelectProject}`}
-                onClick={() => selectProject(index)}
+                onClick={() => handleCardClick(index)}
               >
                 <span className="carousel-card-number">0{index + 1} / 04</span>
                 <span className="carousel-card-mark" aria-hidden="true">{project.visual === 'sabor' ? 'SG' : project.visual === 'runlattice' ? 'RL' : project.visual === 'mrdr' ? 'MR' : 'RAW'}</span>
