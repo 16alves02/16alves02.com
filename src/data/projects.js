@@ -84,6 +84,7 @@ export const projects = [
     status: 'In preparation',
     visual: 'nova',
   },
+  {
     number: '01',
     name: 'HOOP',
     type: 'Frontend / e-commerce concept',
