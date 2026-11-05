@@ -155,16 +155,6 @@ const storyContent = {
   },
 };
 
-const storyStatus = {
-  en: { inDevelopment:'In development', prototype:'Prototype in development', live:'Live project' },
-  'pt-PT': { inDevelopment:'Em desenvolvimento', prototype:'Protótipo em desenvolvimento', live:'Projeto publicado' },
-  es: { inDevelopment:'En desarrollo', prototype:'Prototipo en desarrollo', live:'Proyecto publicado' },
-  fr: { inDevelopment:'En développement', prototype:'Prototype en développement', live:'Projet publié' },
-  it: { inDevelopment:'In sviluppo', prototype:'Prototipo in sviluppo', live:'Progetto pubblicato' },
-  de: { inDevelopment:'In Entwicklung', prototype:'Prototyp in Entwicklung', live:'Veröffentlichtes Projekt' },
-  ja: { inDevelopment:'開発中', prototype:'開発中のプロトタイプ', live:'公開中のプロジェクト' },
-};
-
 const additionalStoryContent = {
   SaborGest: {
     es: { problem:'Coordinar horarios, asistencia y stock sin procesos separados en papel u hojas de cálculo.', architecture:'Panel PHP y API REST sobre MySQL/MariaDB compartida; un quiosco Android en Kotlin se comunica con la misma API.', implementation:'El alcance documentado incluye empleados, horarios, asistencia, correcciones y movimientos de stock para los clientes web y Android.', limits:'Proyecto académico en desarrollo. Integración, instalación de destino, pruebas de aceptación y validación de seguridad pendientes; no está preparado para producción.', nodes:['Panel de gestión web','API REST PHP','MySQL / MariaDB','Quiosco Android · Kotlin'], stack:'PHP 8.3 · PDO · REST · MySQL/MariaDB · Kotlin · Retrofit' },
