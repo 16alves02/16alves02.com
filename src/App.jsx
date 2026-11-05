@@ -60,7 +60,9 @@ const projectTranslations = {
   pt: {
     '01': { type: 'FRONTEND / CONCEITO DE E-COMMERCE', description: 'Um conceito de loja de basquetebol com descoberta e filtros de produtos, páginas de produto, favoritos, carrinho e um processo de compra simulado. Um projeto para explorar a experiência de compra do lado do frontend.' },
     '02': { type: 'WEB INTERATIVA / PROJETO PESSOAL', description: 'Uma experiência social de conversas e jogos, com vários modos, cartões interativos, gestos de deslize, animações e uma identidade visual própria.' },
-    '03': { type: 'PROJETO ACADÉMICO / EM DESENVOLVIMENTO', description: 'Projeto académico para padarias, pastelarias, cafés e restaurantes. A versão documentada gere horários e assiduidade através de um painel Web em PHP, uma API REST e um quiosque Android em Kotlin; continua em desenvolvimento.' },
+    '03': { type: 'SISTEMA DE GESTÃO / PROJETO ACADÉMICO', description: 'Sistema académico de gestão para negócios de restauração, com painel Web em PHP, API REST, base de dados MySQL / MariaDB e quiosque Android em Kotlin. A documentação inclui gestão de horários, assiduidade e stock. O projeto continua em desenvolvimento e ainda não está pronto para produção.', status: 'Em desenvolvimento' },
+    '07': { type: 'PLATAFORMA DE AUTOMAÇÃO / PROTÓTIPO', description: 'Protótipo de uma plataforma de automação de workflows, com editor visual de gatilhos, condições e ações, gestão de workflows com PostgreSQL e fila de execução com Redis e BullMQ. O worker simula atualmente a execução; as integrações com serviços externos ainda não estão implementadas.', status: 'Protótipo em desenvolvimento' },
+    '08': { type: 'JOGO ORIGINAL DE DEDUÇÃO / EM DESENVOLVIMENTO', description: 'Jogo original de dedução criminal baseado em casos gerados proceduralmente, pistas cruzadas e uma campanha inspirada no mapa de Portugal. Inclui motor de dedução, validação de casos, progressão local, conquistas e desafios diários. Continua em desenvolvimento.', status: 'Em desenvolvimento' },
     '04': { type: 'FUNDAMENTOS WEB', description: 'Um pequeno gestor de tarefas desenvolvido sem framework de frontend. Um exercício prático de eventos, atualizações do DOM, filtros e armazenamento no browser.' },
     '05': { type: 'ILUSTRAÇÃO VETORIAL / ARTE POPULAR PORTUGUESA', description: 'Uma ilustração de uma carta de jogar inspirada nos Lenços de Namorados do Minho, desenvolvida em Affinity.' },
     '06': { type: 'FUNDAMENTOS DE PROGRAMAÇÃO', description: 'Um programa de consola em C que demonstra Selection Sort, Insertion Sort, Bubble Sort e um pequeno exemplo de Bogo Sort, com menu interativo e validação de entrada.' },
@@ -114,19 +116,19 @@ const extraProjectTranslations = {
 const copy = {
   en: {
     navWork: 'Work', navAbout: 'About', navPath: 'Background', navContact: 'Contact', navButton: 'Say hello',
-    role: 'SOFTWARE DEVELOPMENT STUDENT / JUNIOR SOFTWARE DEVELOPER', eyebrow: 'PERSONAL SITE / PORTUGAL / 2026',
-    titleOne: 'I make things', titleTwo: 'for the web', titleEnd: '.',
-    intro: 'I’m Leonardo, the person behind 16alves02. I build web projects, pay attention to the details, and like understanding what happens behind the interface too.',
+    role: 'SOFTWARE DEVELOPER / SOFTWARE DEVELOPMENT STUDENT', eyebrow: 'PERSONAL SITE / PORTUGAL / 2026',
+    titleOne: 'I build', titleTwo: 'software', titleEnd: '.',
+    intro: 'I’m Leonardo, a software developer in training. I build projects across web applications, APIs, databases and mobile, and enjoy understanding how the different parts of a solution fit together.',
     workButton: 'See selected work', internshipButton: 'Looking for a 680h internship',
-    sideNote: 'FRONTEND MINDED. FULL-STACK CURIOUS.', scroll: 'SCROLL A LITTLE',
+    sideNote: 'SOFTWARE DEVELOPMENT. ALWAYS LEARNING.', scroll: 'SCROLL A LITTLE',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'BUILD / TEST / LEARN'],
     workKicker: '01 / THINGS I’VE BUILT', workTitle: 'Selected work',
     workIntro: 'A few real projects. What they do, what I used, and a link to try them or read the code.',
     viewLive: 'Open project', viewCode: 'Source code', inProgress: 'In development', previewUnavailable: 'No public screenshot is available yet.',
     aboutKicker: '02 / THE SHORT VERSION', aboutTitle: 'Still learning. Already building.',
-    about1: 'I’m studying Software Development (CTeSP) at Escola Superior Aveiro Norte, part of the University of Aveiro. My interests are frontend development, web applications and software engineering fundamentals.',
+    about1: 'I’m studying Software Development (CTeSP) at Escola Superior Aveiro Norte, part of the University of Aveiro. I approach software development as a broad discipline, with an interest in building useful applications and understanding the systems behind them.',
     about2: 'My coursework includes algorithms, object-oriented programming, web and mobile development, databases, software engineering and systems analysis. My practical work includes web projects and internships in backend and web development.',
-    about3: 'I’m especially interested in frontend development, user interfaces and modern, functional, responsive web applications. I’ve worked with HTML, CSS, JavaScript, PHP and MySQL through projects and internships.',
+    about3: 'My practical work spans frontend and backend development, REST APIs, databases and Android applications. I use different technologies according to each project, with attention to code organization, usability and maintainability.',
     servicesKicker: 'SERVICES', servicesTitle: 'What I can help with', servicesIntro: 'Practical support for small websites and digital projects.', serviceItems: [['Web development', 'Responsive sites and practical web experiences.'], ['Database development', 'SQL data structures and database-backed features.'], ['Software testing', 'Manual checks, validation and troubleshooting.'], ['Web design', 'Clear, responsive interfaces with attention to usability.']],
     skillGroups: [
       ['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'],
@@ -144,19 +146,19 @@ const copy = {
   },
   pt: {
     navWork: 'Projetos', navAbout: 'Sobre', navPath: 'Percurso', navContact: 'Contacto', navButton: 'Fala comigo',
-    role: 'ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE / JUNIOR DEVELOPER', eyebrow: 'SITE PESSOAL / PORTUGAL / 2026',
-    titleOne: 'Faço coisas', titleTwo: 'para a web', titleEnd: '.',
-    intro: 'Sou o Leonardo, a pessoa por trás de 16alves02. Desenvolvo projetos web, presto atenção aos detalhes e gosto de perceber o que acontece para lá da interface.',
+    role: 'SOFTWARE DEVELOPER / ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE', eyebrow: 'SITE PESSOAL / PORTUGAL / 2026',
+    titleOne: 'Desenvolvo', titleTwo: 'software', titleEnd: '.',
+    intro: 'Sou o Leonardo, estudante e programador de software. Desenvolvo projetos em diferentes áreas, desde aplicações Web e APIs a bases de dados e aplicações Android, procurando compreender como cada componente contribui para a solução.',
     workButton: 'Ver projetos', internshipButton: 'À procura de estágio de 680h',
-    sideNote: 'FOCO NO FRONTEND. CURIOSIDADE PELO RESTO.', scroll: 'CONTINUA A DESCER',
+    sideNote: 'DESENVOLVIMENTO DE SOFTWARE. SEMPRE A APRENDER.', scroll: 'CONTINUA A DESCER',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CRIAR / TESTAR / APRENDER'],
     workKicker: '01 / COISAS QUE CONSTRUÍ', workTitle: 'Projetos selecionados',
     workIntro: 'Projetos reais. O que fazem, as tecnologias usadas e ligações para experimentar ou consultar o código.',
     viewLive: 'Abrir projeto', viewCode: 'Código-fonte', inProgress: 'Em desenvolvimento', previewUnavailable: 'Ainda não existe uma captura de ecrã pública.',
     aboutKicker: '02 / VERSÃO CURTA', aboutTitle: 'Ainda a aprender. Já a construir.',
-    about1: 'Sou estudante do CTeSP de Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. Interesso-me sobretudo por desenvolvimento frontend, aplicações web e fundamentos de engenharia de software.',
+    about1: 'Sou estudante do CTeSP de Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. Encaro o desenvolvimento de software como uma área abrangente, com interesse em criar aplicações úteis e compreender os sistemas que as suportam.',
     about2: 'A minha formação inclui algoritmos, programação orientada a objetos, desenvolvimento web e mobile, bases de dados, engenharia de software e análise de sistemas, com uma forte componente prática.',
-    about3: 'Tenho experiência prática com HTML, CSS, JavaScript, PHP e MySQL, incluindo estágios de desenvolvimento backend na ClickBeauty / Alvocromático e de desenvolvimento web na Associação Estamos Juntos. O meu foco é criar aplicações web modernas, funcionais e responsivas.',
+    about3: 'O meu trabalho prático abrange desenvolvimento frontend e backend, APIs REST, bases de dados e aplicações Android. Utilizo tecnologias diferentes consoante os requisitos de cada projeto, com atenção à organização do código, usabilidade e manutenção.',
     servicesKicker: 'SERVIÇOS', servicesTitle: 'Como posso ajudar', servicesIntro: 'Apoio prático para websites e projetos digitais de pequena dimensão.', serviceItems: [['Desenvolvimento web', 'Websites responsivos e experiências web funcionais.'], ['Desenvolvimento de bases de dados', 'Estruturas SQL e funcionalidades ligadas a bases de dados.'], ['Teste de software', 'Verificações manuais, validação e identificação de problemas.'], ['Web design', 'Interfaces claras e responsivas, com atenção à usabilidade.']],
     skillGroups: [
       ['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'],
@@ -382,10 +384,10 @@ function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
     );
   }
 
-  if (type === 'sabor') {
+  if (type === 'sabor' || type === 'runlattice' || type === 'mrdr') {
     return (
       <div className="project-preview-unavailable">
-        <span className="preview-label">PRIVATE PROJECT / IN DEVELOPMENT</span>
+        <span className="preview-label">{type === 'sabor' || type === 'mrdr' ? 'PRIVATE PROJECT / IN DEVELOPMENT' : 'PROTOTYPE / IN DEVELOPMENT'}</span>
         <strong>{name}</strong>
         <p>{previewUnavailable}</p>
       </div>
@@ -410,12 +412,12 @@ function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
   );
 }
 
-function ProjectCard({ project, t, featured = false, language = 'en' }) {
+function ProjectCard({ project, t, featured = false, language = 'en', position = 1 }) {
   const projectLocale = language === 'pt-PT' ? 'pt' : language;
   const details = extraProjectTranslations[language]?.[project.number] || projectTranslations[projectLocale]?.[project.number] || project;
   return (
     <article className={`project-card project-${project.visual} ${featured ? 'project-featured' : ''}`}>
-      <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} image={project.image} imageAlt={project.imageAlt} previewUnavailable={t.previewUnavailable} /><span className="project-number">{project.number} / 06</span></div>
+      <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} image={project.image} imageAlt={project.imageAlt} previewUnavailable={t.previewUnavailable} /><span className="project-number">{String(position).padStart(2, '0')} / {projects.length}</span></div>
       <div className="project-info">
         <div className="project-meta"><span>{details.type}</span><span>{project.year}</span></div>
         <h3>{project.name}<span className="brand-dot">.</span></h3>
@@ -424,7 +426,7 @@ function ProjectCard({ project, t, featured = false, language = 'en' }) {
         <div className="project-links">
           {project.live && <a href={project.live} target="_blank" rel="noreferrer" className="project-link project-link-primary">{t.viewLive} <span>↗</span></a>}
           {project.source && <a href={project.source} target="_blank" rel="noreferrer" className="project-link">{t.viewCode} <span>↗</span></a>}
-          {!project.live && project.visual === 'sabor' && <span className="project-status">{t.inProgress}</span>}
+          {project.status && <span className="project-status">{details.status || project.status}</span>}
         </div>
       </div>
     </article>
@@ -715,7 +717,7 @@ export default function App() {
 
         <section className="work-section section-pad" id="work">
           <div className="section-heading"><div><p className="section-kicker"><span>01</span> / {t.workKicker.split('/ ').slice(1).join('/ ')}</p><h2>{t.workTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.workIntro}</p></div>
-          <div className="projects-grid">{projects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} featured={index < 2} />)}</div>
+          <div className="projects-grid">{projects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured={index < 3} />)}</div>
         </section>
 
         <section className="about-section" id="about">
