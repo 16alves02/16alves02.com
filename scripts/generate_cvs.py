@@ -21,15 +21,15 @@ PUBLIC.mkdir(parents=True, exist_ok=True)
 
 def make_styles():
     return {
-        "name": ParagraphStyle("name", fontName="Helvetica-Bold", fontSize=21, leading=23, textColor=INK, spaceAfter=1),
-        "headline": ParagraphStyle("headline", fontName="Helvetica-Bold", fontSize=8.2, leading=10, textColor=ACCENT, spaceAfter=4),
-        "contact": ParagraphStyle("contact", fontName="Helvetica", fontSize=7.1, leading=9.2, textColor=MUTED),
-        "section": ParagraphStyle("section", fontName="Helvetica-Bold", fontSize=8.5, leading=10, textColor=INK, spaceBefore=4.5, spaceAfter=3),
-        "body": ParagraphStyle("body", fontName="Helvetica", fontSize=7.45, leading=9.5, textColor=INK, spaceAfter=2),
-        "small": ParagraphStyle("small", fontName="Helvetica", fontSize=6.9, leading=8.6, textColor=MUTED),
-        "project": ParagraphStyle("project", fontName="Helvetica", fontSize=7.15, leading=9.1, textColor=INK, spaceAfter=1.8),
-        "job": ParagraphStyle("job", fontName="Helvetica", fontSize=7.15, leading=9, textColor=INK, spaceAfter=1.5),
-        "availability": ParagraphStyle("availability", fontName="Helvetica-Bold", fontSize=7.2, leading=9, textColor=INK),
+        "name": ParagraphStyle("name", fontName="Helvetica-Bold", fontSize=23, leading=25, textColor=INK, spaceAfter=1),
+        "headline": ParagraphStyle("headline", fontName="Helvetica-Bold", fontSize=9.5, leading=11.5, textColor=ACCENT, spaceAfter=4),
+        "contact": ParagraphStyle("contact", fontName="Helvetica", fontSize=8.2, leading=10.2, textColor=MUTED),
+        "section": ParagraphStyle("section", fontName="Helvetica-Bold", fontSize=9.6, leading=11.4, textColor=INK, spaceBefore=6, spaceAfter=4),
+        "body": ParagraphStyle("body", fontName="Helvetica", fontSize=8.5, leading=10.8, textColor=INK, spaceAfter=2),
+        "small": ParagraphStyle("small", fontName="Helvetica", fontSize=7.8, leading=9.8, textColor=MUTED),
+        "project": ParagraphStyle("project", fontName="Helvetica", fontSize=8.2, leading=10.4, textColor=INK, spaceAfter=1.8),
+        "job": ParagraphStyle("job", fontName="Helvetica", fontSize=8.1, leading=10.2, textColor=INK, spaceAfter=1.5),
+        "availability": ParagraphStyle("availability", fontName="Helvetica-Bold", fontSize=8.2, leading=10.2, textColor=INK),
     }
 
 def paragraph(text, styles, style="body"):
