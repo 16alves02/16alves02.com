@@ -4,9 +4,9 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "predev": "python3 -m pip install --quiet -r requirements-cv.txt && python3 scripts/generate_cvs.py",
+    "predev": "python3 -m pip install --quiet --target ./.cv-python -r requirements-cv.txt && PYTHONPATH=./.cv-python python3 scripts/generate_cvs.py",
     "dev": "vite",
-    "prebuild": "python3 -m pip install --quiet -r requirements-cv.txt && python3 scripts/generate_cvs.py",
+    "prebuild": "python3 -m pip install --quiet --target ./.cv-python -r requirements-cv.txt && PYTHONPATH=./.cv-python python3 scripts/generate_cvs.py",
     "build": "vite build",
     "preview": "vite preview"
   },
