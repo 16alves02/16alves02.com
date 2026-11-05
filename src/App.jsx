@@ -68,6 +68,7 @@ const projectTranslations = {
     '04': { type: 'FUNDAMENTOS WEB', description: 'Um pequeno gestor de tarefas desenvolvido sem framework de frontend. Um exercício prático de eventos, atualizações do DOM, filtros e armazenamento no browser.' },
     '05': { type: 'ILUSTRAÇÃO VETORIAL / ARTE POPULAR PORTUGUESA', description: 'Uma ilustração de uma carta de jogar inspirada nos Lenços de Namorados do Minho, desenvolvida em Affinity.' },
     '06': { type: 'FUNDAMENTOS DE PROGRAMAÇÃO', description: 'Um programa de consola em C que demonstra Selection Sort, Insertion Sort, Bubble Sort e um pequeno exemplo de Bogo Sort, com menu interativo e validação de entrada.' },
+    '09': { type: 'WEBSITE DE CLIENTE / EM PREPARAÇÃO', description: 'Projeto de website para um salão local, preparado com a proprietária. A estrutura e o fluxo de conteúdos estão em preparação; serviços, imagens, horários e publicação dependem de confirmação. Está planeado um fluxo de edição por CMS, ainda não implementado nem validado.', status: 'Em preparação' },
   },
 };
 
@@ -81,6 +82,7 @@ const extraProjectTranslations = {
     '06': { type: 'FUNDAMENTOS DE PROGRAMACIÓN', description: 'Programa de consola en C que muestra Selection Sort, Insertion Sort, Bubble Sort y un pequeño ejemplo de Bogo Sort, con menú interactivo y validación de entrada.' },
     '05': { type: 'ILUSTRACIÓN VECTORIAL / ARTE POPULAR PORTUGUÉS', description: 'Ilustración de una carta inspirada en los pañuelos de enamorados tradicionales de la región del Minho, creada en Affinity.' },
     skillGroups: [["FRONTEND","HTML5","CSS3","JavaScript","TypeScript","React","Next.js","Vite","React Router","Tailwind CSS"],["BACKEND Y API","PHP","Node.js runtime","API REST","PDO","Prisma"],["DATOS Y COLAS","SQL","MySQL / MariaDB","PostgreSQL","Redis","BullMQ"],["MÓVIL Y CALIDAD","Kotlin / Android","Capacitor","Vitest","C","Git","GitHub"]],
+    '09': { type: "SITIO WEB DE CLIENTE / EN PREPARACIÓN", description: "Proyecto web para un salón local, en preparación con la propietaria. La estructura y el flujo de contenidos están en preparación; los servicios, imágenes, horarios y publicación requieren confirmación. Se prevé un flujo de edición mediante CMS, todavía no implementado ni validado.", status: "En preparación" },
   },
   fr: {
     '01': { type: 'FRONTEND / CONCEPT E-COMMERCE', description: 'Concept de boutique de basketball avec catalogue, filtres, pages produit, favoris, panier et paiement simulé.' },
@@ -90,6 +92,7 @@ const extraProjectTranslations = {
     '06': { type: 'FONDAMENTAUX DE PROGRAMMATION', description: 'Programme console en C présentant Selection Sort, Insertion Sort, Bubble Sort et un petit exemple de Bogo Sort, avec menu interactif et validation de saisie.' },
     '05': { type: 'ILLUSTRATION VECTORIELLE / ART POPULAIRE PORTUGAIS', description: 'Illustration d’une carte inspirée des mouchoirs d’amour traditionnels du Minho, réalisée dans Affinity.' },
     skillGroups: [["FRONTEND","HTML5","CSS3","JavaScript","TypeScript","React","Next.js","Vite","React Router","Tailwind CSS"],["BACKEND & API","PHP","Node.js runtime","API REST","PDO","Prisma"],["DONNÉES & FILES","SQL","MySQL / MariaDB","PostgreSQL","Redis","BullMQ"],["MOBILE & QUALITÉ","Kotlin / Android","Capacitor","Vitest","C","Git","GitHub"]],
+    '09': { type: "SITE CLIENT / EN PRÉPARATION", description: "Projet de site web pour un salon local, préparé avec la propriétaire. La structure et le flux de contenu sont en préparation ; les services, images, horaires et la publication restent à confirmer. Un processus de gestion via CMS est prévu, mais n’est pas encore implémenté ni validé.", status: "En préparation" },
   },
   it: {
     '01': { type: 'FRONTEND / CONCEPT E-COMMERCE', description: 'Concept di negozio di basket con catalogo, filtri, pagine prodotto, preferiti, carrello e checkout simulato.' },
@@ -99,6 +102,7 @@ const extraProjectTranslations = {
     '06': { type: 'FONDAMENTI DI PROGRAMMAZIONE', description: 'Programma console in C che presenta Selection Sort, Insertion Sort, Bubble Sort e un piccolo esempio di Bogo Sort, con menu interattivo e convalida dell’input.' },
     '05': { type: 'ILLUSTRAZIONE VETTORIALE / ARTE POPOLARE PORTOGHESE', description: 'Illustrazione di una carta ispirata ai tradizionali fazzoletti degli innamorati del Minho, realizzata in Affinity.' },
     skillGroups: [["FRONTEND","HTML5","CSS3","JavaScript","TypeScript","React","Next.js","Vite","React Router","Tailwind CSS"],["BACKEND & API","PHP","Node.js runtime","API REST","PDO","Prisma"],["DATI & CODE","SQL","MySQL / MariaDB","PostgreSQL","Redis","BullMQ"],["MOBILE & QUALITÀ","Kotlin / Android","Capacitor","Vitest","C","Git","GitHub"]],
+    '09': { type: "SITO WEB CLIENTE / IN PREPARAZIONE", description: "Progetto web per un salone locale, in preparazione con la proprietaria. Struttura e flusso dei contenuti sono in preparazione; servizi, immagini, orari e pubblicazione richiedono conferma. È previsto un flusso di modifica tramite CMS, non ancora implementato né convalidato.", status: "In preparazione" },
   },
   de: {
     '01': { type: 'FRONTEND / E-COMMERCE-KONZEPT', description: 'Konzept für einen Basketball-Shop mit Katalog, Filtern, Produktseiten, Favoriten, Warenkorb und simuliertem Checkout.' },
@@ -108,6 +112,7 @@ const extraProjectTranslations = {
     '06': { type: 'PROGRAMMIERGRUNDLAGEN', description: 'C-Konsolenprogramm mit Selection Sort, Insertion Sort, Bubble Sort und einem kleinen Bogo-Sort-Beispiel, interaktivem Menü und Eingabeprüfung.' },
     '05': { type: 'VEKTORILLUSTRATION / PORTUGIESISCHE VOLKSKUNST', description: 'Spielkartenillustration, inspiriert von den traditionellen Liebestüchern aus dem Minho, erstellt mit Affinity.' },
     skillGroups: [["FRONTEND","HTML5","CSS3","JavaScript","TypeScript","React","Next.js","Vite","React Router","Tailwind CSS"],["BACKEND & APIS","PHP","Node.js runtime","REST APIs","PDO","Prisma"],["DATEN & QUEUES","SQL","MySQL / MariaDB","PostgreSQL","Redis","BullMQ"],["MOBILE & QUALITÄT","Kotlin / Android","Capacitor","Vitest","C","Git","GitHub"]],
+    '09': { type: "KUNDENWEBSITE / IN VORBEREITUNG", description: "Website-Projekt für einen lokalen Salon, das gemeinsam mit der Inhaberin vorbereitet wird. Struktur und Inhaltsablauf sind in Vorbereitung; Leistungen, Bilder, Öffnungszeiten und Veröffentlichung müssen noch bestätigt werden. Ein CMS-basierter Bearbeitungsablauf ist geplant, aber noch nicht implementiert oder validiert.", status: "In Vorbereitung" },
   },
   ja: {
     '01': { type: 'フロントエンド / ECコンセプト', description: '商品一覧、検索・フィルター、商品ページ、お気に入り、カート、模擬チェックアウトを備えたバスケットボール店のコンセプト。' },
@@ -117,6 +122,7 @@ const extraProjectTranslations = {
     '06': { type: 'プログラミングの基礎', description: 'Selection Sort、Insertion Sort、Bubble Sortと小さなBogo Sortの例を示すC言語のコンソールプログラム。対話式メニューと入力検証を備えています。' },
     '05': { type: 'ベクターイラスト / ポルトガルの民芸', description: 'ミーニョ地方の伝統的な恋人たちのハンカチに着想を得たトランプのイラスト。Affinityで制作。' },
     skillGroups: [["FRONTEND","HTML5","CSS3","JavaScript","TypeScript","React","Next.js","Vite","React Router","Tailwind CSS"],["BACKEND / API","PHP","Node.js runtime","REST API","PDO","Prisma"],["データ / キュー","SQL","MySQL / MariaDB","PostgreSQL","Redis","BullMQ"],["モバイル / 品質","Kotlin / Android","Capacitor","Vitest","C","Git","GitHub"]],
+    '09': { type: "クライアント向けウェブサイト / 準備中", description: "地域のヘアサロン向けウェブサイトをオーナーと準備しています。サイト構成とコンテンツ管理フローは準備段階で、サービス、画像、営業時間、公開内容はオーナーの確認が必要です。CMSによる編集フローを予定していますが、まだ実装・検証されていません。", status: "準備中" },
   },
 };
 
@@ -636,6 +642,16 @@ for (const [code, additions] of Object.entries(engineeringPositioningCopy)) {
 }
 
 function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
+  if (type === 'nova') {
+    return (
+      <div className="project-preview-unavailable project-preview-nova">
+        <span className="preview-label">CLIENT PROJECT / IN PREPARATION</span>
+        <strong>{name}</strong>
+        <p>Content structure and owner-managed editing workflow are being prepared. No finished public website is claimed.</p>
+      </div>
+    );
+  }
+
   // Use the official itch.io player for RAW., with a direct link as a fallback.
   if (type === 'raw') {
     return (
