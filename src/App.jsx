@@ -115,63 +115,65 @@ const extraProjectTranslations = {
 
 const copy = {
   en: {
-    navWork: 'Work', navAbout: 'About', navPath: 'Background', navContact: 'Contact', navButton: 'Say hello',
-    role: 'SOFTWARE DEVELOPER / SOFTWARE DEVELOPMENT STUDENT', eyebrow: 'PERSONAL SITE / PORTUGAL / 2026',
+    navWork: 'Work', navAbout: 'About', navPath: 'Background', navContact: 'Contact', navButton: 'Discuss internship',
+    role: 'SOFTWARE DEVELOPMENT STUDENT / JUNIOR SOFTWARE DEVELOPER', eyebrow: 'PORTFOLIO / PORTUGAL / 2027',
     titleOne: 'I build', titleTwo: 'software', titleEnd: '.',
-    intro: 'I’m Leonardo, a software developer in training. I build projects across web applications, APIs, databases and mobile, and enjoy understanding how the different parts of a solution fit together.',
+    intro: 'I’m Leonardo, a Software Development student at ESAN, University of Aveiro. I build web, backend and mobile projects, and enjoy understanding how the different parts of a software system fit together.',
     workButton: 'See selected work', internshipButton: 'Looking for a 680h internship',
     sideNote: 'SOFTWARE DEVELOPMENT. ALWAYS LEARNING.', scroll: 'SCROLL A LITTLE',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'BUILD / TEST / LEARN'],
-    workKicker: '01 / THINGS I’VE BUILT', workTitle: 'Selected work',
-    workIntro: 'A few real projects. What they do, what I used, and a link to try them or read the code.',
+    workKicker: '01 / PROJECTS AND ENGINEERING WORK', workTitle: 'Selected projects',
+    workIntro: 'A focused selection of academic and personal projects, with the architecture, technologies and implementation details behind each one.',
     viewLive: 'Open project', viewCode: 'Source code', inProgress: 'In development', previewUnavailable: 'No public screenshot is available yet.',
-    aboutKicker: '02 / THE SHORT VERSION', aboutTitle: 'Still learning. Already building.',
-    about1: 'I’m studying Software Development (CTeSP) at Escola Superior Aveiro Norte, part of the University of Aveiro. I approach software development as a broad discipline, with an interest in building useful applications and understanding the systems behind them.',
-    about2: 'My coursework includes algorithms, object-oriented programming, web and mobile development, databases, software engineering and systems analysis. My practical work includes web projects and internships in backend and web development.',
-    about3: 'My practical work spans frontend and backend development, REST APIs, databases and Android applications. I use different technologies according to each project, with attention to code organization, usability and maintainability.',
-    servicesKicker: 'SERVICES', servicesTitle: 'What I can help with', servicesIntro: 'Practical support for small websites and digital projects.', serviceItems: [['Web development', 'Responsive sites and practical web experiences.'], ['Database development', 'SQL data structures and database-backed features.'], ['Software testing', 'Manual checks, validation and troubleshooting.'], ['Web design', 'Clear, responsive interfaces with attention to usability.']],
+    aboutKicker: '02 / ENGINEERING PROFILE', aboutTitle: 'Building software through practical experience.',
+    about1: 'I’m studying Software Development (CTeSP) at Escola Superior Aveiro Norte, part of the University of Aveiro. My training covers programming, algorithms, databases, software engineering and web and mobile development.',
+    about2: 'Before focusing on software, I worked as a CNC Machine Operator at Schmidt Light Metal Group. Working with production specifications, automated machinery and quality checks strengthened my precision, attention to detail and systematic troubleshooting. I bring the same habits to software validation, testing and debugging.',
+    about3: 'I have also completed practical experiences in backend and web development. My current projects span React and TypeScript interfaces, PHP and REST APIs, relational databases, Redis/BullMQ workflows and Android with Kotlin. I value clear structure, maintainable code and understanding why a solution works.',
+    servicesKicker: 'ENGINEERING FOCUS', servicesTitle: 'Areas I work across', servicesIntro: 'A broad software development foundation, with practical work across interfaces, APIs, data and mobile applications.', serviceItems: [['Web applications', 'Responsive interfaces and application workflows using React, TypeScript and Next.js.'], ['Backend & APIs', 'Server-side features, REST endpoints, validation and database-backed functionality.'], ['Data & processing', 'Relational data models, SQL persistence and asynchronous job queues.'], ['Mobile development', 'Android development with Kotlin and mobile-oriented projects with Capacitor.']],
     skillGroups: [
-      ['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'],
-      ['BACKEND + DATA', 'PHP', 'Node.js', 'REST APIs', 'SQL', 'MySQL / MariaDB'],
-      ['LANGUAGES + TOOLS', 'C', 'Kotlin / Android', 'Python', 'Git', 'GitHub', 'npm', 'Affinity'],
+      ['FRONTEND', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Vite', 'React Router', 'Tailwind CSS'],
+      ['BACKEND & APIs', 'PHP', 'Node.js', 'REST APIs', 'PDO', 'Prisma'],
+      ['DATA & QUEUES', 'SQL', 'MySQL / MariaDB', 'PostgreSQL', 'Redis', 'BullMQ'],
+      ['MOBILE & QUALITY', 'Kotlin / Android', 'Capacitor', 'Vitest', 'C', 'Git', 'GitHub'],
     ],
     pathKicker: '03 / PROFESSIONAL EXPERIENCE', pathTitle: 'Technical internships and experience beyond software projects.',
     educationKicker: 'EDUCATION', educationTitle: 'Software Development', educationDate: 'Sep 2025 – Jul 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro',
     educationAdditional: 'CTeSP, CNC Programmer · Oct 2024 – Jul 2025 · Enrolment currently frozen',
     priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
-    internshipKicker: 'NEXT STEP / 2027', internshipTitle: 'Looking for a team to learn with.', internshipText: 'I’m looking for a 680-hour curricular internship starting in February 2027. I’m planning to move to Coimbra, so I’m especially interested in on-site or hybrid opportunities there, while remaining open to remote work. Ideally, the internship would be paid. I want to contribute to real work, learn from a team and grow through feedback.',
-    targetStart: 'Target start: February 2027', mode: 'Coimbra: on-site/hybrid; remote open', paidPreference: 'Paid internship preferred', internshipCta: 'Talk about an internship', internshipMeta: '01 OPPORTUNITY / 680 HOURS', internshipBottom: 'LEARN IN A TEAM. CONTRIBUTE TO REAL WORK.', contactMeta: 'EMAIL / LINKS / NEXT STEP',
-    contactKicker: '04 / CONTACT', contactTitle: 'Got something in mind?', contactText: 'For internship opportunities, collaboration or a web project, email is the easiest way to reach me.', emailLabel: 'EMAIL ME', socialsLabel: 'ELSEWHERE ON THE INTERNET', socialNote: 'Follow the work, not the oversharing.',
+    internshipKicker: 'INTERNSHIP AVAILABILITY / 2027', internshipTitle: 'Seeking a paid software development internship in Coimbra.', internshipText: 'I am seeking a paid 680-hour curricular internship starting in February 2027. Coimbra is my preferred location, and I am open to on-site, hybrid or remote arrangements. I want to contribute to real development work, learn from experienced engineers and strengthen my software engineering foundations through practical work and feedback.',
+    targetStart: 'Start: February 2027', mode: 'Coimbra: on-site / hybrid / remote', paidPreference: 'Paid curricular internship', internshipCta: 'Email about this internship', internshipMeta: 'PAID CURRICULAR INTERNSHIP / 680 HOURS', internshipBottom: 'LEARN IN A TEAM. CONTRIBUTE TO REAL WORK.', contactMeta: 'EMAIL / LINKS / NEXT STEP',
+    contactKicker: '04 / CONTACT', contactTitle: 'Let’s discuss an opportunity.', contactText: 'I am available for a paid 680-hour curricular internship from February 2027, preferably in Coimbra. Download my CV or email me directly about an opportunity.', emailLabel: 'EMAIL ME', socialsLabel: 'ELSEWHERE ON THE INTERNET', socialNote: 'Follow the work, not the oversharing.',
     footerNote: 'Designed and built by Leonardo Alves.', footerTop: 'Back to top ↑', email: 'Copy email', copied: 'Email copied',
   },
   pt: {
-    navWork: 'Projetos', navAbout: 'Sobre', navPath: 'Percurso', navContact: 'Contacto', navButton: 'Fala comigo',
-    role: 'SOFTWARE DEVELOPER / ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE', eyebrow: 'SITE PESSOAL / PORTUGAL / 2026',
+    navWork: 'Projetos', navAbout: 'Sobre', navPath: 'Percurso', navContact: 'Contacto', navButton: 'Falar sobre estágio',
+    role: 'ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE / JUNIOR SOFTWARE DEVELOPER', eyebrow: 'PORTEFÓLIO / PORTUGAL / 2027',
     titleOne: 'Desenvolvo', titleTwo: 'software', titleEnd: '.',
-    intro: 'Sou o Leonardo, estudante e programador de software. Desenvolvo projetos em diferentes áreas, desde aplicações Web e APIs a bases de dados e aplicações Android, procurando compreender como cada componente contribui para a solução.',
+    intro: 'Sou o Leonardo, estudante de Desenvolvimento de Software na ESAN, Universidade de Aveiro. Desenvolvo projetos web, backend e mobile, procurando compreender como cada componente se integra no sistema.',
     workButton: 'Ver projetos', internshipButton: 'À procura de estágio de 680h',
     sideNote: 'DESENVOLVIMENTO DE SOFTWARE. SEMPRE A APRENDER.', scroll: 'CONTINUA A DESCER',
     ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CRIAR / TESTAR / APRENDER'],
-    workKicker: '01 / COISAS QUE CONSTRUÍ', workTitle: 'Projetos selecionados',
-    workIntro: 'Projetos reais. O que fazem, as tecnologias usadas e ligações para experimentar ou consultar o código.',
+    workKicker: '01 / PROJETOS E TRABALHO TÉCNICO', workTitle: 'Projetos em destaque',
+    workIntro: 'Uma seleção de projetos académicos e pessoais, com a arquitetura, tecnologias e decisões de implementação.',
     viewLive: 'Abrir projeto', viewCode: 'Código-fonte', inProgress: 'Em desenvolvimento', previewUnavailable: 'Ainda não existe uma captura de ecrã pública.',
-    aboutKicker: '02 / VERSÃO CURTA', aboutTitle: 'Ainda a aprender. Já a construir.',
-    about1: 'Sou estudante do CTeSP de Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. Encaro o desenvolvimento de software como uma área abrangente, com interesse em criar aplicações úteis e compreender os sistemas que as suportam.',
-    about2: 'A minha formação inclui algoritmos, programação orientada a objetos, desenvolvimento web e mobile, bases de dados, engenharia de software e análise de sistemas, com uma forte componente prática.',
-    about3: 'O meu trabalho prático abrange desenvolvimento frontend e backend, APIs REST, bases de dados e aplicações Android. Utilizo tecnologias diferentes consoante os requisitos de cada projeto, com atenção à organização do código, usabilidade e manutenção.',
-    servicesKicker: 'SERVIÇOS', servicesTitle: 'Como posso ajudar', servicesIntro: 'Apoio prático para websites e projetos digitais de pequena dimensão.', serviceItems: [['Desenvolvimento web', 'Websites responsivos e experiências web funcionais.'], ['Desenvolvimento de bases de dados', 'Estruturas SQL e funcionalidades ligadas a bases de dados.'], ['Teste de software', 'Verificações manuais, validação e identificação de problemas.'], ['Web design', 'Interfaces claras e responsivas, com atenção à usabilidade.']],
+    aboutKicker: '02 / PERFIL DE ENGENHARIA', aboutTitle: 'Desenvolvimento de software através da experiência prática.',
+    about1: 'Sou estudante do CTeSP de Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. A minha formação inclui programação, algoritmos, bases de dados, engenharia de software e desenvolvimento web e mobile.',
+    about2: 'Antes de me dedicar ao software, trabalhei como Operador de Máquinas CNC na Schmidt Light Metal Group. O trabalho com especificações de produção, maquinaria automatizada e controlo de qualidade reforçou o meu rigor, atenção ao detalhe e capacidade de diagnosticar problemas de forma sistemática. Procuro aplicar os mesmos hábitos à validação, aos testes e à depuração de software.',
+    about3: 'Também tive experiências práticas em desenvolvimento backend e web. Os meus projetos atuais abrangem interfaces com React e TypeScript, PHP e APIs REST, bases de dados relacionais, workflows com Redis/BullMQ e Android com Kotlin. Valorizo código organizado, manutenção e compreensão das decisões técnicas.',
+    servicesKicker: 'FOCO TÉCNICO', servicesTitle: 'Áreas de desenvolvimento', servicesIntro: 'Uma base abrangente em desenvolvimento de software, com trabalho prático em interfaces, APIs, dados e aplicações móveis.', serviceItems: [['Aplicações web', 'Interfaces responsivas e fluxos de aplicação com React, TypeScript e Next.js.'], ['Backend e APIs', 'Funcionalidades server-side, endpoints REST, validação e integração com bases de dados.'], ['Dados e processamento', 'Modelação relacional, persistência SQL e filas de processamento assíncrono.'], ['Desenvolvimento mobile', 'Android com Kotlin e projetos orientados a mobile com Capacitor.']],
     skillGroups: [
-      ['FRONTEND', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Nuxt.js', 'Tailwind CSS', 'Vite'],
-      ['BACKEND + DADOS', 'PHP', 'Node.js', 'APIs REST', 'SQL', 'MySQL / MariaDB'],
-      ['LINGUAGENS + FERRAMENTAS', 'C', 'Kotlin / Android', 'Python', 'Git', 'GitHub', 'npm', 'Affinity'],
+      ['FRONTEND', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Vite', 'React Router', 'Tailwind CSS'],
+      ['BACKEND E APIs', 'PHP', 'Node.js', 'APIs REST', 'PDO', 'Prisma'],
+      ['DADOS E FILAS', 'SQL', 'MySQL / MariaDB', 'PostgreSQL', 'Redis', 'BullMQ'],
+      ['MOBILE E QUALIDADE', 'Kotlin / Android', 'Capacitor', 'Vitest', 'C', 'Git', 'GitHub'],
     ],
     pathKicker: '03 / EXPERIÊNCIA PROFISSIONAL', pathTitle: 'Estágios técnicos e experiência para lá dos projetos de software.',
     educationKicker: 'FORMAÇÃO', educationTitle: 'Desenvolvimento de Software', educationDate: 'set. 2025 – jul. 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro',
     educationAdditional: 'CTeSP, Programador CNC · out. 2024 – jul. 2025 · Matrícula congelada',
     priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
-    internshipKicker: 'PRÓXIMO PASSO / 2027', internshipTitle: 'À procura de uma equipa com quem aprender.', internshipText: 'Procuro um estágio curricular de 680 horas, com início previsto em fevereiro de 2027. Estou a planear mudar-me para Coimbra, por isso tenho preferência por oportunidades presenciais ou híbridas na região, mas também estou aberto a trabalho remoto. Gostaria, de preferência, que o estágio fosse remunerado. Quero contribuir para trabalho real, aprender com uma equipa e evoluir com feedback.',
-    targetStart: 'Início pretendido: fevereiro de 2027', mode: 'Coimbra: presencial/híbrido; também remoto', paidPreference: 'Preferência por estágio remunerado', internshipCta: 'Falar sobre estágio', internshipMeta: 'OPORTUNIDADE / 680 HORAS', internshipBottom: 'APRENDER EM EQUIPA. CONTRIBUIR PARA TRABALHO REAL.', contactMeta: 'EMAIL / LIGAÇÕES / PRÓXIMO PASSO',
-    contactKicker: '04 / CONTACTO', contactTitle: 'Tens algo em mente?', contactText: 'Para oportunidades de estágio, colaboração ou um projeto web, o email é a forma mais simples de falar comigo.',
+    internshipKicker: 'DISPONIBILIDADE PARA ESTÁGIO / 2027', internshipTitle: 'Procuro um estágio remunerado em desenvolvimento de software, em Coimbra.', internshipText: 'Procuro um estágio curricular remunerado de 680 horas, com início em fevereiro de 2027. Coimbra é a minha localização preferencial e estou disponível para regime presencial, híbrido ou remoto. Quero contribuir para trabalho real de desenvolvimento, aprender com profissionais experientes e consolidar as minhas bases de engenharia de software através da prática e do feedback.',
+    targetStart: 'Início: fevereiro de 2027', mode: 'Coimbra: presencial / híbrido / remoto', paidPreference: 'Estágio curricular remunerado', internshipCta: 'Enviar email sobre o estágio', internshipMeta: 'ESTÁGIO CURRICULAR REMUNERADO / 680 HORAS', internshipBottom: 'APRENDER EM EQUIPA. CONTRIBUIR PARA TRABALHO REAL.', contactMeta: 'EMAIL / LIGAÇÕES / PRÓXIMO PASSO',
+    contactKicker: '04 / CONTACTO', contactTitle: 'Vamos falar sobre uma oportunidade.', contactText: 'Estou disponível para um estágio curricular remunerado de 680 horas a partir de fevereiro de 2027, preferencialmente em Coimbra. Descarrega o meu CV ou envia-me um email sobre uma oportunidade.',
     emailLabel: 'ENVIA-ME UM EMAIL', socialsLabel: 'NOUTROS CANTOS DA INTERNET', socialNote: 'Acompanha o trabalho, sem exposição a mais.',
     footerNote: 'Design e código por Leonardo Alves.', footerTop: 'Voltar ao topo ↑', email: 'Copiar email', copied: 'Email copiado',
   },
@@ -333,6 +335,17 @@ for (const [code, additions] of Object.entries(extraUiCopy)) {
   localeCopy[code] = { ...localeCopy[code], ...additions };
 }
 
+const recruitmentCopy = {
+  en: { availabilityLabel:'INTERNSHIP AVAILABILITY', targetStart:'Start: February 2027', hours:'680 hours', location:'Coimbra, Portugal', paidStatus:'Paid curricular internship', cvDownload:'Download CV', caseStudyLabel:'Technical breakdown', caseStudyProblem:'Problem & context', caseStudyArchitecture:'Architecture', caseStudyContribution:'My contribution', caseStudyChallenges:'Engineering challenges', caseStudyResult:'Current result & limits', contactEmailCta:'Email about this internship' },
+  'pt-PT': { availabilityLabel:'DISPONIBILIDADE PARA ESTÁGIO', targetStart:'Início: fevereiro de 2027', hours:'680 horas', location:'Coimbra, Portugal', paidStatus:'Estágio curricular remunerado', cvDownload:'Descarregar CV', caseStudyLabel:'Detalhe técnico', caseStudyProblem:'Problema e contexto', caseStudyArchitecture:'Arquitetura', caseStudyContribution:'Contributo pessoal', caseStudyChallenges:'Desafios técnicos', caseStudyResult:'Resultado atual e limitações', contactEmailCta:'Enviar email sobre o estágio' },
+  es: { availabilityLabel:'DISPONIBILIDAD DE PRÁCTICAS', targetStart:'Inicio: febrero de 2027', hours:'680 horas', location:'Coímbra, Portugal', paidStatus:'Prácticas curriculares remuneradas', cvDownload:'Descargar CV', caseStudyLabel:'Detalle técnico', caseStudyProblem:'Problema y contexto', caseStudyArchitecture:'Arquitectura', caseStudyContribution:'Mi contribución', caseStudyChallenges:'Retos técnicos', caseStudyResult:'Resultado y límites actuales', contactEmailCta:'Enviar email sobre las prácticas' },
+  fr: { availabilityLabel:'DISPONIBILITÉ DE STAGE', targetStart:'Début : février 2027', hours:'680 heures', location:'Coimbra, Portugal', paidStatus:'Stage curriculaire rémunéré', cvDownload:'Télécharger le CV', caseStudyLabel:'Détail technique', caseStudyProblem:'Problème et contexte', caseStudyArchitecture:'Architecture', caseStudyContribution:'Ma contribution', caseStudyChallenges:'Défis techniques', caseStudyResult:'Résultat et limites actuels', contactEmailCta:'Écrire au sujet du stage' },
+  it: { availabilityLabel:'DISPONIBILITÀ TIROCINIO', targetStart:'Inizio: febbraio 2027', hours:'680 ore', location:'Coimbra, Portogallo', paidStatus:'Tirocinio curriculare retribuito', cvDownload:'Scarica CV', caseStudyLabel:'Dettaglio tecnico', caseStudyProblem:'Problema e contesto', caseStudyArchitecture:'Architettura', caseStudyContribution:'Il mio contributo', caseStudyChallenges:'Sfide tecniche', caseStudyResult:'Risultato e limiti attuali', contactEmailCta:'Scrivi per il tirocinio' },
+  de: { availabilityLabel:'PRAKTIKUMSVERFÜGBARKEIT', targetStart:'Start: Februar 2027', hours:'680 Stunden', location:'Coimbra, Portugal', paidStatus:'Bezahltes Pflichtpraktikum', cvDownload:'Lebenslauf herunterladen', caseStudyLabel:'Technische Details', caseStudyProblem:'Problem und Kontext', caseStudyArchitecture:'Architektur', caseStudyContribution:'Mein Beitrag', caseStudyChallenges:'Technische Herausforderungen', caseStudyResult:'Aktueller Stand und Grenzen', contactEmailCta:'E-Mail zum Praktikum' },
+  ja: { availabilityLabel:'インターンシップの希望条件', targetStart:'開始：2027年2月', hours:'680時間', location:'ポルトガル・コインブラ', paidStatus:'有給のカリキュラム実習', cvDownload:'履歴書をダウンロード', caseStudyLabel:'技術的な詳細', caseStudyProblem:'課題と背景', caseStudyArchitecture:'アーキテクチャ', caseStudyContribution:'担当した内容', caseStudyChallenges:'技術的な課題', caseStudyResult:'現在の成果と制限事項', contactEmailCta:'実習についてメールする' }
+};
+for (const [code, additions] of Object.entries(recruitmentCopy)) localeCopy[code] = { ...localeCopy[code], ...additions };
+
 function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
   // Use the official itch.io player for RAW., with a direct link as a fallback.
   if (type === 'raw') {
@@ -415,6 +428,7 @@ function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
 function ProjectCard({ project, t, featured = false, language = 'en', position = 1 }) {
   const projectLocale = language === 'pt-PT' ? 'pt' : language;
   const details = extraProjectTranslations[language]?.[project.number] || projectTranslations[projectLocale]?.[project.number] || project;
+  const caseStudy = project.caseStudy?.[projectLocale] || project.caseStudy?.en;
   return (
     <article className={`project-card project-${project.visual} ${featured ? 'project-featured' : ''}`}>
       <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} image={project.image} imageAlt={project.imageAlt} previewUnavailable={t.previewUnavailable} /><span className="project-number">{String(position).padStart(2, '0')} / {projects.length}</span></div>
@@ -423,6 +437,16 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
         <h3>{project.name}<span className="brand-dot">.</span></h3>
         <p>{details.description}</p>
         <div className="tag-list">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
+        {caseStudy && <details className="project-case-study">
+          <summary>{t.caseStudyLabel}</summary>
+          <div className="case-study-grid">
+            <div><h4>{t.caseStudyProblem}</h4><p>{caseStudy.problem}</p></div>
+            <div><h4>{t.caseStudyArchitecture}</h4><p>{caseStudy.architecture}</p></div>
+            <div><h4>{t.caseStudyContribution}</h4><p>{caseStudy.contribution}</p></div>
+            <div><h4>{t.caseStudyChallenges}</h4><p>{caseStudy.challenges}</p></div>
+            <div className="case-study-result"><h4>{t.caseStudyResult}</h4><p>{caseStudy.result}</p></div>
+          </div>
+        </details>}
         <div className="project-links">
           {project.live && <a href={project.live} target="_blank" rel="noreferrer" className="project-link project-link-primary">{t.viewLive} <span>↗</span></a>}
           {project.source && <a href={project.source} target="_blank" rel="noreferrer" className="project-link">{t.viewCode} <span>↗</span></a>}
@@ -444,6 +468,22 @@ function SparkIcon() {
 
 function MenuIcon() {
   return <svg className="ui-icon menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>;
+}
+
+function CalendarIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18" /></svg>;
+}
+function ClockIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>;
+}
+function MapPinIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>;
+}
+function BriefcaseIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2" /><path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2" /></svg>;
+}
+function DownloadIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" /></svg>;
 }
 
 function GlobeIcon() {
@@ -564,6 +604,15 @@ export default function App() {
   const languageMenuRef = useRef(null);
   const t = localeCopy[language] || localeCopy.en;
   const activeLanguage = languageOptions.find((option) => option.code === language) || languageOptions[0];
+  const cvHref = language === 'pt-PT' ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
+  const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT.pdf' : 'Leonardo-Alves-CV-EN.pdf';
+  const internshipSubject = language === 'pt-PT'
+    ? 'Candidatura - Estágio curricular remunerado de 680 horas - fevereiro de 2027'
+    : 'Application - Paid 680-hour curricular internship - February 2027';
+  const internshipBody = language === 'pt-PT'
+    ? 'Olá, Leonardo.\n\nGostaria de falar sobre uma oportunidade de estágio curricular remunerado de 680 horas, com início em fevereiro de 2027, na região de Coimbra.\n\nEmpresa: \nRegime de trabalho: \n\nCom os melhores cumprimentos,'
+    : 'Hello Leonardo,\n\nI would like to discuss a paid 680-hour curricular internship starting in February 2027 in the Coimbra area.\n\nCompany: \nWorking arrangement: \n\nKind regards,';
+  const internshipHref = `mailto:16alves02@gmail.com?subject=${encodeURIComponent(internshipSubject)}&body=${encodeURIComponent(internshipBody)}`;
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -692,6 +741,7 @@ export default function App() {
               {theme === 'light' ? <MoonIcon /> : <SunIcon />}
             </button>
 
+            <a className="header-cv" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
             <button className="header-contact" onClick={() => goTo('contact')}>{t.navButton} <span>↗</span></button>
           </div>
 
@@ -707,6 +757,15 @@ export default function App() {
               <div className="hero-meta"><span className="status-dot" />{t.role}<span className="meta-slash">/</span>{t.eyebrow}</div>
               <h1>{t.titleOne}<br /><span className="hero-orange">{t.titleTwo}</span><span className="hero-period">{t.titleEnd}</span></h1>
               <p className="hero-intro">{t.intro}</p>
+              <div className="hero-availability">
+                <span className="availability-label">{t.availabilityLabel}</span>
+                <div className="availability-facts">
+                  <span><CalendarIcon />{t.targetStart}</span>
+                  <span><ClockIcon />{t.hours}</span>
+                  <span><MapPinIcon />{t.location}</span>
+                  <span><BriefcaseIcon />{t.paidStatus}</span>
+                </div>
+              </div>
               <div className="hero-actions"><button className="button button-dark" onClick={() => goTo('work')}>{t.workButton}<span>↘</span></button><button className="button button-outline" onClick={() => goTo('internship')}>{t.internshipButton}<span>↗</span></button></div>
               <div className="hero-footnote"><span className="footnote-mark"><SparkIcon /></span><span>{t.sideNote}</span><span className="hero-small-mark">16 / 02</span></div>
             </div>
@@ -742,7 +801,7 @@ export default function App() {
           <div className="skills-rows">{t.skillGroups.map((group, i) => <div className="skill-row" key={group[0]}><div className="skill-label"><span>0{i + 1}</span>{group[0]}</div><div className="skill-items">{group.slice(1).map((skill) => <span key={skill}>{skill}</span>)}</div></div>)}</div>
         </section>
 
-        <section className="services-section section-pad" id="services">
+        <section className="services-section section-pad" id="focus">
           <div className="section-heading"><div><p className="section-kicker">{t.servicesKicker}</p><h2>{t.servicesTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.servicesIntro}</p></div>
           <div className="services-grid">{t.serviceItems.map(([title, description], index) => <article className="service-card" key={title}><span className="service-index">0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
         </section>
@@ -753,11 +812,11 @@ export default function App() {
         </section>
 
         <section className="internship-section" id="internship">
-          <div className="internship-inner"><div className="internship-top"><span>{t.internshipKicker}</span><span>{t.internshipMeta}</span></div><div className="internship-content"><div className="internship-number">680<span>h</span></div><div className="internship-copy"><h2>{t.internshipTitle}</h2><p>{t.internshipText}</p><div className="internship-facts"><span><SparkIcon /> {t.targetStart}</span><span><SparkIcon /> {t.mode}</span><span><SparkIcon /> {t.paidPreference}</span><span><SparkIcon /> CTeSP / ESAN-UA</span></div><a className="button button-dark" href={`mailto:16alves02@gmail.com?subject=${encodeURIComponent(t.internshipMeta)}`}>{t.internshipCta}<span>↗</span></a></div></div><div className="internship-bottom"><span>{t.internshipBottom}</span><span>16ALVES02 / 2027</span></div></div>
+          <div className="internship-inner"><div className="internship-top"><span>{t.internshipKicker}</span><span>{t.internshipMeta}</span></div><div className="internship-content"><div className="internship-number">680<span>h</span></div><div className="internship-copy"><h2>{t.internshipTitle}</h2><p>{t.internshipText}</p><div className="internship-facts"><span><SparkIcon /> {t.targetStart}</span><span><SparkIcon /> {t.mode}</span><span><SparkIcon /> {t.paidPreference}</span><span><SparkIcon /> CTeSP / ESAN-UA</span></div><a className="button button-dark" href={internshipHref}>{t.internshipCta}<span>↗</span></a></div></div><div className="internship-bottom"><span>{t.internshipBottom}</span><span>16ALVES02 / 2027</span></div></div>
         </section>
 
         <section className="contact-section section-pad" id="contact">
-          <div className="contact-top"><p className="section-kicker">{t.contactKicker}</p><span>{t.contactMeta}</span></div><h2>{t.contactTitle}<span className="brand-dot">.</span></h2><div className="contact-bottom"><div><p>{t.contactText}</p><span className="contact-email-label">{t.emailLabel}</span><a className="contact-email" href="mailto:16alves02@gmail.com">16alves02@gmail.com <span>↗</span></a><button className="copy-email" onClick={handleCopyEmail}>{copied ? t.copied : t.email}</button></div><div className="socials-block"><p className="section-kicker">{t.socialsLabel}</p><div className="social-links">{socials.map((social) => <SocialLink key={social.label} social={social} />)}</div><p className="social-note">{t.socialNote}</p></div></div>
+          <div className="contact-top"><p className="section-kicker">{t.contactKicker}</p><span>{t.contactMeta}</span></div><h2>{t.contactTitle}<span className="brand-dot">.</span></h2><div className="contact-bottom"><div><p>{t.contactText}</p><span className="contact-email-label">{t.emailLabel}</span><a className="contact-email" href="mailto:16alves02@gmail.com">16alves02@gmail.com <span>↗</span></a><button className="copy-email" onClick={handleCopyEmail}>{copied ? t.copied : t.email}</button><div className="contact-actions"><a className="button button-contact-cv" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a><a className="button button-outline" href={internshipHref}>{t.contactEmailCta}<span>↗</span></a></div></div><div className="socials-block"><p className="section-kicker">{t.socialsLabel}</p><div className="social-links">{socials.map((social) => <SocialLink key={social.label} social={social} />)}</div><p className="social-note">{t.socialNote}</p></div></div>
         </section>
       </main>
 
