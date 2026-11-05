@@ -369,7 +369,7 @@ const recruitmentCopy = {
     internshipKicker:'DISPONIBILIDAD DE PRÁCTICAS / 2027', internshipTitle:'Busco unas prácticas curriculares remuneradas de desarrollo de software en Coímbra.',
     internshipText:'Busco unas prácticas curriculares remuneradas de 680 horas a partir de febrero de 2027. Coímbra es mi ubicación preferida y estoy disponible para trabajar presencialmente, en modalidad híbrida o a distancia. Quiero contribuir a proyectos reales, aprender de desarrolladores con experiencia y seguir desarrollando mis fundamentos de ingeniería de software.',
     internshipCta:'Escribir sobre las prácticas', internshipMeta:'PRÁCTICAS CURRICULARES REMUNERADAS / 680 HORAS', internshipBottom:'CONTRIBUIR A PROYECTOS REALES. APRENDER EN EQUIPO.',
-    targetStart:'Inicio: febrero de 2027', mode:'Coímbra: presencial / híbrido / remoto', paidPreference:'Prácticas curriculares remuneradas',
+    mode:'Coímbra: presencial / híbrido / remoto', paidPreference:'Prácticas curriculares remuneradas',
     contactTitle:'Hablemos de una oportunidad.', contactText:'Estoy disponible para unas prácticas curriculares remuneradas de 680 horas desde febrero de 2027, preferiblemente en Coímbra. Descarga mi CV o escríbeme para hablar de una oportunidad.',
   },
   fr: {
@@ -379,7 +379,7 @@ const recruitmentCopy = {
     internshipKicker:'DISPONIBILITÉ DE STAGE / 2027', internshipTitle:'Je recherche un stage curriculaire rémunéré en développement logiciel à Coimbra.',
     internshipText:'Je recherche un stage curriculaire rémunéré de 680 heures à partir de février 2027. Coimbra est ma localisation privilégiée ; je suis ouvert au présentiel, à l’hybride ou au télétravail. Je souhaite contribuer à des projets réels, apprendre auprès de développeurs expérimentés et renforcer mes bases en ingénierie logicielle.',
     internshipCta:'Écrire au sujet du stage', internshipMeta:'STAGE CURRICULAIRE RÉMUNÉRÉ / 680 HEURES', internshipBottom:'CONTRIBUER À DES PROJETS RÉELS. APPRENDRE EN ÉQUIPE.',
-    targetStart:'Début : février 2027', mode:'Coimbra : présentiel / hybride / à distance', paidPreference:'Stage curriculaire rémunéré',
+    mode:'Coimbra : présentiel / hybride / à distance', paidPreference:'Stage curriculaire rémunéré',
     contactTitle:'Parlons d’une opportunité.', contactText:'Je suis disponible pour un stage curriculaire rémunéré de 680 heures à partir de février 2027, de préférence à Coimbra. Téléchargez mon CV ou écrivez-moi au sujet d’une opportunité.',
   },
   it: {
@@ -389,7 +389,7 @@ const recruitmentCopy = {
     internshipKicker:'DISPONIBILITÀ TIROCINIO / 2027', internshipTitle:'Cerco un tirocinio curriculare retribuito nello sviluppo software a Coimbra.',
     internshipText:'Cerco un tirocinio curriculare retribuito di 680 ore con inizio a febbraio 2027. Coimbra è la mia località preferita e sono disponibile per modalità in presenza, ibrida o da remoto. Desidero contribuire a progetti reali, imparare da sviluppatori esperti e rafforzare le mie basi di ingegneria del software.',
     internshipCta:'Scrivi per il tirocinio', internshipMeta:'TIROCINIO CURRICULARE RETRIBUITO / 680 ORE', internshipBottom:'CONTRIBUIRE A PROGETTI REALI. IMPARARE IN SQUADRA.',
-    targetStart:'Inizio: febbraio 2027', mode:'Coimbra: in presenza / ibrido / da remoto', paidPreference:'Tirocinio curriculare retribuito',
+    mode:'Coimbra: in presenza / ibrido / da remoto', paidPreference:'Tirocinio curriculare retribuito',
     contactTitle:'Parliamo di un’opportunità.', contactText:'Sono disponibile per un tirocinio curriculare retribuito di 680 ore da febbraio 2027, preferibilmente a Coimbra. Scarica il mio CV o scrivimi per parlare di un’opportunità.',
   },
   de: {
@@ -399,7 +399,7 @@ const recruitmentCopy = {
     internshipKicker:'PRAKTIKUMSVERFÜGBARKEIT / 2027', internshipTitle:'Ich suche ein bezahltes 680-stündiges Pflichtpraktikum in der Softwareentwicklung in Coimbra.',
     internshipText:'Ich suche ein bezahltes curricular vorgeschriebenes Praktikum mit 680 Stunden ab Februar 2027. Coimbra ist mein bevorzugter Standort; Präsenz-, Hybrid- und Remote-Arbeit sind möglich. Ich möchte an realen Projekten mitarbeiten, von erfahrenen Entwicklern lernen und meine Grundlagen der Softwareentwicklung vertiefen.',
     internshipCta:'E-Mail zum Praktikum', internshipMeta:'BEZAHLTES PFLICHTPRAKTIKUM / 680 STUNDEN', internshipBottom:'AN ECHTEN PROJEKTEN MITARBEITEN. IM TEAM LERNEN.',
-    targetStart:'Start: Februar 2027', mode:'Coimbra: vor Ort / hybrid / remote', paidPreference:'Bezahltes Pflichtpraktikum',
+    mode:'Coimbra: vor Ort / hybrid / remote', paidPreference:'Bezahltes Pflichtpraktikum',
     contactTitle:'Lassen Sie uns über eine Möglichkeit sprechen.', contactText:'Ich bin ab Februar 2027 für ein bezahltes 680-stündiges Pflichtpraktikum verfügbar, vorzugsweise in Coimbra. Laden Sie meinen Lebenslauf herunter oder schreiben Sie mir.',
   },
   ja: {
@@ -409,7 +409,7 @@ const recruitmentCopy = {
     internshipKicker:'インターンシップの希望条件 / 2027', internshipTitle:'2027年2月からコインブラで有給のソフトウェア開発実習を希望しています。',
     internshipText:'2027年2月開始、680時間の有給カリキュラム実習を希望しています。希望勤務地はコインブラで、出社、ハイブリッド、リモートのいずれにも対応できます。実際のプロジェクトに貢献し、経験豊富な開発者から学び、ソフトウェアエンジニアリングの基礎を深めたいと考えています。',
     internshipCta:'実習についてメールする', internshipMeta:'有給カリキュラム実習 / 680時間', internshipBottom:'実際のプロジェクトに貢献し、チームで学ぶ。',
-    targetStart:'開始：2027年2月', mode:'コインブラ：出社 / ハイブリッド / リモート', paidPreference:'有給のカリキュラム実習',
+    mode:'コインブラ：出社 / ハイブリッド / リモート', paidPreference:'有給のカリキュラム実習',
     contactTitle:'実習の機会についてお話ししましょう。', contactText:'2027年2月から、コインブラを希望勤務地とする680時間の有給カリキュラム実習が可能です。履歴書をダウンロードするか、メールでご連絡ください。',
   },
 };
