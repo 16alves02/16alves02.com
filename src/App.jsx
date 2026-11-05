@@ -433,10 +433,10 @@ const engineeringPositioningCopy = {
     servicesKicker:'ENGINEERING INTERESTS', servicesTitle:'Areas I’m developing towards',
     servicesIntro:'Areas I explore through study and project work. They represent my direction of growth, not claims of specialist experience.',
     serviceItems:[
-      ['Full-stack development','Understanding how interfaces, business rules, APIs and data layers work together.'],
-      ['Backend & API development','Designing server-side behaviour, REST endpoints, validation and persistence.'],
-      ['Data & background processing','Working with relational data, SQL models, queues and asynchronous jobs.'],
-      ['Mobile, testing & quality','Exploring Android and mobile delivery, automated tests and maintainable code.'],
+      ["Full-stack & product development", "Understanding how product requirements, interfaces, business rules and data layers work together."],
+      ["Backend, APIs & data systems", "Building server-side behaviour, REST APIs, data models, persistence and asynchronous processing."],
+      ["Frontend & mobile applications", "Developing user-facing interfaces and exploring Android and mobile delivery."],
+      ["Software architecture & quality", "Learning to structure systems, separate responsibilities, test behaviour and improve maintainability."]
     ],
     skillsKicker:'TECHNICAL FOUNDATION', skillsTitle:'Technologies I can demonstrate',
     skillsIntro:'Technologies used in coursework, internships or the four featured projects. Depth varies by tool; project status and limitations are documented.',
@@ -481,10 +481,10 @@ const engineeringPositioningCopy = {
     servicesKicker:'INTERESSES DE ENGENHARIA', servicesTitle:'Áreas em que quero evoluir',
     servicesIntro:'Áreas que exploro através da formação e dos projetos. Representam a direção em que quero crescer, não especializações profissionais consolidadas.',
     serviceItems:[
-      ['Desenvolvimento full-stack','Compreender como interfaces, regras de negócio, APIs e dados funcionam em conjunto.'],
-      ['Backend e APIs','Desenhar comportamento no servidor, endpoints REST, validação e persistência.'],
-      ['Dados e processamento em segundo plano','Trabalhar com dados relacionais, modelos SQL, filas e tarefas assíncronas.'],
-      ['Mobile, testes e qualidade','Explorar Android e distribuição mobile, testes automatizados e código sustentável.'],
+      ["Desenvolvimento full-stack e de produto", "Compreender como requisitos, interfaces, regras de negócio e camadas de dados funcionam em conjunto."],
+      ["Backend, APIs e sistemas de dados", "Desenvolver lógica no servidor, APIs REST, modelos de dados, persistência e processamento assíncrono."],
+      ["Aplicações frontend e mobile", "Desenvolver interfaces para utilizadores e explorar aplicações Android e mobile."],
+      ["Arquitetura de software e qualidade", "Aprender a estruturar sistemas, separar responsabilidades, testar comportamentos e melhorar a manutenção."]
     ],
     skillsKicker:'BASE TÉCNICA', skillsTitle:'Tecnologias que consigo demonstrar',
     skillsIntro:'Tecnologias utilizadas na formação, em estágios ou nos quatro projetos em destaque. A experiência varia por ferramenta; o estado e as limitações dos projetos estão documentados.',
@@ -527,7 +527,12 @@ const engineeringPositioningCopy = {
     about2:'Mis proyectos me permiten explorar distintos retos de ingeniería. SaborGest integra backend PHP, API REST, base de datos relacional y un quiosco Android; RunLattice explora la validación de workflows y el procesamiento asíncrono; MRDR. se centra en lógica deductiva, generación de casos y pruebas automatizadas; RAW. explora flujos de producto interactivos y experiencias basadas en contenido.',
     about3:'Estoy desarrollando estas competencias mediante formación, proyectos independientes y feedback. Quiero incorporarme a un equipo donde pueda contribuir a sistemas reales, aprender prácticas de ingeniería de profesionales experimentados y construir bases sólidas para una carrera en ingeniería de software.',
     servicesKicker:'INTERESES DE INGENIERÍA', servicesTitle:'Áreas en las que quiero crecer', servicesIntro:'Áreas que exploro mediante formación y proyectos. Representan mi dirección de crecimiento, no especializaciones profesionales consolidadas.',
-    serviceItems:[['Desarrollo full-stack','Comprender cómo trabajan juntas las interfaces, las reglas de negocio, las API y los datos.'],['Backend y API','Diseñar lógica de servidor, endpoints REST, validación y persistencia.'],['Datos y procesamiento en segundo plano','Trabajar con datos relacionales, modelos SQL, colas y tareas asíncronas.'],['Móvil, pruebas y calidad','Explorar Android, distribución móvil, pruebas automatizadas y código mantenible.']],
+    serviceItems:[
+      ["Desarrollo full-stack y de producto", "Comprender cómo trabajan juntos los requisitos, las interfaces, las reglas de negocio y las capas de datos."],
+      ["Backend, API y sistemas de datos", "Desarrollar lógica de servidor, API REST, modelos de datos, persistencia y procesamiento asíncrono."],
+      ["Aplicaciones frontend y móviles", "Desarrollar interfaces de usuario y explorar aplicaciones Android y móviles."],
+      ["Arquitectura de software y calidad", "Aprender a estructurar sistemas, separar responsabilidades, probar comportamientos y mejorar el mantenimiento."]
+    ],
     skillsKicker:'BASE TÉCNICA', skillsTitle:'Tecnologías que puedo demostrar', skillsIntro:'Tecnologías utilizadas en formación, prácticas o los cuatro proyectos destacados. La experiencia varía según la herramienta; el estado y las limitaciones están documentados.',
     skillGroups:[['LENGUAJES Y FRONTEND','JavaScript','TypeScript','React','Next.js','Vite','React Router','HTML5','CSS3','Tailwind CSS','Framer Motion'],['BACKEND Y API','PHP','PDO','API REST','Next.js Route Handlers','Node.js (runtime)'],['DATOS Y PROCESAMIENTO','SQL','MySQL / MariaDB','PostgreSQL','Prisma','Redis','BullMQ'],['MÓVIL, ESTADO Y PRUEBAS','Kotlin / Android','Capacitor','Zustand','Vitest','C','Git','GitHub']],
     pathKicker:'03 / EXPERIENCIA EN SOFTWARE', pathTitle:'Experiencia en desarrollo de software.', educationAdditional:'',
@@ -551,7 +556,12 @@ const engineeringPositioningCopy = {
     about2:'Mes projets me permettent d’explorer différents défis d’ingénierie. SaborGest réunit un backend PHP, une API REST, une base relationnelle et une borne Android ; RunLattice explore la validation de workflows et le traitement asynchrone ; MRDR. se concentre sur la logique déductive, la génération de cas et les tests automatisés ; RAW. explore les interactions produit et les expériences pilotées par le contenu.',
     about3:'Je développe ces compétences par la formation, des projets indépendants et le feedback. Je souhaite rejoindre une équipe où je pourrai contribuer à des systèmes réels, apprendre auprès d’ingénieurs expérimentés et construire des bases solides pour une carrière en ingénierie logicielle.',
     servicesKicker:'INTÉRÊTS EN INGÉNIERIE', servicesTitle:'Domaines que je souhaite approfondir', servicesIntro:'Des domaines explorés par la formation et les projets. Ils représentent une direction de progression, pas des spécialisations professionnelles acquises.',
-    serviceItems:[['Développement full-stack','Comprendre comment interfaces, règles métier, API et données fonctionnent ensemble.'],['Backend et API','Concevoir la logique serveur, les endpoints REST, la validation et la persistance.'],['Données et traitement en arrière-plan','Travailler avec des données relationnelles, SQL, des files et des tâches asynchrones.'],['Mobile, tests et qualité','Explorer Android, la distribution mobile, les tests automatisés et le code maintenable.']],
+    serviceItems:[
+      ["Développement full-stack et produit", "Comprendre comment les besoins, les interfaces, les règles métier et les couches de données fonctionnent ensemble."],
+      ["Backend, API et systèmes de données", "Développer la logique serveur, les API REST, les modèles de données, la persistance et le traitement asynchrone."],
+      ["Applications frontend et mobiles", "Développer des interfaces utilisateur et explorer Android et les applications mobiles."],
+      ["Architecture logicielle et qualité", "Apprendre à structurer les systèmes, séparer les responsabilités, tester les comportements et améliorer la maintenabilité."]
+    ],
     skillsKicker:'BASE TECHNIQUE', skillsTitle:'Technologies que je peux démontrer', skillsIntro:'Technologies utilisées en formation, en stage ou dans les quatre projets principaux. L’expérience varie selon l’outil ; l’état et les limites sont documentés.',
     skillGroups:[['LANGAGES ET FRONTEND','JavaScript','TypeScript','React','Next.js','Vite','React Router','HTML5','CSS3','Tailwind CSS','Framer Motion'],['BACKEND ET API','PHP','PDO','API REST','Next.js Route Handlers','Node.js (runtime)'],['DONNÉES ET TRAITEMENT','SQL','MySQL / MariaDB','PostgreSQL','Prisma','Redis','BullMQ'],['MOBILE, ÉTAT ET TESTS','Kotlin / Android','Capacitor','Zustand','Vitest','C','Git','GitHub']],
     pathKicker:'03 / EXPÉRIENCE LOGICIELLE', pathTitle:'Expérience en développement logiciel.', educationAdditional:'',
@@ -575,7 +585,12 @@ const engineeringPositioningCopy = {
     about2:'I miei progetti mi permettono di esplorare diverse sfide di ingegneria. SaborGest riunisce backend PHP, API REST, database relazionale e chiosco Android; RunLattice esplora la validazione dei workflow e l’elaborazione asincrona; MRDR. si concentra su logica deduttiva, generazione dei casi e test automatici; RAW. esplora flussi di prodotto interattivi ed esperienze basate sui contenuti.',
     about3:'Sto sviluppando queste competenze attraverso la formazione, progetti indipendenti e feedback. Voglio entrare in un team di sviluppo dove contribuire a sistemi reali, imparare pratiche di ingegneria da professionisti esperti e costruire basi solide per una carriera nell’ingegneria del software.',
     servicesKicker:'INTERESSI DI INGEGNERIA', servicesTitle:'Aree in cui voglio crescere', servicesIntro:'Aree che esploro attraverso studio e progetti. Rappresentano la direzione della mia crescita, non specializzazioni professionali già consolidate.',
-    serviceItems:[['Sviluppo full-stack','Capire come interfacce, regole di business, API e dati lavorano insieme.'],['Backend e API','Progettare logica server, endpoint REST, validazione e persistenza.'],['Dati ed elaborazione in background','Lavorare con dati relazionali, modelli SQL, code e attività asincrone.'],['Mobile, test e qualità','Esplorare Android, distribuzione mobile, test automatizzati e codice mantenibile.']],
+    serviceItems:[
+      ["Sviluppo full-stack e di prodotto", "Capire come requisiti, interfacce, regole di business e livelli di dati lavorano insieme."],
+      ["Backend, API e sistemi di dati", "Sviluppare logica server, API REST, modelli di dati, persistenza ed elaborazione asincrona."],
+      ["Applicazioni frontend e mobile", "Sviluppare interfacce utente ed esplorare Android e le applicazioni mobili."],
+      ["Architettura software e qualità", "Imparare a strutturare i sistemi, separare le responsabilità, testare i comportamenti e migliorare la manutenibilità."]
+    ],
     skillsKicker:'BASE TECNICA', skillsTitle:'Tecnologie che posso dimostrare', skillsIntro:'Tecnologie utilizzate nella formazione, nei tirocini o nei quattro progetti principali. L’esperienza varia per strumento; stato e limiti sono documentati.',
     skillGroups:[['LINGUAGGI E FRONTEND','JavaScript','TypeScript','React','Next.js','Vite','React Router','HTML5','CSS3','Tailwind CSS','Framer Motion'],['BACKEND E API','PHP','PDO','API REST','Next.js Route Handlers','Node.js (runtime)'],['DATI ED ELABORAZIONE','SQL','MySQL / MariaDB','PostgreSQL','Prisma','Redis','BullMQ'],['MOBILE, STATO E TEST','Kotlin / Android','Capacitor','Zustand','Vitest','C','Git','GitHub']],
     pathKicker:'03 / ESPERIENZA SOFTWARE', pathTitle:'Esperienza nello sviluppo software.', educationAdditional:'',
@@ -599,7 +614,12 @@ const engineeringPositioningCopy = {
     about2:'Meine Projekte ermöglichen mir verschiedene Engineering-Herausforderungen. SaborGest verbindet PHP-Backend, REST-API, relationale Datenbank und Android-Kiosk; RunLattice untersucht Workflow-Validierung und asynchrone Verarbeitung; MRDR. konzentriert sich auf Deduktionslogik, Fallgenerierung und automatisierte Tests; RAW. erkundet interaktive Produktabläufe und inhaltsorientierte Erlebnisse.',
     about3:'Ich entwickle diese Fähigkeiten durch Ausbildung, eigene Projekte und Feedback. Ich möchte einem Entwicklungsteam beitreten, zu realen Systemen beitragen, von erfahrenen Ingenieuren lernen und eine solide Grundlage für eine langfristige Karriere in der Softwareentwicklung aufbauen.',
     servicesKicker:'ENGINEERING-INTERESSEN', servicesTitle:'Bereiche, in denen ich mich weiterentwickeln möchte', servicesIntro:'Bereiche, die ich in Ausbildung und Projekten erkunde. Sie beschreiben meine Entwicklungsrichtung, keine bereits gefestigten beruflichen Spezialisierungen.',
-    serviceItems:[['Full-Stack-Entwicklung','Verstehen, wie Benutzeroberflächen, Geschäftsregeln, APIs und Daten zusammenarbeiten.'],['Backend und APIs','Serverlogik, REST-Endpunkte, Validierung und Persistenz gestalten.'],['Daten und Hintergrundverarbeitung','Mit relationalen Daten, SQL-Modellen, Queues und asynchronen Aufgaben arbeiten.'],['Mobile, Tests und Qualität','Android, mobile Bereitstellung, automatisierte Tests und wartbaren Code erkunden.']],
+    serviceItems:[
+      ["Full-Stack- und Produktentwicklung", "Verstehen, wie Anforderungen, Benutzeroberflächen, Geschäftsregeln und Datenschichten zusammenspielen."],
+      ["Backend, APIs und Datensysteme", "Serverlogik, REST-APIs, Datenmodelle, Persistenz und asynchrone Verarbeitung entwickeln."],
+      ["Frontend- und mobile Anwendungen", "Benutzeroberflächen entwickeln und Android- sowie mobile Anwendungen erkunden."],
+      ["Softwarearchitektur und Qualität", "Lernen, Systeme zu strukturieren, Verantwortlichkeiten zu trennen, Verhalten zu testen und Wartbarkeit zu verbessern."]
+    ],
     skillsKicker:'TECHNISCHE GRUNDLAGEN', skillsTitle:'Technologien, die ich belegen kann', skillsIntro:'Technologien aus Ausbildung, Praktika oder den vier hervorgehobenen Projekten. Die Erfahrung variiert je nach Werkzeug; Status und Grenzen sind dokumentiert.',
     skillGroups:[['SPRACHEN UND FRONTEND','JavaScript','TypeScript','React','Next.js','Vite','React Router','HTML5','CSS3','Tailwind CSS','Framer Motion'],['BACKEND UND APIs','PHP','PDO','REST APIs','Next.js Route Handlers','Node.js (runtime)'],['DATEN UND VERARBEITUNG','SQL','MySQL / MariaDB','PostgreSQL','Prisma','Redis','BullMQ'],['MOBILE, STATE UND TESTS','Kotlin / Android','Capacitor','Zustand','Vitest','C','Git','GitHub']],
     pathKicker:'03 / SOFTWAREERFAHRUNG', pathTitle:'Erfahrung in der Softwareentwicklung.', educationAdditional:'',
@@ -623,7 +643,12 @@ const engineeringPositioningCopy = {
     about2:'プロジェクトを通してさまざまなエンジニアリング課題を探っています。SaborGestはPHPバックエンド、REST API、リレーショナルデータベース、Androidキオスクを統合します。RunLatticeはワークフロー検証と非同期処理を探ります。MRDR.は推理ロジック、ケース生成、自動テストに焦点を当てます。RAW.はインタラクティブな製品フローとコンテンツ体験を探ります。',
     about3:'授業、個人プロジェクト、フィードバックを通じてこれらのスキルを伸ばしています。実際のシステムに貢献し、経験豊富なエンジニアから実践を学び、長期的なソフトウェアエンジニアリングのキャリアに向けた基礎を築けるチームに参加したいと考えています。',
     servicesKicker:'エンジニアリングへの関心', servicesTitle:'これから深めたい分野', servicesIntro:'学習とプロジェクトを通じて探っている分野です。専門家としての実績ではなく、今後伸ばしたい方向性を示しています。',
-    serviceItems:[['フルスタック開発','インターフェース、ビジネスルール、API、データがどのように連携するかを理解する。'],['バックエンドとAPI','サーバー側のロジック、RESTエンドポイント、検証、永続化を設計する。'],['データとバックグラウンド処理','リレーショナルデータ、SQLモデル、キュー、非同期タスクを扱う。'],['モバイル、テスト、品質','Android、モバイル配布、自動テスト、保守しやすいコードを探る。']],
+    serviceItems:[
+      ["フルスタックおよびプロダクト開発", "要件、インターフェース、ビジネスロジック、データ層がどのように連携するかを理解する。"],
+      ["バックエンド、API、データシステム", "サーバー側のロジック、REST API、データモデル、永続化、非同期処理を開発する。"],
+      ["フロントエンドおよびモバイルアプリ", "ユーザー向けインターフェースを開発し、Androidやモバイルアプリを探求する。"],
+      ["ソフトウェアアーキテクチャと品質", "システム構造、責任の分離、動作検証、保守性の向上を学ぶ。"]
+    ],
     skillsKicker:'技術的な基礎', skillsTitle:'実際に使用した技術', skillsIntro:'授業、実習、または4つの主要プロジェクトで使用した技術です。経験の深さはツールごとに異なり、プロジェクトの状態と制約も記載しています。',
     skillGroups:[['言語とフロントエンド','JavaScript','TypeScript','React','Next.js','Vite','React Router','HTML5','CSS3','Tailwind CSS','Framer Motion'],['バックエンドとAPI','PHP','PDO','REST API','Next.js Route Handlers','Node.js (runtime)'],['データと処理','SQL','MySQL / MariaDB','PostgreSQL','Prisma','Redis','BullMQ'],['モバイル、状態管理、テスト','Kotlin / Android','Capacitor','Zustand','Vitest','C','Git','GitHub']],
     pathKicker:'03 / ソフトウェア開発の経験', pathTitle:'ソフトウェア開発における経験。', educationAdditional:'',
