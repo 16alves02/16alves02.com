@@ -422,7 +422,7 @@ const engineeringPositioningCopy = {
   en: {
     navAbout:'Profile', navPath:'Experience', navButton:'Discuss internship',
     role:'SOFTWARE DEVELOPMENT STUDENT / ASPIRING SOFTWARE ENGINEER', eyebrow:'BUILDING TOWARDS SOFTWARE ENGINEERING / PORTUGAL',
-    titleOne:'Building my path', titleTwo:'towards software engineering', titleEnd:'.',
+    titleOne:'Building', titleTwo:'towards software engineering', titleEnd:'.',
     intro:'I’m Leonardo, a Software Development student at ESAN, University of Aveiro (2025–2027). I want to grow into a software engineer who can understand and build complete systems — from interfaces and business logic to APIs, data persistence, background processing and mobile applications.',
     workKicker:'01 / PROJECTS AND ENGINEERING WORK', workTitle:'Projects that shape my engineering path',
     workIntro:'Four projects exploring different parts of software engineering: integrated applications, workflow processing, software logic and interactive product experiences.',
@@ -470,7 +470,7 @@ const engineeringPositioningCopy = {
   'pt-PT': {
     navAbout:'Perfil', navPath:'Experiência', navButton:'Falar sobre estágio',
     role:'ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE / FUTURO ENGENHEIRO DE SOFTWARE', eyebrow:'A CONSTRUIR UM PERCURSO EM ENGENHARIA DE SOFTWARE / PORTUGAL',
-    titleOne:'A construir o meu caminho', titleTwo:'para a engenharia de software', titleEnd:'.',
+    titleOne:'A caminho da', titleTwo:'engenharia de software', titleEnd:'.',
     intro:'Sou o Leonardo, estudante do CTeSP em Desenvolvimento de Software na ESAN, Universidade de Aveiro (2025–2027). Quero evoluir para engenheiro de software, capaz de compreender e construir sistemas completos — desde interfaces e lógica de negócio até APIs, persistência de dados, processamento em segundo plano e aplicações móveis.',
     workKicker:'01 / PROJETOS E TRABALHO DE ENGENHARIA', workTitle:'Projetos que constroem o meu percurso',
     workIntro:'Quatro projetos que exploram diferentes dimensões da engenharia de software: aplicações integradas, processamento de workflows, lógica de software e experiências interativas.',
@@ -518,7 +518,7 @@ const engineeringPositioningCopy = {
   es: {
     navAbout:'Perfil', navPath:'Experiencia', navButton:'Hablar sobre prácticas',
     role:'ESTUDIANTE DE DESARROLLO DE SOFTWARE / FUTURO INGENIERO DE SOFTWARE', eyebrow:'CONSTRUYENDO MI CAMINO HACIA LA INGENIERÍA DE SOFTWARE / PORTUGAL',
-    titleOne:'Construyendo mi camino', titleTwo:'hacia la ingeniería de software', titleEnd:'.',
+    titleOne:'Hacia la', titleTwo:'ingeniería de software', titleEnd:'.',
     intro:'Soy Leonardo, estudiante de Desarrollo de Software en ESAN, Universidad de Aveiro (2025–2027). Quiero crecer hasta convertirme en ingeniero de software, capaz de comprender y construir sistemas completos: interfaces, lógica de negocio, API, persistencia de datos, procesamiento en segundo plano y aplicaciones móviles.',
     workKicker:'01 / PROYECTOS Y TRABAJO DE INGENIERÍA', workTitle:'Proyectos que construyen mi trayectoria',
     workIntro:'Cuatro proyectos que exploran distintas dimensiones de la ingeniería de software: aplicaciones integradas, procesamiento de workflows, lógica de software y experiencias interactivas.',
@@ -543,7 +543,7 @@ const engineeringPositioningCopy = {
   fr: {
     navAbout:'Profil', navPath:'Expérience', navButton:'Parler du stage',
     role:'ÉTUDIANT EN DÉVELOPPEMENT LOGICIEL / FUTUR INGÉNIEUR LOGICIEL', eyebrow:'CONSTRUIRE MON PARCOURS EN INGÉNIERIE LOGICIELLE / PORTUGAL',
-    titleOne:'Construire mon parcours', titleTwo:'vers l’ingénierie logicielle', titleEnd:'.',
+    titleOne:'Vers', titleTwo:'l’ingénierie logicielle', titleEnd:'.',
     intro:'Je suis Leonardo, étudiant en développement logiciel à l’ESAN, Université d’Aveiro (2025–2027). Je souhaite devenir ingénieur logiciel, capable de comprendre et de construire des systèmes complets : interfaces, logique métier, API, persistance des données, traitement en arrière-plan et applications mobiles.',
     workKicker:'01 / PROJETS ET TRAVAIL D’INGÉNIERIE', workTitle:'Des projets qui construisent mon parcours', workIntro:'Quatre projets qui explorent différentes dimensions de l’ingénierie logicielle : applications intégrées, workflows, logique logicielle et expériences interactives.',
     aboutKicker:'02 / ORIENTATION INGÉNIERIE', aboutTitle:'Construire mon parcours vers l’ingénierie logicielle.',
@@ -567,7 +567,7 @@ const engineeringPositioningCopy = {
   it: {
     navAbout:'Profilo', navPath:'Esperienza', navButton:'Parliamo di tirocinio',
     role:'STUDENTE DI SVILUPPO SOFTWARE / FUTURO INGEGNERE DEL SOFTWARE', eyebrow:'COSTRUIRE IL MIO PERCORSO NELL’INGEGNERIA DEL SOFTWARE / PORTOGALLO',
-    titleOne:'Costruire il mio percorso', titleTwo:'verso l’ingegneria del software', titleEnd:'.',
+    titleOne:'Verso', titleTwo:'l’ingegneria del software', titleEnd:'.',
     intro:'Sono Leonardo, studente di Sviluppo Software all’ESAN, Università di Aveiro (2025–2027). Voglio crescere fino a diventare un ingegnere del software capace di comprendere e costruire sistemi completi: interfacce, logica di business, API, persistenza dei dati, elaborazione in background e applicazioni mobili.',
     workKicker:'01 / PROGETTI E LAVORO DI INGEGNERIA', workTitle:'Progetti che costruiscono il mio percorso', workIntro:'Quattro progetti che esplorano diverse dimensioni dell’ingegneria del software: applicazioni integrate, workflow, logica software ed esperienze interattive.',
     aboutKicker:'02 / DIREZIONE DI INGEGNERIA', aboutTitle:'Costruire il mio percorso verso l’ingegneria del software.',
@@ -591,7 +591,7 @@ const engineeringPositioningCopy = {
   de: {
     navAbout:'Profil', navPath:'Erfahrung', navButton:'Praktikum besprechen',
     role:'STUDENT DER SOFTWAREENTWICKLUNG / ANGEHENDER SOFTWAREINGENIEUR', eyebrow:'MEIN WEG IN DIE SOFTWAREENTWICKLUNG / PORTUGAL',
-    titleOne:'Ich baue meinen Weg', titleTwo:'in die Softwareentwicklung', titleEnd:'.',
+    titleOne:'Auf dem Weg', titleTwo:'zur Softwareentwicklung', titleEnd:'.',
     intro:'Ich bin Leonardo und studiere Softwareentwicklung an der ESAN, Universität Aveiro (2025–2027). Ich möchte mich zu einem Softwareingenieur entwickeln, der vollständige Systeme versteht und baut: Benutzeroberflächen, Geschäftslogik, APIs, Datenspeicherung, Hintergrundverarbeitung und mobile Anwendungen.',
     workKicker:'01 / PROJEKTE UND ENGINEERING-ARBEIT', workTitle:'Projekte auf meinem Weg zum Softwareingenieur', workIntro:'Vier Projekte, die verschiedene Bereiche der Softwareentwicklung erkunden: integrierte Anwendungen, Workflow-Verarbeitung, Softwarelogik und interaktive Produkterlebnisse.',
     aboutKicker:'02 / ENGINEERING-RICHTUNG', aboutTitle:'Meinen Weg in die Softwareentwicklung aufbauen.',
@@ -615,7 +615,7 @@ const engineeringPositioningCopy = {
   ja: {
     navAbout:'プロフィール', navPath:'経験', navButton:'実習について相談',
     role:'ソフトウェア開発専攻の学生 / 将来のソフトウェアエンジニア', eyebrow:'ソフトウェアエンジニアリングへの道を築く / ポルトガル',
-    titleOne:'自分の道を築く', titleTwo:'ソフトウェアエンジニアリングへ', titleEnd:'。',
+    titleOne:'目指す', titleTwo:'ソフトウェアエンジニアリング', titleEnd:'。',
     intro:'レオナルドです。アヴェイロ大学ESANでソフトウェア開発を学んでいます（2025–2027）。インターフェース、ビジネスロジック、API、データ永続化、バックグラウンド処理、モバイルアプリまで、システム全体を理解し構築できるソフトウェアエンジニアを目指しています。',
     workKicker:'01 / プロジェクトとエンジニアリング', workTitle:'エンジニアリングへの道をつくるプロジェクト', workIntro:'統合アプリケーション、ワークフロー処理、ソフトウェアロジック、インタラクティブな製品体験という異なる領域を探る4つのプロジェクトです。',
     aboutKicker:'02 / エンジニアリングの方向性', aboutTitle:'ソフトウェアエンジニアリングへの道を築く。',
