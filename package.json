@@ -4,7 +4,9 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-cvs.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/generate-cvs.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },
