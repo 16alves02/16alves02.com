@@ -29,10 +29,21 @@ export default function ProjectCarousel({ t }) {
       return undefined;
     }
 
-    const frame = window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => setEntered(true));
+    let firstFrame = 0;
+    let secondFrame = 0;
+    let finishTimer = 0;
+
+    firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        finishTimer = window.setTimeout(() => setEntered(true), 950);
+      });
     });
-    return () => window.cancelAnimationFrame(frame);
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+      window.clearTimeout(finishTimer);
+    };
   }, []);
 
   function selectProject(index) {
