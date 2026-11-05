@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { projects } from './data/projects.js';
+import ProjectCarousel from './components/ProjectCarousel.jsx';
+import EngineeringStories from './components/EngineeringStories.jsx';
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
@@ -13,46 +15,46 @@ const socials = [
 
 const experienceByLanguage = {
   en: [
-    { id: 'cnc', date: 'Feb 2025 – May 2026', role: 'CNC machine operator', company: 'Schmidt Light Metal Group · Temporary', description: 'Industrial, on-site experience as a CNC machine operator in Oliveira de Azeméis, Portugal.', tags: ['CNC', 'Manufacturing'] },
-    { id: 'mc', date: 'May – Aug 2024', role: 'Store operator', company: 'MC · Temporary', description: 'Customer service and in-store support; stock management and replenishment; store and warehouse organization; teamwork in a fast-paced retail environment.', tags: ['Customer service', 'Stock management', 'Retail', 'Teamwork'] },
-    { id: 'clickbeauty', date: 'Apr – Jul 2023', role: 'Backend developer intern', company: 'ClickBeauty / Alvocromático · Internship', description: 'Backend development with PHP, MySQL databases, internal web systems and code structuring and maintenance.', tags: ['PHP', 'MySQL', 'Backend'] },
-    { id: 'aej', date: 'Jul 2022', role: 'Web development intern', company: 'Associação Estamos Juntos (AEJ) · Internship', description: 'Built a website with HTML, CSS, JavaScript and PHP; created and managed databases; processed registration information and updated web content.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'clickbeauty', date: 'Apr – Jul 2023', role: 'Backend developer intern', company: 'ClickBeauty / Alvocromático · Internship', description: 'Backend development with PHP and MySQL, internal web systems and code maintenance.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'Jul 2022', role: 'Web development intern', company: 'Associação Estamos Juntos (AEJ) · Internship', description: 'Built a website with HTML, CSS, JavaScript and PHP, including database integration for registration workflows.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'cnc', date: 'Feb 2025 – May 2026', role: 'CNC machine operator', company: 'Schmidt Light Metal Group · Additional experience', description: 'Additional professional experience outside software development.', tags: [] },
+    { id: 'mc', date: 'May – Aug 2024', role: 'Store operator', company: 'MC · Additional experience', description: 'Additional experience in store operations and customer support.', tags: [] },
   ],
   'pt-PT': [
-    { id: 'cnc', date: 'fev. 2025 – mai. 2026', role: 'Operador de máquina CNC', company: 'Schmidt Light Metal Group · Temporário', description: 'Experiência presencial em contexto industrial como operador de máquina CNC, em Oliveira de Azeméis.', tags: ['CNC', 'Indústria'] },
-    { id: 'mc', date: 'mai. – ago. 2024', role: 'Operador de loja', company: 'MC · Temporário', description: 'Atendimento ao cliente e apoio em loja; gestão e reposição de stock; organização da loja e do armazém; colaboração com a equipa num ambiente de retalho dinâmico.', tags: ['Atendimento', 'Gestão de stock', 'Retalho', 'Trabalho em equipa'] },
-    { id: 'clickbeauty', date: 'abr. – jul. 2023', role: 'Estagiário de desenvolvimento back-end', company: 'ClickBeauty / Alvocromático · Estágio', description: 'Desenvolvimento backend em PHP, gestão de bases de dados MySQL, apoio a sistemas web internos e estruturação e manutenção de código.', tags: ['PHP', 'MySQL', 'Back-end'] },
-    { id: 'aej', date: 'jul. 2022', role: 'Estagiário de desenvolvimento web', company: 'Associação Estamos Juntos (AEJ) · Estágio', description: 'Desenvolvimento de website com HTML, CSS, JavaScript e PHP; criação e gestão de bases de dados; processamento de inscrições e tratamento de conteúdos web.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'clickbeauty', date: 'abr. – jul. 2023', role: 'Estagiário de desenvolvimento back-end', company: 'ClickBeauty / Alvocromático · Estágio', description: 'Desenvolvimento backend em PHP e MySQL, apoio a sistemas Web internos e manutenção de código.', tags: ['PHP', 'MySQL', 'Back-end'] },
+    { id: 'aej', date: 'jul. 2022', role: 'Estagiário de desenvolvimento Web', company: 'Associação Estamos Juntos (AEJ) · Estágio', description: 'Desenvolvimento de website com HTML, CSS, JavaScript e PHP, incluindo integração de base de dados para registos.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'cnc', date: 'fev. 2025 – mai. 2026', role: 'Operador de máquina CNC', company: 'Schmidt Light Metal Group · Experiência adicional', description: 'Experiência profissional adicional fora do desenvolvimento de software.', tags: [] },
+    { id: 'mc', date: 'mai. – ago. 2024', role: 'Operador de loja', company: 'MC · Experiência adicional', description: 'Experiência adicional em operações de loja e apoio ao cliente.', tags: [] },
   ],
   es: [
-    { id: 'cnc', date: 'feb. 2025 – may. 2026', role: 'Operador de máquina CNC', company: 'Schmidt Light Metal Group · Temporal', description: 'Experiencia presencial en un entorno industrial como operador de máquina CNC en Oliveira de Azeméis, Portugal.', tags: ['CNC', 'Industria'] },
-    { id: 'mc', date: 'may. – ago. 2024', role: 'Operador de tienda', company: 'MC · Temporal', description: 'Atención al cliente, apoyo en tienda, control y reposición de stock, organización de tienda y almacén y colaboración en equipo.', tags: ['Atención al cliente', 'Stock', 'Comercio', 'Equipo'] },
-    { id: 'clickbeauty', date: 'abr. – jul. 2023', role: 'Prácticas de desarrollo backend', company: 'ClickBeauty / Alvocromático · Prácticas', description: 'Desarrollo backend con PHP, bases de datos MySQL, sistemas web internos y mantenimiento y estructuración del código.', tags: ['PHP', 'MySQL', 'Backend'] },
-    { id: 'aej', date: 'jul. 2022', role: 'Prácticas de desarrollo web', company: 'Associação Estamos Juntos (AEJ) · Prácticas', description: 'Desarrollo de un sitio con HTML, CSS, JavaScript y PHP; creación y gestión de bases de datos; procesamiento de inscripciones y contenidos web.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'clickbeauty', date: 'abr. – jul. 2023', role: 'Prácticas de desarrollo backend', company: 'ClickBeauty / Alvocromático · Prácticas', description: 'Desarrollo backend con PHP y MySQL, sistemas web internos y mantenimiento de código.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'jul. 2022', role: 'Prácticas de desarrollo web', company: 'Associação Estamos Juntos (AEJ) · Prácticas', description: 'Desarrollo de un sitio con HTML, CSS, JavaScript y PHP, incluida la integración de bases de datos para registros.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'cnc', date: 'feb. 2025 – may. 2026', role: 'Operador de máquina CNC', company: 'Schmidt Light Metal Group · Experiencia adicional', description: 'Experiencia profesional adicional fuera del desarrollo de software.', tags: [] },
+    { id: 'mc', date: 'may. – ago. 2024', role: 'Operador de tienda', company: 'MC · Experiencia adicional', description: 'Experiencia adicional en operaciones de tienda y atención al cliente.', tags: [] },
   ],
   fr: [
-    { id: 'cnc', date: 'févr. 2025 – mai 2026', role: 'Opérateur de machine CNC', company: 'Schmidt Light Metal Group · Temporaire', description: 'Expérience en présentiel dans un environnement industriel comme opérateur de machine CNC à Oliveira de Azeméis, au Portugal.', tags: ['CNC', 'Industrie'] },
-    { id: 'mc', date: 'mai – août 2024', role: 'Employé de magasin', company: 'MC · Temporaire', description: 'Service client, assistance en magasin, gestion et réapprovisionnement des stocks, organisation du magasin et de l’entrepôt et travail en équipe.', tags: ['Service client', 'Stocks', 'Commerce', 'Équipe'] },
-    { id: 'clickbeauty', date: 'avr. – juil. 2023', role: 'Stagiaire développeur backend', company: 'ClickBeauty / Alvocromático · Stage', description: 'Développement backend en PHP, bases de données MySQL, systèmes web internes et structuration et maintenance du code.', tags: ['PHP', 'MySQL', 'Backend'] },
-    { id: 'aej', date: 'juil. 2022', role: 'Stagiaire en développement web', company: 'Associação Estamos Juntos (AEJ) · Stage', description: 'Création d’un site avec HTML, CSS, JavaScript et PHP, gestion de bases de données, traitement des inscriptions et mise à jour des contenus web.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'clickbeauty', date: 'avr. – juil. 2023', role: 'Stagiaire développeur backend', company: 'ClickBeauty / Alvocromático · Stage', description: 'Développement backend en PHP et MySQL, systèmes web internes et maintenance du code.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'juil. 2022', role: 'Stagiaire en développement web', company: 'Associação Estamos Juntos (AEJ) · Stage', description: 'Création d’un site avec HTML, CSS, JavaScript et PHP, avec intégration de base de données pour les inscriptions.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'cnc', date: 'févr. 2025 – mai 2026', role: 'Opérateur de machine CNC', company: 'Schmidt Light Metal Group · Expérience complémentaire', description: 'Expérience professionnelle complémentaire en dehors du développement logiciel.', tags: [] },
+    { id: 'mc', date: 'mai – août 2024', role: 'Employé de magasin', company: 'MC · Expérience complémentaire', description: 'Expérience complémentaire dans les opérations de magasin et le service client.', tags: [] },
   ],
   it: [
-    { id: 'cnc', date: 'feb. 2025 – mag. 2026', role: 'Operatore macchina CNC', company: 'Schmidt Light Metal Group · Temporaneo', description: 'Esperienza in presenza in un ambiente industriale come operatore di macchina CNC a Oliveira de Azeméis, Portogallo.', tags: ['CNC', 'Industria'] },
-    { id: 'mc', date: 'mag. – ago. 2024', role: 'Addetto alle vendite', company: 'MC · Temporaneo', description: 'Assistenza ai clienti, supporto in negozio, gestione e rifornimento delle scorte, organizzazione del negozio e del magazzino e lavoro di squadra.', tags: ['Clienti', 'Scorte', 'Vendita al dettaglio', 'Squadra'] },
-    { id: 'clickbeauty', date: 'apr. – lug. 2023', role: 'Tirocinante sviluppatore backend', company: 'ClickBeauty / Alvocromático · Tirocinio', description: 'Sviluppo backend con PHP, database MySQL, sistemi web interni e strutturazione e manutenzione del codice.', tags: ['PHP', 'MySQL', 'Backend'] },
-    { id: 'aej', date: 'lug. 2022', role: 'Tirocinante sviluppo web', company: 'Associação Estamos Juntos (AEJ) · Tirocinio', description: 'Realizzazione di un sito con HTML, CSS, JavaScript e PHP, gestione dei database, elaborazione delle iscrizioni e aggiornamento dei contenuti web.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'clickbeauty', date: 'apr. – lug. 2023', role: 'Tirocinante sviluppatore backend', company: 'ClickBeauty / Alvocromático · Tirocinio', description: 'Sviluppo backend con PHP e MySQL, sistemi web interni e manutenzione del codice.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'lug. 2022', role: 'Tirocinante sviluppo web', company: 'Associação Estamos Juntos (AEJ) · Tirocinio', description: 'Realizzazione di un sito con HTML, CSS, JavaScript e PHP, inclusa l’integrazione di database per le registrazioni.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'cnc', date: 'feb. 2025 – mag. 2026', role: 'Operatore macchina CNC', company: 'Schmidt Light Metal Group · Esperienza aggiuntiva', description: 'Esperienza professionale aggiuntiva al di fuori dello sviluppo software.', tags: [] },
+    { id: 'mc', date: 'mag. – ago. 2024', role: 'Addetto alle vendite', company: 'MC · Esperienza aggiuntiva', description: 'Esperienza aggiuntiva nelle operazioni di negozio e assistenza clienti.', tags: [] },
   ],
   de: [
-    { id: 'cnc', date: 'Feb. 2025 – Mai 2026', role: 'CNC-Maschinenbediener', company: 'Schmidt Light Metal Group · Befristet', description: 'Vor-Ort-Erfahrung in einem industriellen Umfeld als CNC-Maschinenbediener in Oliveira de Azeméis, Portugal.', tags: ['CNC', 'Industrie'] },
-    { id: 'mc', date: 'Mai – Aug. 2024', role: 'Mitarbeiter im Einzelhandel', company: 'MC · Befristet', description: 'Kundenservice, Unterstützung im Geschäft, Bestandsverwaltung und Warenauffüllung, Organisation von Laden und Lager sowie Teamarbeit.', tags: ['Kundenservice', 'Bestand', 'Einzelhandel', 'Teamarbeit'] },
-    { id: 'clickbeauty', date: 'Apr. – Jul. 2023', role: 'Praktikant Backend-Entwicklung', company: 'ClickBeauty / Alvocromático · Praktikum', description: 'Backend-Entwicklung mit PHP, MySQL-Datenbanken, internen Websystemen sowie Strukturierung und Pflege von Code.', tags: ['PHP', 'MySQL', 'Backend'] },
-    { id: 'aej', date: 'Jul. 2022', role: 'Praktikant Webentwicklung', company: 'Associação Estamos Juntos (AEJ) · Praktikum', description: 'Erstellung einer Website mit HTML, CSS, JavaScript und PHP; Datenbankverwaltung, Verarbeitung von Anmeldungen und Pflege von Webinhalten.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'clickbeauty', date: 'Apr. – Jul. 2023', role: 'Praktikant Backend-Entwicklung', company: 'ClickBeauty / Alvocromático · Praktikum', description: 'Backend-Entwicklung mit PHP und MySQL, internen Websystemen und Codepflege.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'Jul. 2022', role: 'Praktikant Webentwicklung', company: 'Associação Estamos Juntos (AEJ) · Praktikum', description: 'Erstellung einer Website mit HTML, CSS, JavaScript und PHP, einschliesslich Datenbankintegration für Anmeldungen.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'cnc', date: 'Feb. 2025 – Mai 2026', role: 'CNC-Maschinenbediener', company: 'Schmidt Light Metal Group · Zusätzliche Erfahrung', description: 'Zusätzliche Berufserfahrung ausserhalb der Softwareentwicklung.', tags: [] },
+    { id: 'mc', date: 'Mai – Aug. 2024', role: 'Mitarbeiter im Einzelhandel', company: 'MC · Zusätzliche Erfahrung', description: 'Zusätzliche Erfahrung im Einzelhandel und Kundenservice.', tags: [] },
   ],
   ja: [
-    { id: 'cnc', date: '2025年2月 – 2026年5月', role: 'CNC機械オペレーター', company: 'Schmidt Light Metal Group · 有期雇用', description: 'ポルトガルのOliveira de Azeméisで、工業環境におけるCNC機械オペレーターとして勤務。', tags: ['CNC', '製造'] },
-    { id: 'mc', date: '2024年5月 – 8月', role: '店舗スタッフ', company: 'MC · 有期雇用', description: '接客、店舗サポート、在庫管理と補充、店舗と倉庫の整理、チームでの協力。', tags: ['接客', '在庫管理', '小売', 'チームワーク'] },
-    { id: 'clickbeauty', date: '2023年4月 – 7月', role: 'バックエンド開発インターン', company: 'ClickBeauty / Alvocromático · インターン', description: 'PHPによるバックエンド開発、MySQLデータベース、社内Webシステム、コードの構成と保守。', tags: ['PHP', 'MySQL', 'バックエンド'] },
-    { id: 'aej', date: '2022年7月', role: 'Web開発インターン', company: 'Associação Estamos Juntos (AEJ) · インターン', description: 'HTML、CSS、JavaScript、PHPを使ったサイト開発、データベース作成と管理、登録情報の処理、Webコンテンツの更新。', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'clickbeauty', date: '2023年4月 – 7月', role: 'バックエンド開発インターン', company: 'ClickBeauty / Alvocromático · インターン', description: 'PHPとMySQLによるバックエンド開発、社内Webシステム、コードの保守。', tags: ['PHP', 'MySQL', 'バックエンド'] },
+    { id: 'aej', date: '2022年7月', role: 'Web開発インターン', company: 'Associação Estamos Juntos (AEJ) · インターン', description: 'HTML、CSS、JavaScript、PHPを使用したWebサイト開発と登録用データベース連携。', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'cnc', date: '2025年2月 – 2026年5月', role: 'CNC機械オペレーター', company: 'Schmidt Light Metal Group · その他の職歴', description: 'ソフトウェア開発以外の職務経験。', tags: [] },
+    { id: 'mc', date: '2024年5月 – 8月', role: '店舗スタッフ', company: 'MC · その他の職歴', description: '店舗運営とカスタマーサポートの職務経験。', tags: [] },
   ],
 };
 
@@ -140,7 +142,7 @@ const copy = {
       ["BACKEND & APIs","PHP","Node.js runtime","REST APIs","PDO","Prisma"],
       ["DATA & QUEUES","SQL","MySQL / MariaDB","PostgreSQL","Redis","BullMQ"],
       ["MOBILE & QUALITY","Kotlin / Android","Capacitor","Vitest","C","Git","GitHub"]
-    ]
+    ],
     pathKicker: '03 / PROFESSIONAL EXPERIENCE', pathTitle: 'Technical internships and experience beyond software projects.',
     educationKicker: 'EDUCATION', educationTitle: 'Software Development', educationDate: 'Sep 2025 – Jul 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro',
     educationAdditional: 'CTeSP, CNC Programmer · Oct 2024 – Jul 2025 · Enrolment currently frozen',
@@ -669,7 +671,7 @@ export default function App() {
   const t = localeCopy[language] || localeCopy.en;
   const activeLanguage = languageOptions.find((option) => option.code === language) || languageOptions[0];
   const cvHref = language === 'pt-PT' ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
-  const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT.pdf' : 'Leonardo-Alves-CV-EN.pdf';
+  const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT-Engenharia-Software.pdf' : 'Leonardo-Alves-CV-EN-Software-Engineering.pdf';
   const internshipSubject = language === 'pt-PT'
     ? 'Candidatura - Estágio curricular remunerado de 680 horas - fevereiro de 2027'
     : 'Application - Paid 680-hour curricular internship - February 2027';
@@ -833,13 +835,8 @@ export default function App() {
               <div className="hero-actions"><button className="button button-dark" onClick={() => goTo('work')}>{t.workButton}<span>↘</span></button><button className="button button-outline" onClick={() => goTo('internship')}>{t.internshipButton}<span>↗</span></button></div>
               <div className="hero-footnote"><span className="footnote-mark"><SparkIcon /></span><span>{t.sideNote}</span><span className="hero-small-mark">16 / 02</span></div>
             </div>
-            <div className="hero-art" role="img" aria-label={t.brandVisualLabel}>
-              <div className="hero-art-label label-top">PERSONAL<br />CODE / 026</div>
-              <div className="hero-logo-panel"><img src="/logo.png" alt="16alves02 LA logo" /><span className="logo-panel-note">INTERNET PERSON / SINCE FOREVER-ISH</span></div>
-              <div className="hero-sticker sticker-one">HELLO<br /><span>WORLD!</span></div>
-              <div className="hero-sticker sticker-two"><span>HTML</span><b>+</b><span>CSS</span><b>+</b><span>JS</span></div>
-              <div className="hero-art-label label-bottom">BUILT WITH<br />CURIOSITY ↗</div>
-              <div className="hero-star star-one"><SparkIcon /></div><div className="hero-star star-two"><SparkIcon /></div>
+            <div className="hero-art hero-art-carousel">
+              <ProjectCarousel t={t} />
             </div>
           </div>
           <div className="hero-scroll"><span>{t.scroll}</span><span className="scroll-line" /></div>
@@ -851,6 +848,7 @@ export default function App() {
           <div className="section-heading"><div><p className="section-kicker"><span>01</span> / {t.workKicker.split('/ ').slice(1).join('/ ')}</p><h2>{t.workTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.workIntro}</p></div>
           <div className="projects-grid">{projects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured={index < 4} />)}</div>
         </section>
+        <EngineeringStories language={language} />
 
         <section className="about-section" id="about">
           <div className="about-band"><span>02 / {t.navAbout.toUpperCase()}</span><span>16ALVES02®</span><span>{t.aboutBandTagline}</span></div>
@@ -871,7 +869,7 @@ export default function App() {
         </section>
 
         <section className="background-section section-pad" id="background">
-          <div className="section-heading"><div><p className="section-kicker">{t.pathKicker}</p><h2>{t.pathTitle}<span className="brand-dot">.</span></h2></div><div className="education-card"><span className="education-label">{t.educationKicker}</span><h3>{t.educationTitle}</h3><span className="education-date">{t.educationDate}</span><p>{t.educationWhere}</p><div className="education-rule"/><p className="education-additional">{t.educationAdditional}</p><p className="prior-education">{t.priorEducation}</p></div></div>
+          <div className="section-heading"><div><p className="section-kicker">{t.pathKicker}</p><h2>{t.pathTitle}<span className="brand-dot">.</span></h2></div><div className="education-card"><span className="education-label">{t.educationKicker}</span><h3>{t.educationTitle}</h3><span className="education-date">{t.educationDate}</span><p>{t.educationWhere}</p><div className="education-rule"/>{t.educationAdditional && <p className="education-additional">{t.educationAdditional}</p>}<p className="prior-education">{t.priorEducation}</p></div></div>
           <div className="experience-list">{experienceByLanguage[language] ? experienceByLanguage[language].map((experience) => <article className="experience-item" key={experience.id}><span className="experience-year">{experience.date}</span><div><h3>{experience.role}</h3><p className="experience-company">{experience.company}</p><p>{experience.description}</p><div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div><span className="experience-symbol" aria-hidden="true">↗</span></article>) : experienceByLanguage.en.map((experience) => <article className="experience-item" key={experience.id}><span className="experience-year">{experience.date}</span><div><h3>{experience.role}</h3><p className="experience-company">{experience.company}</p><p>{experience.description}</p><div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div><span className="experience-symbol" aria-hidden="true">↗</span></article>)}</div>
         </section>
 
