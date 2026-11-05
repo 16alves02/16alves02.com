@@ -6,7 +6,7 @@
   "scripts": {
     "predev": "node scripts/generate-cvs.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/generate-cvs.mjs",
+    "prebuild": "python3 -m pip install --quiet -r requirements-cv.txt && python3 scripts/generate_cvs.py",
     "build": "vite build",
     "preview": "vite preview"
   },
