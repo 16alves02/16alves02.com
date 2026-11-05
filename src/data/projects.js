@@ -8,6 +8,22 @@ export const projects = [
     stack: ['PHP 8.3', 'Kotlin / Android', 'REST API', 'PDO', 'MySQL / MariaDB'],
     status: 'In development',
     visual: 'sabor',
+    caseStudy: {
+      en: {
+        problem: 'The academic brief focuses on centralising staff schedules, attendance records and basic stock operations for small food businesses. The operational rules still require validation with real users.',
+        architecture: 'PHP 8.3 management panel and REST API, PDO database access, MySQL/MariaDB persistence, plus an Android kiosk developed in Kotlin for employee time records.',
+        contribution: 'Developed the web/backend scope and the Android kiosk integration, covering staff, schedules, attendance workflows and stock products and movements.',
+        challenges: 'Keeping API behaviour, server-side rules and Android kiosk flows consistent while accounting for attendance corrections and stock movements.',
+        result: 'An integrated academic prototype with web, API and Android components. It remains in development and validation; real-world deployment and production readiness have not been established.',
+      },
+      pt: {
+        problem: 'O âmbito académico centra-se na centralização de horários, registos de assiduidade e operações básicas de stock em pequenos negócios de restauração. As regras operacionais ainda precisam de validação com utilizadores reais.',
+        architecture: 'Painel de gestão e API REST em PHP 8.3, acesso a dados com PDO, persistência em MySQL/MariaDB e quiosque Android desenvolvido em Kotlin para registo de ponto.',
+        contribution: 'Desenvolvimento das componentes web/backend e integração do quiosque Android, abrangendo colaboradores, horários, fluxos de assiduidade e produtos e movimentos de stock.',
+        challenges: 'Manter o comportamento da API, as regras no servidor e os fluxos do quiosque Android consistentes, incluindo correções de assiduidade e movimentos de stock.',
+        result: 'Protótipo académico integrado com componentes web, API e Android. Continua em desenvolvimento e validação; não foi estabelecida a utilização real nem a preparação para produção.',
+      },
+    },
   },
   {
     number: '07',
@@ -19,6 +35,22 @@ export const projects = [
     source: 'https://github.com/16alves02/RunLattice',
     status: 'Prototype in development',
     visual: 'runlattice',
+    caseStudy: {
+      en: {
+        problem: 'Explore how repeatable business tasks can be modelled, saved and monitored as visual workflows, while keeping workflow design separate from background execution.',
+        architecture: 'Next.js and React with TypeScript; Next.js Route Handlers and Zod validation; PostgreSQL with Prisma; Redis and BullMQ for background jobs; Vitest for workflow graph validation.',
+        contribution: 'Built the workspace dashboard, visual workflow editor, workflow CRUD API, graph validation, database persistence and execution-history views.',
+        challenges: 'Validating node identifiers and connections, persisting workflow definitions and coordinating asynchronous queue processing with stored run states.',
+        result: 'The prototype persists workflow definitions and execution records, and queues simulated graph traversal through BullMQ. External integrations, authentication and workspace isolation are not implemented.',
+      },
+      pt: {
+        problem: 'Explorar como tarefas repetíveis podem ser modeladas, guardadas e acompanhadas através de workflows visuais, separando a criação do fluxo do seu processamento em segundo plano.',
+        architecture: 'Next.js e React com TypeScript; Route Handlers e validação Zod; PostgreSQL com Prisma; Redis e BullMQ para tarefas em segundo plano; Vitest para validação de grafos de workflows.',
+        contribution: 'Desenvolvimento do dashboard, editor visual de workflows, API CRUD, validação do grafo, persistência na base de dados e consulta do histórico de execuções.',
+        challenges: 'Validar identificadores e ligações entre nós, persistir definições de workflows e coordenar o processamento assíncrono com os estados de execução guardados.',
+        result: 'O protótipo persiste workflows e registos de execução e coloca uma simulação de percurso do grafo na fila BullMQ. As integrações externas, autenticação e isolamento de espaços de trabalho ainda não estão implementados.',
+      },
+    },
   },
   {
     number: '08',
@@ -29,6 +61,18 @@ export const projects = [
     stack: ['React 19', 'TypeScript', 'Vite', 'Zustand', 'Vitest', 'Capacitor'],
     status: 'In development',
     visual: 'mrdr',
+  },
+  {
+    number: '02',
+    name: 'RAW.',
+    type: 'Interactive web / personal project',
+    year: '2025-26',
+    description: 'A social conversation experience built around question decks and game modes, with card-based interaction, swipe gestures and motion. The source repository is private.',
+    stack: ['React', 'JavaScript', 'Tailwind CSS', 'Framer Motion'],
+    live: 'https://raw-app-bice.vercel.app',
+    image: 'https://wsrv.nl/?url=raw-app-bice.vercel.app%2Fimages%2Fhome.png&w=800&output=webp&q=72',
+    imageAlt: 'Actual RAW. home-screen asset from the deployed app',
+    visual: 'raw',
   },
   {
     number: '01',
@@ -42,18 +86,6 @@ export const projects = [
     image: 'https://wsrv.nl/?url=raw.githubusercontent.com%2F16alves02%2Fhoop%2Fmain%2Fpublic%2Fimg%2Fscreenshots%2Fhome.PNG&w=800&output=webp&q=72',
     imageAlt: 'Actual homepage screenshot from the HOOP basketball-store project',
     visual: 'hoop',
-  },
-  {
-    number: '02',
-    name: 'RAW.',
-    type: 'Interactive web / personal project',
-    year: '2025-26',
-    description: 'A social conversation experience built around question decks and game modes, with card-based interaction, swipe gestures and motion. The source repository is private.',
-    stack: ['React', 'JavaScript', 'Tailwind CSS', 'Framer Motion'],
-    live: 'https://raw-app-bice.vercel.app',
-    image: 'https://wsrv.nl/?url=raw-app-bice.vercel.app%2Fimages%2Fhome.png&w=800&output=webp&q=72',
-    imageAlt: 'Actual RAW. home-screen asset from the deployed app',
-    visual: 'raw',
   },
   {
     number: '04',
