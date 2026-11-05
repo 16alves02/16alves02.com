@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "predev": "node scripts/generate-cvs.mjs",
+    "predev": "python3 -m pip install --quiet -r requirements-cv.txt && python3 scripts/generate_cvs.py",
     "dev": "vite",
     "prebuild": "python3 -m pip install --quiet -r requirements-cv.txt && python3 scripts/generate_cvs.py",
     "build": "vite build",
