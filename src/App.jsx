@@ -437,6 +437,15 @@ function SocialLink({ social }) {
   return <a className={`social-link social-${social.kind}`} href={social.url} target="_blank" rel="noreferrer"><span className="social-mark">{social.short}</span><span>{social.label}</span><span className="social-arrow">↗</span></a>;
 }
 
+
+function SparkIcon() {
+  return <svg className="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.2 9.8 21.2 12l-7 2.2-2.2 7-2.2-7-7-2.2 7-2.2L12 2.8Z" /></svg>;
+}
+
+function MenuIcon() {
+  return <svg className="ui-icon menu-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>;
+}
+
 function GlobeIcon() {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" /></svg>;
 }
@@ -686,7 +695,7 @@ export default function App() {
             <button className="header-contact" onClick={() => goTo('contact')}>{t.navButton} <span>↗</span></button>
           </div>
 
-          <button className="menu-toggle" aria-expanded={menuOpen} aria-label={menuOpen ? t.closeMenu : t.openMenu} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? '×' : '☰'}</button>
+          <button className="menu-toggle" aria-expanded={menuOpen} aria-label={menuOpen ? t.closeMenu : t.openMenu} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? '×' : <MenuIcon />}</button>
         </div>
       </header>
 
@@ -699,7 +708,7 @@ export default function App() {
               <h1>{t.titleOne}<br /><span className="hero-orange">{t.titleTwo}</span><span className="hero-period">{t.titleEnd}</span></h1>
               <p className="hero-intro">{t.intro}</p>
               <div className="hero-actions"><button className="button button-dark" onClick={() => goTo('work')}>{t.workButton}<span>↘</span></button><button className="button button-outline" onClick={() => goTo('internship')}>{t.internshipButton}<span>↗</span></button></div>
-              <div className="hero-footnote"><span className="footnote-mark">✳</span><span>{t.sideNote}</span><span className="hero-small-mark">16 / 02</span></div>
+              <div className="hero-footnote"><span className="footnote-mark"><SparkIcon /></span><span>{t.sideNote}</span><span className="hero-small-mark">16 / 02</span></div>
             </div>
             <div className="hero-art" role="img" aria-label={t.brandVisualLabel}>
               <div className="hero-art-label label-top">PERSONAL<br />CODE / 026</div>
@@ -707,24 +716,24 @@ export default function App() {
               <div className="hero-sticker sticker-one">HELLO<br /><span>WORLD!</span></div>
               <div className="hero-sticker sticker-two"><span>HTML</span><b>+</b><span>CSS</span><b>+</b><span>JS</span></div>
               <div className="hero-art-label label-bottom">BUILT WITH<br />CURIOSITY ↗</div>
-              <div className="hero-star star-one">✳</div><div className="hero-star star-two">✦</div>
+              <div className="hero-star star-one"><SparkIcon /></div><div className="hero-star star-two"><SparkIcon /></div>
             </div>
           </div>
           <div className="hero-scroll"><span>{t.scroll}</span><span className="scroll-line" /></div>
         </section>
 
-        <div className="ticker" aria-label={t.tickerLabel}><div className="ticker-track">{[...t.ticker, ...t.ticker].map((item, i) => <span key={`${item}-${i}`}>{item}<b>✳</b></span>)}</div></div>
+        <div className="ticker" aria-label={t.tickerLabel}><div className="ticker-track">{[...t.ticker, ...t.ticker].map((item, i) => <span key={`${item}-${i}`}>{item}<b><SparkIcon /></b></span>)}</div></div>
 
         <section className="work-section section-pad" id="work">
           <div className="section-heading"><div><p className="section-kicker"><span>01</span> / {t.workKicker.split('/ ').slice(1).join('/ ')}</p><h2>{t.workTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.workIntro}</p></div>
-          <div className="projects-grid">{projects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured={index < 3} />)}</div>
+          <div className="projects-grid">{projects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured={index < 4} />)}</div>
         </section>
 
         <section className="about-section" id="about">
           <div className="about-band"><span>02 / {t.navAbout.toUpperCase()}</span><span>16ALVES02®</span><span>{t.aboutBandTagline}</span></div>
           <div className="about-inner section-pad">
             <div className="about-title-col"><p className="section-kicker">{t.aboutKicker}</p><h2>{t.aboutTitle}</h2><div className="about-logo"><img src="/logo.png" alt="LA" /><span>{t.aboutMiniOne}<br />{t.aboutMiniTwo}</span></div></div>
-            <div className="about-copy"><p>{t.about1}</p><p>{t.about2}</p><p>{t.about3}</p><div className="about-signoff"><span>LEONARDO ALVES</span><span>AKA 16ALVES02 <b>✳</b></span></div></div>
+            <div className="about-copy"><p>{t.about1}</p><p>{t.about2}</p><p>{t.about3}</p><div className="about-signoff"><span>LEONARDO ALVES</span><span>AKA 16ALVES02 <b><SparkIcon /></b></span></div></div>
           </div>
         </section>
 
@@ -744,7 +753,7 @@ export default function App() {
         </section>
 
         <section className="internship-section" id="internship">
-          <div className="internship-inner"><div className="internship-top"><span>{t.internshipKicker}</span><span>{t.internshipMeta}</span></div><div className="internship-content"><div className="internship-number">680<span>h</span></div><div className="internship-copy"><h2>{t.internshipTitle}</h2><p>{t.internshipText}</p><div className="internship-facts"><span>✳ {t.targetStart}</span><span>✳ {t.mode}</span><span>✳ {t.paidPreference}</span><span>✳ CTeSP / ESAN-UA</span></div><a className="button button-dark" href={`mailto:16alves02@gmail.com?subject=${encodeURIComponent(t.internshipMeta)}`}>{t.internshipCta}<span>↗</span></a></div></div><div className="internship-bottom"><span>{t.internshipBottom}</span><span>16ALVES02 / 2027</span></div></div>
+          <div className="internship-inner"><div className="internship-top"><span>{t.internshipKicker}</span><span>{t.internshipMeta}</span></div><div className="internship-content"><div className="internship-number">680<span>h</span></div><div className="internship-copy"><h2>{t.internshipTitle}</h2><p>{t.internshipText}</p><div className="internship-facts"><span><SparkIcon /> {t.targetStart}</span><span><SparkIcon /> {t.mode}</span><span><SparkIcon /> {t.paidPreference}</span><span><SparkIcon /> CTeSP / ESAN-UA</span></div><a className="button button-dark" href={`mailto:16alves02@gmail.com?subject=${encodeURIComponent(t.internshipMeta)}`}>{t.internshipCta}<span>↗</span></a></div></div><div className="internship-bottom"><span>{t.internshipBottom}</span><span>16ALVES02 / 2027</span></div></div>
         </section>
 
         <section className="contact-section section-pad" id="contact">
