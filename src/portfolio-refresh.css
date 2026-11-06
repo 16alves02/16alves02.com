@@ -303,7 +303,6 @@ h1, h2, h3 { text-wrap: balance; }
   .story-visual-note, .story-visual-hint { font-size: 11px; }
 
   .about-band { min-height: 40px; justify-content: flex-start; flex-wrap: wrap; gap: 8px 16px; padding: 10px 20px; font-size: 9px; }
-  .about-band span:last-child { display: none; }
   .about-inner { display: grid; grid-template-columns: 1fr; gap: 24px; }
   .about-title-col h2 { max-width: 14ch; font-size: clamp(2.7rem, 11vw, 4rem); line-height: 1.02; }
   .about-logo { margin-top: 20px; }
