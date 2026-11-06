@@ -15,14 +15,14 @@ const socials = [
 
 const experienceByLanguage = {
   en: [
-    { id: 'clickbeauty', date: 'Apr – Jul 2023', role: 'Backend developer intern', company: 'ClickBeauty / Alvocromático · Internship', description: 'Backend development with PHP and MySQL, internal web systems and code maintenance.', tags: ['PHP', 'MySQL', 'Backend'] },
-    { id: 'aej', date: 'Jul 2022', role: 'Web development intern', company: 'Associação Estamos Juntos (AEJ) · Internship', description: 'Built a website with HTML, CSS, JavaScript and PHP, including database integration for registration workflows.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'clickbeauty', date: 'Apr – Jul 2023', role: 'Backend developer intern', company: 'ClickBeauty / Alvocromático · Internship', description: 'Developed and maintained backend functionality using PHP and MySQL, contributing to internal web systems.', tags: ['PHP', 'MySQL', 'Backend'] },
+    { id: 'aej', date: 'Jul 2022', role: 'Web development intern', company: 'Associação Estamos Juntos (AEJ) · Internship', description: 'Developed a website using HTML, CSS, JavaScript and PHP, including database integration to support registration workflows.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
     { id: 'cnc', date: 'Feb 2025 – May 2026', role: 'CNC machine operator', company: 'Schmidt Light Metal Group · Additional experience', description: 'Additional professional experience outside software development.', tags: [] },
     { id: 'mc', date: 'May – Aug 2024', role: 'Store operator', company: 'MC · Additional experience', description: 'Additional experience in store operations and customer support.', tags: [] },
   ],
   'pt-PT': [
-    { id: 'clickbeauty', date: 'abr. – jul. 2023', role: 'Estagiário de desenvolvimento back-end', company: 'ClickBeauty / Alvocromático · Estágio', description: 'Desenvolvimento backend em PHP e MySQL, apoio a sistemas Web internos e manutenção de código.', tags: ['PHP', 'MySQL', 'Back-end'] },
-    { id: 'aej', date: 'jul. 2022', role: 'Estagiário de desenvolvimento Web', company: 'Associação Estamos Juntos (AEJ) · Estágio', description: 'Desenvolvimento de website com HTML, CSS, JavaScript e PHP, incluindo integração de base de dados para registos.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
+    { id: 'clickbeauty', date: 'abr. – jul. 2023', role: 'Estagiário de desenvolvimento back-end', company: 'ClickBeauty / Alvocromático · Estágio', description: 'Desenvolvimento e manutenção de funcionalidades backend com PHP e MySQL, incluindo trabalho em sistemas web internos.', tags: ['PHP', 'MySQL', 'Back-end'] },
+    { id: 'aej', date: 'jul. 2022', role: 'Estagiário de desenvolvimento Web', company: 'Associação Estamos Juntos (AEJ) · Estágio', description: 'Desenvolvimento de um website com HTML, CSS, JavaScript e PHP, incluindo integração com base de dados para suportar processos de registo.', tags: ['HTML', 'CSS', 'JavaScript', 'PHP'] },
     { id: 'cnc', date: 'fev. 2025 – mai. 2026', role: 'Operador de máquina CNC', company: 'Schmidt Light Metal Group · Experiência adicional', description: 'Experiência profissional adicional fora do desenvolvimento de software.', tags: [] },
     { id: 'mc', date: 'mai. – ago. 2024', role: 'Operador de loja', company: 'MC · Experiência adicional', description: 'Experiência adicional em operações de loja e apoio ao cliente.', tags: [] },
   ],
@@ -129,7 +129,7 @@ const extraProjectTranslations = {
 const copy = {
   en: {
     navWork: 'Work', navAbout: 'About', navPath: 'Background', navContact: 'Contact', navButton: 'Discuss internship',
-    role: 'SOFTWARE DEVELOPMENT STUDENT / JUNIOR SOFTWARE DEVELOPER', eyebrow: 'PORTFOLIO / PORTUGAL / 2027',
+    role: 'SOFTWARE DEVELOPMENT STUDENT / SOFTWARE DEVELOPER', eyebrow: 'PORTFOLIO / PORTUGAL / 2027',
     titleOne: 'I build', titleTwo: 'software', titleEnd: '.',
     intro: 'I am a Software Development student at Escola Superior Aveiro Norte, University of Aveiro, focused on building a strong foundation in software engineering. My work spans web, backend and mobile projects, from user interfaces and APIs to data integration.',
     workButton: 'See selected work', internshipButton: 'Looking for a 680h internship',
@@ -160,7 +160,7 @@ const copy = {
   },
   pt: {
     navWork: 'Projetos', navAbout: 'Sobre', navPath: 'Percurso', navContact: 'Contacto', navButton: 'Falar sobre estágio',
-    role: 'ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE / JUNIOR SOFTWARE DEVELOPER', eyebrow: 'PORTEFÓLIO / PORTUGAL / 2027',
+    role: 'ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE / SOFTWARE DEVELOPER', eyebrow: 'PORTEFÓLIO / PORTUGAL / 2027',
     titleOne: 'Desenvolvo', titleTwo: 'software', titleEnd: '.',
     intro: 'Sou estudante de Desenvolvimento de Software na Escola Superior Aveiro Norte, Universidade de Aveiro, com interesse no desenvolvimento de aplicações e na engenharia de software. Trabalho em projetos web, backend e mobile, desde a implementação de interfaces e APIs até à integração com bases de dados.',
     workButton: 'Ver projetos', internshipButton: 'À procura de estágio de 680h',
