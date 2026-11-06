@@ -79,7 +79,7 @@ export const projects = [
     name: 'Nova Imagem by Maura Pereira',
     type: 'Client website / in preparation',
     year: '2026',
-    description: 'A website project being prepared in collaboration with a local salon. The scope includes structuring the information, presenting services and integrating visual content. The final service list, imagery, opening hours and publication details are pending the owner's approval. A CMS-based editing workflow is planned but has not yet been implemented or validated.',
+    description: 'A website project being prepared in collaboration with a local salon. The scope includes structuring the information, presenting services and integrating visual content. The final service list, imagery, opening hours and publication details are pending approval from the salon owner. A CMS-based editing workflow is planned but has not yet been implemented or validated.',
     stack: [],
     status: 'In preparation',
     visual: 'nova',
