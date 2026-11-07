@@ -932,3 +932,93 @@ body {
     animation-duration: 0.01ms !important;
   }
 }
+
+
+/* Dark-mode overrides for legacy selectors with higher specificity. */
+html[data-theme="dark"] .site-shell .education-card {
+  color: var(--ink);
+  background: var(--card);
+  border-color: var(--line);
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] .site-shell .education-card h3,
+html[data-theme="dark"] .site-shell .education-card > p,
+html[data-theme="dark"] .site-shell .education-card > .education-label,
+html[data-theme="dark"] .site-shell .education-card > .education-date,
+html[data-theme="dark"] .site-shell .education-card .prior-education,
+html[data-theme="dark"] .site-shell .education-additional {
+  color: var(--body-copy);
+}
+html[data-theme="dark"] .site-shell .education-card h3 {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .site-shell .internship-section {
+  color: var(--ink);
+  background: var(--paper-dark);
+}
+html[data-theme="dark"] .site-shell .internship-inner {
+  color: var(--ink);
+  background: var(--card);
+  border-color: var(--line);
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] .site-shell .internship-number,
+html[data-theme="dark"] .site-shell .internship-copy h2,
+html[data-theme="dark"] .site-shell .internship-copy p,
+html[data-theme="dark"] .site-shell .internship-top,
+html[data-theme="dark"] .site-shell .internship-bottom,
+html[data-theme="dark"] .site-shell .internship-facts,
+html[data-theme="dark"] .site-shell .internship-facts span {
+  color: var(--ink);
+}
+html[data-theme="dark"] .site-shell .internship-copy p,
+html[data-theme="dark"] .site-shell .internship-top,
+html[data-theme="dark"] .site-shell .internship-bottom,
+html[data-theme="dark"] .site-shell .internship-facts span {
+  color: var(--body-copy);
+}
+
+html[data-theme="dark"] .site-shell .contact-section {
+  color: var(--ink);
+  background: var(--card);
+  border-color: var(--line);
+}
+html[data-theme="dark"] .site-shell .contact-section h2,
+html[data-theme="dark"] .site-shell .contact-email,
+html[data-theme="dark"] .site-shell .social-link {
+  color: var(--ink);
+}
+html[data-theme="dark"] .site-shell .contact-bottom > div:first-child > p {
+  color: var(--body-copy);
+}
+html[data-theme="dark"] .site-shell .contact-top,
+html[data-theme="dark"] .site-shell .contact-email-label,
+html[data-theme="dark"] .site-shell .copy-email,
+html[data-theme="dark"] .site-shell .social-note {
+  color: var(--secondary-copy);
+}
+html[data-theme="dark"] .site-shell .contact-top .section-kicker,
+html[data-theme="dark"] .site-shell .socials-block > .section-kicker,
+html[data-theme="dark"] .site-shell .contact-email span,
+html[data-theme="dark"] .site-shell .social-arrow {
+  color: var(--accent-readable);
+}
+html[data-theme="dark"] .site-shell .social-mark {
+  color: #211d1a;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .site-shell .project-status {
+  color: var(--accent-readable);
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+html[data-theme="dark"] .site-shell .header-contact,
+html[data-theme="dark"] .site-shell .header-contact span,
+html[data-theme="dark"] .site-shell .button-dark {
+  color: #211d1a;
+}
+html[data-theme="dark"] .site-shell .button-outline {
+  color: var(--ink);
+}
