@@ -4,27 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, follow">
-  <meta name="theme-color" content="#f7f3ec">
+  <meta name="theme-color" content="#f7f6f2">
   <meta name="description" content="Page not found on Leonardo Alves' portfolio. Return to the home page and explore selected projects.">
   <title>Page not found | 16alves02</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #f7f3ec;
-      --paper-deep: #ebe4da;
-      --ink: #211a1f;
-      --muted: #706b64;
-      --accent: #eb4520;
+      --paper: #f7f6f2;
+      --paper-deep: #eeece5;
+      --ink: #20201e;
+      --muted: #5f5853;
+      --accent: #b9381b;
+      --accent-fill: #f05a28;
       --line: rgba(33, 26, 31, .22);
       --shadow: #211a1f;
     }
     :root[data-theme="dark"] {
       color-scheme: dark;
-      --paper: #111110;
-      --paper-deep: #1b1a18;
-      --ink: #f7f3ec;
-      --muted: #b5afa6;
-      --accent: #ff704f;
+      --paper: #151513;
+      --paper-deep: #1e1e1a;
+      --ink: #f3f1eb;
+      --muted: #c0bbb1;
+      --accent: #ff9478;
+      --accent-fill: #ff704f;
       --line: rgba(247, 243, 236, .22);
       --shadow: #000;
     }
@@ -117,7 +119,7 @@
       transition: background-color .15s ease, color .15s ease;
     }
     .button-secondary { color: var(--ink); background: transparent; }
-    .button:hover { background: var(--accent); color: var(--ink); }
+    .button:hover { background: var(--accent-fill); color: #20201e; }
     .button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
     footer {
       margin-top: 30px;
@@ -231,7 +233,7 @@
         catch { return 'light'; }
       })();
       document.title = copy.title;
-      document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === 'dark' ? '#111110' : '#f7f3ec';
+      document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === 'dark' ? '#151513' : '#f7f6f2';
       document.getElementById('eyebrow').textContent = copy.eyebrow;
       document.getElementById('heading').innerHTML = copy.heading;
       document.getElementById('message').textContent = copy.message;
