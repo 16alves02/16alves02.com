@@ -1,0 +1,1024 @@
+/*
+ * Unified visual system for the 16alves02 portfolio.
+ * Both themes share the same component structure and orange brand accent.
+ */
+
+:root {
+  color-scheme: light;
+  --paper: #f7f5f1;
+  --paper-dark: #eeeae3;
+  --card: #ffffff;
+  --card-raised: #ffffff;
+  --ink: #211d1a;
+  --muted: #5e5751;
+  --body-copy: #4c4640;
+  --secondary-copy: #6c645d;
+  --line: rgba(33, 29, 26, 0.14);
+  --accent: #ef5a35;
+  --accent-readable: #b53d21;
+  --accent-soft: rgba(239, 90, 53, 0.10);
+  --header-bg: rgba(247, 245, 241, 0.92);
+  --shadow-soft: 0 16px 44px rgba(34, 27, 21, 0.07);
+  --shadow-hover: 0 22px 52px rgba(34, 27, 21, 0.12);
+}
+
+html[data-theme="dark"],
+.site-shell[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0f1114;
+  --paper-dark: #15191e;
+  --card: #1b2026;
+  --card-raised: #222831;
+  --ink: #f4f1ec;
+  --muted: #c1c7ce;
+  --body-copy: #d1d5da;
+  --secondary-copy: #aab2bb;
+  --line: rgba(231, 236, 241, 0.13);
+  --accent: #ff704f;
+  --accent-readable: #ff987f;
+  --accent-soft: rgba(255, 112, 79, 0.13);
+  --header-bg: rgba(15, 17, 20, 0.90);
+  --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.22);
+  --shadow-hover: 0 24px 58px rgba(0, 0, 0, 0.34);
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  background: var(--paper);
+}
+
+html {
+  color-scheme: light;
+  scroll-padding-top: 88px;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  background: #0f1114;
+}
+
+body {
+  color: var(--ink);
+  background: var(--paper);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.site-shell {
+  width: 100%;
+  min-height: 100vh;
+  overflow: clip;
+  color: var(--ink);
+  background: var(--paper);
+  isolation: isolate;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.site-shell[data-theme="light"] {
+  color-scheme: light;
+  --paper: #f7f5f1;
+  --paper-dark: #eeeae3;
+  --card: #ffffff;
+  --card-raised: #ffffff;
+  --ink: #211d1a;
+  --muted: #5e5751;
+  --body-copy: #4c4640;
+  --secondary-copy: #6c645d;
+  --line: rgba(33, 29, 26, 0.14);
+  --accent: #ef5a35;
+  --accent-readable: #b53d21;
+  --accent-soft: rgba(239, 90, 53, 0.10);
+  --header-bg: rgba(247, 245, 241, 0.92);
+}
+
+.site-shell[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0f1114;
+  --paper-dark: #15191e;
+  --card: #1b2026;
+  --card-raised: #222831;
+  --ink: #f4f1ec;
+  --muted: #c1c7ce;
+  --body-copy: #d1d5da;
+  --secondary-copy: #aab2bb;
+  --line: rgba(231, 236, 241, 0.13);
+  --accent: #ff704f;
+  --accent-readable: #ff987f;
+  --accent-soft: rgba(255, 112, 79, 0.13);
+  --header-bg: rgba(15, 17, 20, 0.90);
+}
+
+/* Shared surfaces and readable text */
+
+.site-shell,
+.site-shell main,
+.site-shell .hero,
+.site-shell .work-section,
+.site-shell .skills-section,
+.site-shell .services-section,
+.site-shell .background-section,
+.site-shell .about-section,
+.site-shell .engineering-stories,
+.site-shell .contact-section,
+.site-shell .site-footer {
+  color: var(--ink);
+}
+
+.site-shell .hero,
+.site-shell .work-section,
+.site-shell .skills-section,
+.site-shell .services-section {
+  background-color: var(--paper);
+}
+
+.site-shell .about-section,
+.site-shell .background-section,
+.site-shell .engineering-stories {
+  background-color: var(--paper-dark);
+  border-color: var(--line);
+}
+
+.site-shell p {
+  color: var(--body-copy);
+}
+
+.site-shell .section-description,
+.site-shell .hero-intro,
+.site-shell .project-info p,
+.site-shell .about-copy p,
+.site-shell .experience-item p,
+.site-shell .service-card p,
+.site-shell .internship-copy p,
+.site-shell .carousel-active-info p,
+.site-shell .story-chapter p {
+  color: var(--body-copy);
+}
+
+.site-shell .section-kicker,
+.site-shell .hero-meta,
+.site-shell .hero-footnote,
+.site-shell .hero-scroll,
+.site-shell .hero-art-label,
+.site-shell .project-meta,
+.site-shell .experience-year,
+.site-shell .education-label,
+.site-shell .education-date,
+.site-shell .site-footer,
+.site-shell .carousel-topline,
+.site-shell .carousel-card-number,
+.site-shell .carousel-card-category,
+.site-shell .carousel-card-stack,
+.site-shell .story-project-head,
+.site-shell .story-visual-topline,
+.site-shell .story-visual-stack,
+.site-shell .story-visual-hint {
+  color: var(--secondary-copy);
+}
+
+.site-shell .section-kicker > span:first-child {
+  color: var(--accent-readable);
+  border-color: var(--line);
+}
+
+.site-shell .brand,
+.site-shell .footer-brand,
+.site-shell .nav-links button,
+.site-shell .language-toggle,
+.site-shell .hero h1,
+.site-shell .section-heading h2,
+.site-shell .about-title-col h2,
+.site-shell .contact-section h2,
+.site-shell .project-info h3,
+.site-shell .experience-item h3,
+.site-shell .service-card h3,
+.site-shell .education-card h3,
+.site-shell .carousel-active-info h2,
+.site-shell .story-copy > h3,
+.site-shell .story-chapter h4,
+.site-shell .story-node strong {
+  color: var(--ink);
+}
+
+.site-shell .brand-dot,
+.site-shell .hero-period,
+.site-shell .section-kicker > span,
+.site-shell .skill-label span,
+.site-shell .experience-symbol,
+.site-shell .service-index,
+.site-shell .carousel-active-label,
+.site-shell .carousel-card-number,
+.site-shell .story-project-number,
+.site-shell .story-chapter-number,
+.site-shell .story-node-index,
+.site-shell .project-link span {
+  color: var(--accent-readable);
+}
+
+/* Header, menus and navigation */
+
+.site-shell .site-header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  box-shadow: 0 5px 24px rgba(0, 0, 0, 0.035);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.site-shell .header-contact {
+  color: #211d1a;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.site-shell .header-contact span {
+  color: #211d1a;
+}
+
+.site-shell .header-contact:hover {
+  color: #211d1a;
+  background: color-mix(in srgb, var(--accent) 88%, white);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+.site-shell .header-contact:hover span {
+  color: #211d1a;
+}
+
+.site-shell .header-icon-button,
+.site-shell .menu-toggle {
+  color: var(--muted);
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 12px;
+}
+
+.site-shell .header-icon-button:hover,
+.site-shell .menu-toggle:hover {
+  color: var(--accent-readable);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.site-shell .nav-links button {
+  border-radius: 8px;
+}
+
+.site-shell .nav-links button:hover {
+  color: var(--accent-readable);
+}
+
+.site-shell .language-menu {
+  color: var(--ink);
+  background: var(--card-raised);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-hover);
+}
+
+.site-shell .language-menu-heading,
+.site-shell .language-option {
+  color: var(--ink);
+}
+
+.site-shell .language-option:hover,
+.site-shell .language-option.is-active {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+}
+
+.site-shell .language-english,
+.site-shell .language-code {
+  color: var(--secondary-copy);
+}
+
+.site-shell .skip-link {
+  color: #211d1a;
+  background: var(--accent);
+  border-radius: 8px;
+}
+
+/* Hero and featured work */
+
+.site-shell .hero {
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 83% 34%, var(--accent-soft), transparent 39%),
+    var(--paper);
+}
+
+.site-shell .hero-back-number {
+  color: color-mix(in srgb, var(--accent) 9%, transparent);
+}
+
+.site-shell .hero h1 {
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+}
+
+.site-shell .hero h1 .hero-orange {
+  color: var(--accent);
+  font-size: clamp(2.25rem, 4vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  text-shadow: none;
+  -webkit-text-stroke: 0;
+  overflow-wrap: anywhere;
+}
+
+.site-shell .hero-intro {
+  max-width: 58ch;
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.8;
+}
+
+.site-shell .hero-footnote {
+  border-color: var(--line);
+}
+
+.site-shell .status-dot {
+  background: #2d9a66;
+  box-shadow: 0 0 0 4px rgba(45, 154, 102, 0.13);
+}
+
+.site-shell .hero-logo-panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.site-shell .ticker {
+  color: var(--ink);
+  background: var(--paper-dark);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-shell .ticker-track b {
+  color: var(--accent-readable);
+  -webkit-text-stroke: 0;
+}
+
+/* Buttons, pills and links */
+
+.site-shell .button {
+  min-height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.site-shell .button-dark {
+  color: #211d1a;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.site-shell .button-dark:hover {
+  color: #211d1a;
+  background: color-mix(in srgb, var(--accent) 88%, white);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px var(--accent-soft);
+}
+
+.site-shell .button-outline {
+  color: var(--ink);
+  background: transparent;
+  border-color: var(--line);
+}
+
+.site-shell .button-outline:hover {
+  color: #211d1a;
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px var(--accent-soft);
+}
+
+.site-shell .availability-badge,
+.site-shell .project-status {
+  color: var(--accent-readable);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+
+.site-shell .header-cv,
+.site-shell .button-contact-cv {
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.site-shell .header-cv:hover,
+.site-shell .button-contact-cv:hover {
+  color: #211d1a;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Project cards and previews */
+
+.site-shell .project-card {
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.site-shell .project-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 56%, var(--line));
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.site-shell .project-featured .project-visual-wrap {
+  border-color: var(--line);
+}
+
+.site-shell .project-info {
+  color: var(--ink);
+  background: var(--card);
+}
+
+.site-shell .project-meta {
+  color: var(--secondary-copy);
+}
+
+.site-shell .project-info p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.site-shell .tag-list span {
+  color: var(--muted);
+  background: var(--paper-dark);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.site-shell .project-status {
+  color: var(--accent-readable);
+  border-radius: 999px;
+}
+
+.site-shell .project-link {
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.site-shell .project-link:hover {
+  color: var(--accent-readable);
+  border-color: var(--accent);
+}
+
+.site-shell .project-number {
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+/* Keep project artwork distinctive while giving surrounding UI a shared theme. */
+
+.site-shell .artwork {
+  border-color: var(--line);
+  border-radius: 14px;
+}
+
+.site-shell .artwork-footer {
+  border-color: var(--line);
+}
+
+.site-shell .project-preview,
+.site-shell .project-preview-unavailable {
+  background: var(--paper-dark);
+}
+
+/* About, skills, services and experience */
+
+.site-shell .about-band {
+  color: var(--secondary-copy);
+  background: var(--paper-dark);
+  border-color: var(--line);
+}
+
+.site-shell .about-copy p {
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.85;
+}
+
+.site-shell .about-signoff,
+.site-shell .skills-rows,
+.site-shell .skill-row,
+.site-shell .experience-list,
+.site-shell .experience-item {
+  border-color: var(--line);
+}
+
+.site-shell .skills-section {
+  background: var(--paper);
+  border-block: 1px solid var(--line);
+}
+
+.site-shell .skill-items span {
+  color: var(--body-copy);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+}
+
+.site-shell .skill-items span:hover {
+  color: #211d1a;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.site-shell .service-card {
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.site-shell .service-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-3px);
+}
+
+.site-shell .service-card h3 {
+  color: var(--ink);
+}
+
+.site-shell .service-card p {
+  color: var(--body-copy);
+}
+
+.site-shell .education-card {
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.site-shell .education-card h3,
+.site-shell .education-card > p,
+.site-shell .education-card > .education-label,
+.site-shell .education-card > .education-date,
+.site-shell .education-card .prior-education,
+.site-shell .education-additional {
+  color: var(--body-copy);
+}
+
+.site-shell .education-card h3 {
+  color: var(--ink);
+}
+
+.site-shell .education-rule {
+  border-color: var(--line);
+}
+
+.site-shell .experience-item p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* Internship callout: use orange as an accent, not a full-screen bright block. */
+
+.site-shell .internship-section {
+  color: var(--ink);
+  background: var(--paper-dark);
+  border-block: 1px solid var(--line);
+}
+
+.site-shell .internship-inner {
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--accent);
+  border-radius: 22px;
+  box-shadow: var(--shadow-soft);
+}
+
+.site-shell .internship-top,
+.site-shell .internship-bottom {
+  color: var(--secondary-copy);
+}
+
+.site-shell .internship-number {
+  color: var(--accent-readable);
+  -webkit-text-stroke: 0;
+}
+
+.site-shell .internship-copy h2,
+.site-shell .internship-copy p,
+.site-shell .internship-facts {
+  color: var(--ink);
+}
+
+.site-shell .internship-copy p {
+  color: var(--body-copy);
+}
+
+.site-shell .internship-facts span {
+  color: var(--body-copy);
+  background: var(--paper-dark);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+}
+
+/* Contact and footer */
+
+.site-shell .contact-section {
+  color: var(--ink);
+  background: var(--card);
+  border-top: 1px solid var(--line);
+}
+
+.site-shell .contact-section h2 {
+  color: var(--ink);
+}
+
+.site-shell .contact-top {
+  color: var(--secondary-copy);
+}
+
+.site-shell .contact-top .section-kicker,
+.site-shell .socials-block > .section-kicker {
+  color: var(--accent-readable);
+}
+
+.site-shell .contact-bottom {
+  border-color: var(--line);
+}
+
+.site-shell .contact-bottom > div:first-child > p {
+  color: var(--body-copy);
+}
+
+.site-shell .contact-email {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.site-shell .contact-email span,
+.site-shell .social-arrow {
+  color: var(--accent-readable);
+}
+
+.site-shell .contact-email-label,
+.site-shell .copy-email,
+.site-shell .social-note {
+  color: var(--secondary-copy);
+}
+
+.site-shell .social-link {
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.site-shell .social-mark {
+  color: #211d1a;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.site-shell .social-link:hover {
+  color: var(--accent-readable);
+}
+
+.site-shell .site-footer {
+  color: var(--secondary-copy);
+  background: var(--paper);
+  border-color: var(--line);
+}
+
+.site-shell .footer-brand,
+.site-shell .back-top {
+  color: var(--ink);
+}
+
+.site-shell .back-top:hover {
+  color: var(--accent-readable);
+}
+
+/* Carousel, engineering case studies and diagrams */
+
+.site-shell .carousel-project-card {
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.site-shell .carousel-project-card::before {
+  background: var(--accent);
+}
+
+.site-shell .carousel-project-card.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.12);
+}
+
+.site-shell .carousel-card-runlattice {
+  color: #f4f1ec;
+  background: #20242b;
+}
+
+.site-shell .carousel-card-runlattice .carousel-card-number,
+.site-shell .carousel-card-runlattice .carousel-card-category,
+.site-shell .carousel-card-runlattice .carousel-card-stack {
+  color: #c6cbd2;
+}
+
+.site-shell .carousel-card-runlattice strong {
+  color: #ffffff;
+}
+
+.site-shell .carousel-card-runlattice .carousel-card-status {
+  color: #20242b;
+  background: #f4f1ec;
+}
+
+.site-shell .carousel-card-mrdr {
+  color: var(--ink);
+  background: var(--paper-dark);
+}
+
+.site-shell .carousel-card-raw {
+  color: #211d1a;
+  background: var(--accent);
+}
+
+.site-shell .carousel-card-raw .carousel-card-mark {
+  color: #211d1a;
+  text-shadow: none;
+}
+
+.site-shell .carousel-card-raw .carousel-card-status {
+  color: #211d1a;
+  background: #fff3ed;
+}
+
+.site-shell .carousel-skip {
+  color: var(--ink);
+}
+
+.site-shell .carousel-hint,
+.site-shell .carousel-card-category,
+.site-shell .carousel-card-stack {
+  color: var(--secondary-copy);
+}
+
+.site-shell .carousel-active-info {
+  border-color: var(--line);
+}
+
+.site-shell .carousel-active-info h2 {
+  color: var(--ink);
+}
+
+.site-shell .carousel-active-info p {
+  color: var(--body-copy);
+}
+
+.site-shell .carousel-active-actions > a {
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.site-shell .carousel-nav-controls button {
+  color: var(--ink);
+  background: var(--card);
+  border-color: var(--line);
+  border-radius: 10px;
+}
+
+.site-shell .carousel-nav-controls button:hover,
+.site-shell .carousel-nav-controls button:focus-visible {
+  color: #211d1a;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.site-shell .engineering-story {
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.site-shell .story-project-status {
+  color: var(--secondary-copy);
+  border-color: var(--line);
+  border-radius: 999px;
+}
+
+.site-shell .story-copy > h3,
+.site-shell .story-chapter h4 {
+  color: var(--ink);
+}
+
+.site-shell .story-visual-paper {
+  color: var(--ink);
+  background:
+    linear-gradient(color-mix(in srgb, var(--ink) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--ink) 5%, transparent) 1px, transparent 1px),
+    var(--paper);
+  background-size: 24px 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.site-shell .story-node {
+  color: var(--ink);
+  background: var(--card-raised);
+  border-color: var(--line);
+  border-radius: 9px;
+}
+
+.site-shell .story-node strong {
+  color: var(--ink);
+}
+
+.site-shell .story-visual-title {
+  color: var(--accent-readable);
+}
+
+.site-shell .story-progress {
+  background: var(--accent-soft);
+  border-radius: 999px;
+}
+
+.site-shell .story-progress span {
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+/* Reading progress */
+
+.site-shell .reading-progress-track {
+  background: var(--line);
+}
+
+.site-shell .reading-progress-fill {
+  background: linear-gradient(90deg, var(--accent-readable), var(--accent));
+}
+
+/* Keyboard focus and small-screen refinements */
+
+.site-shell :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .site-shell .nav-links {
+    color: var(--ink);
+    background: var(--card);
+    border-color: var(--line);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .site-shell .nav-links button {
+    color: var(--ink);
+    text-align: left;
+  }
+
+  .site-shell .nav-links button:hover {
+    color: var(--accent-readable);
+  }
+
+  .site-shell .hero {
+    background:
+      radial-gradient(ellipse at 85% 34%, var(--accent-soft), transparent 48%),
+      var(--paper);
+  }
+
+  .site-shell .project-card,
+  .site-shell .project-card.project-featured {
+    border-radius: 16px;
+  }
+
+  .site-shell .internship-inner {
+    border-radius: 18px;
+  }
+
+  .site-shell .contact-section {
+    padding-inline: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-shell,
+  .site-shell *,
+  .site-shell *::before,
+  .site-shell *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+
+/* Dark-mode overrides for legacy selectors with higher specificity. */
+html[data-theme="dark"] .site-shell .education-card {
+  color: var(--ink);
+  background: var(--card);
+  border-color: var(--line);
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] .site-shell .education-card h3,
+html[data-theme="dark"] .site-shell .education-card > p,
+html[data-theme="dark"] .site-shell .education-card > .education-label,
+html[data-theme="dark"] .site-shell .education-card > .education-date,
+html[data-theme="dark"] .site-shell .education-card .prior-education,
+html[data-theme="dark"] .site-shell .education-additional {
+  color: var(--body-copy);
+}
+html[data-theme="dark"] .site-shell .education-card h3 {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .site-shell .internship-section {
+  color: var(--ink);
+  background: var(--paper-dark);
+}
+html[data-theme="dark"] .site-shell .internship-inner {
+  color: var(--ink);
+  background: var(--card);
+  border-color: var(--line);
+  border-left-color: var(--accent);
+}
+html[data-theme="dark"] .site-shell .internship-number,
+html[data-theme="dark"] .site-shell .internship-copy h2,
+html[data-theme="dark"] .site-shell .internship-copy p,
+html[data-theme="dark"] .site-shell .internship-top,
+html[data-theme="dark"] .site-shell .internship-bottom,
+html[data-theme="dark"] .site-shell .internship-facts,
+html[data-theme="dark"] .site-shell .internship-facts span {
+  color: var(--ink);
+}
+html[data-theme="dark"] .site-shell .internship-copy p,
+html[data-theme="dark"] .site-shell .internship-top,
+html[data-theme="dark"] .site-shell .internship-bottom,
+html[data-theme="dark"] .site-shell .internship-facts span {
+  color: var(--body-copy);
+}
+
+html[data-theme="dark"] .site-shell .contact-section {
+  color: var(--ink);
+  background: var(--card);
+  border-color: var(--line);
+}
+html[data-theme="dark"] .site-shell .contact-section h2,
+html[data-theme="dark"] .site-shell .contact-email,
+html[data-theme="dark"] .site-shell .social-link {
+  color: var(--ink);
+}
+html[data-theme="dark"] .site-shell .contact-bottom > div:first-child > p {
+  color: var(--body-copy);
+}
+html[data-theme="dark"] .site-shell .contact-top,
+html[data-theme="dark"] .site-shell .contact-email-label,
+html[data-theme="dark"] .site-shell .copy-email,
+html[data-theme="dark"] .site-shell .social-note {
+  color: var(--secondary-copy);
+}
+html[data-theme="dark"] .site-shell .contact-top .section-kicker,
+html[data-theme="dark"] .site-shell .socials-block > .section-kicker,
+html[data-theme="dark"] .site-shell .contact-email span,
+html[data-theme="dark"] .site-shell .social-arrow {
+  color: var(--accent-readable);
+}
+html[data-theme="dark"] .site-shell .social-mark {
+  color: #211d1a;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+html[data-theme="dark"] .site-shell .project-status {
+  color: var(--accent-readable);
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+html[data-theme="dark"] .site-shell .header-contact,
+html[data-theme="dark"] .site-shell .header-contact span,
+html[data-theme="dark"] .site-shell .button-dark {
+  color: #211d1a;
+}
+html[data-theme="dark"] .site-shell .button-outline {
+  color: var(--ink);
+}
