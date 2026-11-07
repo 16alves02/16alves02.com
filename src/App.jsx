@@ -190,13 +190,8 @@ const copy = {
 
 
 const languageOptions = [
-  { code: 'en', short: 'EN', compact: 'EN', name: 'English', nativeName: 'English', htmlLang: 'en' },
   { code: 'pt-PT', short: 'PT-PT', compact: 'PT', name: 'Portuguese (Portugal)', nativeName: 'Português (Portugal)', htmlLang: 'pt-PT' },
-  { code: 'es', short: 'ES', compact: 'ES', name: 'Spanish', nativeName: 'Español', htmlLang: 'es' },
-  { code: 'fr', short: 'FR', compact: 'FR', name: 'French', nativeName: 'Français', htmlLang: 'fr' },
-  { code: 'it', short: 'IT', compact: 'IT', name: 'Italian', nativeName: 'Italiano', htmlLang: 'it' },
-  { code: 'de', short: 'DE', compact: 'DE', name: 'German', nativeName: 'Deutsch', htmlLang: 'de' },
-  { code: 'ja', short: 'JA', compact: 'JA', name: 'Japanese', nativeName: '日本語', htmlLang: 'ja' },
+  { code: 'en', short: 'EN', compact: 'EN', name: 'English', nativeName: 'English', htmlLang: 'en' },
 ];
 
 const localeCopy = {
@@ -1112,9 +1107,11 @@ function getInitialTheme() {
 function getInitialLanguage() {
   try {
     const saved = window.localStorage.getItem('16alves02-language');
-    if (saved && localeCopy[saved]) return saved;
+    if (languageOptions.some((option) => option.code === saved)) return saved;
   } catch { /* Storage can be unavailable in restricted contexts. */ }
-  return 'en';
+
+  const browserLanguage = typeof navigator !== 'undefined' ? navigator.language : '';
+  return browserLanguage.toLowerCase().startsWith('pt') ? 'pt-PT' : 'en';
 }
 
 const scrollProgressLabels = {
