@@ -42,6 +42,8 @@ The portfolio highlights these projects in the same order.
 - **Todo App** — browser task manager with filters and local persistence. [Repository](https://github.com/16alves02/todo-app) · [Demo](https://todo-app-three-beta-56.vercel.app)
 - **ArraySorting** — C console program demonstrating Selection Sort, Insertion Sort, Bubble Sort and a small Bogo Sort example. [Repository](https://github.com/16alves02/ArraySorting)
 - **Basket Hub** — academic group project for basketball management, covering teams, players, games, events, registrations, organisers, venues, sponsors, rankings and statistics. Built with Kotlin, Ktor, Thymeleaf and Exposed. [Group repository](https://github.com/bmgoliveira-UA/basket-hub)
+- **Tocadiscos Editora** — command-line music-publisher catalogue manager developed by a four-person academic team. Leonardo Alves and Bruno Oliveira were the main contributors; Gabriela Tavares and Vinicius Toniato also participated. Built with Python, Pygame, Whoosh and pandas. [Group repository](https://github.com/13alves05/tocadiscos-editora)
+- **Academic GitHub profile** — coursework and academic group projects are also organised under [13alves05](https://github.com/13alves05).
 - **Two of Hearts** — vector playing-card illustration inspired by Lenços de Namorados from Minho. [Repository](https://github.com/16alves02/two-of-hearts-portuguese-folk-art)
 
 ## Technical foundation

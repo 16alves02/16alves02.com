@@ -5,6 +5,7 @@ import EngineeringStories from './components/EngineeringStories.jsx';
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
+  { label: 'GitHub académico', short: 'UA', url: 'https://github.com/13alves05', kind: 'work' },
   { label: 'LinkedIn', short: 'in', url: 'https://www.linkedin.com/in/16alves02/', kind: 'work' },
   { label: 'Instagram', short: 'IG', url: 'https://www.instagram.com/16alves02/', kind: 'social' },
   { label: 'YouTube', short: 'YT', url: 'https://www.youtube.com/@16alves02', kind: 'social' },
@@ -69,6 +70,8 @@ const projectTranslations = {
     '05': { type: 'ILUSTRAÇÃO VETORIAL / ARTE POPULAR PORTUGUESA', description: 'Uma ilustração de uma carta de jogar inspirada nos Lenços de Namorados do Minho, desenvolvida em Affinity.' },
     '06': { type: 'FUNDAMENTOS DE PROGRAMAÇÃO', description: 'Um programa de consola em C que demonstra Selection Sort, Insertion Sort, Bubble Sort e um pequeno exemplo de Bogo Sort, com menu interativo e validação de entrada.' },
     '09': { type: 'WEBSITE DE CLIENTE / EM PREPARAÇÃO', description: 'Projeto de website para um salão local, preparado com a proprietária. A estrutura e o fluxo de conteúdos estão em preparação; serviços, imagens, horários e publicação dependem de confirmação. Está planeado um fluxo de edição por CMS, ainda não implementado nem validado.', status: 'Em preparação' },
+    '10': { type: 'PROJETO ACADÉMICO DE GRUPO / APLICAÇÃO CLI', description: 'Aplicação de linha de comandos desenvolvida por uma equipa de quatro elementos para gerir o catálogo de uma editora musical fictícia. Inclui autores, álbuns, músicas, direitos editoriais, relatórios, pesquisa, reprodução de áudio e histórico com reversão.', status: 'Projeto académico de grupo' },
+    '11': { type: 'PROJETO ACADÉMICO DE GRUPO / GESTÃO DE BASQUETEBOL', description: 'Projeto de grupo desenvolvido no contexto do curso para gestão de basquetebol, abrangendo equipas, jogadores, jogos, eventos, inscrições, organizadores, recintos, patrocinadores, classificações e estatísticas. O repositório indicado é a entrega do grupo.', status: 'Projeto académico de grupo' },
   },
 };
 
@@ -667,6 +670,16 @@ for (const [code, additions] of Object.entries(engineeringPositioningCopy)) {
 }
 
 function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
+  if (type === 'group') {
+    return (
+      <div className="project-preview-unavailable project-preview-group">
+        <span className="preview-label">ACADEMIC GROUP PROJECT</span>
+        <strong>{name}</strong>
+        <p>{previewUnavailable}</p>
+      </div>
+    );
+  }
+
   if (type === 'nova') {
     return (
       <div className="project-preview-unavailable project-preview-nova">
