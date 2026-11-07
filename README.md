@@ -37,14 +37,14 @@ The portfolio highlights these projects in the same order.
 
 ## Additional projects
 
-- **Nova Imagem by Maura Pereira** — client website in preparation with the salon owner. Service descriptions, imagery, opening hours and publication details require confirmation. A CMS-based content editing workflow is planned but not yet implemented or validated.
-- **HOOP** — educational basketball-store frontend with product discovery, filters, favourites, cart and a simulated checkout; no real payments. [Repository](https://github.com/16alves02/hoop) · [Demo](https://hoop-16alves02.netlify.app)
-- **Todo App** — browser task manager with filters and local persistence. [Repository](https://github.com/16alves02/todo-app) · [Demo](https://todo-app-three-beta-56.vercel.app)
-- **ArraySorting** — C console program demonstrating Selection Sort, Insertion Sort, Bubble Sort and a small Bogo Sort example. [Repository](https://github.com/16alves02/ArraySorting)
-- **Basket Hub** — academic group project for basketball management, covering teams, players, games, events, registrations, organisers, venues, sponsors, rankings and statistics. Built with Kotlin, Ktor, Thymeleaf and Exposed. [Group repository](https://github.com/bmgoliveira-UA/basket-hub)
-- **Tocadiscos Editora** — command-line music-publisher catalogue manager developed by a four-person academic team. Leonardo Alves and Bruno Oliveira were the main contributors; Gabriela Tavares and Vinicius Toniato also participated. Built with Python, Pygame, Whoosh and pandas. [Group repository](https://github.com/13alves05/tocadiscos-editora)
-- **Academic GitHub profile** — coursework and academic group projects are also organised under [13alves05](https://github.com/13alves05).
-- **Two of Hearts** — vector playing-card illustration inspired by Lenços de Namorados from Minho. [Repository](https://github.com/16alves02/two-of-hearts-portuguese-folk-art)
+- **Nova Imagem by Maura Pereira** - client website in preparation with the salon owner. Service descriptions, imagery, opening hours and publication details require confirmation. A CMS-based content editing workflow is planned but not yet implemented or validated.
+- **HOOP** - educational basketball-store frontend with product discovery, filters, favourites, cart and a simulated checkout; no real payments. [Repository](https://github.com/16alves02/hoop) · [Demo](https://hoop-16alves02.netlify.app)
+- **Todo App** - browser task manager with filters and local persistence. [Repository](https://github.com/16alves02/todo-app) · [Demo](https://todo-app-three-beta-56.vercel.app)
+- **ArraySorting** - C console program demonstrating Selection Sort, Insertion Sort, Bubble Sort and a small Bogo Sort example. [Repository](https://github.com/16alves02/ArraySorting)
+- **Basket Hub** - academic group project for basketball management, covering teams, players, games, events, registrations, organisers, venues, sponsors, rankings and statistics. Built with Kotlin, Ktor, Thymeleaf and Exposed. [Group repository](https://github.com/bmgoliveira-UA/basket-hub)
+- **Tocadiscos Editora** - command-line music-publisher catalogue manager developed by a four-person academic team. Leonardo Alves and Bruno Oliveira were the main contributors; Gabriela Tavares and Vinicius Toniato also participated. Built with Python, Pygame, Whoosh and pandas. [Group repository](https://github.com/13alves05/tocadiscos-editora)
+- **Academic GitHub profile** - coursework and academic group projects are also organised under [13alves05](https://github.com/13alves05).
+- **Two of Hearts** - vector playing-card illustration inspired by Lenços de Namorados from Minho. [Repository](https://github.com/16alves02/two-of-hearts-portuguese-folk-art)
 
 ## Technical foundation
 
@@ -63,16 +63,16 @@ Node.js is used as the runtime environment for the Next.js project; it is not pr
 ## Experience and education
 
 Software development experience:
-- Backend Development Intern — ClickBeauty / Alvocromático · Apr–Jul 2023 · PHP, MySQL, internal web systems and code maintenance.
-- Web Development Intern — Associação Estamos Juntos (AEJ) · Jul 2022 · HTML, CSS, JavaScript, PHP and database integration.
+- Backend Development Intern - ClickBeauty / Alvocromático · Apr–Jul 2023 · PHP, MySQL, internal web systems and code maintenance.
+- Web Development Intern - Associação Estamos Juntos (AEJ) · Jul 2022 · HTML, CSS, JavaScript, PHP and database integration.
 
 Additional professional experience:
-- CNC Machine Operator — Schmidt Light Metal Group · Feb 2025–May 2026.
-- Store Operator — MC · May–Aug 2024.
+- CNC Machine Operator - Schmidt Light Metal Group · Feb 2025–May 2026.
+- Store Operator - MC · May–Aug 2024.
 
 Education:
-- CTeSP in Software Development — Escola Superior Aveiro Norte, Universidade de Aveiro · 2025–2027 · In progress.
-- Professional Course in IT Systems Management and Programming — Escola Secundária Dr. Serafim Leite · 2020–2023.
+- CTeSP in Software Development - Escola Superior Aveiro Norte, Universidade de Aveiro · 2025–2027 · In progress.
+- Professional Course in IT Systems Management and Programming - Escola Secundária Dr. Serafim Leite · 2020–2023.
 
 ## Site features
 
@@ -106,12 +106,12 @@ The production build is generated in `dist/`.
 
 ## Project structure
 
-- `src/App.jsx` — page sections, copy, language handling and navigation.
-- `src/components/ProjectCarousel.jsx` — CSS 3D featured-project carousel and input handling.
-- `src/components/EngineeringStories.jsx` — editorial engineering case studies and scroll progress.
-- `src/styles.css` — layout, themes, responsive styling and motion preferences.
-- `src/data/projects.js` — project descriptions, technology stacks, links and status.
-- `public/` — downloadable CVs and site assets.
+- `src/App.jsx` - page sections, copy, language handling and navigation.
+- `src/components/ProjectCarousel.jsx` - CSS 3D featured-project carousel and input handling.
+- `src/components/EngineeringStories.jsx` - editorial engineering case studies and scroll progress.
+- `src/styles.css` - layout, themes, responsive styling and motion preferences.
+- `src/data/projects.js` - project descriptions, technology stacks, links and status.
+- `public/` - downloadable CVs and site assets.
 
 ## Author
 
