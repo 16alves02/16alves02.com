@@ -1,17 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { projects } from './data/projects.js';
-import ProjectCarousel from './components/ProjectCarousel.jsx';
-import EngineeringStories from './components/EngineeringStories.jsx';
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
-  { label: 'GitHub académico', short: 'UA', url: 'https://github.com/13alves05', kind: 'work' },
   { label: 'LinkedIn', short: 'in', url: 'https://www.linkedin.com/in/16alves02/', kind: 'work' },
-  { label: 'Instagram', short: 'IG', url: 'https://www.instagram.com/16alves02/', kind: 'social' },
-  { label: 'YouTube', short: 'YT', url: 'https://www.youtube.com/@16alves02', kind: 'social' },
-  { label: 'Twitch', short: 'TW', url: 'https://www.twitch.tv/16alves02', kind: 'social' },
-  { label: 'Linktree', short: '↗', url: 'https://linktr.ee/16alves02', kind: 'more' },
-  { label: 'Uiverse', short: 'UV', url: 'https://uiverse.io/16alves02', kind: 'social' },
+  { label: 'GitHub académico', short: 'UA', url: 'https://github.com/13alves05', kind: 'work' },
 ];
 
 const experienceByLanguage = {
@@ -669,6 +662,265 @@ for (const [code, additions] of Object.entries(engineeringPositioningCopy)) {
   localeCopy[code] = { ...localeCopy[code], ...additions };
 }
 
+const recruiterFocusedCopy = {
+  en: {
+    navAbout: 'Profile', navPath: 'Experience', navContact: 'Contact', navButton: 'Contact',
+    role: 'SOFTWARE DEVELOPMENT STUDENT', eyebrow: 'ESAN · UNIVERSITY OF AVEIRO',
+    titleOne: 'I build', titleTwo: 'software', titleEnd: '.',
+    intro: 'Web, backend and mobile projects built through coursework and independent work.',
+    workKicker: '01 / SELECTED WORK', workTitle: 'Selected projects',
+    workIntro: 'Four recent projects. Explore the product, technologies and source code.',
+    moreProjects: 'More projects',
+    projectSummaries: {
+      SaborGest: 'Academic management system combining PHP, a REST API, MySQL/MariaDB and an Android kiosk. Includes schedules, attendance and stock; in development.',
+      RunLattice: 'Workflow automation prototype with a visual editor, PostgreSQL and background jobs using Redis/BullMQ. External integrations are not implemented yet.',
+      'MRDR.': 'Original deduction game with generated cases, cross-referenced clues and automated validation. In development.',
+      'RAW.': 'Published conversation and party-game app with multiple modes, interactive cards and swipe gestures.',
+    },
+    aboutKicker: '02 / PROFILE', aboutTitle: 'A practical approach to software.',
+    about1: 'Software Development student at ESAN-UA with practical experience from web and backend internships, plus independent frontend and mobile projects.',
+    aboutBandTagline: 'SOFTWARE DEVELOPMENT', aboutMiniOne: 'BUILD THROUGH PRACTICE.', aboutMiniTwo: 'ONE PROJECT AT A TIME.',
+    skillsKicker: 'TECHNOLOGIES', skillsTitle: 'Technical skills',
+    skillGroups: [
+      ['FRONTEND', 'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Vite'],
+      ['BACKEND & DATA', 'PHP', 'REST APIs', 'MySQL / MariaDB', 'PostgreSQL', 'Prisma', 'Redis / BullMQ'],
+      ['MOBILE & TOOLS', 'Kotlin / Android', 'Capacitor', 'Vitest', 'Git', 'GitHub'],
+    ],
+    pathKicker: '03 / EDUCATION & EXPERIENCE', pathTitle: 'Experience',
+    priorEducation: '',
+    availabilityLabel: 'PAID INTERNSHIP · 2027', targetStart: 'February 2027', location: 'Coimbra · hybrid / remote',
+    internshipKicker: 'NEXT STEP / 2027', internshipTitle: 'Paid curricular internship',
+    internshipText: 'Starting February 2027. Coimbra preferred; on-site, hybrid or remote.',
+    internshipCta: 'Discuss the internship',
+    cvDownload: 'Download CV',
+    contactKicker: '04 / CONTACT', contactTitle: 'Let’s talk.',
+    contactText: 'Open to software development internship opportunities.',
+    emailLabel: 'EMAIL', socialsLabel: 'PROFESSIONAL PROFILES',
+    contactEmailCta: 'Email about an opportunity',
+    caseStudyLabel: 'Technical details',
+  },
+  'pt-PT': {
+    navAbout: 'Perfil', navPath: 'Percurso', navContact: 'Contacto', navButton: 'Contacto',
+    role: 'ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE', eyebrow: 'ESAN · UNIVERSIDADE DE AVEIRO',
+    titleOne: 'Construo', titleTwo: 'software', titleEnd: '.',
+    intro: 'Projetos web, backend e mobile, desenvolvidos na formação e por iniciativa própria.',
+    workKicker: '01 / PROJETOS SELECIONADOS', workTitle: 'Projetos em destaque',
+    workIntro: 'Quatro projetos recentes. Explora o produto, as tecnologias e o código.',
+    moreProjects: 'Mais projetos',
+    projectSummaries: {
+      SaborGest: 'Sistema académico de gestão com PHP, API REST, MySQL/MariaDB e quiosque Android. Inclui horários, assiduidade e stock; em desenvolvimento.',
+      RunLattice: 'Protótipo de automação com editor visual, PostgreSQL e processamento assíncrono com Redis/BullMQ. Ainda sem integrações externas.',
+      'MRDR.': 'Jogo original de dedução com casos gerados, pistas cruzadas e validação automática. Em desenvolvimento.',
+      'RAW.': 'Aplicação publicada de conversas e jogos, com vários modos, cartões interativos e gestos de deslize.',
+    },
+    aboutKicker: '02 / PERFIL', aboutTitle: 'Experiência prática em desenvolvimento.',
+    about1: 'Estudante de Desenvolvimento de Software na ESAN-UA, com experiência em estágios Web e backend e projetos próprios de frontend e mobile.',
+    aboutBandTagline: 'DESENVOLVIMENTO DE SOFTWARE', aboutMiniOne: 'APRENDER A CONSTRUIR.', aboutMiniTwo: 'UM PROJETO DE CADA VEZ.',
+    skillsKicker: 'TECNOLOGIAS', skillsTitle: 'Competências técnicas',
+    skillGroups: [
+      ['FRONTEND', 'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Vite'],
+      ['BACKEND E DADOS', 'PHP', 'APIs REST', 'MySQL / MariaDB', 'PostgreSQL', 'Prisma', 'Redis / BullMQ'],
+      ['MOBILE E FERRAMENTAS', 'Kotlin / Android', 'Capacitor', 'Vitest', 'Git', 'GitHub'],
+    ],
+    pathKicker: '03 / FORMAÇÃO E EXPERIÊNCIA', pathTitle: 'Percurso',
+    priorEducation: '',
+    availabilityLabel: 'ESTÁGIO REMUNERADO · 2027', targetStart: 'Fevereiro de 2027', location: 'Coimbra · híbrido / remoto',
+    internshipKicker: 'PRÓXIMO PASSO / 2027', internshipTitle: 'Estágio curricular remunerado',
+    internshipText: 'Início em fevereiro de 2027. Preferência por Coimbra; presencial, híbrido ou remoto.',
+    internshipCta: 'Falar sobre o estágio',
+    cvDownload: 'Descarregar CV',
+    contactKicker: '04 / CONTACTO', contactTitle: 'Vamos conversar.',
+    contactText: 'Disponível para oportunidades de estágio em desenvolvimento de software.',
+    emailLabel: 'EMAIL', socialsLabel: 'PERFIS PROFISSIONAIS',
+    contactEmailCta: 'Enviar email sobre uma oportunidade',
+    caseStudyLabel: 'Detalhes técnicos',
+  },
+  es: {
+    navAbout: 'Perfil', navPath: 'Experiencia', navContact: 'Contacto', navButton: 'Contacto',
+    role: 'ESTUDIANTE DE DESARROLLO DE SOFTWARE', eyebrow: 'ESAN · UNIVERSIDAD DE AVEIRO',
+    titleOne: 'Creo', titleTwo: 'software', titleEnd: '.',
+    intro: 'Proyectos web, backend y móviles desarrollados durante la formación y por iniciativa propia.',
+    workKicker: '01 / PROYECTOS SELECCIONADOS', workTitle: 'Proyectos destacados',
+    workIntro: 'Cuatro proyectos recientes. Explora el producto, las tecnologías y el código.',
+    moreProjects: 'Más proyectos',
+    projectSummaries: {
+      SaborGest: 'Sistema académico con PHP, API REST, MySQL/MariaDB y un quiosco Android para horarios, asistencia y stock. En desarrollo.',
+      RunLattice: 'Prototipo de automatización con editor visual, PostgreSQL y tareas en segundo plano mediante Redis/BullMQ. Sin integraciones externas todavía.',
+      'MRDR.': 'Juego original de deducción con casos generados, pistas cruzadas y validación automática. En desarrollo.',
+      'RAW.': 'Aplicación publicada de conversación y juegos con varios modos, tarjetas interactivas y gestos de deslizamiento.',
+    },
+    aboutKicker: '02 / PERFIL', aboutTitle: 'Experiencia práctica en desarrollo.',
+    about1: 'Estudiante de Desarrollo de Software en ESAN-UA, con prácticas en desarrollo web y backend y proyectos propios de frontend y móvil.',
+    aboutBandTagline: 'DESARROLLO DE SOFTWARE', aboutMiniOne: 'APRENDER CONSTRUYENDO.', aboutMiniTwo: 'UN PROYECTO A LA VEZ.',
+    skillsKicker: 'TECNOLOGÍAS', skillsTitle: 'Competencias técnicas',
+    skillGroups: [
+      ['FRONTEND', 'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Vite'],
+      ['BACKEND Y DATOS', 'PHP', 'API REST', 'MySQL / MariaDB', 'PostgreSQL', 'Prisma', 'Redis / BullMQ'],
+      ['MÓVIL Y HERRAMIENTAS', 'Kotlin / Android', 'Capacitor', 'Vitest', 'Git', 'GitHub'],
+    ],
+    pathKicker: '03 / FORMACIÓN Y EXPERIENCIA', pathTitle: 'Experiencia',
+    priorEducation: '',
+    availabilityLabel: 'PRÁCTICAS REMUNERADAS · 2027', targetStart: 'Febrero de 2027', location: 'Coimbra · híbrido / remoto',
+    internshipKicker: 'SIGUIENTE PASO / 2027', internshipTitle: 'Prácticas curriculares remuneradas',
+    internshipText: 'Inicio en febrero de 2027. Preferencia por Coimbra; presencial, híbrido o remoto.',
+    internshipCta: 'Hablar sobre las prácticas',
+    cvDownload: 'Descargar CV',
+    contactKicker: '04 / CONTACTO', contactTitle: 'Hablemos.',
+    contactText: 'Disponible para oportunidades de prácticas en desarrollo de software.',
+    emailLabel: 'EMAIL', socialsLabel: 'PERFILES PROFESIONALES',
+    contactEmailCta: 'Escribir sobre una oportunidad',
+    caseStudyLabel: 'Detalles técnicos',
+  },
+  fr: {
+    navAbout: 'Profil', navPath: 'Parcours', navContact: 'Contact', navButton: 'Contact',
+    role: 'ÉTUDIANT EN DÉVELOPPEMENT LOGICIEL', eyebrow: 'ESAN · UNIVERSITÉ D’AVEIRO',
+    titleOne: 'Je crée', titleTwo: 'des logiciels', titleEnd: '.',
+    intro: 'Projets web, backend et mobiles réalisés en formation et de manière indépendante.',
+    workKicker: '01 / PROJETS SÉLECTIONNÉS', workTitle: 'Projets en vedette',
+    workIntro: 'Quatre projets récents. Découvrez le produit, les technologies et le code.',
+    moreProjects: 'Autres projets',
+    projectSummaries: {
+      SaborGest: 'Système académique en PHP, API REST, MySQL/MariaDB et borne Android pour les horaires, présences et stocks. En développement.',
+      RunLattice: 'Prototype d’automatisation avec éditeur visuel, PostgreSQL et tâches en arrière-plan via Redis/BullMQ. Intégrations externes non disponibles.',
+      'MRDR.': 'Jeu de déduction original avec cas générés, indices croisés et validation automatique. En développement.',
+      'RAW.': 'Application publiée de conversation et de jeux avec plusieurs modes, cartes interactives et gestes de balayage.',
+    },
+    aboutKicker: '02 / PROFIL', aboutTitle: 'Une approche pratique du développement.',
+    about1: 'Étudiant en développement logiciel à l’ESAN-UA, avec des stages en développement web et backend et des projets frontend et mobile indépendants.',
+    aboutBandTagline: 'DÉVELOPPEMENT LOGICIEL', aboutMiniOne: 'APPRENDRE EN CONSTRUISANT.', aboutMiniTwo: 'UN PROJET À LA FOIS.',
+    skillsKicker: 'TECHNOLOGIES', skillsTitle: 'Compétences techniques',
+    skillGroups: [
+      ['FRONTEND', 'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Vite'],
+      ['BACKEND & DONNÉES', 'PHP', 'API REST', 'MySQL / MariaDB', 'PostgreSQL', 'Prisma', 'Redis / BullMQ'],
+      ['MOBILE & OUTILS', 'Kotlin / Android', 'Capacitor', 'Vitest', 'Git', 'GitHub'],
+    ],
+    pathKicker: '03 / FORMATION ET EXPÉRIENCE', pathTitle: 'Parcours',
+    priorEducation: '',
+    availabilityLabel: 'STAGE RÉMUNÉRÉ · 2027', targetStart: 'Février 2027', location: 'Coimbra · hybride / à distance',
+    internshipKicker: 'PROCHAINE ÉTAPE / 2027', internshipTitle: 'Stage curriculaire rémunéré',
+    internshipText: 'Début en février 2027. Coimbra privilégiée ; présentiel, hybride ou à distance.',
+    internshipCta: 'Parler du stage',
+    cvDownload: 'Télécharger le CV',
+    contactKicker: '04 / CONTACT', contactTitle: 'Parlons-en.',
+    contactText: 'Disponible pour des opportunités de stage en développement logiciel.',
+    emailLabel: 'E-MAIL', socialsLabel: 'PROFILS PROFESSIONNELS',
+    contactEmailCta: 'Écrire au sujet d’une opportunité',
+    caseStudyLabel: 'Détails techniques',
+  },
+  it: {
+    navAbout: 'Profilo', navPath: 'Esperienza', navContact: 'Contatti', navButton: 'Contatti',
+    role: 'STUDENTE DI SVILUPPO SOFTWARE', eyebrow: 'ESAN · UNIVERSITÀ DI AVEIRO',
+    titleOne: 'Creo', titleTwo: 'software', titleEnd: '.',
+    intro: 'Progetti web, backend e mobile sviluppati durante la formazione e in modo indipendente.',
+    workKicker: '01 / PROGETTI SELEZIONATI', workTitle: 'Progetti in evidenza',
+    workIntro: 'Quattro progetti recenti. Scopri il prodotto, le tecnologie e il codice.',
+    moreProjects: 'Altri progetti',
+    projectSummaries: {
+      SaborGest: 'Sistema accademico in PHP, API REST, MySQL/MariaDB e chiosco Android per turni, presenze e magazzino. In sviluppo.',
+      RunLattice: 'Prototipo di automazione con editor visuale, PostgreSQL e processi in background con Redis/BullMQ. Integrazioni esterne non ancora disponibili.',
+      'MRDR.': 'Gioco originale di deduzione con casi generati, indizi incrociati e convalida automatica. In sviluppo.',
+      'RAW.': 'App pubblicata per conversazioni e giochi, con modalità diverse, carte interattive e gesti swipe.',
+    },
+    aboutKicker: '02 / PROFILO', aboutTitle: 'Un approccio pratico allo sviluppo.',
+    about1: 'Studente di Sviluppo Software all’ESAN-UA, con tirocini in sviluppo web e backend e progetti indipendenti frontend e mobile.',
+    aboutBandTagline: 'SVILUPPO SOFTWARE', aboutMiniOne: 'IMPARARE COSTRUENDO.', aboutMiniTwo: 'UN PROGETTO ALLA VOLTA.',
+    skillsKicker: 'TECNOLOGIE', skillsTitle: 'Competenze tecniche',
+    skillGroups: [
+      ['FRONTEND', 'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Vite'],
+      ['BACKEND E DATI', 'PHP', 'API REST', 'MySQL / MariaDB', 'PostgreSQL', 'Prisma', 'Redis / BullMQ'],
+      ['MOBILE E STRUMENTI', 'Kotlin / Android', 'Capacitor', 'Vitest', 'Git', 'GitHub'],
+    ],
+    pathKicker: '03 / FORMAZIONE ED ESPERIENZA', pathTitle: 'Esperienza',
+    priorEducation: '',
+    availabilityLabel: 'TIROCINIO RETRIBUITO · 2027', targetStart: 'Febbraio 2027', location: 'Coimbra · ibrido / remoto',
+    internshipKicker: 'PROSSIMO PASSO / 2027', internshipTitle: 'Tirocinio curricolare retribuito',
+    internshipText: 'Inizio a febbraio 2027. Preferenza per Coimbra; in presenza, ibrido o da remoto.',
+    internshipCta: 'Parliamo del tirocinio',
+    cvDownload: 'Scarica CV',
+    contactKicker: '04 / CONTATTI', contactTitle: 'Parliamone.',
+    contactText: 'Disponibile per opportunità di tirocinio nello sviluppo software.',
+    emailLabel: 'E-MAIL', socialsLabel: 'PROFILI PROFESSIONALI',
+    contactEmailCta: 'Scrivi per un’opportunità',
+    caseStudyLabel: 'Dettagli tecnici',
+  },
+  de: {
+    navAbout: 'Profil', navPath: 'Erfahrung', navContact: 'Kontakt', navButton: 'Kontakt',
+    role: 'STUDENT DER SOFTWAREENTWICKLUNG', eyebrow: 'ESAN · UNIVERSITÄT AVEIRO',
+    titleOne: 'Ich entwickle', titleTwo: 'Software', titleEnd: '.',
+    intro: 'Web-, Backend- und Mobile-Projekte aus Studium und eigener Arbeit.',
+    workKicker: '01 / AUSGEWÄHLTE PROJEKTE', workTitle: 'Ausgewählte Projekte',
+    workIntro: 'Vier aktuelle Projekte. Produkt, Technologien und Quellcode ansehen.',
+    moreProjects: 'Weitere Projekte',
+    projectSummaries: {
+      SaborGest: 'Akademisches Verwaltungssystem mit PHP, REST-API, MySQL/MariaDB und Android-Kiosk für Dienstpläne, Anwesenheit und Lager. In Entwicklung.',
+      RunLattice: 'Workflow-Automatisierungsprototyp mit visuellem Editor, PostgreSQL und Hintergrundjobs mit Redis/BullMQ. Externe Integrationen fehlen noch.',
+      'MRDR.': 'Eigenständiges Deduktionsspiel mit generierten Fällen, verknüpften Hinweisen und automatischer Validierung. In Entwicklung.',
+      'RAW.': 'Veröffentlichte Gesprächs- und Spiele-App mit mehreren Modi, interaktiven Karten und Wischgesten.',
+    },
+    aboutKicker: '02 / PROFIL', aboutTitle: 'Praxisorientierte Softwareentwicklung.',
+    about1: 'Student der Softwareentwicklung an der ESAN-UA mit Praktika in Web- und Backendentwicklung sowie eigenen Frontend- und Mobile-Projekten.',
+    aboutBandTagline: 'SOFTWAREENTWICKLUNG', aboutMiniOne: 'LERNEN DURCH MACHEN.', aboutMiniTwo: 'EIN PROJEKT NACH DEM ANDEREN.',
+    skillsKicker: 'TECHNOLOGIEN', skillsTitle: 'Technische Fähigkeiten',
+    skillGroups: [
+      ['FRONTEND', 'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Vite'],
+      ['BACKEND & DATEN', 'PHP', 'REST-APIs', 'MySQL / MariaDB', 'PostgreSQL', 'Prisma', 'Redis / BullMQ'],
+      ['MOBILE & TOOLS', 'Kotlin / Android', 'Capacitor', 'Vitest', 'Git', 'GitHub'],
+    ],
+    pathKicker: '03 / AUSBILDUNG UND ERFAHRUNG', pathTitle: 'Erfahrung',
+    priorEducation: '',
+    availabilityLabel: 'BEZAHLTES PRAKTIKUM · 2027', targetStart: 'Februar 2027', location: 'Coimbra · hybrid / remote',
+    internshipKicker: 'NÄCHSTER SCHRITT / 2027', internshipTitle: 'Bezahltes Pflichtpraktikum',
+    internshipText: 'Beginn im Februar 2027. Coimbra bevorzugt; vor Ort, hybrid oder remote.',
+    internshipCta: 'Praktikum besprechen',
+    cvDownload: 'Lebenslauf herunterladen',
+    contactKicker: '04 / KONTAKT', contactTitle: 'Lassen Sie uns sprechen.',
+    contactText: 'Offen für Praktikumsmöglichkeiten in der Softwareentwicklung.',
+    emailLabel: 'E-MAIL', socialsLabel: 'BERUFLICHE PROFILE',
+    contactEmailCta: 'E-Mail zu einer Möglichkeit',
+    caseStudyLabel: 'Technische Details',
+  },
+  ja: {
+    navAbout: 'プロフィール', navPath: '経験', navContact: '連絡先', navButton: '連絡する',
+    role: 'ソフトウェア開発専攻の学生', eyebrow: 'ESAN · アヴェイロ大学',
+    titleOne: 'ソフトウェアを', titleTwo: 'つくる', titleEnd: '。',
+    intro: '学業と個人開発を通じて、Web、バックエンド、モバイルのプロジェクトに取り組んでいます。',
+    workKicker: '01 / 注目のプロジェクト', workTitle: '主なプロジェクト',
+    workIntro: '最近の4つのプロジェクト。製品、技術、ソースコードをご覧ください。',
+    moreProjects: 'その他のプロジェクト',
+    projectSummaries: {
+      SaborGest: 'PHP、REST API、MySQL/MariaDB、Androidキオスクを組み合わせた学業プロジェクト。シフト、出退勤、在庫を管理します。',
+      RunLattice: 'ビジュアルエディター、PostgreSQL、Redis/BullMQによるバックグラウンド処理を備えた自動化プロトタイプです。',
+      'MRDR.': '生成ケース、相互参照された手掛かり、自動検証を備えるオリジナルの推理ゲームです。',
+      'RAW.': '複数モード、インタラクティブなカード、スワイプ操作を備える会話とゲームの公開アプリです。',
+    },
+    aboutKicker: '02 / プロフィール', aboutTitle: '実践を通じたソフトウェア開発。',
+    about1: 'ESANでソフトウェア開発を学び、Web・バックエンドの実習と、フロントエンド・モバイルの個人プロジェクトに取り組んでいます。',
+    aboutBandTagline: 'ソフトウェア開発', aboutMiniOne: '作りながら学ぶ。', aboutMiniTwo: '一つずつ着実に。',
+    skillsKicker: '技術', skillsTitle: '技術スキル',
+    skillGroups: [
+      ['フロントエンド', 'React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Vite'],
+      ['バックエンドとデータ', 'PHP', 'REST API', 'MySQL / MariaDB', 'PostgreSQL', 'Prisma', 'Redis / BullMQ'],
+      ['モバイルとツール', 'Kotlin / Android', 'Capacitor', 'Vitest', 'Git', 'GitHub'],
+    ],
+    pathKicker: '03 / 学歴と経験', pathTitle: '経験',
+    priorEducation: '',
+    availabilityLabel: '有給実習 · 2027', targetStart: '2027年2月', location: 'コインブラ · ハイブリッド / リモート',
+    internshipKicker: '次のステップ / 2027年', internshipTitle: '有給のカリキュラム実習',
+    internshipText: '2027年2月開始。コインブラを希望し、出社・ハイブリッド・リモートに対応できます。',
+    internshipCta: '実習について相談',
+    cvDownload: '履歴書をダウンロード',
+    contactKicker: '04 / 連絡先', contactTitle: 'お話ししましょう。',
+    contactText: 'ソフトウェア開発の実習機会を探しています。',
+    emailLabel: 'メール', socialsLabel: 'プロフェッショナルプロフィール',
+    contactEmailCta: '機会についてメールする',
+    caseStudyLabel: '技術的な詳細',
+  },
+};
+
+for (const [code, additions] of Object.entries(recruiterFocusedCopy)) {
+  localeCopy[code] = { ...localeCopy[code], ...additions };
+}
+
 function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
   if (type === 'group') {
     return (
@@ -778,7 +1030,7 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
       <div className="project-info">
         <div className="project-meta"><span>{details.type}</span><span>{project.year}</span></div>
         <h3>{project.name}<span className="brand-dot">.</span></h3>
-        <p>{details.description}</p>
+        <p>{t.projectSummaries?.[project.name] || details.description}</p>
         <div className="tag-list">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
         {caseStudy && <details className="project-case-study">
           <summary>{t.caseStudyLabel}</summary>
@@ -956,6 +1208,8 @@ export default function App() {
     ? 'Olá, Leonardo.\n\nGostaria de falar sobre uma oportunidade de estágio curricular remunerado de 680 horas, com início em fevereiro de 2027, na região de Coimbra.\n\nEmpresa: \nRegime de trabalho: \n\nCom os melhores cumprimentos,'
     : 'Hello Leonardo,\n\nI would like to discuss a paid 680-hour curricular internship starting in February 2027 in the Coimbra area.\n\nCompany: \nWorking arrangement: \n\nKind regards,';
   const internshipHref = `mailto:16alves02@gmail.com?subject=${encodeURIComponent(internshipSubject)}&body=${encodeURIComponent(internshipBody)}`;
+  const relevantExperience = (experienceByLanguage[language] || experienceByLanguage.en)
+    .filter((experience) => experience.id === 'clickbeauty' || experience.id === 'aej');
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -1095,7 +1349,7 @@ export default function App() {
       <main id="main-content">
         <section className="hero" id="home">
           <div className="hero-back-number" aria-hidden="true">16</div>
-          <div className="hero-inner">
+          <div className="hero-inner hero-inner-focused">
             <div className="hero-copy">
               <div className="hero-meta"><span className="status-dot" />{t.role}<span className="meta-slash">/</span>{t.eyebrow}</div>
               <h1>{t.titleOne}<br /><span className="hero-orange">{t.titleTwo}</span><span className="hero-period">{t.titleEnd}</span></h1>
@@ -1103,59 +1357,102 @@ export default function App() {
               <div className="hero-availability">
                 <span className="availability-label">{t.availabilityLabel}</span>
                 <div className="availability-facts">
-                  <span><CalendarIcon />{t.targetStart}</span>
-                  <span><ClockIcon />{t.hours}</span>
-                  <span><MapPinIcon />{t.location}</span>
-                  <span><BriefcaseIcon />{t.paidStatus}</span>
+                  <span>{t.targetStart}</span>
+                  <span>{t.location}</span>
                 </div>
               </div>
-              <div className="hero-actions"><button className="button button-dark" onClick={() => goTo('work')}>{t.workButton}<span>↘</span></button><button className="button button-outline" onClick={() => goTo('internship')}>{t.internshipButton}<span>↗</span></button></div>
-              <div className="hero-footnote"><span className="footnote-mark"><SparkIcon /></span><span>{t.sideNote}</span><span className="hero-small-mark">16 / 02</span></div>
-            </div>
-            <div className="hero-art hero-art-carousel">
-              <ProjectCarousel t={t} />
+              <div className="hero-actions">
+                <button className="button button-dark" onClick={() => goTo('work')}>{t.workButton}<span>↘</span></button>
+                <a className="button button-outline" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
+              </div>
             </div>
           </div>
-          <div className="hero-scroll"><span>{t.scroll}</span><span className="scroll-line" /></div>
         </section>
-
-        <div className="ticker" aria-label={t.tickerLabel}><div className="ticker-track">{[...t.ticker, ...t.ticker].map((item, i) => <span key={`${item}-${i}`}>{item}<b><SparkIcon /></b></span>)}</div></div>
 
         <section className="work-section section-pad" id="work">
           <div className="section-heading"><div><p className="section-kicker"><span>01</span> / {t.workKicker.split('/ ').slice(1).join('/ ')}</p><h2>{t.workTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.workIntro}</p></div>
-          <div className="projects-grid">{projects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured={index < 4} />)}</div>
+          <div className="projects-grid">{projects.slice(0, 4).map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured />)}</div>
+          <details className="additional-projects">
+            <summary>{t.moreProjects}<span className="additional-projects-count">{projects.length - 4}</span></summary>
+            <div className="projects-grid additional-projects-grid">
+              {projects.slice(4).map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 5} />)}
+            </div>
+          </details>
         </section>
-        <EngineeringStories language={language} />
 
         <section className="about-section" id="about">
           <div className="about-band"><span>02 / {t.navAbout.toUpperCase()}</span><span>16ALVES02®</span><span>{t.aboutBandTagline}</span></div>
           <div className="about-inner section-pad">
             <div className="about-title-col"><p className="section-kicker">{t.aboutKicker}</p><h2>{t.aboutTitle}</h2><div className="about-logo"><img src="/logo.png" alt="LA" /><span>{t.aboutMiniOne}<br />{t.aboutMiniTwo}</span></div></div>
-            <div className="about-copy"><p>{t.about1}</p><p>{t.about2}</p><p>{t.about3}</p><div className="about-signoff"><span>LEONARDO ALVES</span><span>AKA 16ALVES02 <b><SparkIcon /></b></span></div></div>
+            <div className="about-copy"><p>{t.about1}</p></div>
           </div>
         </section>
 
         <section className="skills-section section-pad">
-          <div className="section-heading"><div><p className="section-kicker">{t.skillsKicker}</p><h2>{t.skillsTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.skillsIntro}</p></div>
+          <div className="section-heading"><div><p className="section-kicker">{t.skillsKicker}</p><h2>{t.skillsTitle}<span className="brand-dot">.</span></h2></div></div>
           <div className="skills-rows">{t.skillGroups.map((group, i) => <div className="skill-row" key={group[0]}><div className="skill-label"><span>0{i + 1}</span>{group[0]}</div><div className="skill-items">{group.slice(1).map((skill) => <span key={skill}>{skill}</span>)}</div></div>)}</div>
         </section>
 
-        <section className="services-section section-pad" id="focus">
-          <div className="section-heading"><div><p className="section-kicker">{t.servicesKicker}</p><h2>{t.servicesTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.servicesIntro}</p></div>
-          <div className="services-grid">{t.serviceItems.map(([title, description], index) => <article className="service-card" key={title}><span className="service-index">0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
-        </section>
-
         <section className="background-section section-pad" id="background">
-          <div className="section-heading"><div><p className="section-kicker">{t.pathKicker}</p><h2>{t.pathTitle}<span className="brand-dot">.</span></h2></div><div className="education-card"><span className="education-label">{t.educationKicker}</span><h3>{t.educationTitle}</h3><span className="education-date">{t.educationDate}</span><p>{t.educationWhere}</p><div className="education-rule"/>{t.educationAdditional && <p className="education-additional">{t.educationAdditional}</p>}<p className="prior-education">{t.priorEducation}</p></div></div>
-          <div className="experience-list">{experienceByLanguage[language] ? experienceByLanguage[language].map((experience) => <article className="experience-item" key={experience.id}><span className="experience-year">{experience.date}</span><div><h3>{experience.role}</h3><p className="experience-company">{experience.company}</p><p>{experience.description}</p><div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div><span className="experience-symbol" aria-hidden="true">↗</span></article>) : experienceByLanguage.en.map((experience) => <article className="experience-item" key={experience.id}><span className="experience-year">{experience.date}</span><div><h3>{experience.role}</h3><p className="experience-company">{experience.company}</p><p>{experience.description}</p><div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div><span className="experience-symbol" aria-hidden="true">↗</span></article>)}</div>
+          <div className="section-heading">
+            <div><p className="section-kicker">{t.pathKicker}</p><h2>{t.pathTitle}<span className="brand-dot">.</span></h2></div>
+            <div className="education-card">
+              <span className="education-label">{t.educationKicker}</span>
+              <h3>{t.educationTitle}</h3>
+              <span className="education-date">{t.educationDate}</span>
+              <p>{t.educationWhere}</p>
+              <div className="education-rule" />
+              {t.educationAdditional && <p className="education-additional">{t.educationAdditional}</p>}
+            </div>
+          </div>
+          <div className="experience-list">
+            {relevantExperience.map((experience) => (
+              <article className="experience-item" key={experience.id}>
+                <span className="experience-year">{experience.date}</span>
+                <div>
+                  <h3>{experience.role}</h3>
+                  <p className="experience-company">{experience.company}</p>
+                  <div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                </div>
+                <span className="experience-symbol" aria-hidden="true">↗</span>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="internship-section" id="internship">
-          <div className="internship-inner"><div className="internship-top"><span>{t.internshipKicker}</span><span>{t.internshipMeta}</span></div><div className="internship-content"><div className="internship-number">680<span>h</span></div><div className="internship-copy"><h2>{t.internshipTitle}</h2><p>{t.internshipText}</p><div className="internship-facts"><span><SparkIcon /> {t.targetStart}</span><span><SparkIcon /> {t.mode}</span><span><SparkIcon /> {t.paidPreference}</span><span><SparkIcon /> CTeSP / ESAN-UA</span></div><a className="button button-dark" href={internshipHref}>{t.internshipCta}<span>↗</span></a></div></div><div className="internship-bottom"><span>{t.internshipBottom}</span><span>16ALVES02 / 2027</span></div></div>
+          <div className="internship-inner">
+            <div className="internship-top"><span>{t.internshipKicker}</span></div>
+            <div className="internship-content">
+              <div className="internship-number">680<span>h</span></div>
+              <div className="internship-copy">
+                <h2>{t.internshipTitle}</h2>
+                <p>{t.internshipText}</p>
+                <a className="button button-dark" href={internshipHref}>{t.internshipCta}<span>↗</span></a>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="contact-section section-pad" id="contact">
-          <div className="contact-top"><p className="section-kicker">{t.contactKicker}</p><span>{t.contactMeta}</span></div><h2>{t.contactTitle}<span className="brand-dot">.</span></h2><div className="contact-bottom"><div><p>{t.contactText}</p><span className="contact-email-label">{t.emailLabel}</span><a className="contact-email" href="mailto:16alves02@gmail.com">16alves02@gmail.com <span>↗</span></a><button className="copy-email" onClick={handleCopyEmail}>{copied ? t.copied : t.email}</button><div className="contact-actions"><a className="button button-contact-cv" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a><a className="button button-outline" href={internshipHref}>{t.contactEmailCta}<span>↗</span></a></div></div><div className="socials-block"><p className="section-kicker">{t.socialsLabel}</p><div className="social-links">{socials.map((social) => <SocialLink key={social.label} social={social} />)}</div><p className="social-note">{t.socialNote}</p></div></div>
+          <div className="contact-top"><p className="section-kicker">{t.contactKicker}</p></div>
+          <h2>{t.contactTitle}<span className="brand-dot">.</span></h2>
+          <div className="contact-bottom">
+            <div>
+              <p>{t.contactText}</p>
+              <span className="contact-email-label">{t.emailLabel}</span>
+              <a className="contact-email" href="mailto:16alves02@gmail.com">16alves02@gmail.com <span>↗</span></a>
+              <button className="copy-email" onClick={handleCopyEmail}>{copied ? t.copied : t.email}</button>
+              <div className="contact-actions">
+                <a className="button button-contact-cv" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
+                <a className="button button-outline" href={internshipHref}>{t.contactEmailCta}<span>↗</span></a>
+              </div>
+            </div>
+            <div className="socials-block">
+              <p className="section-kicker">{t.socialsLabel}</p>
+              <div className="social-links">{socials.map((social) => <SocialLink key={social.label} social={social} />)}</div>
+            </div>
+          </div>
         </section>
       </main>
 

@@ -998,27 +998,254 @@ html[data-theme="dark"] .site-shell .copy-email,
 html[data-theme="dark"] .site-shell .social-note {
   color: var(--secondary-copy);
 }
-html[data-theme="dark"] .site-shell .contact-top .section-kicker,
-html[data-theme="dark"] .site-shell .socials-block > .section-kicker,
-html[data-theme="dark"] .site-shell .contact-email span,
-html[data-theme="dark"] .site-shell .social-arrow {
+
+/* Recruiter-focused hierarchy: one clear message, one primary action, less repetition. */
+.site-shell .hero-inner,
+.site-shell .hero-inner.hero-inner-focused {
+  display: block;
+  width: min(100%, 1280px);
+  min-height: 0;
+  padding: clamp(72px, 8.5vw, 116px) clamp(20px, 7vw, 100px) clamp(58px, 6.5vw, 88px);
+}
+
+.site-shell .hero-copy {
+  width: 100%;
+  max-width: 920px;
+}
+
+.site-shell .hero h1 {
+  max-width: 10ch;
+  margin-top: 24px;
+  font-size: clamp(4rem, 8.2vw, 7.4rem);
+  line-height: 0.98;
+}
+
+.site-shell .hero h1 .hero-orange {
+  display: inline-block;
+  font-size: 0.72em;
+  line-height: 1.08;
+}
+
+.site-shell .hero-intro {
+  max-width: 54ch;
+  margin-top: 20px;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.65;
+}
+
+.site-shell .hero-meta {
+  letter-spacing: 0.07em;
+}
+
+.site-shell .hero-availability {
+  max-width: 560px;
+  margin-top: 26px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.site-shell .availability-label {
+  display: block;
   color: var(--accent-readable);
+  font-size: 10px;
+  font-weight: 700;
 }
-html[data-theme="dark"] .site-shell .social-mark {
-  color: #211d1a;
-  background: var(--accent);
-  border-color: var(--accent);
+
+.site-shell .availability-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin-top: 9px;
 }
-html[data-theme="dark"] .site-shell .project-status {
-  color: var(--accent-readable);
-  background: var(--accent-soft);
-  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+
+.site-shell .availability-facts span {
+  display: inline-flex;
+  align-items: center;
+  color: var(--body-copy);
+  font-size: 13px;
 }
-html[data-theme="dark"] .site-shell .header-contact,
-html[data-theme="dark"] .site-shell .header-contact span,
-html[data-theme="dark"] .site-shell .button-dark {
-  color: #211d1a;
+
+.site-shell .hero-actions {
+  gap: 12px;
+  margin-top: 26px;
 }
-html[data-theme="dark"] .site-shell .button-outline {
+
+.site-shell .hero-actions .button {
+  min-width: 164px;
+  justify-content: center;
+  gap: 12px;
+}
+
+.site-shell .hero-actions .button-outline {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-shell .hero-actions .button-outline svg {
+  width: 16px;
+  height: 16px;
+}
+
+.site-shell .hero-scroll,
+.site-shell .ticker {
+  display: none !important;
+}
+
+.site-shell .projects-grid {
+  align-items: stretch;
+}
+
+.site-shell .additional-projects {
+  margin-top: 24px;
+  border-block: 1px solid var(--line);
+}
+
+.site-shell .additional-projects > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 17px 2px;
   color: var(--ink);
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.site-shell .additional-projects > summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-shell .additional-projects > summary::after {
+  content: "+";
+  margin-left: auto;
+  color: var(--accent-readable);
+  font-size: 21px;
+}
+
+.site-shell .additional-projects[open] > summary::after {
+  content: "−";
+}
+
+.site-shell .additional-projects-count {
+  margin-left: 6px;
+  color: var(--secondary-copy);
+  font: 500 11px var(--mono);
+}
+
+.site-shell .additional-projects-grid {
+  margin-top: 14px;
+  padding-bottom: 24px;
+}
+
+.site-shell .about-copy {
+  max-width: 64ch;
+}
+
+.site-shell .about-copy p {
+  margin: 0;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.75;
+}
+
+.site-shell .skills-section .section-heading {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.site-shell .background-section .experience-item > div > p:not(.experience-company) {
+  display: none;
+}
+
+.site-shell .internship-inner {
+  padding-top: clamp(22px, 3.5vw, 36px);
+  padding-bottom: clamp(22px, 3.5vw, 36px);
+}
+
+.site-shell .internship-top {
+  justify-content: flex-start;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.site-shell .internship-copy p {
+  max-width: 55ch;
+  margin: 14px 0 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.site-shell .internship-copy .button {
+  margin-top: 4px;
+}
+
+.site-shell .contact-bottom {
+  align-items: start;
+}
+
+.site-shell .social-links {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Explicit text paint prevents dark-mode CTA labels from disappearing. */
+html[data-theme="dark"] .site-shell .hero-actions .button-dark,
+.site-shell[data-theme="dark"] .hero-actions .button-dark,
+html[data-theme="dark"] .site-shell .internship-copy .button-dark {
+  color: #13171b !important;
+  -webkit-text-fill-color: #13171b !important;
+  background: #ff704f !important;
+  border-color: #ff704f !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .site-shell .hero-actions .button-dark *,
+.site-shell[data-theme="dark"] .hero-actions .button-dark *,
+html[data-theme="dark"] .site-shell .internship-copy .button-dark * {
+  color: #13171b !important;
+  -webkit-text-fill-color: #13171b !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 760px) {
+  .site-shell .hero-inner,
+  .site-shell .hero-inner.hero-inner-focused {
+    padding: 56px 20px 54px;
+  }
+
+  .site-shell .hero h1 {
+    font-size: clamp(3.2rem, 13vw, 5.2rem);
+  }
+
+  .site-shell .hero h1 .hero-orange {
+    font-size: 0.66em;
+  }
+
+  .site-shell .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-shell .hero-actions .button {
+    min-width: 0;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .site-shell .availability-facts {
+    gap: 8px 18px;
+  }
+
+  .site-shell .additional-projects-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-shell .social-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-shell .hero-actions {
+    grid-template-columns: 1fr;
+  }
 }
