@@ -343,15 +343,15 @@ for (const [code, additions] of Object.entries(extraUiCopy)) {
 
 const recruitmentCopy = {
   en: {
-    availabilityLabel:'INTERNSHIP AVAILABILITY', targetStart:'Start: February 2027', hours:'680 hours', location:'Aveiro → Coimbra, Portugal', paidStatus:'Paid curricular internship', cvDownload:'Download CV',
-    caseStudyLabel:'Technical breakdown', caseStudyProblem:'Problem & context', caseStudyArchitecture:'Architecture', caseStudyContribution:'My contribution', caseStudyChallenges:'Engineering challenges', caseStudyResult:'Current result & limits', contactEmailCta:'Email about this internship',
+    availabilityLabel:'PROFESSIONAL AVAILABILITY', targetStart:'Start: February 2027', hours:'680 hours', location:'Aveiro → Coimbra, Portugal', paidStatus:'Paid curricular internship', cvDownload:'Download CV',
+    caseStudyLabel:'Technical breakdown', caseStudyProblem:'Problem & context', caseStudyArchitecture:'Architecture', caseStudyContribution:'My contribution', caseStudyChallenges:'Engineering challenges', caseStudyResult:'Current result & limits', contactEmailCta:'Discuss an opportunity',
     skillsKicker:'TECHNICAL SKILLS', skillsTitle:'Technologies I work with', skillsIntro:'Technologies used in coursework, internships and current projects. Experience varies by tool.',
     internshipBottom:'CONTRIBUTE TO REAL WORK. LEARN FROM THE TEAM.',
     skillGroups: [["FRONTEND","HTML5","CSS3","JavaScript","TypeScript","React","Next.js","Vite","React Router","Tailwind CSS"],["BACKEND E APIs","PHP","Node.js runtime","APIs REST","PDO","Prisma"],["DADOS E FILAS","SQL","MySQL / MariaDB","PostgreSQL","Redis","BullMQ"],["MOBILE E QUALIDADE","Kotlin / Android","Capacitor","Vitest","C","Git","GitHub"]],
   },
   'pt-PT': {
-    availabilityLabel:'DISPONIBILIDADE PARA ESTÁGIO', targetStart:'Início: fevereiro de 2027', hours:'680 horas', location:'Coimbra, Portugal', paidStatus:'Estágio curricular remunerado', cvDownload:'Descarregar CV',
-    caseStudyLabel:'Detalhe técnico', caseStudyProblem:'Problema e contexto', caseStudyArchitecture:'Arquitetura', caseStudyContribution:'Contributo pessoal', caseStudyChallenges:'Desafios técnicos', caseStudyResult:'Resultado atual e limitações', contactEmailCta:'Enviar email sobre o estágio',
+    availabilityLabel:'DISPONIBILIDADE PROFISSIONAL', targetStart:'Início: fevereiro de 2027', hours:'680 horas', location:'Aveiro → Coimbra, Portugal', paidStatus:'Estágio curricular remunerado', cvDownload:'Descarregar CV',
+    caseStudyLabel:'Detalhe técnico', caseStudyProblem:'Problema e contexto', caseStudyArchitecture:'Arquitetura', caseStudyContribution:'Contributo pessoal', caseStudyChallenges:'Desafios técnicos', caseStudyResult:'Resultado atual e limitações', contactEmailCta:'Falar sobre uma oportunidade',
     skillsKicker:'COMPETÊNCIAS TÉCNICAS', skillsTitle:'Tecnologias que utilizo', skillsIntro:'Tecnologias utilizadas na formação, em estágios e nos projetos atuais. O nível de experiência varia consoante a ferramenta.',
     internshipBottom:'CONTRIBUIR PARA TRABALHO REAL. APRENDER COM A EQUIPA.',
   },
@@ -1211,8 +1211,7 @@ export default function App() {
     ? 'Olá, Leonardo.\n\nGostaria de falar sobre uma oportunidade de estágio curricular remunerado de 680 horas, com início em fevereiro de 2027, na região de Coimbra.\n\nEmpresa: \nRegime de trabalho: \n\nCom os melhores cumprimentos,'
     : 'Hello Leonardo,\n\nI would like to discuss a paid 680-hour curricular internship starting in February 2027 in the Coimbra area.\n\nCompany: \nWorking arrangement: \n\nKind regards,';
   const internshipHref = `mailto:16alves02@gmail.com?subject=${encodeURIComponent(internshipSubject)}&body=${encodeURIComponent(internshipBody)}`;
-  const relevantExperience = (experienceByLanguage[language] || experienceByLanguage.en)
-    .filter((experience) => experience.id === 'clickbeauty' || experience.id === 'aej');
+  const relevantExperience = experienceByLanguage[language] || experienceByLanguage.en;
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
