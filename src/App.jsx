@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowDownRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, Check,
-  ChevronDown, Clock3, Code2, ContactRound, Download, Globe, GraduationCap,
-  Github, Instagram, Link2, Linkedin, MapPin, Menu, Moon, Shapes, Sparkles,
-  Sun, Twitch, X, Youtube,
+  Camera, ChevronDown, Clock3, Code2, ContactRound, Download, Gamepad2, Globe,
+  GraduationCap, Link2, MapPin, Menu, Moon, Play, Shapes, Sparkles, Sun, X,
 } from 'lucide-react';
 import { projects } from './data/projects.js';
 import ProjectCarousel from './components/ProjectCarousel.jsx';
@@ -1072,12 +1071,12 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
 
 function SocialLink({ social }) {
   const socialIcons = {
-    GitHub: Github,
-    LinkedIn: Linkedin,
+    GitHub: Code2,
+    LinkedIn: ContactRound,
     'GitHub académico': GraduationCap,
-    Instagram,
-    YouTube,
-    Twitch,
+    Instagram: Camera,
+    YouTube: Play,
+    Twitch: Gamepad2,
     Linktree: Link2,
     Uiverse: Shapes,
   };
