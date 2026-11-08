@@ -1173,12 +1173,11 @@ export default function App() {
   const languageMenuRef = useRef(null);
   const t = localeCopy[language] || localeCopy.en;
   const isPortuguese = language === 'pt-PT';
-  const studioProjects = projects.filter((project) => project.category === 'studio');
-  const academicProjects = projects.filter((project) => project.category === 'academic');
-  const earlyProjects = projects.filter((project) => project.category === 'early');
-  const professionalProjects = projects.filter((project) => !['studio', 'academic', 'early'].includes(project.category));
-  const softwareProjects = professionalProjects.slice(0, 4);
-  const additionalProjects = professionalProjects.slice(4);
+  const featuredProjectNames = ['SaborGest', 'RunLattice', 'MRDR.', 'RAW.'];
+  const featuredProjects = featuredProjectNames
+    .map((name) => projects.find((project) => project.name === name))
+    .filter(Boolean);
+  const additionalProjects = projects.filter((project) => !featuredProjectNames.includes(project.name));
   const activeLanguage = languageOptions.find((option) => option.code === language) || languageOptions[0];
   const cvHref = language === 'pt-PT' ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT-Engenharia-Software.pdf' : 'Leonardo-Alves-CV-EN-Software-Engineering.pdf';
@@ -1367,44 +1366,20 @@ export default function App() {
           <div className="section-heading"><div><p className="section-kicker"><span>01</span> / {t.workKicker.split('/ ').slice(1).join('/ ')}</p><h2>{t.workTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.workIntro}</p></div>
           <div className="project-collection">
             <div className="project-collection-heading">
-              <span className="project-collection-index">01 / {isPortuguese ? 'SOFTWARE & PRODUTOS DIGITAIS' : 'SOFTWARE & DIGITAL PRODUCTS'}</span>
-              <h3>{isPortuguese ? 'Projetos de desenvolvimento' : 'Development projects'}</h3>
-              <p>{isPortuguese ? 'Projetos pessoais e produtos digitais que desenvolvo para explorar diferentes áreas de software.' : 'Personal projects and digital products exploring different areas of software development.'}</p>
+              <span className="project-collection-index">01 / {isPortuguese ? "PROJETOS EM DESTAQUE" : "FEATURED PROJECTS"}</span>
+              <h3>{isPortuguese ? "Quatro projetos. Diferentes desafios." : "Four projects. Different challenges."}</h3>
+              <p>{isPortuguese ? "Do desenvolvimento de sistemas à lógica de produto e experiências interativas." : "From integrated systems to product logic and interactive experiences."}</p>
             </div>
-            <div className="projects-grid">{softwareProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured />)}</div>
+            <div className="projects-grid featured-projects-grid">
+              {featuredProjects.map((project, index) => (
+                <ProjectCard key={project.name} project={project} t={t} language={language} position={index + 1} featured />
+              ))}
+            </div>
           </div>
-          {academicProjects.length > 0 && <div className="project-collection academic-collection">
-            <div className="project-collection-heading">
-              <span className="project-collection-index">02 / {isPortuguese ? 'FORMAÇÃO ACADÉMICA' : 'ACADEMIC WORK'}</span>
-              <h3>{isPortuguese ? 'Projetos do CTeSP' : 'CTeSP coursework'}</h3>
-              <p>{isPortuguese ? 'Trabalhos desenvolvidos no CTeSP em Desenvolvimento de Software, na Universidade de Aveiro — Escola Superior Aveiro Norte.' : 'Projects developed as part of the CTeSP in Software Development at the University of Aveiro — Águeda School of Technology and Management.'}</p>
-            </div>
-            <div className="projects-grid">{academicProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} />)}</div>
-          </div>}
-          <section className="studio-collection" aria-labelledby="studio-title">
-            <div className="studio-identity">
-              <div className="studio-mark"><span>ALV16</span><small>STUDIOS</small></div>
-              <div className="studio-copy">
-                <span className="project-collection-index">03 / {isPortuguese ? 'ESTÚDIO INDEPENDENTE DE JOGOS' : 'INDEPENDENT GAME STUDIO'}</span>
-                <h3 id="studio-title">{isPortuguese ? 'Jogos com identidade própria.' : 'Games with their own identity.'}</h3>
-                <p>{isPortuguese ? 'ALV16 STUDIOS é o espaço onde desenvolvo experiências interativas e projetos gaming. RAW. e MRDR. são os primeiros títulos deste universo — e não os últimos.' : 'ALV16 STUDIOS is where I develop interactive experiences and gaming projects. RAW. and MRDR. are the first titles in this universe — not the last.'}</p>
-                <span className="studio-signature">A CREATIVE LABEL BY 16ALVES02</span>
-              </div>
-            </div>
-            <div className="projects-grid studio-project-grid">{studioProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured />)}</div>
-          </section>
-          {earlyProjects.length > 0 && <div className="project-collection early-collection">
-            <div className="project-collection-heading">
-              <span className="project-collection-index">04 / {isPortuguese ? 'PRIMEIROS PROJETOS' : 'EARLY PROJECTS'}</span>
-              <h3>{isPortuguese ? 'Antes do CTeSP' : 'Secondary school projects'}</h3>
-              <p>{isPortuguese ? 'Experiências desenvolvidas no 12.º ano do ensino secundário.' : 'Projects developed during the 12th grade of secondary school.'}</p>
-            </div>
-            <div className="projects-grid">{earlyProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} />)}</div>
-          </div>}
           {additionalProjects.length > 0 && <details className="additional-projects">
             <summary>{t.moreProjects}<span className="additional-projects-count">{additionalProjects.length}</span></summary>
             <div className="projects-grid additional-projects-grid">
-              {additionalProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} />)}
+              {additionalProjects.map((project, index) => <ProjectCard key={project.name} project={project} t={t} language={language} position={index + 1} />)}
             </div>
           </details>}
         </section>
