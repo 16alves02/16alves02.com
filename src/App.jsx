@@ -343,7 +343,7 @@ for (const [code, additions] of Object.entries(extraUiCopy)) {
 
 const recruitmentCopy = {
   en: {
-    availabilityLabel:'INTERNSHIP AVAILABILITY', targetStart:'Start: February 2027', hours:'680 hours', location:'Coimbra, Portugal', paidStatus:'Paid curricular internship', cvDownload:'Download CV',
+    availabilityLabel:'INTERNSHIP AVAILABILITY', targetStart:'Start: February 2027', hours:'680 hours', location:'Aveiro → Coimbra, Portugal', paidStatus:'Paid curricular internship', cvDownload:'Download CV',
     caseStudyLabel:'Technical breakdown', caseStudyProblem:'Problem & context', caseStudyArchitecture:'Architecture', caseStudyContribution:'My contribution', caseStudyChallenges:'Engineering challenges', caseStudyResult:'Current result & limits', contactEmailCta:'Email about this internship',
     skillsKicker:'TECHNICAL SKILLS', skillsTitle:'Technologies I work with', skillsIntro:'Technologies used in coursework, internships and current projects. Experience varies by tool.',
     internshipBottom:'CONTRIBUTE TO REAL WORK. LEARN FROM THE TEAM.',
