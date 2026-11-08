@@ -2,7 +2,8 @@ export const projects = [
   {
     number: '03',
     name: 'SaborGest',
-    type: 'Academic software project / in development',
+    category: 'academic',
+    type: 'Academic project · CTeSP Software Development / in development',
     year: '2026-27',
     description: 'An academic management system for food businesses, combining a PHP web management panel, a REST API, a MySQL / MariaDB database and an Android kiosk built with Kotlin. The documented scope includes staff scheduling, attendance and stock management. The project is still being validated and is not production-ready.',
     stack: ['PHP 8.3', 'Kotlin / Android', 'REST API', 'PDO', 'MySQL / MariaDB'],
@@ -28,6 +29,7 @@ export const projects = [
   {
     number: '07',
     name: 'RunLattice',
+    category: 'personal',
     type: 'Workflow automation platform / prototype',
     year: '2026',
     description: 'A workflow automation prototype with a visual editor for triggers, conditions and actions, workflow management backed by PostgreSQL, and an execution queue using Redis and BullMQ. The worker currently simulates workflow traversal; external service integrations are not implemented.',
@@ -55,6 +57,7 @@ export const projects = [
   {
     number: '08',
     name: 'MRDR.',
+    category: 'studio',
     type: 'Original mobile deduction game / in development',
     year: '2026',
     description: 'An original criminal deduction game built around procedurally generated cases, cross-referenced clues and a campaign inspired by a map of Portugal. Its documented systems include a deduction engine, case validation, local progression, achievements and daily challenges. The game is still in development.',
@@ -65,6 +68,7 @@ export const projects = [
   {
     number: '02',
     name: 'RAW.',
+    category: 'studio',
     type: 'Interactive web / personal project',
     year: '2025-26',
     description: 'A social conversation experience built around question decks and game modes, with card-based interaction, swipe gestures and motion. The source repository is private.',
@@ -77,6 +81,7 @@ export const projects = [
   {
     number: '09',
     name: 'Nova Imagem by Maura Pereira',
+    category: 'personal',
     type: 'Client website / in preparation',
     year: '2026',
     description: 'A client website project being prepared in collaboration with a local hair salon. The site structure and content workflow are in preparation; service descriptions, imagery, opening hours and publication details remain subject to the owner’s confirmation. A CMS-based editing workflow is planned, not yet implemented or validated.',
@@ -87,7 +92,8 @@ export const projects = [
   {
     number: '01',
     name: 'HOOP',
-    type: 'Frontend / e-commerce concept',
+    category: 'academic',
+    type: 'Academic project · CTeSP Software Development / frontend e-commerce concept',
     year: '2025-26',
     description: 'An educational basketball-store frontend with product discovery, filters, product pages, favourites, a cart and a simulated checkout. It does not process real purchases.',
     stack: ['React', 'TypeScript', 'Vite', 'React Router'],
@@ -100,6 +106,7 @@ export const projects = [
   {
     number: '04',
     name: 'Todo App',
+    category: 'personal',
     type: 'Web fundamentals',
     year: '2025-26',
     description: 'A browser-based task manager built with HTML, CSS and vanilla JavaScript. It supports adding and completing tasks, filters, keyboard controls and local persistence in the browser.',
@@ -113,7 +120,8 @@ export const projects = [
   {
     number: '06',
     name: 'ArraySorting',
-    type: 'Programming fundamentals',
+    category: 'early',
+    type: 'Secondary school project · 12th grade / programming fundamentals',
     year: '2023',
     description: 'A C console program demonstrating Selection Sort, Insertion Sort, Bubble Sort and a small Bogo Sort example, with an interactive menu and input validation.',
     stack: ['C', 'Arrays', 'Sorting algorithms'],
@@ -123,7 +131,8 @@ export const projects = [
   {
     number: '05',
     name: 'Two of Hearts',
-    type: 'Vector illustration / Portuguese folk art',
+    category: 'academic',
+    type: 'Academic project · CTeSP Software Development / vector illustration',
     year: '2026',
     description: 'A playing-card illustration inspired by Lenços de Namorados, the traditional love handkerchiefs of the Minho region. The final vector artwork was developed in Affinity.',
     stack: ['Affinity', 'Vector illustration', 'Portuguese folk art'],
@@ -136,7 +145,8 @@ export const projects = [
   {
     number: '10',
     name: 'Tocadiscos Editora',
-    type: 'Academic group project / command-line application',
+    category: 'academic',
+    type: 'Academic project · CTeSP Software Development / group CLI application',
     year: '2025-26',
     description: 'A command-line application developed in a four-person academic team to manage the catalogue of a fictional music publisher. It covers authors, albums, tracks, editorial royalties, financial reports, search, audio playback and change history with rollback.',
     stack: ['Python', 'Pygame', 'Whoosh', 'pandas', 'CSV'],
@@ -163,7 +173,8 @@ export const projects = [
   {
     number: '11',
     name: 'Basket Hub',
-    type: 'Academic group project / basketball management',
+    category: 'academic',
+    type: 'Academic project · CTeSP Software Development / group basketball management',
     year: '2024-25',
     description: 'A group project developed in the course context for basketball management, covering teams, players, games, events, registrations, organisers, venues, sponsors, rankings and statistics.',
     stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'Exposed', 'H2'],
