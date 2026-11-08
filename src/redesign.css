@@ -731,3 +731,121 @@ html[data-theme="dark"] .site-shell .header-contact {
 @media (prefers-reduced-motion: reduce) {
   .site-shell .hero::after { transform: none; }
 }
+
+
+/* Restored 16alves02 identity and complete portfolio presentation. */
+.site-shell .brand img,
+.site-shell .about-logo img,
+.site-shell .footer-brand img {
+  object-fit: contain;
+  filter: none;
+}
+.site-shell[data-theme="dark"] .brand img,
+.site-shell[data-theme="dark"] .about-logo img,
+.site-shell[data-theme="dark"] .footer-brand img {
+  filter: brightness(0) invert(1);
+}
+.site-shell .brand img { width: 38px; height: 38px; }
+.site-shell .about-logo img { width: 68px; height: 68px; }
+.site-shell .footer-brand img { width: 30px; height: 30px; }
+
+.site-shell .hero-inner-universe {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr) !important;
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
+}
+.site-shell .hero-art-carousel {
+  width: 100%;
+  max-width: 590px;
+  min-width: 0;
+  justify-self: end;
+  align-self: center;
+  position: relative;
+  z-index: 2;
+}
+.site-shell .project-carousel { width: 100%; max-width: 590px; }
+
+.site-shell .additional-projects {
+  display: block;
+  margin-top: 42px;
+  padding-top: 28px;
+  border-top: 1px solid var(--redesign-line);
+  border-bottom: 0;
+}
+.site-shell .additional-projects-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+.site-shell .additional-projects-heading h3 {
+  margin: 12px 0 8px;
+  color: var(--redesign-ink);
+  font-size: clamp(1.7rem, 3vw, 2.55rem);
+  line-height: 1.08;
+  letter-spacing: -.055em;
+}
+.site-shell .additional-projects-heading p {
+  margin: 0;
+  color: var(--redesign-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.site-shell .additional-projects-count {
+  display: grid;
+  place-items: center;
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--redesign-line);
+  border-radius: 50%;
+  color: var(--redesign-accent);
+  font: 600 13px var(--mono, monospace);
+}
+.site-shell .additional-projects-grid { padding-bottom: 0; }
+.site-shell .project-archive-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 26px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--redesign-line);
+}
+.site-shell .project-archive-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--redesign-ink);
+  font-size: 12px;
+  font-weight: 650;
+  transition: color .2s ease;
+}
+.site-shell .project-archive-links a:hover { color: var(--redesign-accent); }
+.site-shell .social-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+@media (max-width: 1100px) {
+  .site-shell .hero-inner-universe {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 34px;
+  }
+  .site-shell .hero-art-carousel {
+    width: 100%;
+    max-width: 720px;
+    justify-self: center;
+  }
+  .site-shell .project-carousel { max-width: 720px; }
+}
+@media (max-width: 760px) {
+  .site-shell .hero-inner-universe {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+  .site-shell .hero-art-carousel { width: 100%; max-width: none; }
+  .site-shell .additional-projects-heading { align-items: flex-start; }
+  .site-shell .social-links { grid-template-columns: 1fr; }
+}
