@@ -104,7 +104,7 @@ export const projects = [
     live: 'https://raw-app-bice.vercel.app',
     image: 'https://wsrv.nl/?url=raw-app-bice.vercel.app%2Fimages%2Fhome.png&w=800&output=webp&q=72',
     imageAlt: 'Actual RAW. home-screen asset from the deployed app',
-    status: 'Live demo · source private',
+    status: 'Live demo',
     visual: 'raw',
     caseStudy: {
       en: {
