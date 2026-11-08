@@ -1197,6 +1197,10 @@ export default function App() {
   const [copied, setCopied] = useState(false);
   const languageMenuRef = useRef(null);
   const t = localeCopy[language] || localeCopy.en;
+  const isPortuguese = language === 'pt-PT';
+  const studioProjects = projects.filter((project) => ['RAW.', 'MRDR.'].includes(project.name));
+  const softwareProjects = projects.filter((project) => !['RAW.', 'MRDR.'].includes(project.name)).slice(0, 4);
+  const additionalProjects = projects.filter((project) => !studioProjects.includes(project) && !softwareProjects.includes(project));
   const activeLanguage = languageOptions.find((option) => option.code === language) || languageOptions[0];
   const cvHref = language === 'pt-PT' ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT-Engenharia-Software.pdf' : 'Leonardo-Alves-CV-EN-Software-Engineering.pdf';
@@ -1270,8 +1274,8 @@ export default function App() {
       <header className="site-header">
         <div className="header-inner">
           <a className="brand" href="#home" aria-label="16alves02 home">
-            <img src="/logo.png" alt="LA logo" />
-            <span>16alves02<span className="brand-dot">.</span></span>
+            <img src="/logo.png" alt="Leonardo Alves monogram" />
+            <span>16alves02<span className="brand-dot">.</span><small className="brand-owner">LEONARDO ALVES</small></span>
           </a>
 
           <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'} aria-label={t.navigationLabel}>
@@ -1384,13 +1388,32 @@ export default function App() {
 
         <section className="work-section section-pad" id="work">
           <div className="section-heading"><div><p className="section-kicker"><span>01</span> / {t.workKicker.split('/ ').slice(1).join('/ ')}</p><h2>{t.workTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.workIntro}</p></div>
-          <div className="projects-grid">{projects.slice(0, 4).map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured />)}</div>
-          <details className="additional-projects">
-            <summary>{t.moreProjects}<span className="additional-projects-count">{projects.length - 4}</span></summary>
-            <div className="projects-grid additional-projects-grid">
-              {projects.slice(4).map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 5} />)}
+          <div className="project-collection">
+            <div className="project-collection-heading">
+              <span className="project-collection-index">01 / {isPortuguese ? 'SOFTWARE & PRODUTOS DIGITAIS' : 'SOFTWARE & DIGITAL PRODUCTS'}</span>
+              <h3>{isPortuguese ? 'Projetos de desenvolvimento' : 'Development projects'}</h3>
+              <p>{isPortuguese ? 'Projetos académicos, experiências técnicas e produtos digitais que desenvolvo para explorar diferentes áreas de software.' : 'Academic projects, technical experiments and digital products exploring different areas of software development.'}</p>
             </div>
-          </details>
+            <div className="projects-grid">{softwareProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured />)}</div>
+          </div>
+          <section className="studio-collection" aria-labelledby="studio-title">
+            <div className="studio-identity">
+              <div className="studio-mark"><span>ALV16</span><small>STUDIOS</small></div>
+              <div className="studio-copy">
+                <span className="project-collection-index">02 / {isPortuguese ? 'ESTÚDIO INDEPENDENTE DE JOGOS' : 'INDEPENDENT GAME STUDIO'}</span>
+                <h3 id="studio-title">{isPortuguese ? 'Jogos com identidade própria.' : 'Games with their own identity.'}</h3>
+                <p>{isPortuguese ? 'ALV16 STUDIOS é o espaço onde desenvolvo experiências interativas e projetos gaming. RAW. e MRDR. são os primeiros títulos deste universo — e não os últimos.' : 'ALV16 STUDIOS is where I develop interactive experiences and gaming projects. RAW. and MRDR. are the first titles in this universe — not the last.'}</p>
+                <span className="studio-signature">A CREATIVE LABEL BY 16ALVES02</span>
+              </div>
+            </div>
+            <div className="projects-grid studio-project-grid">{studioProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured />)}</div>
+          </section>
+          {additionalProjects.length > 0 && <details className="additional-projects">
+            <summary>{t.moreProjects}<span className="additional-projects-count">{additionalProjects.length}</span></summary>
+            <div className="projects-grid additional-projects-grid">
+              {additionalProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} />)}
+            </div>
+          </details>}
         </section>
 
         <section className="about-section" id="about">
