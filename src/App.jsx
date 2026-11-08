@@ -151,7 +151,7 @@ const copy = {
     educationAdditional: '',
     priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
     internshipKicker: 'PROFESSIONAL OPPORTUNITIES / AVEIRO → COIMBRA', internshipTitle: 'Looking for my next opportunity in Coimbra.', internshipText: 'I’m based in Oliveira de Azeméis, Aveiro, and I’m planning to move to Coimbra to continue my studies and develop my career. I’m looking for software development opportunities, including employment and a paid 680-hour curricular internship from February 2027. I’m open to on-site, hybrid or remote work and keen to contribute to a team while continuing to learn.',
-    targetStart: 'Available for opportunities now', mode: 'Aveiro / Coimbra / hybrid / remote', paidPreference: '680-hour paid internship · Feb 2027', internshipCta: 'Email about this internship', internshipMeta: 'PAID CURRICULAR INTERNSHIP / 680 HOURS', internshipBottom: 'LEARN IN A TEAM. CONTRIBUTE TO REAL WORK.', contactMeta: 'EMAIL / LINKS / NEXT STEP',
+    targetStart: 'Available for opportunities now', mode: 'Aveiro / Coimbra / hybrid / remote', paidPreference: '680-hour paid internship · Feb 2027', internshipCta: 'Discuss an opportunity', internshipMeta: 'EMPLOYMENT / PAID 680-HOUR INTERNSHIP', internshipBottom: 'LEARN IN A TEAM. CONTRIBUTE TO REAL WORK.', contactMeta: 'EMAIL / LINKS / NEXT STEP',
     contactKicker: '04 / CONTACT', contactTitle: 'Let’s discuss an opportunity.', contactText: 'I’m based in Aveiro and looking for professional opportunities in Coimbra as I plan to continue my studies there. I’m open to employment, internships and remote or hybrid roles. Download my CV or email me directly.', emailLabel: 'EMAIL ME', socialsLabel: 'ELSEWHERE ON THE INTERNET', socialNote: 'Follow the work, not the oversharing.',
     footerNote: 'Designed and built by Leonardo Alves.', footerTop: 'Back to top ↑', email: 'Copy email', copied: 'Email copied',
   },
@@ -183,7 +183,7 @@ const copy = {
     educationAdditional: '',
     priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
     internshipKicker: 'OPORTUNIDADES PROFISSIONAIS / AVEIRO → COIMBRA', internshipTitle: 'Procuro a próxima oportunidade em Coimbra.', internshipText: 'Atualmente vivo em Oliveira de Azeméis, Aveiro, e pretendo mudar-me para Coimbra para prosseguir os estudos e desenvolver a minha carreira. Procuro oportunidades em desenvolvimento de software, incluindo emprego e um estágio curricular remunerado de 680 horas a partir de fevereiro de 2027. Estou disponível para trabalho presencial, híbrido ou remoto e quero contribuir para uma equipa enquanto continuo a aprender.',
-    targetStart: 'Disponível para oportunidades', mode: 'Aveiro / Coimbra / híbrido / remoto', paidPreference: 'Estágio remunerado · 680h · fev. 2027', internshipCta: 'Enviar email sobre o estágio', internshipMeta: 'ESTÁGIO CURRICULAR REMUNERADO / 680 HORAS', internshipBottom: 'APRENDER EM EQUIPA. CONTRIBUIR PARA TRABALHO REAL.', contactMeta: 'EMAIL / LIGAÇÕES / PRÓXIMO PASSO',
+    targetStart: 'Disponível para oportunidades', mode: 'Aveiro / Coimbra / híbrido / remoto', paidPreference: 'Estágio remunerado · 680h · fev. 2027', internshipCta: 'Falar sobre uma oportunidade', internshipMeta: 'EMPREGO / ESTÁGIO REMUNERADO DE 680 HORAS', internshipBottom: 'APRENDER EM EQUIPA. CONTRIBUIR PARA TRABALHO REAL.', contactMeta: 'EMAIL / LIGAÇÕES / PRÓXIMO PASSO',
     contactKicker: '04 / CONTACTO', contactTitle: 'Vamos falar sobre uma oportunidade.', contactText: 'Estou em Aveiro e procuro oportunidades profissionais em Coimbra, onde pretendo prosseguir os estudos. Estou disponível para emprego, estágios e funções remotas ou híbridas. Descarrega o meu CV ou envia-me um email.',
     emailLabel: 'ENVIA-ME UM EMAIL', socialsLabel: 'NOUTROS CANTOS DA INTERNET', socialNote: 'Acompanha o trabalho, sem exposição a mais.',
     footerNote: 'Design e código por Leonardo Alves.', footerTop: 'Voltar ao topo ↑', email: 'Copiar email', copied: 'Email copiado',
@@ -1205,11 +1205,11 @@ export default function App() {
   const cvHref = language === 'pt-PT' ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT-Engenharia-Software.pdf' : 'Leonardo-Alves-CV-EN-Software-Engineering.pdf';
   const internshipSubject = language === 'pt-PT'
-    ? 'Candidatura - Estágio curricular remunerado de 680 horas - fevereiro de 2027'
-    : 'Application - Paid 680-hour curricular internship - February 2027';
+    ? 'Oportunidade profissional - Leonardo Alves'
+    : 'Professional opportunity - Leonardo Alves';
   const internshipBody = language === 'pt-PT'
-    ? 'Olá, Leonardo.\n\nGostaria de falar sobre uma oportunidade de estágio curricular remunerado de 680 horas, com início em fevereiro de 2027, na região de Coimbra.\n\nEmpresa: \nRegime de trabalho: \n\nCom os melhores cumprimentos,'
-    : 'Hello Leonardo,\n\nI would like to discuss a paid 680-hour curricular internship starting in February 2027 in the Coimbra area.\n\nCompany: \nWorking arrangement: \n\nKind regards,';
+    ? 'Olá, Leonardo.\n\nGostaria de falar sobre uma oportunidade profissional em desenvolvimento de software, na região de Aveiro ou Coimbra.\n\nTipo de oportunidade: emprego / estágio curricular de 680 horas\nRegime de trabalho: presencial / híbrido / remoto\n\nCom os melhores cumprimentos,'
+    : 'Hello Leonardo,\n\nI would like to discuss a software development opportunity in the Aveiro or Coimbra area.\n\nOpportunity: employment / 680-hour curricular internship\nWorking arrangement: on-site / hybrid / remote\n\nKind regards,';
   const internshipHref = `mailto:16alves02@gmail.com?subject=${encodeURIComponent(internshipSubject)}&body=${encodeURIComponent(internshipBody)}`;
   const relevantExperience = experienceByLanguage[language] || experienceByLanguage.en;
 
