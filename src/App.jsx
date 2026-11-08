@@ -2,14 +2,22 @@ import { useEffect, useRef, useState } from 'react';
 import {
   ArrowDownRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, Check,
   ChevronDown, Clock3, Code2, ContactRound, Download, Globe, GraduationCap,
-  MapPin, Menu, Moon, Sparkles, Sun, X,
+  Github, Instagram, Link2, Linkedin, MapPin, Menu, Moon, Shapes, Sparkles,
+  Sun, Twitch, X, Youtube,
 } from 'lucide-react';
 import { projects } from './data/projects.js';
+import ProjectCarousel from './components/ProjectCarousel.jsx';
+import EngineeringStories from './components/EngineeringStories.jsx';
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
   { label: 'LinkedIn', short: 'in', url: 'https://www.linkedin.com/in/16alves02/', kind: 'work' },
   { label: 'GitHub académico', short: 'UA', url: 'https://github.com/13alves05', kind: 'work' },
+  { label: 'Instagram', short: 'IG', url: 'https://www.instagram.com/16alves02/', kind: 'social' },
+  { label: 'YouTube', short: 'YT', url: 'https://www.youtube.com/@16alves02', kind: 'social' },
+  { label: 'Twitch', short: 'TW', url: 'https://www.twitch.tv/16alves02', kind: 'social' },
+  { label: 'Linktree', short: '↗', url: 'https://linktr.ee/16alves02', kind: 'more' },
+  { label: 'Uiverse', short: 'UV', url: 'https://uiverse.io/16alves02', kind: 'social' },
 ];
 
 const experienceByLanguage = {
@@ -1063,7 +1071,17 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
 }
 
 function SocialLink({ social }) {
-  const SocialIcon = social.label === 'LinkedIn' ? ContactRound : social.label === 'GitHub académico' ? GraduationCap : Code2;
+  const socialIcons = {
+    GitHub: Github,
+    LinkedIn: Linkedin,
+    'GitHub académico': GraduationCap,
+    Instagram,
+    YouTube,
+    Twitch,
+    Linktree: Link2,
+    Uiverse: Shapes,
+  };
+  const SocialIcon = socialIcons[social.label] || Globe;
   return <a className={`social-link social-${social.kind}`} href={social.url} target="_blank" rel="noreferrer"><span className="social-mark"><SocialIcon size={18} strokeWidth={1.8} aria-hidden="true" /></span><span>{social.label}</span><ArrowUpRight className="social-arrow" size={16} strokeWidth={1.8} aria-hidden="true" /></a>;
 }
 
@@ -1258,7 +1276,7 @@ export default function App() {
       <header className="site-header">
         <div className="header-inner">
           <a className="brand" href="#home" aria-label="16alves02 LEONARDO ALVES home">
-            <img src="/brand-mark.svg" alt="16alves02 brand mark" />
+            <img src="/logo.svg" alt="Logótipo 16alves02" />
             <span>16alves02<span className="brand-dot">.</span><small className="brand-owner">LEONARDO ALVES</small></span>
           </a>
 
@@ -1336,7 +1354,7 @@ export default function App() {
       <main id="main-content">
         <section className="hero" id="home">
           <div className="hero-back-number" aria-hidden="true">16</div>
-          <div className="hero-inner hero-inner-focused">
+          <div className="hero-inner hero-inner-focused hero-inner-universe">
             <div className="hero-copy">
               <div className="hero-meta"><span className="status-dot" />{t.role}<span className="meta-slash">/</span>{t.eyebrow}</div>
               <h1>{t.titleOne}<br /><span className="hero-orange">{t.titleTwo}</span><span className="hero-period">{t.titleEnd}</span></h1>
@@ -1353,6 +1371,10 @@ export default function App() {
                 <a className="button button-outline" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
               </div>
             </div>
+          <div className="hero-art-carousel">
+            <ProjectCarousel t={t} />
+          </div>
+
           </div>
         </section>
 
@@ -1374,9 +1396,9 @@ export default function App() {
           <div className="section-heading"><div><p className="section-kicker"><span>01</span> / {t.workKicker.split('/ ').slice(1).join('/ ')}</p><h2>{t.workTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.workIntro}</p></div>
           <div className="project-collection">
             <div className="project-collection-heading">
-              <span className="project-collection-index">01 / {isPortuguese ? "PROJETOS EM DESTAQUE" : "FEATURED PROJECTS"}</span>
-              <h3>{isPortuguese ? "Quatro projetos. Diferentes desafios." : "Four projects. Different challenges."}</h3>
-              <p>{isPortuguese ? "Do desenvolvimento de sistemas à lógica de produto e experiências interativas." : "From integrated systems to product logic and interactive experiences."}</p>
+              <span className="project-collection-index">01 / {isPortuguese ? "PROJETOS EM DESTAQUE" : "FEATURED PROJECTS"} · {projects.length} {isPortuguese ? "PROJETOS NO TOTAL" : "PROJECTS IN TOTAL"}</span>
+              <h3>{isPortuguese ? "Diferentes ideias. Diferentes desafios." : "Different ideas. Different challenges."}</h3>
+              <p>{isPortuguese ? "Os quatro projetos principais e o restante trabalho, sem esconder nenhum projeto numa lista fechada." : "The four main projects and the rest of the work, with every project visible."}</p>
             </div>
             <div className="projects-grid featured-projects-grid">
               {featuredProjects.map((project, index) => (
@@ -1384,18 +1406,31 @@ export default function App() {
               ))}
             </div>
           </div>
-          {additionalProjects.length > 0 && <details className="additional-projects">
-            <summary>{t.moreProjects}<span className="additional-projects-count">{additionalProjects.length}</span></summary>
+          {additionalProjects.length > 0 && <div className="additional-projects">
+            <div className="additional-projects-heading">
+              <div>
+                <span className="project-collection-index">02 / {isPortuguese ? "OUTROS PROJETOS" : "MORE PROJECTS"}</span>
+                <h3>{isPortuguese ? "Mais trabalho que também merece ser visto." : "More work worth exploring."}</h3>
+                <p>{isPortuguese ? "Projetos académicos, experiências pessoais e trabalho complementar." : "Academic projects, personal experiments and complementary work."}</p>
+              </div>
+              <span className="additional-projects-count" aria-label={isPortuguese ? `${additionalProjects.length} projetos adicionais` : `${additionalProjects.length} additional projects`}>{additionalProjects.length}</span>
+            </div>
             <div className="projects-grid additional-projects-grid">
               {additionalProjects.map((project, index) => <ProjectCard key={project.name} project={project} t={t} language={language} position={index + 1} total={additionalProjects.length} />)}
             </div>
-          </details>}
+          </div>}
+          <div className="project-archive-links">
+            <a href="https://github.com/16alves02?tab=repositories" target="_blank" rel="noreferrer">{isPortuguese ? "Explorar todos os repositórios" : "Explore all repositories"} <ArrowUpRight size={16} aria-hidden="true" /></a>
+            <a href="https://github.com/13alves05" target="_blank" rel="noreferrer">{isPortuguese ? "Ver GitHub académico" : "Academic GitHub"} <ArrowUpRight size={16} aria-hidden="true" /></a>
+          </div>
         </section>
 
-        <section className="about-section" id="about">
+        <EngineeringStories language={language} />
+
+<section className="about-section" id="about">
           <div className="about-band"><span>02 / {t.navAbout.toUpperCase()}</span><span>16ALVES02®</span><span>{t.aboutBandTagline}</span></div>
           <div className="about-inner section-pad">
-            <div className="about-title-col"><p className="section-kicker">{t.aboutKicker}</p><h2>{t.aboutTitle}</h2><div className="about-logo"><img src="/brand-mark.svg" alt="16alves02" /><span>{t.aboutMiniOne}<br />{t.aboutMiniTwo}</span></div></div>
+            <div className="about-title-col"><p className="section-kicker">{t.aboutKicker}</p><h2>{t.aboutTitle}</h2><div className="about-logo"><img src="/logo.svg" alt="16alves02" /><span>{t.aboutMiniOne}<br />{t.aboutMiniTwo}</span></div></div>
             <div className="about-copy"><p>{t.about1}</p></div>
           </div>
         </section>
@@ -1468,7 +1503,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><a className="footer-brand" href="#home"><img src="/brand-mark.svg" alt="" /><span>16alves02<span className="brand-dot">.</span></span></a><p>{t.footerNote}</p><a href="#home" className="back-top">{t.footerTop}</a><span className="footer-year">© 2026</span></footer>
+      <footer className="site-footer"><a className="footer-brand" href="#home"><img src="/logo.svg" alt="" /><span>16alves02<span className="brand-dot">.</span></span></a><p>{t.footerNote}</p><a href="#home" className="back-top">{t.footerTop}</a><span className="footer-year">© 2026</span></footer>
     </div>
   );
 }
