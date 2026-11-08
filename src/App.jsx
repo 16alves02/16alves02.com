@@ -125,17 +125,18 @@ const extraProjectTranslations = {
 const copy = {
   en: {
     navWork: 'Work', navAbout: 'About', navPath: 'Background', navContact: 'Contact', navButton: 'Discuss internship',
-    role: 'SOFTWARE DEVELOPMENT STUDENT / JUNIOR SOFTWARE DEVELOPER', eyebrow: 'PORTFOLIO / PORTUGAL / 2027',
+    role: 'SOFTWARE DEVELOPER / SOFTWARE DEVELOPMENT STUDENT', eyebrow: 'OLIVEIRA DE AZEMÉIS / AVEIRO / PORTUGAL',
     titleOne: 'I build', titleTwo: 'software', titleEnd: '.',
-    intro: 'I’m Leonardo, a Software Development student at ESAN, University of Aveiro. I build web, backend and mobile projects, and enjoy understanding how the different parts of a software system fit together.',
+    intro: 'I’m Leonardo, a Software Developer and Software Development student at the University of Aveiro. Based in Oliveira de Azeméis, in the Aveiro district, I build web, backend and mobile projects. I’m preparing my next step in Coimbra, where I aim to continue my studies and pursue professional opportunities.',
     workButton: 'See selected work', internshipButton: 'Looking for a 680h internship',
     sideNote: 'SOFTWARE DEVELOPMENT. ALWAYS LEARNING.', scroll: 'SCROLL A LITTLE',
-    ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'BUILD / TEST / LEARN'],
+    ticker: ['SOFTWARE DEVELOPMENT', 'WEB / BACKEND / MOBILE', 'AVEIRO → COIMBRA', 'BUILD / TEST / IMPROVE'],
+    locationKicker: 'CURRENT BASE / NEXT CHAPTER', locationTitle: 'Aveiro is home. Coimbra is the next step.', locationText: 'I’m based in Oliveira de Azeméis, in the Aveiro district, Portugal. I’m looking to relocate to Coimbra to continue my studies and build my professional career there. I’m open to opportunities in Aveiro and Coimbra, as well as remote or hybrid roles.', locationFacts: ['CURRENT LOCATION · OLIVEIRA DE AZEMÉIS, AVEIRO', 'TARGET · COIMBRA, PORTUGAL', 'OPEN TO · EMPLOYMENT / INTERNSHIP / HYBRID / REMOTE'], 
     workKicker: '01 / PROJECTS AND ENGINEERING WORK', workTitle: 'Selected projects',
     workIntro: 'A focused selection of academic and personal projects, with the architecture, technologies and implementation details behind each one.',
     viewLive: 'Open project', viewCode: 'Source code', inProgress: 'In development', previewUnavailable: 'No public screenshot is available yet.',
-    aboutKicker: '02 / ENGINEERING PROFILE', aboutTitle: 'Building software through practical experience.',
-    about1: 'I’m studying Software Development (CTeSP) at Escola Superior Aveiro Norte, part of the University of Aveiro. My training covers programming, algorithms, databases, software engineering and web and mobile development.',
+    aboutKicker: '02 / ENGINEERING PROFILE', aboutTitle: 'A generalist software developer, learning by building.' ,
+    about1: 'I’m studying Software Development (CTeSP) at Escola Superior Aveiro Norte, part of the University of Aveiro. My training covers programming, algorithms, databases, software engineering and web and mobile development. I’m currently based in Oliveira de Azeméis, Aveiro.',
     about2: 'I have completed practical internships in backend and web development, working with PHP, MySQL, HTML, CSS and JavaScript. These experiences introduced me to real development tasks and gave me an early opportunity to work with existing code and database-backed applications.',
     about3: 'I have also completed practical experiences in backend and web development. My current projects span React and TypeScript interfaces, PHP and REST APIs, relational databases, Redis/BullMQ workflows and Android with Kotlin. I value clear structure, maintainable code and understanding why a solution works.',
     servicesKicker: 'ENGINEERING FOCUS', servicesTitle: 'Areas I work across', servicesIntro: 'A broad software development foundation, with practical work across interfaces, APIs, data and mobile applications.', serviceItems: [['Web applications', 'Responsive interfaces and application workflows using React, TypeScript and Next.js.'], ['Backend & APIs', 'Server-side features, REST endpoints, validation and database-backed functionality.'], ['Data & processing', 'Relational data models, SQL persistence and asynchronous job queues.'], ['Mobile development', 'Android development with Kotlin and mobile-oriented projects with Capacitor.']],
@@ -149,24 +150,25 @@ const copy = {
     educationKicker: 'EDUCATION', educationTitle: 'Software Development', educationDate: 'Sep 2025 – Jul 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro',
     educationAdditional: '',
     priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
-    internshipKicker: 'INTERNSHIP AVAILABILITY / 2027', internshipTitle: 'Seeking a paid software development internship in Coimbra.', internshipText: 'I am seeking a paid 680-hour curricular internship starting in February 2027. Coimbra is my preferred location, and I am open to on-site, hybrid or remote arrangements. I want to contribute to real development work, learn from experienced engineers and strengthen my software engineering foundations through practical work and feedback.',
-    targetStart: 'Start: February 2027', mode: 'Coimbra: on-site / hybrid / remote', paidPreference: 'Paid curricular internship', internshipCta: 'Email about this internship', internshipMeta: 'PAID CURRICULAR INTERNSHIP / 680 HOURS', internshipBottom: 'LEARN IN A TEAM. CONTRIBUTE TO REAL WORK.', contactMeta: 'EMAIL / LINKS / NEXT STEP',
-    contactKicker: '04 / CONTACT', contactTitle: 'Let’s discuss an opportunity.', contactText: 'I am available for a paid 680-hour curricular internship from February 2027, preferably in Coimbra. Download my CV or email me directly about an opportunity.', emailLabel: 'EMAIL ME', socialsLabel: 'ELSEWHERE ON THE INTERNET', socialNote: 'Follow the work, not the oversharing.',
+    internshipKicker: 'PROFESSIONAL OPPORTUNITIES / AVEIRO → COIMBRA', internshipTitle: 'Looking for my next opportunity in Coimbra.', internshipText: 'I’m based in Oliveira de Azeméis, Aveiro, and I’m planning to move to Coimbra to continue my studies and develop my career. I’m looking for software development opportunities, including employment and a paid 680-hour curricular internship from February 2027. I’m open to on-site, hybrid or remote work and keen to contribute to a team while continuing to learn.',
+    targetStart: 'Available for opportunities now', mode: 'Aveiro / Coimbra / hybrid / remote', paidPreference: '680-hour paid internship · Feb 2027', internshipCta: 'Email about this internship', internshipMeta: 'PAID CURRICULAR INTERNSHIP / 680 HOURS', internshipBottom: 'LEARN IN A TEAM. CONTRIBUTE TO REAL WORK.', contactMeta: 'EMAIL / LINKS / NEXT STEP',
+    contactKicker: '04 / CONTACT', contactTitle: 'Let’s discuss an opportunity.', contactText: 'I’m based in Aveiro and looking for professional opportunities in Coimbra as I plan to continue my studies there. I’m open to employment, internships and remote or hybrid roles. Download my CV or email me directly.', emailLabel: 'EMAIL ME', socialsLabel: 'ELSEWHERE ON THE INTERNET', socialNote: 'Follow the work, not the oversharing.',
     footerNote: 'Designed and built by Leonardo Alves.', footerTop: 'Back to top ↑', email: 'Copy email', copied: 'Email copied',
   },
   pt: {
     navWork: 'Projetos', navAbout: 'Sobre', navPath: 'Percurso', navContact: 'Contacto', navButton: 'Falar sobre estágio',
-    role: 'ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE / JUNIOR SOFTWARE DEVELOPER', eyebrow: 'PORTEFÓLIO / PORTUGAL / 2027',
+    role: 'SOFTWARE DEVELOPER / ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE', eyebrow: 'OLIVEIRA DE AZEMÉIS / AVEIRO / PORTUGAL',
     titleOne: 'Desenvolvo', titleTwo: 'software', titleEnd: '.',
-    intro: 'Sou o Leonardo, estudante de Desenvolvimento de Software na ESAN, Universidade de Aveiro. Desenvolvo projetos web, backend e mobile, procurando compreender como cada componente se integra no sistema.',
+    intro: 'Sou o Leonardo, Software Developer e estudante de Desenvolvimento de Software na Universidade de Aveiro. Vivo em Oliveira de Azeméis, no distrito de Aveiro, e desenvolvo projetos web, backend e mobile. Estou a preparar a próxima etapa em Coimbra, onde pretendo prosseguir os estudos e encontrar oportunidades profissionais.',
     workButton: 'Ver projetos', internshipButton: 'À procura de estágio de 680h',
     sideNote: 'DESENVOLVIMENTO DE SOFTWARE. SEMPRE A APRENDER.', scroll: 'CONTINUA A DESCER',
-    ticker: ['REACT', 'TYPESCRIPT', 'JAVASCRIPT', 'PHP + SQL', 'CRIAR / TESTAR / APRENDER'],
+    ticker: ['DESENVOLVIMENTO DE SOFTWARE', 'WEB / BACKEND / MOBILE', 'AVEIRO → COIMBRA', 'CRIAR / TESTAR / MELHORAR'],
+    locationKicker: 'BASE ATUAL / PRÓXIMA ETAPA', locationTitle: 'Aveiro é a minha base. Coimbra é o próximo passo.', locationText: 'Estou em Oliveira de Azeméis, no distrito de Aveiro, Portugal. Procuro oportunidades profissionais em Aveiro e Coimbra e pretendo mudar-me para Coimbra para prosseguir os estudos e desenvolver aí o meu percurso profissional. Também estou disponível para trabalho híbrido ou remoto.', locationFacts: ['LOCALIZAÇÃO ATUAL · OLIVEIRA DE AZEMÉIS, AVEIRO', 'OBJETIVO · COIMBRA, PORTUGAL', 'DISPONIBILIDADE · EMPREGO / ESTÁGIO / HÍBRIDO / REMOTO'], 
     workKicker: '01 / PROJETOS E TRABALHO TÉCNICO', workTitle: 'Projetos em destaque',
     workIntro: 'Uma seleção de projetos académicos e pessoais, com a arquitetura, tecnologias e decisões de implementação.',
     viewLive: 'Abrir projeto', viewCode: 'Código-fonte', inProgress: 'Em desenvolvimento', previewUnavailable: 'Ainda não existe uma captura de ecrã pública.',
-    aboutKicker: '02 / PERFIL DE ENGENHARIA', aboutTitle: 'Desenvolvimento de software através da experiência prática.',
-    about1: 'Sou estudante do CTeSP de Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. A minha formação inclui programação, algoritmos, bases de dados, engenharia de software e desenvolvimento web e mobile.',
+    aboutKicker: '02 / PERFIL DE ENGENHARIA', aboutTitle: 'Software Developer generalista, com aprendizagem prática.' ,
+    about1: 'Sou estudante do CTeSP de Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. A minha formação inclui programação, algoritmos, bases de dados, engenharia de software e desenvolvimento web e mobile. Atualmente vivo em Oliveira de Azeméis, Aveiro.',
     about2: 'Tive experiências práticas em estágios de desenvolvimento backend e Web, com PHP, MySQL, HTML, CSS e JavaScript. Estas experiências deram-me contacto com tarefas reais de desenvolvimento, manutenção de código existente e aplicações apoiadas por bases de dados.',
     about3: 'Também tive experiências práticas em desenvolvimento backend e web. Os meus projetos atuais abrangem interfaces com React e TypeScript, PHP e APIs REST, bases de dados relacionais, workflows com Redis/BullMQ e Android com Kotlin. Valorizo código organizado, manutenção e compreensão das decisões técnicas.',
     servicesKicker: 'FOCO TÉCNICO', servicesTitle: 'Áreas de desenvolvimento', servicesIntro: 'Uma base abrangente em desenvolvimento de software, com trabalho prático em interfaces, APIs, dados e aplicações móveis.', serviceItems: [['Aplicações web', 'Interfaces responsivas e fluxos de aplicação com React, TypeScript e Next.js.'], ['Backend e APIs', 'Funcionalidades server-side, endpoints REST, validação e integração com bases de dados.'], ['Dados e processamento', 'Modelação relacional, persistência SQL e filas de processamento assíncrono.'], ['Desenvolvimento mobile', 'Android com Kotlin e projetos orientados a mobile com Capacitor.']],
@@ -180,9 +182,9 @@ const copy = {
     educationKicker: 'FORMAÇÃO', educationTitle: 'Desenvolvimento de Software', educationDate: 'set. 2025 – jul. 2027', educationWhere: 'CTeSP · Escola Superior Aveiro Norte · Universidade de Aveiro',
     educationAdditional: '',
     priorEducation: 'Escola Secundária Dr. Serafim Leite · 2020–2023',
-    internshipKicker: 'DISPONIBILIDADE PARA ESTÁGIO / 2027', internshipTitle: 'Procuro um estágio remunerado em desenvolvimento de software, em Coimbra.', internshipText: 'Procuro um estágio curricular remunerado de 680 horas, com início em fevereiro de 2027. Coimbra é a minha localização preferencial e estou disponível para regime presencial, híbrido ou remoto. Quero contribuir para trabalho real de desenvolvimento, aprender com profissionais experientes e consolidar as minhas bases de engenharia de software através da prática e do feedback.',
-    targetStart: 'Início: fevereiro de 2027', mode: 'Coimbra: presencial / híbrido / remoto', paidPreference: 'Estágio curricular remunerado', internshipCta: 'Enviar email sobre o estágio', internshipMeta: 'ESTÁGIO CURRICULAR REMUNERADO / 680 HORAS', internshipBottom: 'APRENDER EM EQUIPA. CONTRIBUIR PARA TRABALHO REAL.', contactMeta: 'EMAIL / LIGAÇÕES / PRÓXIMO PASSO',
-    contactKicker: '04 / CONTACTO', contactTitle: 'Vamos falar sobre uma oportunidade.', contactText: 'Estou disponível para um estágio curricular remunerado de 680 horas a partir de fevereiro de 2027, preferencialmente em Coimbra. Descarrega o meu CV ou envia-me um email sobre uma oportunidade.',
+    internshipKicker: 'OPORTUNIDADES PROFISSIONAIS / AVEIRO → COIMBRA', internshipTitle: 'Procuro a próxima oportunidade em Coimbra.', internshipText: 'Atualmente vivo em Oliveira de Azeméis, Aveiro, e pretendo mudar-me para Coimbra para prosseguir os estudos e desenvolver a minha carreira. Procuro oportunidades em desenvolvimento de software, incluindo emprego e um estágio curricular remunerado de 680 horas a partir de fevereiro de 2027. Estou disponível para trabalho presencial, híbrido ou remoto e quero contribuir para uma equipa enquanto continuo a aprender.',
+    targetStart: 'Disponível para oportunidades', mode: 'Aveiro / Coimbra / híbrido / remoto', paidPreference: 'Estágio remunerado · 680h · fev. 2027', internshipCta: 'Enviar email sobre o estágio', internshipMeta: 'ESTÁGIO CURRICULAR REMUNERADO / 680 HORAS', internshipBottom: 'APRENDER EM EQUIPA. CONTRIBUIR PARA TRABALHO REAL.', contactMeta: 'EMAIL / LIGAÇÕES / PRÓXIMO PASSO',
+    contactKicker: '04 / CONTACTO', contactTitle: 'Vamos falar sobre uma oportunidade.', contactText: 'Estou em Aveiro e procuro oportunidades profissionais em Coimbra, onde pretendo prosseguir os estudos. Estou disponível para emprego, estágios e funções remotas ou híbridas. Descarrega o meu CV ou envia-me um email.',
     emailLabel: 'ENVIA-ME UM EMAIL', socialsLabel: 'NOUTROS CANTOS DA INTERNET', socialNote: 'Acompanha o trabalho, sem exposição a mais.',
     footerNote: 'Design e código por Leonardo Alves.', footerTop: 'Voltar ao topo ↑', email: 'Copiar email', copied: 'Email copiado',
   },
@@ -1363,6 +1365,20 @@ export default function App() {
                 <a className="button button-outline" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="location-section section-pad" aria-labelledby="location-title">
+          <div className="location-panel">
+            <div className="location-heading">
+              <p className="section-kicker"><span>00</span> / {t.locationKicker}</p>
+              <h2 id="location-title">{t.locationTitle}</h2>
+            </div>
+            <div className="location-copy">
+              <p>{t.locationText}</p>
+              <div className="location-facts">{t.locationFacts.map((fact) => <span key={fact}>{fact}</span>)}</div>
+            </div>
+            <span className="location-stamp" aria-hidden="true">PT<br />40°N</span>
           </div>
         </section>
 
