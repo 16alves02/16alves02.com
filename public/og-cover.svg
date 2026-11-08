@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
-  <rect width="1200" height="630" fill="#F3F0E8"/>
-  <path d="M0 90H1200M0 548H1200M70 90V548M1130 90V548" stroke="#211F1B" stroke-opacity=".18"/>
-  <path d="M88 124H136" stroke="#EB4520" stroke-width="8"/>
-  <text x="88" y="172" fill="#68645D" font-family="monospace" font-size="17" letter-spacing="5">OLIVEIRA DE AZEMÉIS / PORTUGAL</text>
-  <text x="82" y="306" fill="#211F1B" font-family="Arial, Helvetica, sans-serif" font-size="95" font-weight="700" letter-spacing="-5">I build the</text>
-  <text x="82" y="408" fill="#EB4520" font-family="Arial, Helvetica, sans-serif" font-size="112" font-weight="700" letter-spacing="-7">front end.</text>
-  <text x="89" y="470" fill="#68645D" font-family="monospace" font-size="20" letter-spacing="3">DETAILS COUNT, TOO.</text>
-  <rect x="930" y="160" width="130" height="240" fill="#CCD7D2" fill-opacity=".9" stroke="#82928C"/>
-  <rect x="994" y="219" width="94" height="240" fill="#EB4520" fill-opacity=".94" stroke="#EB4520"/>
-  <rect x="880" y="248" width="112" height="216" fill="#FFFFFF" fill-opacity=".4" stroke="#9BA8A2"/>
-  <text x="1110" y="512" fill="#EB4520" font-family="monospace" font-size="18" text-anchor="end">LA / 16—02</text>
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <path d="M0 88H1200M0 548H1200" stroke="#171717" stroke-opacity=".12"/>
+  <rect x="82" y="92" width="54" height="7" rx="3.5" fill="#FF6A2A"/>
+  <text x="82" y="145" fill="#625E58" font-family="monospace" font-size="16" letter-spacing="4">16ALVES02 / PORTUGAL</text>
+  <text x="78" y="290" fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="700" letter-spacing="-7">Leonardo</text>
+  <text x="78" y="400" fill="#FF6A2A" font-family="Arial, Helvetica, sans-serif" font-size="116" font-weight="700" letter-spacing="-8">Alves.</text>
+  <text x="84" y="466" fill="#625E58" font-family="monospace" font-size="21" letter-spacing="4">SOFTWARE DEVELOPER</text>
+  <rect x="895" y="142" width="190" height="190" rx="18" fill="#FF6A2A"/>
+  <text x="925" y="278" fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="106" font-weight="800" letter-spacing="-10">16</text>
+  <text x="1090" y="362" fill="#A83D18" font-family="monospace" font-size="15" text-anchor="end" letter-spacing="3">BUILD / LEARN / REFINE</text>
+  <text x="84" y="584" fill="#625E58" font-family="monospace" font-size="15" letter-spacing="2">WEB / BACKEND / MOBILE / SOFTWARE</text>
 </svg>
