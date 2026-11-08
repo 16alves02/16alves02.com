@@ -404,3 +404,45 @@ html[data-theme="light"] .site-shell .project-visual-wrap .project-number {
   background: #f8f4ed !important;
   color: #211d19 !important;
 }
+
+
+/* Four featured projects: a compact two-by-two grid on desktop. */
+.site-shell .featured-projects-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+.site-shell .featured-projects-grid .project-card.project-featured {
+  grid-column: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  grid-template-columns: none;
+}
+.site-shell .featured-projects-grid .project-card.project-featured .project-visual-wrap {
+  min-height: 220px;
+  border: 0 !important;
+  border-bottom: 1px solid var(--redesign-line) !important;
+}
+.site-shell .featured-projects-grid .project-card.project-raw.project-featured .project-visual-wrap {
+  border: 0 !important;
+  border-bottom: 1px solid var(--redesign-line) !important;
+}
+.site-shell .featured-projects-grid .project-card.project-featured .project-info {
+  padding: 24px;
+  flex: 1;
+}
+.site-shell .featured-projects-grid .project-card.project-featured .project-info h3 {
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+}
+.site-shell .featured-projects-grid .project-card.project-featured .project-info p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .site-shell .featured-projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .site-shell .featured-projects-grid .project-card.project-featured .project-visual-wrap {
+    min-height: 240px;
+  }
+}
