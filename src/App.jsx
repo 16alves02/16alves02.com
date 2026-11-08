@@ -1275,7 +1275,7 @@ export default function App() {
       <a className="skip-link" href="#main-content">{language === 'pt-PT' ? 'Saltar para o conteúdo' : language === 'es' ? 'Saltar al contenido' : language === 'fr' ? 'Aller au contenu' : language === 'it' ? 'Vai al contenuto' : language === 'de' ? 'Zum Inhalt springen' : language === 'ja' ? 'コンテンツへスキップ' : 'Skip to content'}</a>
       <header className="site-header">
         <div className="header-inner">
-          <a className="brand" href="#home" aria-label="16alves02 home">
+          <a className="brand" href="#home" aria-label="16alves02 LEONARDO ALVES home">
             <img src="/logo.png" alt="Leonardo Alves monogram" />
             <span>16alves02<span className="brand-dot">.</span><small className="brand-owner">LEONARDO ALVES</small></span>
           </a>
