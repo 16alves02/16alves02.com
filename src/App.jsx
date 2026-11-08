@@ -1,4 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import {
+  ArrowDownRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, Check,
+  ChevronDown, Clock3, Download, Globe, Github, GraduationCap, Linkedin,
+  MapPin, Menu, Moon, Sparkles, Sun, X,
+} from 'lucide-react';
 import { projects } from './data/projects.js';
 
 const socials = [
@@ -159,18 +164,18 @@ const copy = {
     navWork: 'Projetos', navAbout: 'Sobre', navPath: 'Percurso', navContact: 'Contacto', navButton: 'Falar sobre estágio',
     role: 'SOFTWARE DEVELOPER / ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE', eyebrow: 'OLIVEIRA DE AZEMÉIS / AVEIRO / PORTUGAL',
     titleOne: 'Desenvolvo', titleTwo: 'software', titleEnd: '.',
-    intro: 'Sou o Leonardo, Software Developer e estudante de Desenvolvimento de Software na Universidade de Aveiro. Vivo em Oliveira de Azeméis, no distrito de Aveiro, e desenvolvo projetos web, backend e mobile. Estou a preparar a próxima etapa em Coimbra, onde pretendo prosseguir os estudos e encontrar oportunidades profissionais.',
+    intro: 'Sou Software Developer e estudante de Desenvolvimento de Software na Universidade de Aveiro. Desenvolvo projetos pessoais e académicos que me permitem trabalhar diferentes etapas de uma solução: desde a interface e lógica de aplicação até às APIs, bases de dados e integração mobile. Estou sediado em Oliveira de Azeméis e aberto a oportunidades em Aveiro, Coimbra e em regime remoto ou híbrido.',
     workButton: 'Ver projetos', internshipButton: 'À procura de estágio de 680h',
     sideNote: 'DESENVOLVIMENTO DE SOFTWARE. SEMPRE A APRENDER.', scroll: 'CONTINUA A DESCER',
     ticker: ['DESENVOLVIMENTO DE SOFTWARE', 'WEB / BACKEND / MOBILE', 'AVEIRO → COIMBRA', 'CRIAR / TESTAR / MELHORAR'],
-    locationKicker: 'BASE ATUAL / PRÓXIMA ETAPA', locationTitle: 'Aveiro é a minha base. Coimbra é o próximo passo.', locationText: 'Estou em Oliveira de Azeméis, no distrito de Aveiro, Portugal. Procuro oportunidades profissionais em Aveiro e Coimbra e pretendo mudar-me para Coimbra para prosseguir os estudos e desenvolver aí o meu percurso profissional. Também estou disponível para trabalho híbrido ou remoto.', locationFacts: ['LOCALIZAÇÃO ATUAL · OLIVEIRA DE AZEMÉIS, AVEIRO', 'OBJETIVO · COIMBRA, PORTUGAL', 'DISPONIBILIDADE · EMPREGO / ESTÁGIO / HÍBRIDO / REMOTO'], 
+    locationKicker: 'BASE ATUAL / PRÓXIMA ETAPA', locationTitle: 'Aveiro é a minha base. Coimbra é o próximo passo.', locationText: 'Estou sediado em Oliveira de Azeméis, no distrito de Aveiro, e considero oportunidades em Aveiro e Coimbra. A mudança para Coimbra faz parte dos meus planos académicos e profissionais. Tenho também disponibilidade para modelos de trabalho híbridos ou remotos.', locationFacts: ['LOCALIZAÇÃO ATUAL · OLIVEIRA DE AZEMÉIS, AVEIRO', 'OBJETIVO · COIMBRA, PORTUGAL', 'DISPONIBILIDADE · EMPREGO / ESTÁGIO / HÍBRIDO / REMOTO'], 
     workKicker: '01 / PROJETOS E TRABALHO TÉCNICO', workTitle: 'Projetos em destaque',
-    workIntro: 'Uma seleção de projetos académicos e pessoais, com a arquitetura, tecnologias e decisões de implementação.',
+    workIntro: 'Projetos pessoais e académicos que demonstram a forma como abordo problemas, escolho tecnologias e transformo requisitos em software funcional.',
     viewLive: 'Abrir projeto', viewCode: 'Código-fonte', inProgress: 'Em desenvolvimento', previewUnavailable: 'Ainda não existe uma captura de ecrã pública.',
-    aboutKicker: '02 / PERFIL DE ENGENHARIA', aboutTitle: 'Software Developer generalista, com aprendizagem prática.' ,
-    about1: 'Sou estudante do CTeSP de Desenvolvimento de Software na Escola Superior Aveiro Norte, da Universidade de Aveiro. A minha formação inclui programação, algoritmos, bases de dados, engenharia de software e desenvolvimento web e mobile. Atualmente vivo em Oliveira de Azeméis, Aveiro.',
-    about2: 'Tive experiências práticas em estágios de desenvolvimento backend e Web, com PHP, MySQL, HTML, CSS e JavaScript. Estas experiências deram-me contacto com tarefas reais de desenvolvimento, manutenção de código existente e aplicações apoiadas por bases de dados.',
-    about3: 'Também tive experiências práticas em desenvolvimento backend e web. Os meus projetos atuais abrangem interfaces com React e TypeScript, PHP e APIs REST, bases de dados relacionais, workflows com Redis/BullMQ e Android com Kotlin. Valorizo código organizado, manutenção e compreensão das decisões técnicas.',
+    aboutKicker: '02 / PERFIL DE ENGENHARIA', aboutTitle: 'Desenvolvimento de software com uma abordagem prática e abrangente.' ,
+    about1: 'Frequento o CTeSP em Desenvolvimento de Software na Escola Superior Aveiro Norte, Universidade de Aveiro. A formação tem reforçado os meus conhecimentos de programação, algoritmos, bases de dados e engenharia de software, com projetos nas áreas web, backend e mobile.',
+    about2: 'Realizei estágios nas áreas de desenvolvimento backend e web, onde trabalhei com PHP, MySQL, HTML, CSS e JavaScript. Tive contacto com manutenção de código existente, desenvolvimento de funcionalidades e aplicações ligadas a bases de dados.',
+    about3: 'Nos projetos mais recentes tenho explorado React e TypeScript, PHP, APIs REST, bases de dados relacionais, processamento assíncrono com Redis e BullMQ e desenvolvimento Android com Kotlin. Procuro escrever código claro, compreender as decisões técnicas e construir soluções que sejam fáceis de testar e manter.',
     servicesKicker: 'FOCO TÉCNICO', servicesTitle: 'Áreas de desenvolvimento', servicesIntro: 'Uma base abrangente em desenvolvimento de software, com trabalho prático em interfaces, APIs, dados e aplicações móveis.', serviceItems: [['Aplicações web', 'Interfaces responsivas e fluxos de aplicação com React, TypeScript e Next.js.'], ['Backend e APIs', 'Funcionalidades server-side, endpoints REST, validação e integração com bases de dados.'], ['Dados e processamento', 'Modelação relacional, persistência SQL e filas de processamento assíncrono.'], ['Desenvolvimento mobile', 'Android com Kotlin e projetos orientados a mobile com Capacitor.']],
     skillGroups: [
       ['FRONTEND', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Vite', 'React Router', 'Tailwind CSS'],
@@ -1040,8 +1045,8 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
           </div>
         </details>}
         <div className="project-links">
-          {project.live && <a href={project.live} target="_blank" rel="noreferrer" className="project-link project-link-primary">{t.viewLive} <span>↗</span></a>}
-          {project.source && <a href={project.source} target="_blank" rel="noreferrer" className="project-link">{t.viewCode} <span>↗</span></a>}
+          {project.live && <a href={project.live} target="_blank" rel="noreferrer" className="project-link project-link-primary">{t.viewLive} <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>}
+          {project.source && <a href={project.source} target="_blank" rel="noreferrer" className="project-link">{t.viewCode} <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>}
           {project.status && <span className="project-status">{details.status || project.status}</span>}
         </div>
       </div>
@@ -1050,53 +1055,23 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
 }
 
 function SocialLink({ social }) {
-  return <a className={`social-link social-${social.kind}`} href={social.url} target="_blank" rel="noreferrer"><span className="social-mark">{social.short}</span><span>{social.label}</span><span className="social-arrow">↗</span></a>;
+  const SocialIcon = social.label === 'LinkedIn' ? Linkedin : social.label === 'GitHub académico' ? GraduationCap : Github;
+  return <a className={`social-link social-${social.kind}`} href={social.url} target="_blank" rel="noreferrer"><span className="social-mark"><SocialIcon size={18} strokeWidth={1.8} aria-hidden="true" /></span><span>{social.label}</span><ArrowUpRight className="social-arrow" size={16} strokeWidth={1.8} aria-hidden="true" /></a>;
 }
 
 
-function SparkIcon() {
-  return <svg className="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2.8 14.2 9.8 21.2 12l-7 2.2-2.2 7-2.2-7-7-2.2 7-2.2L12 2.8Z" /></svg>;
-}
-
-function MenuIcon() {
-  return <svg className="ui-icon menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>;
-}
-
-function CalendarIcon() {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18" /></svg>;
-}
-function ClockIcon() {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>;
-}
-function MapPinIcon() {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></svg>;
-}
-function BriefcaseIcon() {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2" /><path d="M8 7V4h8v3M3 12h18M10 12v2h4v-2" /></svg>;
-}
-function DownloadIcon() {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" /></svg>;
-}
-
-function GlobeIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" /></svg>;
-}
-
-function SunIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></svg>;
-}
-
-function MoonIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.7 8.7 0 1 0 20.5 15.2Z" /></svg>;
-}
-
-function CheckIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4.2 4.2L19 6.8" /></svg>;
-}
-
-function ChevronIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>;
-}
+function SparkIcon() { return <Sparkles className="ui-icon" size={20} strokeWidth={1.7} aria-hidden="true" />; }
+function MenuIcon() { return <Menu className="ui-icon menu-icon" size={22} strokeWidth={1.7} aria-hidden="true" />; }
+function CalendarIcon() { return <CalendarDays size={18} strokeWidth={1.7} aria-hidden="true" />; }
+function ClockIcon() { return <Clock3 size={18} strokeWidth={1.7} aria-hidden="true" />; }
+function MapPinIcon() { return <MapPin size={18} strokeWidth={1.7} aria-hidden="true" />; }
+function BriefcaseIcon() { return <BriefcaseBusiness size={18} strokeWidth={1.7} aria-hidden="true" />; }
+function DownloadIcon() { return <Download size={17} strokeWidth={1.8} aria-hidden="true" />; }
+function GlobeIcon() { return <Globe size={17} strokeWidth={1.8} aria-hidden="true" />; }
+function SunIcon() { return <Sun size={18} strokeWidth={1.8} aria-hidden="true" />; }
+function MoonIcon() { return <Moon size={18} strokeWidth={1.8} aria-hidden="true" />; }
+function CheckIcon() { return <Check size={15} strokeWidth={2} aria-hidden="true" />; }
+function ChevronIcon() { return <ChevronDown size={14} strokeWidth={1.8} aria-hidden="true" />; }
 
 function getInitialTheme() {
   try {
@@ -1344,10 +1319,10 @@ export default function App() {
             </button>
 
             <a className="header-cv" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
-            <button className="header-contact" onClick={() => goTo('contact')}>{t.navButton} <span>↗</span></button>
+            <button className="header-contact" onClick={() => goTo('contact')}>{t.navButton} <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></button>
           </div>
 
-          <button className="menu-toggle" aria-expanded={menuOpen} aria-label={menuOpen ? t.closeMenu : t.openMenu} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? '×' : <MenuIcon />}</button>
+          <button className="menu-toggle" aria-expanded={menuOpen} aria-label={menuOpen ? t.closeMenu : t.openMenu} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={21} strokeWidth={1.8} aria-hidden="true" /> : <MenuIcon />}</button>
         </div>
       </header>
 
@@ -1367,7 +1342,7 @@ export default function App() {
                 </div>
               </div>
               <div className="hero-actions">
-                <button className="button button-dark" onClick={() => goTo('work')}>{t.workButton}<span>↘</span></button>
+                <button className="button button-dark" onClick={() => goTo('work')}>{t.workButton}<ArrowDownRight size={17} strokeWidth={1.8} aria-hidden="true" /></button>
                 <a className="button button-outline" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
               </div>
             </div>
@@ -1468,7 +1443,7 @@ export default function App() {
                   <p className="experience-company">{experience.company}</p>
                   <div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                 </div>
-                <span className="experience-symbol" aria-hidden="true">↗</span>
+                <ArrowUpRight className="experience-symbol" size={18} strokeWidth={1.7} aria-hidden="true" />
               </article>
             ))}
           </div>
@@ -1482,7 +1457,7 @@ export default function App() {
               <div className="internship-copy">
                 <h2>{t.internshipTitle}</h2>
                 <p>{t.internshipText}</p>
-                <a className="button button-dark" href={internshipHref}>{t.internshipCta}<span>↗</span></a>
+                <a className="button button-dark" href={internshipHref}>{t.internshipCta}<ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>
               </div>
             </div>
           </div>
@@ -1495,11 +1470,11 @@ export default function App() {
             <div>
               <p>{t.contactText}</p>
               <span className="contact-email-label">{t.emailLabel}</span>
-              <a className="contact-email" href="mailto:16alves02@gmail.com">16alves02@gmail.com <span>↗</span></a>
+              <a className="contact-email" href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>
               <button className="copy-email" onClick={handleCopyEmail}>{copied ? t.copied : t.email}</button>
               <div className="contact-actions">
                 <a className="button button-contact-cv" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
-                <a className="button button-outline" href={internshipHref}>{t.contactEmailCta}<span>↗</span></a>
+                <a className="button button-outline" href={internshipHref}>{t.contactEmailCta}<ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>
               </div>
             </div>
             <div className="socials-block">
