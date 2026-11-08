@@ -5,6 +5,7 @@ import './styles.css';
 import './portfolio-refresh.css';
 import './design-system.css';
 import './identity-refresh.css';
+import './redesign.css';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
