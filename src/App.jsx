@@ -1198,9 +1198,12 @@ export default function App() {
   const languageMenuRef = useRef(null);
   const t = localeCopy[language] || localeCopy.en;
   const isPortuguese = language === 'pt-PT';
-  const studioProjects = projects.filter((project) => ['RAW.', 'MRDR.'].includes(project.name));
-  const softwareProjects = projects.filter((project) => !['RAW.', 'MRDR.'].includes(project.name)).slice(0, 4);
-  const additionalProjects = projects.filter((project) => !studioProjects.includes(project) && !softwareProjects.includes(project));
+  const studioProjects = projects.filter((project) => project.category === 'studio');
+  const academicProjects = projects.filter((project) => project.category === 'academic');
+  const earlyProjects = projects.filter((project) => project.category === 'early');
+  const professionalProjects = projects.filter((project) => !['studio', 'academic', 'early'].includes(project.category));
+  const softwareProjects = professionalProjects.slice(0, 4);
+  const additionalProjects = professionalProjects.slice(4);
   const activeLanguage = languageOptions.find((option) => option.code === language) || languageOptions[0];
   const cvHref = language === 'pt-PT' ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT-Engenharia-Software.pdf' : 'Leonardo-Alves-CV-EN-Software-Engineering.pdf';
@@ -1391,15 +1394,23 @@ export default function App() {
             <div className="project-collection-heading">
               <span className="project-collection-index">01 / {isPortuguese ? 'SOFTWARE & PRODUTOS DIGITAIS' : 'SOFTWARE & DIGITAL PRODUCTS'}</span>
               <h3>{isPortuguese ? 'Projetos de desenvolvimento' : 'Development projects'}</h3>
-              <p>{isPortuguese ? 'Projetos académicos, experiências técnicas e produtos digitais que desenvolvo para explorar diferentes áreas de software.' : 'Academic projects, technical experiments and digital products exploring different areas of software development.'}</p>
+              <p>{isPortuguese ? 'Projetos pessoais e produtos digitais que desenvolvo para explorar diferentes áreas de software.' : 'Personal projects and digital products exploring different areas of software development.'}</p>
             </div>
             <div className="projects-grid">{softwareProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured />)}</div>
           </div>
+          {academicProjects.length > 0 && <div className="project-collection academic-collection">
+            <div className="project-collection-heading">
+              <span className="project-collection-index">02 / {isPortuguese ? 'FORMAÇÃO ACADÉMICA' : 'ACADEMIC WORK'}</span>
+              <h3>{isPortuguese ? 'Projetos do CTeSP' : 'Higher technical course projects'}</h3>
+              <p>{isPortuguese ? 'Trabalhos desenvolvidos no CTeSP em Desenvolvimento de Software, na Universidade de Aveiro — Escola Superior Aveiro Norte.' : 'Coursework developed during the Higher Technical Professional Course in Software Development at the University of Aveiro — Águeda School of Technology and Management.'}</p>
+            </div>
+            <div className="projects-grid">{academicProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} />)}</div>
+          </div>}
           <section className="studio-collection" aria-labelledby="studio-title">
             <div className="studio-identity">
               <div className="studio-mark"><span>ALV16</span><small>STUDIOS</small></div>
               <div className="studio-copy">
-                <span className="project-collection-index">02 / {isPortuguese ? 'ESTÚDIO INDEPENDENTE DE JOGOS' : 'INDEPENDENT GAME STUDIO'}</span>
+                <span className="project-collection-index">03 / {isPortuguese ? 'ESTÚDIO INDEPENDENTE DE JOGOS' : 'INDEPENDENT GAME STUDIO'}</span>
                 <h3 id="studio-title">{isPortuguese ? 'Jogos com identidade própria.' : 'Games with their own identity.'}</h3>
                 <p>{isPortuguese ? 'ALV16 STUDIOS é o espaço onde desenvolvo experiências interativas e projetos gaming. RAW. e MRDR. são os primeiros títulos deste universo — e não os últimos.' : 'ALV16 STUDIOS is where I develop interactive experiences and gaming projects. RAW. and MRDR. are the first titles in this universe — not the last.'}</p>
                 <span className="studio-signature">A CREATIVE LABEL BY 16ALVES02</span>
@@ -1407,6 +1418,14 @@ export default function App() {
             </div>
             <div className="projects-grid studio-project-grid">{studioProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} featured />)}</div>
           </section>
+          {earlyProjects.length > 0 && <div className="project-collection early-collection">
+            <div className="project-collection-heading">
+              <span className="project-collection-index">04 / {isPortuguese ? 'PRIMEIROS PROJETOS' : 'EARLY PROJECTS'}</span>
+              <h3>{isPortuguese ? 'Antes do CTeSP' : 'Before higher education'}</h3>
+              <p>{isPortuguese ? 'Experiências desenvolvidas no 12.º ano do ensino secundário.' : 'Projects developed during the final year of secondary school.'}</p>
+            </div>
+            <div className="projects-grid">{earlyProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} />)}</div>
+          </div>}
           {additionalProjects.length > 0 && <details className="additional-projects">
             <summary>{t.moreProjects}<span className="additional-projects-count">{additionalProjects.length}</span></summary>
             <div className="projects-grid additional-projects-grid">
