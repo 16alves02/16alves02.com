@@ -660,9 +660,9 @@ for (const [code, additions] of Object.entries(engineeringPositioningCopy)) {
 const recruiterFocusedCopy = {
   en: {
     navAbout: 'Profile', navPath: 'Experience', navContact: 'Contact', navButton: 'Contact',
-    role: 'SOFTWARE DEVELOPMENT STUDENT', eyebrow: 'ESAN · UNIVERSITY OF AVEIRO',
+    role: 'SOFTWARE DEVELOPER · SOFTWARE DEVELOPMENT STUDENT', eyebrow: 'OLIVEIRA DE AZEMÉIS · AVEIRO, PORTUGAL',
     titleOne: 'I build', titleTwo: 'software', titleEnd: '.',
-    intro: 'Web, backend and mobile projects built through coursework and independent work.',
+    intro: 'I’m Leonardo, a Software Development student at ESAN-UA. I build and explore software across web, backend, data and mobile projects, combining coursework with independent work.',
     workKicker: '01 / SELECTED WORK', workTitle: 'Selected projects',
     workIntro: 'Four recent projects. Explore the product, technologies and source code.',
     moreProjects: 'More projects',
@@ -673,7 +673,7 @@ const recruiterFocusedCopy = {
       'RAW.': 'Published conversation and party-game app with multiple modes, interactive cards and swipe gestures.',
     },
     aboutKicker: '02 / PROFILE', aboutTitle: 'A practical approach to software.',
-    about1: 'Software Development student at ESAN-UA with practical experience from web and backend internships, plus independent frontend and mobile projects.',
+    about1: 'Software Development student at ESAN-UA and an early-career Software Developer, with experience from web and backend internships and independent projects across different areas of software.',
     aboutBandTagline: 'SOFTWARE DEVELOPMENT', aboutMiniOne: 'BUILD THROUGH PRACTICE.', aboutMiniTwo: 'ONE PROJECT AT A TIME.',
     skillsKicker: 'TECHNOLOGIES', skillsTitle: 'Technical skills',
     skillGroups: [
@@ -683,7 +683,7 @@ const recruiterFocusedCopy = {
     ],
     pathKicker: '03 / EDUCATION & EXPERIENCE', pathTitle: 'Experience',
     priorEducation: '',
-    availabilityLabel: 'PAID INTERNSHIP · 2027', targetStart: 'February 2027', location: 'Coimbra · hybrid / remote',
+    availabilityLabel: 'PAID INTERNSHIP · 2027', targetStart: 'February 2027', location: 'Aveiro · Portugal',
     internshipKicker: 'NEXT STEP / 2027', internshipTitle: 'Paid curricular internship',
     internshipText: 'Starting February 2027. Coimbra preferred; on-site, hybrid or remote.',
     internshipCta: 'Discuss the internship',
@@ -696,9 +696,9 @@ const recruiterFocusedCopy = {
   },
   'pt-PT': {
     navAbout: 'Perfil', navPath: 'Percurso', navContact: 'Contacto', navButton: 'Contacto',
-    role: 'ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE', eyebrow: 'ESAN · UNIVERSIDADE DE AVEIRO',
+    role: 'SOFTWARE DEVELOPER · ESTUDANTE DE DESENVOLVIMENTO DE SOFTWARE', eyebrow: 'OLIVEIRA DE AZEMÉIS · AVEIRO, PORTUGAL',
     titleOne: 'Construo', titleTwo: 'software', titleEnd: '.',
-    intro: 'Projetos web, backend e mobile, desenvolvidos na formação e por iniciativa própria.',
+    intro: 'Sou o Leonardo, estudante de Desenvolvimento de Software na ESAN-UA. Desenvolvo e exploro soluções de software em projetos web, backend, dados e mobile, tanto na formação como por iniciativa própria.',
     workKicker: '01 / PROJETOS SELECIONADOS', workTitle: 'Projetos em destaque',
     workIntro: 'Quatro projetos recentes. Explora o produto, as tecnologias e o código.',
     moreProjects: 'Mais projetos',
@@ -709,7 +709,7 @@ const recruiterFocusedCopy = {
       'RAW.': 'Aplicação publicada de conversas e jogos, com vários modos, cartões interativos e gestos de deslize.',
     },
     aboutKicker: '02 / PERFIL', aboutTitle: 'Experiência prática em desenvolvimento.',
-    about1: 'Estudante de Desenvolvimento de Software na ESAN-UA, com experiência em estágios Web e backend e projetos próprios de frontend e mobile.',
+    about1: 'Estudante de Desenvolvimento de Software na ESAN-UA e Software Developer em início de percurso, com experiência em estágios de desenvolvimento Web e backend e projetos próprios em diferentes áreas do software.',
     aboutBandTagline: 'DESENVOLVIMENTO DE SOFTWARE', aboutMiniOne: 'APRENDER A CONSTRUIR.', aboutMiniTwo: 'UM PROJETO DE CADA VEZ.',
     skillsKicker: 'TECNOLOGIAS', skillsTitle: 'Competências técnicas',
     skillGroups: [
@@ -719,7 +719,7 @@ const recruiterFocusedCopy = {
     ],
     pathKicker: '03 / FORMAÇÃO E EXPERIÊNCIA', pathTitle: 'Percurso',
     priorEducation: '',
-    availabilityLabel: 'ESTÁGIO REMUNERADO · 2027', targetStart: 'Fevereiro de 2027', location: 'Coimbra · híbrido / remoto',
+    availabilityLabel: 'ESTÁGIO REMUNERADO · 2027', targetStart: 'Fevereiro de 2027', location: 'Aveiro · Portugal',
     internshipKicker: 'PRÓXIMO PASSO / 2027', internshipTitle: 'Estágio curricular remunerado',
     internshipText: 'Início em fevereiro de 2027. Preferência por Coimbra; presencial, híbrido ou remoto.',
     internshipCta: 'Falar sobre o estágio',
@@ -755,7 +755,7 @@ const recruiterFocusedCopy = {
     ],
     pathKicker: '03 / FORMACIÓN Y EXPERIENCIA', pathTitle: 'Experiencia',
     priorEducation: '',
-    availabilityLabel: 'PRÁCTICAS REMUNERADAS · 2027', targetStart: 'Febrero de 2027', location: 'Coimbra · híbrido / remoto',
+    availabilityLabel: 'PRÁCTICAS REMUNERADAS · 2027', targetStart: 'Febrero de 2027', location: 'Aveiro · Portugal',
     internshipKicker: 'SIGUIENTE PASO / 2027', internshipTitle: 'Prácticas curriculares remuneradas',
     internshipText: 'Inicio en febrero de 2027. Preferencia por Coimbra; presencial, híbrido o remoto.',
     internshipCta: 'Hablar sobre las prácticas',
@@ -791,7 +791,7 @@ const recruiterFocusedCopy = {
     ],
     pathKicker: '03 / FORMATION ET EXPÉRIENCE', pathTitle: 'Parcours',
     priorEducation: '',
-    availabilityLabel: 'STAGE RÉMUNÉRÉ · 2027', targetStart: 'Février 2027', location: 'Coimbra · hybride / à distance',
+    availabilityLabel: 'STAGE RÉMUNÉRÉ · 2027', targetStart: 'Février 2027', location: 'Aveiro · Portugal',
     internshipKicker: 'PROCHAINE ÉTAPE / 2027', internshipTitle: 'Stage curriculaire rémunéré',
     internshipText: 'Début en février 2027. Coimbra privilégiée ; présentiel, hybride ou à distance.',
     internshipCta: 'Parler du stage',
@@ -827,7 +827,7 @@ const recruiterFocusedCopy = {
     ],
     pathKicker: '03 / FORMAZIONE ED ESPERIENZA', pathTitle: 'Esperienza',
     priorEducation: '',
-    availabilityLabel: 'TIROCINIO RETRIBUITO · 2027', targetStart: 'Febbraio 2027', location: 'Coimbra · ibrido / remoto',
+    availabilityLabel: 'TIROCINIO RETRIBUITO · 2027', targetStart: 'Febbraio 2027', location: 'Aveiro · Portugal',
     internshipKicker: 'PROSSIMO PASSO / 2027', internshipTitle: 'Tirocinio curricolare retribuito',
     internshipText: 'Inizio a febbraio 2027. Preferenza per Coimbra; in presenza, ibrido o da remoto.',
     internshipCta: 'Parliamo del tirocinio',
@@ -863,7 +863,7 @@ const recruiterFocusedCopy = {
     ],
     pathKicker: '03 / AUSBILDUNG UND ERFAHRUNG', pathTitle: 'Erfahrung',
     priorEducation: '',
-    availabilityLabel: 'BEZAHLTES PRAKTIKUM · 2027', targetStart: 'Februar 2027', location: 'Coimbra · hybrid / remote',
+    availabilityLabel: 'BEZAHLTES PRAKTIKUM · 2027', targetStart: 'Februar 2027', location: 'Aveiro · Portugal',
     internshipKicker: 'NÄCHSTER SCHRITT / 2027', internshipTitle: 'Bezahltes Pflichtpraktikum',
     internshipText: 'Beginn im Februar 2027. Coimbra bevorzugt; vor Ort, hybrid oder remote.',
     internshipCta: 'Praktikum besprechen',
@@ -1187,6 +1187,58 @@ function ScrollProgress({ language }) {
   );
 }
 
+const locationCopy = {
+  en: {
+    kicker: 'LOCATION / MOBILITY', title: 'Aveiro is my base. Coimbra is the next step.',
+    intro: 'I’m currently based in Oliveira de Azeméis, in the Aveiro district. I’m looking for opportunities across the Aveiro region while preparing to move to Coimbra to continue my studies and build my career.',
+    currentLabel: 'CURRENT BASE', currentTitle: 'Oliveira de Azeméis', currentDetail: 'Aveiro, Portugal',
+    nextLabel: 'NEXT DESTINATION', nextTitle: 'Coimbra', nextDetail: 'Further studies, work and new opportunities',
+    note: 'Open to on-site, hybrid and remote opportunities across both regions.',
+  },
+  'pt-PT': {
+    kicker: 'LOCALIZAÇÃO / MOBILIDADE', title: 'Aveiro é a minha base. Coimbra é o próximo passo.',
+    intro: 'Atualmente vivo em Oliveira de Azeméis, no distrito de Aveiro. Procuro oportunidades na região de Aveiro e estou a preparar a mudança para Coimbra, onde pretendo prosseguir os estudos e desenvolver o meu percurso profissional.',
+    currentLabel: 'LOCALIZAÇÃO ATUAL', currentTitle: 'Oliveira de Azeméis', currentDetail: 'Aveiro, Portugal',
+    nextLabel: 'PRÓXIMO DESTINO', nextTitle: 'Coimbra', nextDetail: 'Prosseguir os estudos, trabalhar e crescer profissionalmente',
+    note: 'Disponível para oportunidades presenciais, híbridas ou remotas nas duas regiões.',
+  },
+  es: {
+    kicker: 'UBICACIÓN / MOVILIDAD', title: 'Aveiro es mi base. Coímbra es el siguiente paso.',
+    intro: 'Actualmente vivo en Oliveira de Azeméis, en el distrito de Aveiro. Busco oportunidades en la región de Aveiro mientras preparo mi traslado a Coímbra para continuar mis estudios y desarrollar mi carrera.',
+    currentLabel: 'UBICACIÓN ACTUAL', currentTitle: 'Oliveira de Azeméis', currentDetail: 'Aveiro, Portugal',
+    nextLabel: 'PRÓXIMO DESTINO', nextTitle: 'Coímbra', nextDetail: 'Estudios, trabajo y nuevas oportunidades',
+    note: 'Abierto a oportunidades presenciales, híbridas y remotas en ambas regiones.',
+  },
+  fr: {
+    kicker: 'LOCALISATION / MOBILITÉ', title: 'Aveiro est ma base. Coimbra est la prochaine étape.',
+    intro: 'Je vis actuellement à Oliveira de Azeméis, dans le district d’Aveiro. Je recherche des opportunités dans la région d’Aveiro tout en préparant mon installation à Coimbra pour poursuivre mes études et développer ma carrière.',
+    currentLabel: 'LOCALISATION ACTUELLE', currentTitle: 'Oliveira de Azeméis', currentDetail: 'Aveiro, Portugal',
+    nextLabel: 'PROCHAINE DESTINATION', nextTitle: 'Coimbra', nextDetail: 'Études, travail et nouvelles opportunités',
+    note: 'Ouvert aux opportunités sur site, hybrides et à distance dans les deux régions.',
+  },
+  it: {
+    kicker: 'POSIZIONE / MOBILITÀ', title: 'Aveiro è la mia base. Coimbra è il prossimo passo.',
+    intro: 'Attualmente vivo a Oliveira de Azeméis, nel distretto di Aveiro. Cerco opportunità nella regione di Aveiro mentre preparo il trasferimento a Coimbra per proseguire gli studi e sviluppare la mia carriera.',
+    currentLabel: 'POSIZIONE ATTUALE', currentTitle: 'Oliveira de Azeméis', currentDetail: 'Aveiro, Portogallo',
+    nextLabel: 'PROSSIMA DESTINAZIONE', nextTitle: 'Coimbra', nextDetail: 'Studio, lavoro e nuove opportunità',
+    note: 'Disponibile per opportunità in presenza, ibride e da remoto in entrambe le regioni.',
+  },
+  de: {
+    kicker: 'STANDORT / MOBILITÄT', title: 'Aveiro ist meine Basis. Coimbra ist der nächste Schritt.',
+    intro: 'Ich lebe derzeit in Oliveira de Azeméis im Bezirk Aveiro. Ich suche Möglichkeiten in der Region Aveiro und bereite gleichzeitig meinen Umzug nach Coimbra vor, um mein Studium fortzusetzen und meine Karriere aufzubauen.',
+    currentLabel: 'AKTUELLER STANDORT', currentTitle: 'Oliveira de Azeméis', currentDetail: 'Aveiro, Portugal',
+    nextLabel: 'NÄCHSTES ZIEL', nextTitle: 'Coimbra', nextDetail: 'Studium, Arbeit und neue Möglichkeiten',
+    note: 'Offen für Präsenz-, Hybrid- und Remote-Möglichkeiten in beiden Regionen.',
+  },
+  ja: {
+    kicker: '所在地 / 移動予定', title: '現在の拠点はアヴェイロ。次の目標はコインブラ。',
+    intro: '現在はアヴェイロ県のOliveira de Azeméisに住んでいます。アヴェイロ地域での機会を探しながら、学業を続け、キャリアを築くためにコインブラへの転居を準備しています。',
+    currentLabel: '現在の拠点', currentTitle: 'Oliveira de Azeméis', currentDetail: 'アヴェイロ、ポルトガル',
+    nextLabel: '次の目的地', nextTitle: 'Coimbra', nextDetail: '進学、仕事、新しい機会',
+    note: '両地域での出社、ハイブリッド、リモート勤務に対応できます。',
+  },
+};
+
 export default function App() {
   const [language, setLanguage] = useState(getInitialLanguage);
   const [theme, setTheme] = useState(getInitialTheme);
@@ -1195,6 +1247,7 @@ export default function App() {
   const [copied, setCopied] = useState(false);
   const languageMenuRef = useRef(null);
   const t = localeCopy[language] || localeCopy.en;
+  const location = locationCopy[language] || locationCopy.en;
   const activeLanguage = languageOptions.find((option) => option.code === language) || languageOptions[0];
   const cvHref = language === 'pt-PT' ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT-Engenharia-Software.pdf' : 'Leonardo-Alves-CV-EN-Software-Engineering.pdf';
@@ -1364,6 +1417,30 @@ export default function App() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="location-section section-pad" id="location" aria-labelledby="location-title">
+          <div className="location-heading">
+            <p className="section-kicker">{location.kicker}</p>
+            <h2 id="location-title">{location.title}</h2>
+            <p>{location.intro}</p>
+          </div>
+          <div className="location-route" aria-label={location.title}>
+            <article className="location-stop location-current">
+              <span className="location-stop-label">{location.currentLabel}</span>
+              <span className="location-pin" aria-hidden="true"><MapPinIcon /></span>
+              <h3>{location.currentTitle}</h3>
+              <p>{location.currentDetail}</p>
+            </article>
+            <div className="location-connector" aria-hidden="true"><span /></div>
+            <article className="location-stop location-next">
+              <span className="location-stop-label">{location.nextLabel}</span>
+              <span className="location-pin" aria-hidden="true"><MapPinIcon /></span>
+              <h3>{location.nextTitle}</h3>
+              <p>{location.nextDetail}</p>
+            </article>
+          </div>
+          <p className="location-note">{location.note}</p>
         </section>
 
         <section className="work-section section-pad" id="work">
