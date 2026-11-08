@@ -1029,13 +1029,13 @@ function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
   );
 }
 
-function ProjectCard({ project, t, featured = false, language = 'en', position = 1 }) {
+function ProjectCard({ project, t, featured = false, language = 'en', position = 1, total = projects.length }) {
   const projectLocale = language === 'pt-PT' ? 'pt' : language;
   const details = extraProjectTranslations[language]?.[project.number] || projectTranslations[projectLocale]?.[project.number] || project;
   const caseStudy = project.caseStudy?.[projectLocale] || project.caseStudy?.en;
   return (
     <article className={`project-card project-${project.visual} ${featured ? 'project-featured' : ''}`}>
-      <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} image={project.image} imageAlt={project.imageAlt} previewUnavailable={t.previewUnavailable} /><span className="project-number">{String(position).padStart(2, '0')} / {projects.length}</span></div>
+      <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} image={project.image} imageAlt={project.imageAlt} previewUnavailable={t.previewUnavailable} /><span className="project-number">{String(position).padStart(2, '0')} / {total}</span></div>
       <div className="project-info">
         <div className="project-meta"><span>{details.type}</span><span>{project.year}</span></div>
         <h3>{project.name}<span className="brand-dot">.</span></h3>
@@ -1380,14 +1380,14 @@ export default function App() {
             </div>
             <div className="projects-grid featured-projects-grid">
               {featuredProjects.map((project, index) => (
-                <ProjectCard key={project.name} project={project} t={t} language={language} position={index + 1} featured />
+                <ProjectCard key={project.name} project={project} t={t} language={language} position={index + 1} total={featuredProjects.length} featured />
               ))}
             </div>
           </div>
           {additionalProjects.length > 0 && <details className="additional-projects">
             <summary>{t.moreProjects}<span className="additional-projects-count">{additionalProjects.length}</span></summary>
             <div className="projects-grid additional-projects-grid">
-              {additionalProjects.map((project, index) => <ProjectCard key={project.name} project={project} t={t} language={language} position={index + 1} />)}
+              {additionalProjects.map((project, index) => <ProjectCard key={project.name} project={project} t={t} language={language} position={index + 1} total={additionalProjects.length} />)}
             </div>
           </details>}
         </section>
