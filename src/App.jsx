@@ -1401,8 +1401,8 @@ export default function App() {
           {academicProjects.length > 0 && <div className="project-collection academic-collection">
             <div className="project-collection-heading">
               <span className="project-collection-index">02 / {isPortuguese ? 'FORMAÇÃO ACADÉMICA' : 'ACADEMIC WORK'}</span>
-              <h3>{isPortuguese ? 'Projetos do CTeSP' : 'Higher technical course projects'}</h3>
-              <p>{isPortuguese ? 'Trabalhos desenvolvidos no CTeSP em Desenvolvimento de Software, na Universidade de Aveiro — Escola Superior Aveiro Norte.' : 'Coursework developed during the Higher Technical Professional Course in Software Development at the University of Aveiro — Águeda School of Technology and Management.'}</p>
+              <h3>{isPortuguese ? 'Projetos do CTeSP' : 'CTeSP coursework'}</h3>
+              <p>{isPortuguese ? 'Trabalhos desenvolvidos no CTeSP em Desenvolvimento de Software, na Universidade de Aveiro — Escola Superior Aveiro Norte.' : 'Projects developed as part of the CTeSP in Software Development at the University of Aveiro — Águeda School of Technology and Management.'}</p>
             </div>
             <div className="projects-grid">{academicProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} />)}</div>
           </div>}
@@ -1421,8 +1421,8 @@ export default function App() {
           {earlyProjects.length > 0 && <div className="project-collection early-collection">
             <div className="project-collection-heading">
               <span className="project-collection-index">04 / {isPortuguese ? 'PRIMEIROS PROJETOS' : 'EARLY PROJECTS'}</span>
-              <h3>{isPortuguese ? 'Antes do CTeSP' : 'Before higher education'}</h3>
-              <p>{isPortuguese ? 'Experiências desenvolvidas no 12.º ano do ensino secundário.' : 'Projects developed during the final year of secondary school.'}</p>
+              <h3>{isPortuguese ? 'Antes do CTeSP' : 'Secondary school projects'}</h3>
+              <p>{isPortuguese ? 'Experiências desenvolvidas no 12.º ano do ensino secundário.' : 'Projects developed during the 12th grade of secondary school.'}</p>
             </div>
             <div className="projects-grid">{earlyProjects.map((project, index) => <ProjectCard key={project.number} project={project} t={t} language={language} position={index + 1} />)}</div>
           </div>}
