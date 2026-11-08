@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowDownRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, Check,
-  ChevronDown, Clock3, ContactRound, Download, Globe, Github, GraduationCap,
+  ChevronDown, Clock3, Code2, ContactRound, Download, Globe, GraduationCap,
   MapPin, Menu, Moon, Sparkles, Sun, X,
 } from 'lucide-react';
 import { projects } from './data/projects.js';
@@ -1055,7 +1055,7 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
 }
 
 function SocialLink({ social }) {
-  const SocialIcon = social.label === 'LinkedIn' ? ContactRound : social.label === 'GitHub académico' ? GraduationCap : Github;
+  const SocialIcon = social.label === 'LinkedIn' ? ContactRound : social.label === 'GitHub académico' ? GraduationCap : Code2;
   return <a className={`social-link social-${social.kind}`} href={social.url} target="_blank" rel="noreferrer"><span className="social-mark"><SocialIcon size={18} strokeWidth={1.8} aria-hidden="true" /></span><span>{social.label}</span><ArrowUpRight className="social-arrow" size={16} strokeWidth={1.8} aria-hidden="true" /></a>;
 }
 
