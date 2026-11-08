@@ -1258,8 +1258,7 @@ export default function App() {
     ? 'Olá, Leonardo.\n\nGostaria de falar sobre uma oportunidade de estágio curricular remunerado de 680 horas, com início em fevereiro de 2027, na região de Coimbra.\n\nEmpresa: \nRegime de trabalho: \n\nCom os melhores cumprimentos,'
     : 'Hello Leonardo,\n\nI would like to discuss a paid 680-hour curricular internship starting in February 2027 in the Coimbra area.\n\nCompany: \nWorking arrangement: \n\nKind regards,';
   const internshipHref = `mailto:16alves02@gmail.com?subject=${encodeURIComponent(internshipSubject)}&body=${encodeURIComponent(internshipBody)}`;
-  const relevantExperience = (experienceByLanguage[language] || experienceByLanguage.en)
-    .filter((experience) => experience.id === 'clickbeauty' || experience.id === 'aej');
+  const relevantExperience = experienceByLanguage[language] || experienceByLanguage.en;
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -1486,6 +1485,7 @@ export default function App() {
                 <div>
                   <h3>{experience.role}</h3>
                   <p className="experience-company">{experience.company}</p>
+                  <p className="experience-description">{experience.description}</p>
                   <div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                 </div>
                 <span className="experience-symbol" aria-hidden="true">↗</span>
