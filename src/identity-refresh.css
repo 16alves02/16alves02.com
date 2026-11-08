@@ -369,3 +369,38 @@ html[data-theme="light"] .studio-collection .project-card { background: #f8f4ed 
   .studio-mark { font-size: 3.2rem; }
   .studio-collection { margin-top: 48px; }
 }
+
+
+/* Accessibility: keep the warm orange identity while meeting WCAG contrast in light mode. */
+html[data-theme="light"] .site-shell {
+  --portfolio-orange: #a83217;
+  --ink: #211d19;
+}
+html[data-theme="light"] .site-shell .tag-list span,
+html[data-theme="light"] .site-shell .project-status,
+html[data-theme="light"] .site-shell .project-number {
+  color: #7f2b14 !important;
+}
+html[data-theme="light"] .site-shell .hero h1 .hero-orange,
+html[data-theme="light"] .site-shell .section-kicker > span,
+html[data-theme="light"] .site-shell .project-collection-index,
+html[data-theme="light"] .site-shell .brand-dot,
+html[data-theme="light"] .site-shell .project-link span {
+  color: #a83217 !important;
+}
+html[data-theme="light"] .site-shell .social-link > span:not(.social-arrow) {
+  color: #211d19 !important;
+}
+html[data-theme="light"] .site-shell .button:not(.button-outline):not(.button-contact-cv),
+html[data-theme="light"] .site-shell .button-dark,
+html[data-theme="light"] .site-shell .header-contact {
+  color: #fffaf2 !important;
+}
+html[data-theme="light"] .site-shell .button-outline,
+html[data-theme="light"] .site-shell .button-contact-cv {
+  color: #211d19 !important;
+}
+html[data-theme="light"] .site-shell .project-visual-wrap .project-number {
+  background: #f8f4ed !important;
+  color: #211d19 !important;
+}
