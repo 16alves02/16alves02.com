@@ -349,14 +349,14 @@ for (const [code, additions] of Object.entries(extraUiCopy)) {
 const recruitmentCopy = {
   en: {
     availabilityLabel:'PROFESSIONAL AVAILABILITY', targetStart:'Start: February 2027', hours:'680 hours', location:'Aveiro → Coimbra, Portugal', paidStatus:'Paid curricular internship', cvDownload:'Download CV',
-    caseStudyLabel:'Technical breakdown', caseStudyProblem:'Problem & context', caseStudyArchitecture:'Architecture', caseStudyContribution:'My contribution', caseStudyChallenges:'Engineering challenges', caseStudyResult:'Current result & limits', contactEmailCta:'Discuss an opportunity',
+    caseStudyLabel:'Technical breakdown', caseStudyProblem:'Problem & context', caseStudyArchitecture:'Architecture', caseStudyContribution:'My contribution', caseStudyChallenges:'Engineering challenges', caseStudyResult:'Current result & limits', caseStudyQuality:'Quality & validation', caseStudyStatus:'Current status', contactEmailCta:'Discuss an opportunity',
     skillsKicker:'TECHNICAL SKILLS', skillsTitle:'Technologies I work with', skillsIntro:'Technologies used in coursework, internships and current projects. Experience varies by tool.',
     internshipBottom:'CONTRIBUTE TO REAL WORK. LEARN FROM THE TEAM.',
     skillGroups: [["FRONTEND","HTML5","CSS3","JavaScript","TypeScript","React","Next.js","Vite","React Router","Tailwind CSS"],["BACKEND E APIs","PHP","Node.js runtime","APIs REST","PDO","Prisma"],["DADOS E FILAS","SQL","MySQL / MariaDB","PostgreSQL","Redis","BullMQ"],["MOBILE E QUALIDADE","Kotlin / Android","Capacitor","Vitest","C","Git","GitHub"]],
   },
   'pt-PT': {
     availabilityLabel:'DISPONIBILIDADE PROFISSIONAL', targetStart:'Início: fevereiro de 2027', hours:'680 horas', location:'Aveiro → Coimbra, Portugal', paidStatus:'Estágio curricular remunerado', cvDownload:'Descarregar CV',
-    caseStudyLabel:'Detalhe técnico', caseStudyProblem:'Problema e contexto', caseStudyArchitecture:'Arquitetura', caseStudyContribution:'Contributo pessoal', caseStudyChallenges:'Desafios técnicos', caseStudyResult:'Resultado atual e limitações', contactEmailCta:'Falar sobre uma oportunidade',
+    caseStudyLabel:'Detalhe técnico', caseStudyProblem:'Problema e contexto', caseStudyArchitecture:'Arquitetura', caseStudyContribution:'Contributo pessoal', caseStudyChallenges:'Desafios técnicos', caseStudyResult:'Resultado atual e limitações', caseStudyQuality:'Qualidade e validação', caseStudyStatus:'Estado atual', contactEmailCta:'Falar sobre uma oportunidade',
     skillsKicker:'COMPETÊNCIAS TÉCNICAS', skillsTitle:'Tecnologias que utilizo', skillsIntro:'Tecnologias utilizadas na formação, em estágios e nos projetos atuais. O nível de experiência varia consoante a ferramenta.',
     internshipBottom:'CONTRIBUIR PARA TRABALHO REAL. APRENDER COM A EQUIPA.',
   },
@@ -372,7 +372,7 @@ const recruitmentCopy = {
   },
   fr: {
     availabilityLabel:'DISPONIBILITÉ DE STAGE', targetStart:'Début : février 2027', hours:'680 heures', location:'Coimbra, Portugal', paidStatus:'Stage curriculaire rémunéré', cvDownload:'Télécharger le CV',
-    caseStudyLabel:'Détail technique', caseStudyProblem:'Problème et contexte', caseStudyArchitecture:'Architecture', caseStudyContribution:'Ma contribution', caseStudyChallenges:'Défis techniques', caseStudyResult:'Résultat et limites actuels', contactEmailCta:'Écrire au sujet du stage',
+    caseStudyLabel:'Détail technique', caseStudyProblem:'Problème et contexte', caseStudyArchitecture:'Architecture', caseStudyContribution:'Ma contribution', caseStudyChallenges:'Défis techniques', caseStudyResult:'Résultat et limites actuels', caseStudyQuality:'Qualité et validation', caseStudyStatus:'État actuel', contactEmailCta:'Écrire au sujet du stage',
     skillsKicker:'COMPÉTENCES TECHNIQUES', skillsTitle:'Technologies utilisées', skillsIntro:'Technologies utilisées en formation, en stage et dans les projets actuels. Le niveau d’expérience varie selon l’outil.',
     internshipKicker:'DISPONIBILITÉ DE STAGE / 2027', internshipTitle:'Je recherche un stage curriculaire rémunéré en développement logiciel à Coimbra.',
     internshipText:'Je recherche un stage curriculaire rémunéré de 680 heures à partir de février 2027. Coimbra est ma localisation privilégiée ; je suis ouvert au présentiel, à l’hybride ou au télétravail. Je souhaite contribuer à des projets réels, apprendre auprès de développeurs expérimentés et renforcer mes bases en ingénierie logicielle.',
@@ -382,7 +382,7 @@ const recruitmentCopy = {
   },
   it: {
     availabilityLabel:'DISPONIBILITÀ TIROCINIO', targetStart:'Inizio: febbraio 2027', hours:'680 ore', location:'Coimbra, Portogallo', paidStatus:'Tirocinio curriculare retribuito', cvDownload:'Scarica CV',
-    caseStudyLabel:'Dettaglio tecnico', caseStudyProblem:'Problema e contesto', caseStudyArchitecture:'Architettura', caseStudyContribution:'Il mio contributo', caseStudyChallenges:'Sfide tecniche', caseStudyResult:'Risultato e limiti attuali', contactEmailCta:'Scrivi per il tirocinio',
+    caseStudyLabel:'Dettaglio tecnico', caseStudyProblem:'Problema e contesto', caseStudyArchitecture:'Architettura', caseStudyContribution:'Il mio contributo', caseStudyChallenges:'Sfide tecniche', caseStudyResult:'Risultato e limiti attuali', caseStudyQuality:'Qualità e convalida', caseStudyStatus:'Stato attuale', contactEmailCta:'Scrivi per il tirocinio',
     skillsKicker:'COMPETENZE TECNICHE', skillsTitle:'Tecnologie che utilizzo', skillsIntro:'Tecnologie utilizzate nella formazione, nei tirocini e nei progetti attuali. L’esperienza varia a seconda dello strumento.',
     internshipKicker:'DISPONIBILITÀ TIROCINIO / 2027', internshipTitle:'Cerco un tirocinio curriculare retribuito nello sviluppo software a Coimbra.',
     internshipText:'Cerco un tirocinio curriculare retribuito di 680 ore con inizio a febbraio 2027. Coimbra è la mia località preferita e sono disponibile per modalità in presenza, ibrida o da remoto. Desidero contribuire a progetti reali, imparare da sviluppatori esperti e rafforzare le mie basi di ingegneria del software.',
@@ -392,7 +392,7 @@ const recruitmentCopy = {
   },
   de: {
     availabilityLabel:'PRAKTIKUMSVERFÜGBARKEIT', targetStart:'Start: Februar 2027', hours:'680 Stunden', location:'Coimbra, Portugal', paidStatus:'Bezahltes Pflichtpraktikum', cvDownload:'Lebenslauf herunterladen',
-    caseStudyLabel:'Technische Details', caseStudyProblem:'Problem und Kontext', caseStudyArchitecture:'Architektur', caseStudyContribution:'Mein Beitrag', caseStudyChallenges:'Technische Herausforderungen', caseStudyResult:'Aktueller Stand und Grenzen', contactEmailCta:'E-Mail zum Praktikum',
+    caseStudyLabel:'Technische Details', caseStudyProblem:'Problem und Kontext', caseStudyArchitecture:'Architektur', caseStudyContribution:'Mein Beitrag', caseStudyChallenges:'Technische Herausforderungen', caseStudyResult:'Aktueller Stand und Grenzen', caseStudyQuality:'Qualität und Validierung', caseStudyStatus:'Aktueller Status', contactEmailCta:'E-Mail zum Praktikum',
     skillsKicker:'TECHNISCHE KENNTNISSE', skillsTitle:'Verwendete Technologien', skillsIntro:'Technologien aus Ausbildung, Praktika und aktuellen Projekten. Die Erfahrung unterscheidet sich je nach Werkzeug.',
     internshipKicker:'PRAKTIKUMSVERFÜGBARKEIT / 2027', internshipTitle:'Ich suche ein bezahltes 680-stündiges Pflichtpraktikum in der Softwareentwicklung in Coimbra.',
     internshipText:'Ich suche ein bezahltes curricular vorgeschriebenes Praktikum mit 680 Stunden ab Februar 2027. Coimbra ist mein bevorzugter Standort; Präsenz-, Hybrid- und Remote-Arbeit sind möglich. Ich möchte an realen Projekten mitarbeiten, von erfahrenen Entwicklern lernen und meine Grundlagen der Softwareentwicklung vertiefen.',
@@ -402,7 +402,7 @@ const recruitmentCopy = {
   },
   ja: {
     availabilityLabel:'インターンシップの希望条件', targetStart:'開始：2027年2月', hours:'680時間', location:'ポルトガル・コインブラ', paidStatus:'有給のカリキュラム実習', cvDownload:'履歴書をダウンロード',
-    caseStudyLabel:'技術的な詳細', caseStudyProblem:'課題と背景', caseStudyArchitecture:'アーキテクチャ', caseStudyContribution:'担当した内容', caseStudyChallenges:'技術的な課題', caseStudyResult:'現在の成果と制限事項', contactEmailCta:'実習についてメールする',
+    caseStudyLabel:'技術的な詳細', caseStudyProblem:'課題と背景', caseStudyArchitecture:'アーキテクチャ', caseStudyContribution:'担当した内容', caseStudyChallenges:'技術的な課題', caseStudyResult:'現在の成果と制限事項', caseStudyQuality:'品質と検証', caseStudyStatus:'現在の状況', contactEmailCta:'実習についてメールする',
     skillsKicker:'技術スキル', skillsTitle:'使用している技術', skillsIntro:'授業、実習、現在のプロジェクトで使用している技術です。経験の深さは技術ごとに異なります。',
     internshipKicker:'インターンシップの希望条件 / 2027', internshipTitle:'2027年2月からコインブラで有給のソフトウェア開発実習を希望しています。',
     internshipText:'2027年2月開始、680時間の有給カリキュラム実習を希望しています。希望勤務地はコインブラで、出社、ハイブリッド、リモートのいずれにも対応できます。実際のプロジェクトに貢献し、経験豊富な開発者から学び、ソフトウェアエンジニアリングの基礎を深めたいと考えています。',
@@ -1048,7 +1048,8 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
             <div><h4>{t.caseStudyArchitecture}</h4><p>{caseStudy.architecture}</p></div>
             <div><h4>{t.caseStudyContribution}</h4><p>{caseStudy.contribution}</p></div>
             <div><h4>{t.caseStudyChallenges}</h4><p>{caseStudy.challenges}</p></div>
-            <div className="case-study-result"><h4>{t.caseStudyResult}</h4><p>{caseStudy.result}</p></div>
+            <div className="case-study-result"><h4>{t.caseStudyQuality}</h4><p>{caseStudy.quality}</p></div>
+            <div className="case-study-result"><h4>{t.caseStudyStatus}</h4><p>{caseStudy.status}</p></div>
           </div>
         </details>}
         <div className="project-links">
