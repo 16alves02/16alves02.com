@@ -1,0 +1,160 @@
+/* Location story: current home in Aveiro, planned move to Coimbra. */
+.location-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 88px);
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 85% 18%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 34%),
+    var(--paper);
+}
+.location-heading { max-width: 650px; }
+.location-heading h2 {
+  max-width: 13ch;
+  margin: 18px 0 18px;
+  color: var(--ink);
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: -.065em;
+  line-height: .99;
+}
+.location-heading > p:last-child {
+  max-width: 58ch;
+  color: var(--body-copy);
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.8;
+}
+.location-route {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 58px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  box-shadow: 0 24px 70px rgba(20, 18, 15, .07);
+}
+.location-stop { min-width: 0; }
+.location-stop-label {
+  display: block;
+  min-height: 28px;
+  color: var(--secondary-copy);
+  font: 500 9px/1.5 var(--mono);
+  letter-spacing: .12em;
+}
+.location-pin {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  margin: 12px 0 18px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--line));
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 10%, var(--card));
+  color: var(--accent);
+}
+.location-pin svg { width: 19px; height: 19px; }
+.location-stop h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+.location-stop p {
+  margin: 9px 0 0;
+  color: var(--secondary-copy);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.location-next .location-pin {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.location-connector {
+  position: relative;
+  height: 1px;
+  margin-top: 35px;
+  background: var(--line);
+}
+.location-connector::before,
+.location-connector::after {
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary-copy);
+  content: "";
+  transform: translateY(-50%);
+}
+.location-connector::before { left: 0; }
+.location-connector::after { right: 0; background: var(--accent); }
+.location-connector span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--paper);
+  transform: translate(-50%, -50%);
+}
+.location-note {
+  grid-column: 2;
+  margin: -22px 0 0;
+  color: var(--secondary-copy);
+  font-size: 11px;
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .location-section { grid-template-columns: 1fr; gap: 28px; }
+  .location-heading h2 { max-width: 16ch; }
+  .location-note { grid-column: 1; margin: -12px 0 0; }
+}
+@media (max-width: 560px) {
+  .location-route { grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); gap: 6px; padding: 18px 14px; border-radius: 16px; }
+  .location-stop-label { font-size: 8px; letter-spacing: .07em; }
+  .location-stop h3 { font-size: 17px; }
+  .location-stop p { font-size: 11px; }
+  .location-pin { width: 36px; height: 36px; margin: 10px 0 14px; border-radius: 12px; }
+  .location-connector { margin-top: 32px; }
+}
+
+/* Consistent, calmer surfaces and clearer interactive states. */
+.project-card {
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(20, 18, 15, .035);
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(20, 18, 15, .09);
+}
+.project-info { padding: clamp(20px, 2.5vw, 32px); }
+.project-info h3 { letter-spacing: -.055em; }
+.project-links { flex-wrap: wrap; }
+.button, .header-cv, .header-contact { transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease; }
+.button:focus-visible, .header-cv:focus-visible, .header-contact:focus-visible, .nav-links button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+html[data-theme="dark"] .location-route {
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .18);
+}
+html[data-theme="dark"] .project-card:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .25);
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card, .button, .header-cv, .header-contact { transition: none !important; }
+  .project-card:hover { transform: none; }
+}
