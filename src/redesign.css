@@ -508,3 +508,226 @@ body { background: var(--redesign-bg); color: var(--redesign-ink); }
     transition-duration: .01ms !important;
   }
 }
+
+
+/* -------------------------------------------------------------------------
+   16ALVES02 BRAND SYSTEM
+   Primary: Signal Orange #FF6A2A
+   Visual language: editorial typography, precise grids, confident orange marks.
+   ------------------------------------------------------------------------- */
+:root {
+  --brand-orange: #FF6A2A;
+  --brand-orange-deep: #A83D18;
+  --brand-ink: #171717;
+  --brand-paper: #F7F5F0;
+  --brand-muted: #625E58;
+  --redesign-bg: var(--brand-paper);
+  --redesign-surface: #FFFEFB;
+  --redesign-surface-soft: #EEEAE2;
+  --redesign-ink: var(--brand-ink);
+  --redesign-muted: var(--brand-muted);
+  --redesign-line: rgba(23, 23, 23, .14);
+  --redesign-accent: var(--brand-orange-deep);
+  --redesign-accent-soft: rgba(255, 106, 42, .11);
+  --redesign-shadow: 0 18px 50px rgba(23, 23, 23, .065);
+  --redesign-radius: 16px;
+}
+html[data-theme="dark"] {
+  --brand-paper: #111214;
+  --brand-ink: #F4F1EC;
+  --brand-muted: #B9B5AE;
+  --redesign-bg: #111214;
+  --redesign-surface: #191B1E;
+  --redesign-surface-soft: #202327;
+  --redesign-ink: #F4F1EC;
+  --redesign-muted: #B9B5AE;
+  --redesign-line: rgba(244, 241, 236, .14);
+  --redesign-accent: var(--brand-orange);
+  --redesign-accent-soft: rgba(255, 106, 42, .13);
+  --redesign-shadow: 0 20px 55px rgba(0, 0, 0, .24);
+}
+html, body { background: var(--redesign-bg); }
+::selection { color: #171717; background: var(--brand-orange); }
+
+.site-shell {
+  --portfolio-orange: var(--brand-orange);
+  background: var(--redesign-bg) !important;
+  color: var(--redesign-ink) !important;
+}
+.site-shell .brand img,
+.site-shell .footer-brand img {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+}
+.site-shell .brand { gap: 12px; letter-spacing: -.055em; }
+.site-shell .brand > span { font-weight: 760; }
+.site-shell .brand-dot,
+.site-shell .project-link span,
+.site-shell .section-kicker,
+.site-shell .project-collection-index { color: var(--redesign-accent) !important; }
+
+/* The orange is a signature, not a wall of colour. */
+.site-shell .hero {
+  background:
+    radial-gradient(ellipse at 88% 42%, rgba(255,106,42,.085), transparent 31%),
+    var(--redesign-bg) !important;
+}
+.site-shell .hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 19%;
+  right: max(5%, calc((100vw - 1240px) / 2));
+  width: clamp(170px, 21vw, 290px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255,106,42,.34);
+  border-radius: 50% 50% 50% 4%;
+  transform: rotate(-16deg);
+  pointer-events: none;
+}
+.site-shell .hero::before {
+  content: "16 / 02";
+  position: absolute;
+  z-index: 0;
+  top: calc(19% + clamp(170px, 21vw, 290px) + 14px);
+  right: max(5%, calc((100vw - 1240px) / 2));
+  color: var(--redesign-accent);
+  font: 600 10px/1 var(--mono);
+  letter-spacing: .24em;
+}
+.site-shell .hero-back-number {
+  color: rgba(255,106,42,.055) !important;
+  font-weight: 800;
+}
+.site-shell .hero-meta { letter-spacing: .14em; }
+.site-shell .status-dot {
+  background: var(--brand-orange) !important;
+  box-shadow: 0 0 0 4px rgba(255,106,42,.14);
+}
+.site-shell .hero h1 { position: relative; z-index: 1; }
+.site-shell .hero h1 .hero-orange {
+  color: var(--brand-orange) !important;
+  text-shadow: none;
+}
+.site-shell .hero-intro { max-width: 590px; }
+.site-shell .hero-availability {
+  border-top-color: var(--redesign-line);
+}
+.site-shell .availability-label { color: var(--redesign-accent); }
+.site-shell .availability-facts span {
+  border-radius: 6px;
+  background: var(--redesign-surface);
+}
+.site-shell .button-dark,
+.site-shell .header-contact {
+  background: var(--brand-orange) !important;
+  border-color: var(--brand-orange) !important;
+  color: #171717 !important;
+  font-weight: 800;
+}
+.site-shell .button-dark:hover,
+.site-shell .header-contact:hover {
+  background: transparent !important;
+  color: var(--redesign-accent) !important;
+  border-color: var(--brand-orange) !important;
+}
+.site-shell .button-outline:hover,
+.site-shell .header-cv:hover {
+  border-color: var(--brand-orange) !important;
+  color: var(--redesign-accent) !important;
+}
+
+/* Editorial index: every section has a clear, consistent visual anchor. */
+.site-shell .section-kicker > span:first-child {
+  border-radius: 6px;
+}
+.site-shell .project-collection-heading {
+  padding-left: 18px;
+  border-left: 3px solid var(--brand-orange);
+}
+.site-shell .project-card {
+  border-radius: 12px !important;
+}
+.site-shell .project-card:hover {
+  border-color: rgba(255,106,42,.72) !important;
+}
+.site-shell .project-number,
+.site-shell .project-status {
+  color: var(--redesign-accent) !important;
+}
+.site-shell .project-info h3 { letter-spacing: -.065em; }
+.site-shell .project-info .project-link {
+  color: var(--redesign-accent) !important;
+}
+.site-shell .tag-list span,
+.site-shell .skill-items span {
+  border-radius: 5px;
+}
+.site-shell .skill-label > span,
+.site-shell .experience-year,
+.site-shell .education-date { color: var(--redesign-accent) !important; }
+.site-shell .education-card {
+  border-top: 3px solid var(--brand-orange);
+}
+.site-shell .internship-section {
+  background:
+    linear-gradient(110deg, rgba(255,106,42,.12), transparent 54%),
+    var(--redesign-surface-soft) !important;
+  border-top: 1px solid var(--redesign-line);
+  border-bottom: 1px solid var(--redesign-line);
+}
+.site-shell .internship-number { color: var(--brand-orange) !important; }
+.site-shell .contact-section h2 .brand-dot { color: var(--brand-orange) !important; }
+.site-shell .contact-email { text-decoration-color: var(--brand-orange); }
+.site-shell .site-footer {
+  border-top: 1px solid var(--redesign-line);
+}
+.site-shell .footer-brand img { border-radius: 8px; }
+
+/* Light mode: orange text uses a deeper companion shade for readable contrast.
+   Orange surfaces use near-black text to preserve accessible contrast. */
+html[data-theme="light"] .site-shell .hero h1 .hero-orange,
+html[data-theme="light"] .site-shell .section-kicker,
+html[data-theme="light"] .site-shell .project-collection-index,
+html[data-theme="light"] .site-shell .brand-dot,
+html[data-theme="light"] .site-shell .skill-label > span,
+html[data-theme="light"] .site-shell .experience-year,
+html[data-theme="light"] .site-shell .education-date,
+html[data-theme="light"] .site-shell .project-status,
+html[data-theme="light"] .site-shell .project-number {
+  color: var(--brand-orange-deep) !important;
+}
+html[data-theme="light"] .site-shell .button-dark,
+html[data-theme="light"] .site-shell .header-contact {
+  color: #171717 !important;
+}
+html[data-theme="dark"] .site-shell .hero h1 .hero-orange,
+html[data-theme="dark"] .site-shell .section-kicker,
+html[data-theme="dark"] .site-shell .project-collection-index,
+html[data-theme="dark"] .site-shell .brand-dot,
+html[data-theme="dark"] .site-shell .project-status,
+html[data-theme="dark"] .site-shell .project-number {
+  color: var(--brand-orange) !important;
+}
+html[data-theme="dark"] .site-shell .button-dark,
+html[data-theme="dark"] .site-shell .header-contact {
+  color: #171717 !important;
+}
+@media (max-width: 760px) {
+  .site-shell .hero::after {
+    top: 10%;
+    right: 5%;
+    width: 112px;
+    opacity: .65;
+  }
+  .site-shell .hero::before {
+    top: calc(10% + 120px);
+    right: 5%;
+    font-size: 8px;
+  }
+  .site-shell .hero-back-number { opacity: .5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-shell .hero::after { transform: none; }
+}
