@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { ArrowUpRight, MessageCircle, ShieldCheck } from 'lucide-react';
 
 const copy = {
@@ -91,27 +92,32 @@ export default function SiteUtilities({ language, onContact }) {
 
   return (
     <>
-      <div className="mobile-contact-cta">
-        <button type="button" className="button button-dark" onClick={onContact}>
-          <MessageCircle size={17} aria-hidden="true" /> {t.contact}
-        </button>
-      </div>
       <nav className="footer-legal-links" aria-label={t.settings}>
         <a href="/privacy.html">{t.privacy}</a>
         <a href="/terms.html">{t.terms}</a>
         <button type="button" onClick={openSettings}><ShieldCheck size={14} aria-hidden="true" /> {t.settings}</button>
       </nav>
-      {visible && (
-        <section className="privacy-consent" role="dialog" aria-modal="false" aria-labelledby="privacy-consent-title">
-          <div className="privacy-consent-copy">
-            <strong id="privacy-consent-title">{t.consentTitle}</strong>
-            <p>{t.consentText} <a href="/privacy.html">{t.privacy}</a>.</p>
+      {createPortal(
+        <>
+          <div className="mobile-contact-cta">
+            <button type="button" className="button button-dark" onClick={onContact}>
+              <MessageCircle size={17} aria-hidden="true" /> {t.contact}
+            </button>
           </div>
-          <div className="privacy-consent-actions">
-            <button type="button" className="privacy-reject" onClick={() => saveChoice('rejected')}>{t.reject}</button>
-            <button type="button" className="button button-dark" onClick={() => saveChoice('accepted')}>{t.accept}</button>
-          </div>
-        </section>
+          {visible && (
+            <section className="privacy-consent" role="dialog" aria-modal="false" aria-labelledby="privacy-consent-title">
+              <div className="privacy-consent-copy">
+                <strong id="privacy-consent-title">{t.consentTitle}</strong>
+                <p>{t.consentText} <a href="/privacy.html">{t.privacy}</a>.</p>
+              </div>
+              <div className="privacy-consent-actions">
+                <button type="button" className="privacy-reject" onClick={() => saveChoice('rejected')}>{t.reject}</button>
+                <button type="button" className="button button-dark" onClick={() => saveChoice('accepted')}>{t.accept}</button>
+              </div>
+            </section>
+          )}
+        </>,
+        document.body
       )}
     </>
   );
