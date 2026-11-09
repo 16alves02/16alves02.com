@@ -21,10 +21,11 @@ No Wrangler configuration file is needed for this static Vite deployment.
 ```bash
 npm ci
 npm run build
+npm run verify:theme
 npm run preview
 ```
 
-The production build is generated in `dist/`.
+The production build is generated in `dist/`. The theme verification checks readable accent text and filled controls in both themes; manually review the homepage, privacy page, terms page and 404 page in light and dark mode before release.
 
 ## Production readiness checklist
 
