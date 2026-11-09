@@ -114,11 +114,11 @@ function makeFloor() {
   const out = [];
   for (let i = -8; i <= 8; i += 1) {
     const x = i * 0.32;
-    pushLine(out,[x,1.35,1.8],[x,1.35,-3.8]);
+    pushLine(out,[x,-1.35,1.8],[x,-1.35,-3.8]);
   }
   for (let i = 0; i < 13; i += 1) {
     const z = 1.8 - i * 0.44;
-    pushLine(out,[-3.3,1.35,z],[3.3,1.35,z]);
+    pushLine(out,[-3.3,-1.35,z],[3.3,-1.35,z]);
   }
   return new Float32Array(out);
 }
