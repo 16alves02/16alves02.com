@@ -8,7 +8,7 @@ export async function onRequestGet({ env }) {
   endpoint.searchParams.set('select', 'id,content_type,slug,locale,content,published,sort_order,updated_at');
   endpoint.searchParams.set('published', 'eq.true');
   endpoint.searchParams.set('order', 'sort_order.asc,updated_at.desc');
-  const upstream = await fetch(endpoint, { headers: { apikey: key } });
+  const upstream = await fetch(endpoint, { headers: { apikey: key, 'Accept-Profile': 'portfolio' } });
   if (!upstream.ok) return Response.json({ error: 'Content service unavailable.' }, { status: 502 });
   const items = await upstream.json();
   return Response.json({ items, configured: true }, {
