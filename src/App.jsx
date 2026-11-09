@@ -9,6 +9,11 @@ import DeferredEngineeringStories from './components/DeferredEngineeringStories.
 import SiteUtilities from './components/SiteUtilities.jsx';
 
 const Scene3D = lazy(() => import('./components/Scene3D.jsx'));
+import ContactForm from './components/ContactForm.jsx';
+import ProjectDetailPage from './components/ProjectDetailPage.jsx';
+import ProfilePage from './components/ProfilePage.jsx';
+import PortfolioExtras from './components/PortfolioExtras.jsx';
+const slugify = (value = '') => String(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
@@ -1018,8 +1023,10 @@ function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable, langu
 
 function ProjectCard({ project, t, featured = false, language = 'en', position = 1, total = projects.length }) {
   const projectLocale = language === 'pt-PT' ? 'pt' : language;
-  const details = extraProjectTranslations[language]?.[project.number] || projectTranslations[projectLocale]?.[project.number] || project;
+  const dynamicDetails = project.translations?.[projectLocale] || project.translations?.[language];
+  const details = dynamicDetails || extraProjectTranslations[language]?.[project.number] || projectTranslations[projectLocale]?.[project.number] || project;
   const caseStudy = project.caseStudy?.[projectLocale] || project.caseStudy?.en;
+  const projectSlug = project.slug || slugify(project.name);
   return (
     <article className={`project-card project-${project.visual} ${featured ? 'project-featured' : ''}`}>
       <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} image={project.image} imageAlt={project.imageAlt} previewUnavailable={t.previewUnavailable} language={language} /><span className="project-number">{String(position).padStart(2, '0')} / {total}</span></div>
@@ -1040,7 +1047,8 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
           </div>
         </details>}
         <div className="project-links">
-          {project.live && <a href={project.live} target="_blank" rel="noreferrer" className="project-link project-link-primary">{t.viewLive} <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>}
+          <a href={'/projects/' + projectSlug} className="project-link project-link-primary">{language === 'pt-PT' ? 'Estudo de caso' : 'Case study'} <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>
+          {project.live && <a href={project.live} target="_blank" rel="noreferrer" className="project-link">{t.viewLive} <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>}
           {project.source && <a href={project.source} target="_blank" rel="noreferrer" className="project-link">{t.viewCode} <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>}
           {project.status && <span className="project-status">{details.status || project.status}</span>}
         </div>
@@ -1175,14 +1183,46 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [cmsRows, setCmsRows] = useState([]);
+  const [projectSearch, setProjectSearch] = useState('');
+  const [projectTechnology, setProjectTechnology] = useState('all');
+  const [projectStatus, setProjectStatus] = useState('all');
   const languageMenuRef = useRef(null);
-  const t = localeCopy[language] || localeCopy.en;
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/api/content').then((response) => response.ok ? response.json() : null).then((data) => {
+      if (!cancelled && Array.isArray(data?.items)) setCmsRows(data.items);
+    }).catch(() => {});
+    return () => { cancelled = true; };
+  }, []);
+  const localeRow = cmsRows.find((row) => row.content_type === 'home_copy' && row.locale === language)
+    || cmsRows.find((row) => row.content_type === 'home_copy' && row.locale === 'all');
+  const t = { ...(localeCopy[language] || localeCopy.en), ...(localeRow?.content || {}) };
   const isPortuguese = language === 'pt-PT';
   const featuredProjectNames = ['SaborGest', 'RunLattice', 'MRDR.', 'HOOP'];
-  const featuredProjects = featuredProjectNames
-    .map((name) => projects.find((project) => project.name === name))
-    .filter(Boolean);
-  const additionalProjects = projects.filter((project) => !featuredProjectNames.includes(project.name));
+  const localeProjectRows = cmsRows.filter((row) => row.content_type === 'project' && (row.locale === 'all' || row.locale === language));
+  const activeProjects = localeProjectRows.length
+    ? localeProjectRows.map((row) => ({ ...row.content, slug: row.slug, number: row.content?.number || String(row.sort_order).padStart(2, '0') }))
+    : projects;
+  const allTechnologies = [...new Set(activeProjects.flatMap((project) => project.stack || []))].sort((a, b) => a.localeCompare(b));
+  const projectFiltersActive = Boolean(projectSearch.trim() || projectTechnology !== 'all' || projectStatus !== 'all');
+  const filteredProjects = activeProjects.filter((project) => {
+    const term = projectSearch.trim().toLowerCase();
+    const matchesSearch = !term || [project.name, project.description, ...(project.stack || [])].join(' ').toLowerCase().includes(term);
+    const matchesTechnology = projectTechnology === 'all' || (project.stack || []).includes(projectTechnology);
+    const matchesStatus = projectStatus === 'all' || String(project.status || '').toLowerCase().includes(projectStatus);
+    return matchesSearch && matchesTechnology && matchesStatus;
+  });
+  const featuredProjects = projectFiltersActive
+    ? filteredProjects
+    : featuredProjectNames.map((name) => activeProjects.find((project) => project.name === name)).filter(Boolean);
+  const additionalProjects = projectFiltersActive ? [] : activeProjects.filter((project) => !featuredProjectNames.includes(project.name));
+  const experienceRows = cmsRows.filter((row) => row.content_type === 'experience' && (row.locale === 'all' || row.locale === language)).sort((a, b) => a.sort_order - b.sort_order);
+  const relevantExperience = experienceRows.length
+    ? experienceRows.map((row) => ({ ...row.content, id: row.content?.id || row.slug }))
+    : [...(experienceByLanguage[language] || experienceByLanguage.en)].sort((a, b) => ({ cnc: 0, mc: 1, clickbeauty: 2, aej: 3 }[a.id] ?? 9) - ({ cnc: 0, mc: 1, clickbeauty: 2, aej: 3 }[b.id] ?? 9));
+  const skillRows = cmsRows.filter((row) => row.content_type === 'skill_group' && (row.locale === 'all' || row.locale === language)).sort((a, b) => a.sort_order - b.sort_order);
+  const skillGroups = skillRows.length ? skillRows.map((row) => [row.content?.name || row.slug, ...(row.content?.items || [])]) : t.skillGroups;
   const activeLanguage = languageOptions.find((option) => option.code === language) || languageOptions[0];
   const cvHref = language === 'pt-PT' ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT-Engenharia-Software.pdf' : 'Leonardo-Alves-CV-EN-Software-Engineering.pdf';
@@ -1192,8 +1232,10 @@ export default function App() {
   const internshipBody = language === 'pt-PT'
     ? 'Olá, Leonardo.\n\nGostaria de falar sobre uma oportunidade profissional em desenvolvimento de software, na região de Aveiro ou Coimbra.\n\nTipo de oportunidade: emprego / estágio curricular de 680 horas\nRegime de trabalho: presencial / híbrido / remoto\n\nCom os melhores cumprimentos,'
     : 'Hello Leonardo,\n\nI would like to discuss a software development opportunity in the Aveiro or Coimbra area.\n\nOpportunity: employment / 680-hour curricular internship\nWorking arrangement: on-site / hybrid / remote\n\nKind regards,';
-  const internshipHref = `mailto:16alves02@gmail.com?subject=${encodeURIComponent(internshipSubject)}&body=${encodeURIComponent(internshipBody)}`;
-  const relevantExperience = experienceByLanguage[language] || experienceByLanguage.en;
+  const internshipHref = `mailto:alv16studios@gmail.com?subject=${encodeURIComponent(internshipSubject)}&body=${encodeURIComponent(internshipBody)}`;
+  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const routeProjectSlug = currentPath.startsWith('/projects/') ? currentPath.split('/')[2] : null;
+  const routeProject = routeProjectSlug ? activeProjects.find((project) => (project.slug || slugify(project.name)) === routeProjectSlug) : null;
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -1225,12 +1267,12 @@ export default function App() {
 
   function handleCopyEmail() {
     if (navigator.clipboard?.writeText) {
-      navigator.clipboard.writeText('16alves02@gmail.com').then(() => {
+      navigator.clipboard.writeText('alv16studios@gmail.com').then(() => {
         setCopied(true);
         window.setTimeout(() => setCopied(false), 1800);
-      }).catch(() => { window.location.href = 'mailto:16alves02@gmail.com'; });
+      }).catch(() => { window.location.href = 'mailto:alv16studios@gmail.com'; });
     } else {
-      window.location.href = 'mailto:16alves02@gmail.com';
+      window.location.href = 'mailto:alv16studios@gmail.com';
     }
   }
 
@@ -1248,6 +1290,11 @@ export default function App() {
     setTheme((current) => current === 'light' ? 'dark' : 'light');
   }
 
+  if (currentPath === '/profile') return <ProfilePage language={language} theme={theme} skills={skillGroups} experience={relevantExperience} />;
+  if (routeProjectSlug) return routeProject
+    ? <ProjectDetailPage project={routeProject} language={language} theme={theme} />
+    : <main className="portfolio-detail-page" data-theme={theme}><a href="/">← {isPortuguese ? 'Voltar ao portefólio' : 'Back to portfolio'}</a><h1>404</h1><p>{isPortuguese ? 'Projeto não encontrado.' : 'Project not found.'}</p></main>;
+
   return (
     <div className="site-shell" data-theme={theme}>
       <a className="skip-link" href="#main-content">{language === 'pt-PT' ? 'Saltar para o conteúdo' : language === 'es' ? 'Saltar al contenido' : language === 'fr' ? 'Aller au contenu' : language === 'it' ? 'Vai al contenuto' : language === 'de' ? 'Zum Inhalt springen' : language === 'ja' ? 'コンテンツへスキップ' : 'Skip to content'}</a>
@@ -1262,6 +1309,7 @@ export default function App() {
             <button onClick={() => goTo('work')}>{t.navWork}</button>
             <button onClick={() => goTo('about')}>{t.navAbout}</button>
             <button onClick={() => goTo('background')}>{t.navPath}</button>
+            <button onClick={() => { window.location.href = '/profile'; }}>{isPortuguese ? 'Perfil' : 'Profile'}</button>
             <button onClick={() => goTo('contact')}>{t.navContact}</button>
           </nav>
 
@@ -1375,15 +1423,22 @@ export default function App() {
           <div className="section-heading"><div><p className="section-kicker"><span>01</span> / {t.workKicker.split('/ ').slice(1).join('/ ')}</p><h2>{t.workTitle}<span className="brand-dot">.</span></h2></div><p className="section-description">{t.workIntro}</p></div>
           <div className="project-collection">
             <div className="project-collection-heading">
-              <span className="project-collection-index">01 / {isPortuguese ? "PROJETOS EM DESTAQUE" : "FEATURED PROJECTS"} · {projects.length} {isPortuguese ? "PROJETOS NO TOTAL" : "PROJECTS IN TOTAL"}</span>
+              <span className="project-collection-index">01 / {isPortuguese ? "PROJETOS EM DESTAQUE" : "FEATURED PROJECTS"} · {activeProjects.length} {isPortuguese ? "PROJETOS NO TOTAL" : "PROJECTS IN TOTAL"}</span>
               <h3>{isPortuguese ? "Diferentes ideias. Diferentes desafios." : "Different ideas. Different challenges."}</h3>
               <p>{isPortuguese ? "Os quatro projetos principais e o restante trabalho, sem esconder nenhum projeto numa lista fechada." : "The four main projects and the rest of the work, with every project visible."}</p>
             </div>
+            <div className="project-explorer-controls" aria-label={isPortuguese ? 'Filtros de projetos' : 'Project filters'}>
+              <label><span>{isPortuguese ? 'Pesquisar' : 'Search'}</span><input value={projectSearch} onChange={(event) => setProjectSearch(event.target.value)} placeholder={isPortuguese ? 'Nome, descrição ou tecnologia' : 'Name, description or technology'} /></label>
+              <label><span>{isPortuguese ? 'Tecnologia' : 'Technology'}</span><select value={projectTechnology} onChange={(event) => setProjectTechnology(event.target.value)}><option value="all">{isPortuguese ? 'Todas' : 'All'}</option>{allTechnologies.map((technology) => <option key={technology} value={technology}>{technology}</option>)}</select></label>
+              <label><span>{isPortuguese ? 'Estado' : 'Status'}</span><select value={projectStatus} onChange={(event) => setProjectStatus(event.target.value)}><option value="all">{isPortuguese ? 'Todos' : 'All'}</option><option value="development">{isPortuguese ? 'Em desenvolvimento' : 'In development'}</option><option value="prototype">{isPortuguese ? 'Protótipo' : 'Prototype'}</option><option value="live">Live</option></select></label>
+              {projectFiltersActive && <button type="button" onClick={() => { setProjectSearch(''); setProjectTechnology('all'); setProjectStatus('all'); }}>{isPortuguese ? 'Limpar filtros' : 'Clear filters'}</button>}
+            </div>
             <div className="projects-grid featured-projects-grid">
               {featuredProjects.map((project, index) => (
-                <ProjectCard key={project.name} project={project} t={t} language={language} position={index + 1} total={featuredProjects.length} featured />
+                <ProjectCard key={project.slug || project.name} project={project} t={t} language={language} position={index + 1} total={featuredProjects.length} featured={!projectFiltersActive} />
               ))}
             </div>
+            {projectFiltersActive && featuredProjects.length === 0 && <p className="project-filter-empty">{isPortuguese ? 'Não foram encontrados projetos com estes filtros.' : 'No projects match these filters.'}</p>}
           </div>
           {additionalProjects.length > 0 && <div className="additional-projects">
             <div className="additional-projects-heading">
@@ -1405,6 +1460,7 @@ export default function App() {
         </section>
 
         <DeferredEngineeringStories language={language} />
+        <PortfolioExtras language={language} projects={activeProjects} />
 
 <section className="about-section" id="about">
           <div className="about-band"><span>02 / {t.navAbout.toUpperCase()}</span><span>16ALVES02®</span><span>{t.aboutBandTagline}</span></div>
@@ -1416,7 +1472,7 @@ export default function App() {
 
         <section className="skills-section section-pad">
           <div className="section-heading"><div><p className="section-kicker">{t.skillsKicker}</p><h2>{t.skillsTitle}<span className="brand-dot">.</span></h2></div></div>
-          <div className="skills-rows">{t.skillGroups.map((group, i) => <div className="skill-row" key={group[0]}><div className="skill-label"><span>0{i + 1}</span>{group[0]}</div><div className="skill-items">{group.slice(1).map((skill) => <span key={skill}>{skill}</span>)}</div></div>)}</div>
+          <div className="skills-rows">{skillGroups.map((group, i) => <div className="skill-row" key={group[0]}><div className="skill-label"><span>0{i + 1}</span>{group[0]}</div><div className="skill-items">{group.slice(1).map((skill) => <span key={skill}>{skill}</span>)}</div></div>)}</div>
         </section>
 
         <section className="background-section section-pad" id="background">
@@ -1463,11 +1519,12 @@ export default function App() {
         <section className="contact-section section-pad" id="contact">
           <div className="contact-top"><p className="section-kicker">{t.contactKicker}</p></div>
           <h2>{t.contactTitle}<span className="brand-dot">.</span></h2>
+          <ContactForm language={language} />
           <div className="contact-bottom">
             <div>
               <p>{t.contactText}</p>
               <span className="contact-email-label">{t.emailLabel}</span>
-              <a className="contact-email" href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>
+              <a className="contact-email" href="mailto:alv16studios@gmail.com">alv16studios@gmail.com <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" /></a>
               <button className="copy-email" onClick={handleCopyEmail}>{copied ? t.copied : t.email}</button>
               <div className="contact-actions">
                 <a className="button button-contact-cv" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
@@ -1482,7 +1539,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><a className="footer-brand" href="#home"><img src="/logo.png" alt="" /><span>16alves02<span className="brand-dot">.</span></span></a><p>{t.footerNote}</p><a href="#home" className="back-top">{t.footerTop}</a><span className="footer-year">© 2026</span></footer>
+      <footer className="site-footer"><a className="footer-brand" href="#home"><img src="/logo.png" alt="" /><span>16alves02<span className="brand-dot">.</span></span></a><p>{t.footerNote}</p><a href="#home" className="back-top">{t.footerTop}</a><span className="footer-studio">ALV16 STUDIOS</span><span className="footer-year">© {new Date().getFullYear()}</span></footer>
       <SiteUtilities language={language} onContact={() => goTo('contact')} />
     </div>
   );
