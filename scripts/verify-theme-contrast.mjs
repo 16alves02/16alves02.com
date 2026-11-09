@@ -103,6 +103,8 @@ assert.match(scene, /scene3d-poster/, 'The scene must include a static fallback 
 assert.match(scene, /IntersectionObserver/, 'The scene must pause when outside the viewport');
 assert.match(scene, /prefers-reduced-motion/, 'The scene must respect reduced-motion preferences');
 assert.match(scene, /ResizeObserver/, 'The scene must respond to container size changes');
+assert.match(scene, /webglcontextlost/, 'The scene must handle WebGL context loss');
+assert.match(scene, /devicePixelRatio[\\s\\S]*?Math\\.min/, 'The renderer must cap device pixel ratio');
 assert.match(immersiveStyles, /@media \(prefers-reduced-motion: reduce\)/, '3D hover effects must respect reduced motion');
 
 console.log('Theme and 3D contrast verification passed (WCAG AA 4.5:1 for theme accents, signals and filled controls).');
