@@ -98,11 +98,13 @@ assertReadable('Internship callout body copy', '#becbd2', '#09121c');
 assertReadable('Internship callout heading', '#f0f5f7', '#09121c');
 
 const scene = readFileSync('src/components/Scene3D.jsx', 'utf8');
-assert.match(scene, /getContext\('2d'/, 'The 3D scene must use a broadly supported canvas renderer');
+assert.match(scene, /getContext\('(2d|webgl|experimental-webgl)'/, 'The 3D scene must use a canvas or WebGL renderer');
 assert.match(scene, /scene3d-poster/, 'The scene must include a static fallback poster');
 assert.match(scene, /IntersectionObserver/, 'The scene must pause when outside the viewport');
 assert.match(scene, /prefers-reduced-motion/, 'The scene must respect reduced-motion preferences');
 assert.match(scene, /ResizeObserver/, 'The scene must respond to container size changes');
+assert.match(scene, /webglcontextlost/, 'The scene must handle WebGL context loss');
+assert.match(scene, /Math\.min\(window\.devicePixelRatio/, 'The renderer must cap device pixel ratio');
 assert.match(immersiveStyles, /@media \(prefers-reduced-motion: reduce\)/, '3D hover effects must respect reduced motion');
 
 console.log('Theme and 3D contrast verification passed (WCAG AA 4.5:1 for theme accents, signals and filled controls).');

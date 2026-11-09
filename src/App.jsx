@@ -1,13 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import {
   ArrowDownRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, Check,
   Camera, ChevronDown, Clock3, Code2, ContactRound, Download, Gamepad2, Globe,
   GraduationCap, Link2, MapPin, Menu, Moon, Play, Shapes, Sparkles, Sun, X,
 } from 'lucide-react';
 import { projects } from './data/projects.js';
-import EngineeringStories from './components/EngineeringStories.jsx';
-import SiteUtilities, { ExternalGameEmbed } from './components/SiteUtilities.jsx';
-import Scene3D from './components/Scene3D.jsx';
+import DeferredEngineeringStories from './components/DeferredEngineeringStories.jsx';
+import SiteUtilities from './components/SiteUtilities.jsx';
+
+const Scene3D = lazy(() => import('./components/Scene3D.jsx'));
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
@@ -964,9 +965,6 @@ function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable, langu
     );
   }
 
-  // The third-party itch.io player is only requested after an explicit visitor choice.
-  if (type === 'raw') return <ExternalGameEmbed language={language} />;
-
   if (image) {
     return (
       <div className={`project-preview-photo project-preview-${type}`}>
@@ -1335,7 +1333,7 @@ export default function App() {
         <section className="hero" id="home">
           <div className="hero-back-number" aria-hidden="true">16</div>
           <div className="hero-3d-stage" aria-hidden="true">
-            <Scene3D theme={theme} />
+            <Suspense fallback={<div className="scene3d" aria-hidden="true"><div className="scene3d-poster"><span className="scene3d-poster-cube" /><span className="scene3d-poster-orbit scene3d-poster-orbit-one" /><span className="scene3d-poster-orbit scene3d-poster-orbit-two" /></div></div>}><Scene3D theme={theme} /></Suspense>
             <div className="hero-scene-hud hero-scene-hud-top">PROCEDURAL / 3D FIELD</div>
             <div className="hero-scene-hud hero-scene-hud-bottom">INTERFACES / SYSTEMS / SOFTWARE</div>
           </div>
@@ -1406,7 +1404,7 @@ export default function App() {
           </div>
         </section>
 
-        <EngineeringStories language={language} />
+        <DeferredEngineeringStories language={language} />
 
 <section className="about-section" id="about">
           <div className="about-band"><span>02 / {t.navAbout.toUpperCase()}</span><span>16ALVES02®</span><span>{t.aboutBandTagline}</span></div>
