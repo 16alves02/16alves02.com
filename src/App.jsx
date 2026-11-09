@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { projects } from './data/projects.js';
 import EngineeringStories from './components/EngineeringStories.jsx';
+import SiteUtilities, { ExternalGameEmbed } from './components/SiteUtilities.jsx';
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
@@ -941,7 +942,7 @@ for (const [code, additions] of Object.entries(recruiterFocusedCopy)) {
   localeCopy[code] = { ...localeCopy[code], ...additions };
 }
 
-function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
+function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable, language }) {
   if (type === 'group') {
     return (
       <div className="project-preview-unavailable project-preview-group">
@@ -962,32 +963,8 @@ function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable }) {
     );
   }
 
-  // Use the official itch.io player for RAW., with a direct link as a fallback.
-  if (type === 'raw') {
-    return (
-      <div className="raw-itch-embed">
-        <div className="raw-embed-heading">
-          <span className="raw-embed-mark">RAW.</span>
-          <span className="raw-embed-caption">INTERACTIVE CONVERSATION GAME / ITCH.IO</span>
-        </div>
-        <iframe
-          src="https://itch.io/embed/5239051?bg_color=F7F5F0&fg_color=171717&link_color=E5483F&border_color=E5E2DC"
-          width="100%"
-          height="167"
-          frameBorder="0"
-          title="RAW. by ALV16 STUDIOS"
-          loading="lazy"
-        >
-          <a href="https://alv16studios.itch.io/raw-conversation-game" target="_blank" rel="noreferrer">
-            RAW. by ALV16 STUDIOS
-          </a>
-        </iframe>
-        <a className="raw-embed-external" href="https://alv16studios.itch.io/raw-conversation-game" target="_blank" rel="noreferrer">
-          Play RAW. on itch.io <span aria-hidden="true">↗</span>
-        </a>
-      </div>
-    );
-  }
+  // The third-party itch.io player is only requested after an explicit visitor choice.
+  if (type === 'raw') return <ExternalGameEmbed language={language} />;
 
   if (image) {
     return (
@@ -1046,7 +1023,7 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
   const caseStudy = project.caseStudy?.[projectLocale] || project.caseStudy?.en;
   return (
     <article className={`project-card project-${project.visual} ${featured ? 'project-featured' : ''}`}>
-      <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} image={project.image} imageAlt={project.imageAlt} previewUnavailable={t.previewUnavailable} /><span className="project-number">{String(position).padStart(2, '0')} / {total}</span></div>
+      <div className="project-visual-wrap"><ProjectArtwork type={project.visual} name={project.name} image={project.image} imageAlt={project.imageAlt} previewUnavailable={t.previewUnavailable} language={language} /><span className="project-number">{String(position).padStart(2, '0')} / {total}</span></div>
       <div className="project-info">
         <div className="project-meta"><span>{details.type}</span><span>{project.year}</span></div>
         <h3>{project.name}<span className="brand-dot">.</span></h3>
@@ -1502,6 +1479,7 @@ export default function App() {
       </main>
 
       <footer className="site-footer"><a className="footer-brand" href="#home"><img src="/logo.png" alt="" /><span>16alves02<span className="brand-dot">.</span></span></a><p>{t.footerNote}</p><a href="#home" className="back-top">{t.footerTop}</a><span className="footer-year">© 2026</span></footer>
+      <SiteUtilities language={language} onContact={() => goTo('contact')} />
     </div>
   );
 }

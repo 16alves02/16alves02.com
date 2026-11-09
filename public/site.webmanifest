@@ -1,0 +1,17 @@
+{
+  "name": "Leonardo Alves | 16alves02",
+  "short_name": "16alves02",
+  "description": "Portfolio of Leonardo Alves, Software Developer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f5f0",
+  "theme_color": "#d8d5cd",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

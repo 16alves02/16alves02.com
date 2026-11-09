@@ -25,3 +25,10 @@ npm run preview
 ```
 
 The production build is generated in `dist/`.
+
+## Production readiness checklist
+
+- [ ] In Cloudflare Pages, open the `16alves02` project > **Metrics** > **Web Analytics** > **Enable**. Cloudflare injects the privacy-focused beacon on the next deployment. Confirm real page-view data appears in the dashboard before describing analytics as active.
+- [ ] Add a domain that the site owner controls under **Custom domains**. Do not change canonical URLs, sitemap URLs, or DNS until ownership and the target hostname are confirmed. After activation, update all canonical, Open Graph, sitemap, robots and legal-page URLs together.
+- [ ] Verify `/privacy.html`, `/terms.html`, `/sitemap.xml`, `/robots.txt`, and a deliberately missing path in production. The missing path must return HTTP 404.
+- [ ] Re-submit `/sitemap.xml` in Google Search Console after the production deployment and inspect the sitemap details. A successful browser render or URL live test does not itself prove that the Sitemaps report has processed the file.
