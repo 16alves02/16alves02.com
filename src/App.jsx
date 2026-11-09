@@ -5,7 +5,6 @@ import {
   GraduationCap, Link2, MapPin, Menu, Moon, Play, Shapes, Sparkles, Sun, X,
 } from 'lucide-react';
 import { projects } from './data/projects.js';
-import ProjectCarousel from './components/ProjectCarousel.jsx';
 import EngineeringStories from './components/EngineeringStories.jsx';
 
 const socials = [
@@ -1219,7 +1218,7 @@ export default function App() {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    if (themeColorMeta) themeColorMeta.content = theme === 'dark' ? '#111110' : '#f7f3ec';
+    if (themeColorMeta) themeColorMeta.content = theme === 'dark' ? '#151416' : '#d8d5cd';
     try { window.localStorage.setItem('16alves02-theme', theme); } catch { /* Ignore storage errors. */ }
   }, [theme]);
 
@@ -1270,12 +1269,11 @@ export default function App() {
 
   return (
     <div className="site-shell" data-theme={theme}>
-      <ScrollProgress language={language} />
       <a className="skip-link" href="#main-content">{language === 'pt-PT' ? 'Saltar para o conteúdo' : language === 'es' ? 'Saltar al contenido' : language === 'fr' ? 'Aller au contenu' : language === 'it' ? 'Vai al contenuto' : language === 'de' ? 'Zum Inhalt springen' : language === 'ja' ? 'コンテンツへスキップ' : 'Skip to content'}</a>
       <header className="site-header">
         <div className="header-inner">
           <a className="brand" href="#home" aria-label="16alves02 LEONARDO ALVES home">
-            <img src="/logo.svg" alt="Logótipo 16alves02" />
+            <img src="/logo.png" alt="Logótipo 16alves02" />
             <span>16alves02<span className="brand-dot">.</span><small className="brand-owner">LEONARDO ALVES</small></span>
           </a>
 
@@ -1370,10 +1368,6 @@ export default function App() {
                 <a className="button button-outline" href={cvHref} download={cvFilename}><DownloadIcon />{t.cvDownload}</a>
               </div>
             </div>
-          <div className="hero-art-carousel">
-            <ProjectCarousel t={t} />
-          </div>
-
           </div>
         </section>
 
@@ -1429,7 +1423,7 @@ export default function App() {
 <section className="about-section" id="about">
           <div className="about-band"><span>02 / {t.navAbout.toUpperCase()}</span><span>16ALVES02®</span><span>{t.aboutBandTagline}</span></div>
           <div className="about-inner section-pad">
-            <div className="about-title-col"><p className="section-kicker">{t.aboutKicker}</p><h2>{t.aboutTitle}</h2><div className="about-logo"><img src="/logo.svg" alt="16alves02" /><span>{t.aboutMiniOne}<br />{t.aboutMiniTwo}</span></div></div>
+            <div className="about-title-col"><p className="section-kicker">{t.aboutKicker}</p><h2>{t.aboutTitle}</h2><div className="about-logo"><img src="/logo.png" alt="16alves02" /><span>{t.aboutMiniOne}<br />{t.aboutMiniTwo}</span></div></div>
             <div className="about-copy"><p>{t.about1}</p></div>
           </div>
         </section>
@@ -1502,7 +1496,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><a className="footer-brand" href="#home"><img src="/logo.svg" alt="" /><span>16alves02<span className="brand-dot">.</span></span></a><p>{t.footerNote}</p><a href="#home" className="back-top">{t.footerTop}</a><span className="footer-year">© 2026</span></footer>
+      <footer className="site-footer"><a className="footer-brand" href="#home"><img src="/logo.png" alt="" /><span>16alves02<span className="brand-dot">.</span></span></a><p>{t.footerNote}</p><a href="#home" className="back-top">{t.footerTop}</a><span className="footer-year">© 2026</span></footer>
     </div>
   );
 }
