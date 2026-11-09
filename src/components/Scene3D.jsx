@@ -161,7 +161,7 @@ function drawFloor(context, width, height, projectPoint, palette) {
   context.globalAlpha = 1;
 }
 
-function renderScene(context, width, height, time, pointer, palette) {
+function renderScene(context, width, height, time, pointer, palette, sphereBasePoints, sphereMeshEdges) {
   context.clearRect(0, 0, width, height);
 
   const center = {
@@ -188,12 +188,12 @@ function renderScene(context, width, height, time, pointer, palette) {
   drawOrbit(context, projectPoint, { x: 0.22, y: rotation.y * -0.46, z: 1.08 }, palette.secondary, 0.54, 2.2, 0.48);
   drawCube(context, projectPoint, palette.cube, 0.52, 1.28);
 
-  const points = spherePoints(190).map((point) => projectPoint(rotatePoint(point, {
+  const points = sphereBasePoints.map((point) => projectPoint(rotatePoint(point, {
     x: rotation.x * 0.45,
     y: rotation.y * -0.72,
     z: rotation.z,
   })));
-  const edges = sphereEdges(spherePoints(190));
+  const edges = sphereMeshEdges;
 
   context.save();
   context.shadowColor = palette.mesh;
