@@ -40,8 +40,8 @@ export const projects = [
     stack: ['Next.js', 'React', 'TypeScript', 'Better Auth', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ', 'Vitest'],
     source: 'https://github.com/16alves02/RunLattice',
     status: 'Prototype in development',
-    image: 'https://raw.githubusercontent.com/16alves02/RunLattice/main/public/favicon.svg',
-    imageAlt: 'RunLattice application icon from its source repository',
+    image: '/runlattice-logo.svg',
+    imageAlt: 'Logótipo oficial RunLattice',
     visual: 'runlattice',
     caseStudy: {
       en: {
