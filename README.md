@@ -67,7 +67,13 @@ Technologies used across coursework, internships and projects. Practical experie
 
 ## Website
 
-The portfolio includes responsive layouts, seven interface languages, light and dark themes, language-aware CV downloads, project case studies and links to professional and social profiles.
+The portfolio includes responsive layouts, seven interface languages, persistent light and dark themes shared with the legal and 404 pages, language-aware CV downloads, project case studies and links to professional and social profiles.
+
+## Theme contrast and accessibility
+
+The light and dark themes use separate text-accent and button-fill colors. Large content sections use neutral theme surfaces instead of saturated orange backgrounds, and filled controls use a foreground color with a WCAG AA contrast ratio of at least 4.5:1. The saved theme preference is also applied by the privacy, terms and 404 pages.
+
+Run `npm run verify:theme` to check the theme color tokens and contrast ratios. This check is included in GitHub Actions.
 
 ## Run locally
 
