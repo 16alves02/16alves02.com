@@ -1202,7 +1202,7 @@ export default function App() {
   const languageMenuRef = useRef(null);
   const t = localeCopy[language] || localeCopy.en;
   const isPortuguese = language === 'pt-PT';
-  const featuredProjectNames = ['SaborGest', 'RunLattice', 'MRDR.', 'RAW.'];
+  const featuredProjectNames = ['SaborGest', 'RunLattice', 'MRDR.', 'HOOP'];
   const featuredProjects = featuredProjectNames
     .map((name) => projects.find((project) => project.name === name))
     .filter(Boolean);
