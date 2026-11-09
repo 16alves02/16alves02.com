@@ -128,7 +128,8 @@ function renderSection() {
   root.querySelector('#section-title').textContent = title;
   const host = root.querySelector('#dashboard-content');
   if (activeSection === 'messages') {
-    host.innerHTML = '<div class="section-toolbar"><p>' + messages.length + ' mensagens recebidas</p><button id="refresh-section" class="button-secondary">Atualizar</button></div><div class="message-list">' + messages.map((item) => '<article class="message-card"><div class="message-meta"><span class="status status-' + escapeHtml(item.status) + '">' + escapeHtml(item.status) + '</span><time>' + new Date(item.created_at).toLocaleString('pt-PT') + '</time></div><h2>' + escapeHtml(item.subject) + '</h2><p>' + escapeHtml(item.message) + '</p><div class="message-sender"><b>' + escapeHtml(item.name) + '</b><a href="mailto:' + encodeURIComponent(item.email) + '">' + escapeHtml(item.email) + '</a></div><div class="message-actions"><a href="mailto:' + encodeURIComponent(item.email) + '?subject=' + encodeURIComponent('Re: ' + item.subject) + '">Responder por email ↗</a><button data-read="' + item.id + '" data-status="' + (item.status === 'new' ? 'read' : 'new') + '">' + (item.status === 'new' ? 'Marcar como lida' : 'Marcar como nova') + '</button><button data-archive="' + item.id + '">Arquivar</button></div></article>').join('') || '<p class="empty-state">Ainda não existem mensagens.</p>' + '</div>';
+    const messageCards = messages.map((item) => '<article class="message-card"><div class="message-meta"><span class="status status-' + escapeHtml(item.status) + '">' + escapeHtml(item.status) + '</span><time>' + new Date(item.created_at).toLocaleString('pt-PT') + '</time></div><h2>' + escapeHtml(item.subject) + '</h2><p>' + escapeHtml(item.message) + '</p><div class="message-sender"><b>' + escapeHtml(item.name) + '</b><a href="mailto:' + encodeURIComponent(item.email) + '">' + escapeHtml(item.email) + '</a></div><div class="message-actions"><a href="mailto:' + encodeURIComponent(item.email) + '?subject=' + encodeURIComponent('Re: ' + item.subject) + '">Responder por email ↗</a><button data-read="' + item.id + '" data-status="' + (item.status === 'new' ? 'read' : 'new') + '">' + (item.status === 'new' ? 'Marcar como lida' : 'Marcar como nova') + '</button><button data-archive="' + item.id + '">Arquivar</button><button data-delete-message="' + item.id + '">Eliminar</button></div></article>').join('');
+    host.innerHTML = '<div class="section-toolbar"><p>' + messages.length + ' mensagens recebidas</p><button id="refresh-section" class="button-secondary">Atualizar</button></div><div class="message-list">' + (messageCards || '<p class="empty-state">Ainda não existem mensagens.</p>') + '</div>';
     host.querySelector('#refresh-section').addEventListener('click', async () => { await loadMessages(); renderSection(); });
     host.querySelectorAll('[data-read]').forEach((button) => button.addEventListener('click', async () => {
       await api('contact_messages?id=eq.' + button.dataset.read, { method: 'PATCH', body: JSON.stringify({ status: button.dataset.status, read_at: new Date().toISOString() }) });
@@ -137,6 +138,14 @@ function renderSection() {
     host.querySelectorAll('[data-archive]').forEach((button) => button.addEventListener('click', async () => {
       await api('contact_messages?id=eq.' + button.dataset.archive, { method: 'PATCH', body: JSON.stringify({ status: 'archived' }) });
       await loadMessages(); renderSection();
+    }));
+    host.querySelectorAll('[data-delete-message]').forEach((button) => button.addEventListener('click', async () => {
+      if (!confirm('Eliminar permanentemente esta mensagem?')) return;
+      try {
+        await api('contact_messages?id=eq.' + button.dataset.deleteMessage, { method: 'DELETE' });
+        await loadMessages();
+        renderSection();
+      } catch (error) { alert(error.message); }
     }));
     return;
   }
@@ -181,12 +190,87 @@ function editRecord(record) {
   const form = root.querySelector('#record-editor');
   if (!form) return;
   const current = record || { id: '', content_type: activeSection, slug: '', locale: 'all', content: {}, published: true, sort_order: 0 };
-  form.innerHTML = '<div class="editor-head"><div><p class="eyebrow">CONTENT ENTRY</p><h2>' + (record ? 'Editar conteúdo' : 'Novo conteúdo') + '</h2></div>' + (record ? '<button type="button" id="delete-record" class="button-danger">Eliminar</button>' : '') + '</div><label>Identificador / slug<input name="slug" required maxlength="100" value="' + escapeHtml(current.slug) + '" /></label><div class="editor-fields"><label>Idioma<select name="locale">' + ['all','pt-PT','en','es','fr','it','de','ja'].map((locale) => '<option ' + (current.locale === locale ? 'selected' : '') + '>' + locale + '</option>').join('') + '</select></label><label>Ordem<input name="sort_order" type="number" value="' + (Number(current.sort_order) || 0) + '" /></label></div><label>Conteúdo (JSON)<textarea name="content" spellcheck="false" required>' + escapeHtml(JSON.stringify(current.content || {}, null, 2)) + '</textarea></label><label class="publish-check"><input name="published" type="checkbox" ' + (current.published ? 'checked' : '') + ' /> Publicado no site</label><div class="editor-actions"><button class="button-primary" type="submit">Guardar alterações</button><span id="editor-feedback" role="status"></span></div>';
+  const currentImage = current.content?.image
+    ? '<div class="media-preview-wrap"><img class="media-preview" src="' + escapeHtml(current.content.image) + '" alt="Imagem atual do projeto" /><span>Imagem atualmente associada</span></div>'
+    : '';
+  const uploadField = activeSection === 'project'
+    ? '<div class="media-upload-block"><label>Imagem do projeto<input id="media-upload" type="file" accept="image/jpeg,image/png,image/webp,image/avif" /></label>' + currentImage + '<span id="media-feedback" role="status">JPEG, PNG, WebP ou AVIF. Máximo 10 MB. O URL será colocado no campo image.</span></div>'
+    : '';
+
+  form.innerHTML =
+    '<div class="editor-head"><div><p class="eyebrow">CONTENT ENTRY</p><h2>' + (record ? 'Editar conteúdo' : 'Novo conteúdo') + '</h2></div>' +
+    (record ? '<button type="button" id="delete-record" class="button-danger">Eliminar</button>' : '') +
+    '</div>' +
+    '<label>Identificador / slug<input name="slug" required maxlength="100" value="' + escapeHtml(current.slug) + '" /></label>' +
+    '<div class="editor-fields"><label>Idioma<select name="locale">' +
+    ['all','pt-PT','en','es','fr','it','de','ja'].map((locale) => '<option ' + (current.locale === locale ? 'selected' : '') + '>' + locale + '</option>').join('') +
+    '</select></label><label>Ordem<input name="sort_order" type="number" value="' + (Number(current.sort_order) || 0) + '" /></label></div>' +
+    '<label>Conteúdo (JSON)<textarea name="content" spellcheck="false" required>' + escapeHtml(JSON.stringify(current.content || {}, null, 2)) + '</textarea></label>' +
+    uploadField +
+    '<label class="publish-check"><input name="published" type="checkbox" ' + (current.published ? 'checked' : '') + ' /> Publicado no site</label>' +
+    '<div class="editor-actions"><button class="button-primary" type="submit">Guardar alterações</button><span id="editor-feedback" role="status"></span></div>';
+
+  const mediaInput = form.querySelector('#media-upload');
+  mediaInput?.addEventListener('change', async (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    const feedback = form.querySelector('#media-feedback');
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/avif'];
+    if (!allowedTypes.includes(file.type) || file.size > 10 * 1024 * 1024) {
+      feedback.textContent = 'Ficheiro inválido. Usa JPEG, PNG, WebP ou AVIF até 10 MB.';
+      event.target.value = '';
+      return;
+    }
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    feedback.textContent = 'A carregar imagem...';
+    try {
+      const slug = slugify(form.querySelector('[name="slug"]').value || 'project');
+      const safeName = file.name.normalize('NFKD').replace(/[^a-zA-Z0-9._-]+/g, '-').replace(/^-+|-+$/g, '').slice(-90) || 'image';
+      const objectPath = 'projects/' + slug + '/' + Date.now() + '-' + safeName;
+      const encodedPath = objectPath.split('/').map(encodeURIComponent).join('/');
+      const baseUrl = config.supabaseUrl.replace(/\/+$/, '');
+      const response = await fetch(baseUrl + '/storage/v1/object/portfolio-media/' + encodedPath, {
+        method: 'POST',
+        headers: {
+          apikey: config.supabasePublishableKey,
+          Authorization: 'Bearer ' + session.access_token,
+          'Content-Type': file.type,
+          'x-upsert': 'true',
+        },
+        body: file,
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.message || result.error || 'Não foi possível carregar a imagem.');
+      const publicUrl = baseUrl + '/storage/v1/object/public/portfolio-media/' + encodedPath;
+      const contentField = form.querySelector('[name="content"]');
+      const content = JSON.parse(contentField.value || '{}');
+      content.image = publicUrl;
+      contentField.value = JSON.stringify(content, null, 2);
+      feedback.textContent = 'Imagem carregada. O URL foi atualizado no conteúdo. Guarda as alterações para publicar.';
+      let preview = form.querySelector('.media-preview');
+      if (!preview) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'media-preview-wrap';
+        wrapper.innerHTML = '<img class="media-preview" alt="Pré-visualização da imagem carregada" /><span>Pré-visualização</span>';
+        feedback.before(wrapper);
+        preview = wrapper.querySelector('img');
+      }
+      preview.src = publicUrl;
+    } catch (error) {
+      feedback.textContent = error.message;
+    } finally {
+      button.disabled = false;
+      event.target.value = '';
+    }
+  });
+
   form.onsubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(form);
     let content;
-    try { content = JSON.parse(String(data.get('content'))); } catch { form.querySelector('#editor-feedback').textContent = 'O JSON não é válido.'; return; }
+    try { content = JSON.parse(String(data.get('content'))); }
+    catch { form.querySelector('#editor-feedback').textContent = 'O JSON não é válido.'; return; }
     const payload = {
       content_type: activeSection,
       slug: String(data.get('slug')).trim(),
@@ -198,14 +282,19 @@ function editRecord(record) {
     };
     if (!payload.slug) return;
     const feedback = form.querySelector('#editor-feedback');
+    const saveButton = form.querySelector('button[type="submit"]');
+    saveButton.disabled = true;
+    feedback.textContent = 'A guardar...';
     try {
       if (record?.id) await api('portfolio_content?id=eq.' + record.id, { method: 'PATCH', body: JSON.stringify(payload) });
       else await api('portfolio_content', { method: 'POST', body: JSON.stringify(payload) });
-      feedback.textContent = 'Guardado.';
       selectedId = null;
       await loadRecords();
       renderSection();
-    } catch (error) { feedback.textContent = error.message; }
+    } catch (error) {
+      feedback.textContent = error.message;
+      saveButton.disabled = false;
+    }
   };
   form.querySelector('#delete-record')?.addEventListener('click', async () => {
     if (!confirm('Eliminar este registo? Esta ação não pode ser anulada.')) return;

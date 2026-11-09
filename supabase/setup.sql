@@ -44,7 +44,7 @@ create table if not exists public.contact_messages (
 create index if not exists contact_messages_rate_limit_idx on public.contact_messages (ip_hash, created_at desc);
 create index if not exists contact_messages_inbox_idx on public.contact_messages (status, created_at desc);
 alter table public.contact_messages enable row level security;
-grant select, update on table public.contact_messages to authenticated;
+grant select, update, delete on table public.contact_messages to authenticated;
 grant all on table public.contact_messages to service_role;
 
 drop policy if exists "Only portfolio administrator can read messages" on public.contact_messages;
@@ -64,3 +64,8 @@ drop policy if exists "Portfolio administrator can update media" on storage.obje
 create policy "Portfolio administrator can update media" on storage.objects for update to authenticated using (bucket_id = 'portfolio-media' and (select auth.jwt() ->> 'email') = 'alv16studios@gmail.com') with check (bucket_id = 'portfolio-media' and (select auth.jwt() ->> 'email') = 'alv16studios@gmail.com');
 drop policy if exists "Portfolio administrator can delete media" on storage.objects;
 create policy "Portfolio administrator can delete media" on storage.objects for delete to authenticated using (bucket_id = 'portfolio-media' and (select auth.jwt() ->> 'email') = 'alv16studios@gmail.com');
+
+drop policy if exists "Only portfolio administrator can delete messages" on public.contact_messages;
+create policy "Only portfolio administrator can delete messages"
+  on public.contact_messages for delete to authenticated
+  using ((select auth.jwt() ->> 'email') = 'alv16studios@gmail.com');

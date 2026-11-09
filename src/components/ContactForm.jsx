@@ -23,7 +23,10 @@ export default function ContactForm({ language = 'en' }) {
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || (pt ? 'Não foi possível enviar a mensagem.' : 'The message could not be sent.'));
       setState('sent');
-      setFeedback(pt ? 'Mensagem recebida. Obrigado pelo contacto.' : 'Message received. Thank you for getting in touch.');
+      const notificationSent = data.notificationSent === true;
+      setFeedback(notificationSent
+        ? (pt ? 'Mensagem enviada. Obrigado pelo contacto.' : 'Message sent. Thank you for getting in touch.')
+        : (pt ? 'Mensagem guardada, mas a notificação por email ainda não está disponível.' : 'Message saved, but the email notification service is not configured yet.'));
       setValues({ name: '', email: '', subject: '', message: '', website: '' });
     } catch (error) {
       setState('error');
