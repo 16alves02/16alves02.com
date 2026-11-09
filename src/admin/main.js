@@ -189,7 +189,16 @@ async function seedCurrentProjects() {
 function editRecord(record) {
   const form = root.querySelector('#record-editor');
   if (!form) return;
-  const current = record || { id: '', content_type: activeSection, slug: '', locale: 'all', content: {}, published: true, sort_order: 0 };
+  const templates = {
+    project: { name: '', category: 'personal', type: 'Personal project', year: '2026', description: '', stack: [], status: 'In development', live: '', source: '', image: '', imageAlt: '', caseStudy: { en: { problem: '', architecture: '', contribution: '', challenges: '', quality: '', status: '' } } },
+    home_copy: { titleOne: '', titleTwo: '', titleEnd: '.', intro: '', workTitle: '', workIntro: '', aboutTitle: '', about1: '', contactTitle: '', contactText: '' },
+    profile: { title: '', intro: '' },
+    experience: { id: '', date: '', role: '', company: '', description: '', tags: [] },
+    skill_group: { name: '', items: [] },
+    education: { title: '', date: '', where: '', description: '' },
+    engineering_note: { kicker: 'ENGINEERING NOTE', title: '', summary: '', url: '' },
+  };
+  const current = record || { id: '', content_type: activeSection, slug: '', locale: 'all', content: templates[activeSection] || {}, published: true, sort_order: 0 };
   const currentImage = current.content?.image
     ? '<div class="media-preview-wrap"><img class="media-preview" src="' + escapeHtml(current.content.image) + '" alt="Imagem atual do projeto" /><span>Imagem atualmente associada</span></div>'
     : '';

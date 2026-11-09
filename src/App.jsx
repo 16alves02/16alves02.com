@@ -1073,6 +1073,7 @@ function SocialLink({ social }) {
 }
 
 
+function MailIcon() { return <Mail size={15} strokeWidth={1.8} aria-hidden="true" />; }
 function SparkIcon() { return <Sparkles className="ui-icon" size={20} strokeWidth={1.7} aria-hidden="true" />; }
 function MenuIcon() { return <Menu className="ui-icon menu-icon" size={22} strokeWidth={1.7} aria-hidden="true" />; }
 function CalendarIcon() { return <CalendarDays size={18} strokeWidth={1.7} aria-hidden="true" />; }
@@ -1568,7 +1569,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="site-footer"><a className="footer-brand" href="#home"><img src="/logo.png" alt="" /><span>16alves02<span className="brand-dot">.</span></span></a><p>{t.footerNote}</p><a href="#home" className="back-top">{t.footerTop}</a><span className="footer-studio">ALV16 STUDIOS</span><span className="footer-year">© {new Date().getFullYear()}</span></footer>
+      <footer className="site-footer"><a className="footer-brand" href="#home"><img src="/logo.png" alt="" /><span>16alves02<span className="brand-dot">.</span></span></a><p className="footer-identity">{isPortuguese ? "Construir com intenção. Melhorar em cada iteração." : "Build with intent. Improve with every iteration."}</p><div className="footer-socials"><a href="mailto:alv16studios@gmail.com" aria-label="Email"><MailIcon /></a><a href="https://github.com/16alves02" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 size={15} /></a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><ContactRound size={15} /></a></div><a href="#home" className="back-top">{t.footerTop}</a><span className="footer-studio">ALV16 STUDIOS</span><span className="footer-tech">REACT · VITE · WEBGL</span><span className="footer-version">PORTFOLIO V2.0</span><span className="footer-year">© {new Date().getFullYear()}</span></footer>
       <SiteUtilities language={language} onContact={() => goTo('contact')} />
     </div>
   );
