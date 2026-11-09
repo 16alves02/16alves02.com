@@ -1,6 +1,6 @@
 # Supabase setup for the portfolio
 
-The portfolio stays on Cloudflare Pages. Supabase provides PostgreSQL, authentication and project-media storage. Cloudflare Pages Functions provide the server-side contact endpoint and protect the service-role secret.
+The portfolio stays on Cloudflare Pages. Supabase provides PostgreSQL, authentication and project-media storage. Cloudflare Pages Functions provide the server-side contact endpoint and protect the server-side secret key.
 
 ## 1. Create a dedicated Supabase project
 
@@ -14,7 +14,7 @@ The two tables are:
 - `portfolio_content`: projects and editable content.
 - `contact_messages`: enquiries submitted through the public form.
 
-Both tables have Row Level Security. Public visitors can read only published portfolio content. Only the authenticated account whose email claim is exactly `alv16studios@gmail.com` can manage content or view messages. The public form writes messages through a Cloudflare Function using the service-role key; that key is never sent to the browser.
+Both tables have Row Level Security. Public visitors can read only published portfolio content. Only the authenticated account whose email claim is exactly `alv16studios@gmail.com` can manage content or view messages. The public form writes messages through a Cloudflare Function using a Supabase secret API key; that key is never sent to the browser.
 
 The script includes explicit Data API grants. Supabase's October 30, 2026 change means new public tables are not automatically exposed to the Data API; permissions must be granted explicitly.
 
@@ -32,13 +32,13 @@ In Cloudflare Dashboard > Workers & Pages > the `16alves02` Pages project > Sett
 | --- | --- | --- |
 | `SUPABASE_URL` | Variable | Project API URL |
 | `SUPABASE_PUBLISHABLE_KEY` | Variable | Browser-safe publishable key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Secret | Server-only contact endpoint key |
+| `SUPABASE_SECRET_KEY` | Secret | Server-only contact endpoint key (`sb_secret_...`) |
 | `RESEND_API_KEY` | Secret | Sends message notifications |
 | `RESEND_FROM_EMAIL` | Variable | Sender address verified with Resend |
 
 The recipient is fixed to `alv16studios@gmail.com`. Verify a sender identity in Resend before adding `RESEND_FROM_EMAIL`. Messages remain stored if notifications are not configured or temporarily fail.
 
-Never add the service-role key or Resend API key to a `VITE_*` variable, HTML, JavaScript bundle or Git.
+Send Supabase API keys in the `apikey` header. The new publishable and secret keys are not JWTs and must not be used as bearer tokens. Never add the Supabase secret key or Resend API key to a `VITE_*` variable, HTML, JavaScript bundle or Git.
 
 ## 5. Import the current projects
 
