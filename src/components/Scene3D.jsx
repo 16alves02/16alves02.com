@@ -2,229 +2,125 @@ import { useEffect, useRef, useState } from 'react';
 
 const TAU = Math.PI * 2;
 
-function spherePoints(count) {
-  const points = [];
-  const goldenAngle = Math.PI * (3 - Math.sqrt(5));
-
-  for (let index = 0; index < count; index += 1) {
-    const y = 1 - (index / (count - 1)) * 2;
-    const radius = Math.sqrt(1 - y * y);
-    const angle = goldenAngle * index;
-    points.push({
-      x: Math.cos(angle) * radius,
-      y,
-      z: Math.sin(angle) * radius,
-    });
+const vertexShader = `
+  attribute vec3 aPosition;
+  uniform vec2 uResolution;
+  uniform vec3 uRotation;
+  uniform float uScale;
+  uniform float uPointSize;
+  varying float vDepth;
+  void main() {
+    float cy = cos(uRotation.y), sy = sin(uRotation.y);
+    float cx = cos(uRotation.x), sx = sin(uRotation.x);
+    float cz = cos(uRotation.z), sz = sin(uRotation.z);
+    vec3 p = aPosition;
+    p = vec3(p.x * cy - p.z * sy, p.y, p.x * sy + p.z * cy);
+    p = vec3(p.x, p.y * cx - p.z * sx, p.y * sx + p.z * cx);
+    p = vec3(p.x * cz - p.y * sz, p.x * sz + p.y * cz, p.z);
+    float perspective = 3.8 / (3.8 - p.z * 0.34);
+    float aspect = uResolution.x / max(1.0, uResolution.y);
+    gl_Position = vec4(p.x * uScale * perspective / aspect, p.y * uScale * perspective, p.z * 0.1, 1.0);
+    gl_PointSize = uPointSize * (0.75 + perspective * 0.3);
+    vDepth = (p.z + 1.8) / 3.6;
   }
+`;
 
-  return points;
+const fragmentShader = `
+  precision mediump float;
+  uniform vec3 uColor;
+  uniform float uOpacity;
+  varying float vDepth;
+  void main() {
+    gl_FragColor = vec4(uColor, uOpacity * (0.28 + clamp(vDepth, 0.0, 1.0) * 0.72));
+  }
+`;
+
+function compile(gl, type, source) {
+  const shader = gl.createShader(type);
+  gl.shaderSource(shader, source);
+  gl.compileShader(shader);
+  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+    gl.deleteShader(shader);
+    return null;
+  }
+  return shader;
 }
 
-function sphereEdges(points) {
-  const edges = [];
-  const threshold = 0.36;
+function createProgram(gl) {
+  const vertex = compile(gl, gl.VERTEX_SHADER, vertexShader);
+  const fragment = compile(gl, gl.FRAGMENT_SHADER, fragmentShader);
+  if (!vertex || !fragment) return null;
+  const program = gl.createProgram();
+  gl.attachShader(program, vertex);
+  gl.attachShader(program, fragment);
+  gl.linkProgram(program);
+  gl.deleteShader(vertex);
+  gl.deleteShader(fragment);
+  return gl.getProgramParameter(program, gl.LINK_STATUS) ? program : null;
+}
 
-  for (let first = 0; first < points.length; first += 1) {
-    for (let second = first + 1; second < points.length; second += 1) {
-      const dx = points[first].x - points[second].x;
-      const dy = points[first].y - points[second].y;
-      const dz = points[first].z - points[second].z;
-      const distance = dx * dx + dy * dy + dz * dz;
+function pushLine(target, a, b) {
+  target.push(...a, ...b);
+}
 
-      if (distance < threshold * threshold) edges.push([first, second]);
+function makeSphere() {
+  const points = [];
+  const lines = [];
+  const count = 220;
+  const golden = Math.PI * (3 - Math.sqrt(5));
+  for (let i = 0; i < count; i += 1) {
+    const y = 1 - (i / (count - 1)) * 2;
+    const radius = Math.sqrt(1 - y * y);
+    points.push([Math.cos(golden * i) * radius, y, Math.sin(golden * i) * radius]);
+  }
+  for (let i = 0; i < count; i += 1) {
+    for (let j = i + 1; j < count; j += 1) {
+      const a = points[i], b = points[j];
+      const dx = a[0] - b[0], dy = a[1] - b[1], dz = a[2] - b[2];
+      if (dx * dx + dy * dy + dz * dz < 0.115) pushLine(lines, a, b);
     }
   }
-
-  return edges;
+  return { lines: new Float32Array(lines), points: new Float32Array(points.flat()) };
 }
 
-function rotatePoint(point, rotation) {
-  const cosY = Math.cos(rotation.y);
-  const sinY = Math.sin(rotation.y);
-  const cosX = Math.cos(rotation.x);
-  const sinX = Math.sin(rotation.x);
-  const cosZ = Math.cos(rotation.z);
-  const sinZ = Math.sin(rotation.z);
-
-  const x1 = point.x * cosY - point.z * sinY;
-  const z1 = point.x * sinY + point.z * cosY;
-  const y1 = point.y * cosX - z1 * sinX;
-  const z2 = point.y * sinX + z1 * cosX;
-
-  return {
-    x: x1 * cosZ - y1 * sinZ,
-    y: x1 * sinZ + y1 * cosZ,
-    z: z2,
-  };
-}
-
-function project(point, center, scale) {
-  const depth = 4.4 / (4.4 - point.z * 0.72);
-  return {
-    x: center.x + point.x * scale * depth,
-    y: center.y + point.y * scale * depth,
-    z: point.z,
-  };
-}
-
-function drawSegment(context, first, second, color, opacity, width = 1) {
-  context.beginPath();
-  context.moveTo(first.x, first.y);
-  context.lineTo(second.x, second.y);
-  context.strokeStyle = color;
-  context.globalAlpha = opacity;
-  context.lineWidth = width;
-  context.stroke();
-}
-
-function drawCube(context, projectPoint, color, opacity, size = 1.35) {
-  const points = [
-    [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
-    [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1],
-  ].map(([x, y, z]) => projectPoint({ x: x * size, y: y * size, z: z * size }));
-
-  const edges = [
-    [0, 1], [1, 2], [2, 3], [3, 0],
-    [4, 5], [5, 6], [6, 7], [7, 4],
-    [0, 4], [1, 5], [2, 6], [3, 7],
-  ];
-
-  context.save();
-  context.shadowColor = color;
-  context.shadowBlur = 12;
-  edges.forEach(([first, second], index) => {
-    drawSegment(context, points[first], points[second], color, opacity * (index < 8 ? 0.9 : 0.55), 1.05);
-  });
-  context.restore();
-  context.globalAlpha = 1;
-}
-
-function drawOrbit(context, projectPoint, rotation, color, opacity, radius = 1.8, tilt = 0.7) {
-  const steps = 100;
-  const points = [];
-
-  for (let index = 0; index <= steps; index += 1) {
-    const angle = (index / steps) * TAU;
-    const raw = {
-      x: Math.cos(angle) * radius,
-      y: Math.sin(angle) * radius * tilt,
-      z: Math.sin(angle) * radius * 0.26,
-    };
-    points.push(projectPoint(rotatePoint(raw, rotation)));
+function makeOrbit(radius, tilt, phase) {
+  const result = [];
+  const segments = 180;
+  for (let i = 0; i < segments; i += 1) {
+    const a = (i / segments) * TAU;
+    const b = ((i + 1) / segments) * TAU;
+    const point = (angle) => [
+      Math.cos(angle) * radius,
+      Math.sin(angle) * radius * tilt,
+      Math.sin(angle + phase) * radius * 0.18,
+    ];
+    pushLine(result, point(a), point(b));
   }
-
-  context.save();
-  context.shadowColor = color;
-  context.shadowBlur = 15;
-  context.beginPath();
-  points.forEach((point, index) => {
-    if (index === 0) context.moveTo(point.x, point.y);
-    else context.lineTo(point.x, point.y);
-  });
-  context.strokeStyle = color;
-  context.globalAlpha = opacity;
-  context.lineWidth = 1.25;
-  context.stroke();
-  context.restore();
-  context.globalAlpha = 1;
-
-  const node = points[Math.floor(steps * 0.17)];
-  context.beginPath();
-  context.arc(node.x, node.y, 3.2, 0, TAU);
-  context.fillStyle = color;
-  context.shadowColor = color;
-  context.shadowBlur = 16;
-  context.fill();
-  context.shadowBlur = 0;
+  return new Float32Array(result);
 }
 
-function drawFloor(context, width, height, projectPoint, palette) {
-  context.save();
-  context.globalAlpha = 0.28;
-  context.lineWidth = 0.7;
-
-  for (let line = -8; line <= 8; line += 1) {
-    const x = line * 0.32;
-    const near = projectPoint({ x, y: 1.35, z: 1.8 });
-    const far = projectPoint({ x, y: 1.35, z: -3.8 });
-    drawSegment(context, near, far, palette.grid, 0.7, 0.7);
-  }
-
-  for (let line = 0; line < 13; line += 1) {
-    const z = 1.8 - line * 0.44;
-    const left = projectPoint({ x: -3.3, y: 1.35, z });
-    const right = projectPoint({ x: 3.3, y: 1.35, z });
-    drawSegment(context, left, right, palette.grid, 0.7, 0.7);
-  }
-
-  context.restore();
-  context.globalAlpha = 1;
+function makeCube(size = 1.35) {
+  const p = [
+    [-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],
+    [-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1],
+  ].map(([x,y,z]) => [x*size,y*size,z*size]);
+  const edges = [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
+  const out = [];
+  edges.forEach(([a,b]) => pushLine(out,p[a],p[b]));
+  return new Float32Array(out);
 }
 
-function renderScene(context, width, height, time, pointer, palette, sphereBasePoints, sphereMeshEdges) {
-  context.clearRect(0, 0, width, height);
-
-  const center = {
-    x: width * 0.53 + pointer.x * 12,
-    y: height * 0.48 + pointer.y * 10,
-  };
-  const scale = Math.min(width, height) * 0.28;
-  const rotation = {
-    x: 0.2 + pointer.y * 0.22 + Math.sin(time * 0.45) * 0.06,
-    y: time * 0.23 + pointer.x * 0.38,
-    z: Math.sin(time * 0.25) * 0.08,
-  };
-  const projectPoint = (point) => project(rotatePoint(point, rotation), center, scale);
-
-  drawFloor(context, width, height, projectPoint, palette);
-
-  const halo = context.createRadialGradient(center.x, center.y, scale * 0.12, center.x, center.y, scale * 2.3);
-  halo.addColorStop(0, palette.halo);
-  halo.addColorStop(1, 'rgba(0, 0, 0, 0)');
-  context.fillStyle = halo;
-  context.fillRect(0, 0, width, height);
-
-  drawOrbit(context, projectPoint, { x: 1.12, y: rotation.y * 0.56, z: 0.34 }, palette.orbit, 0.78, 1.92, 0.72);
-  drawOrbit(context, projectPoint, { x: 0.22, y: rotation.y * -0.46, z: 1.08 }, palette.secondary, 0.54, 2.2, 0.48);
-  drawCube(context, projectPoint, palette.cube, 0.52, 1.28);
-
-  const points = sphereBasePoints.map((point) => projectPoint(rotatePoint(point, {
-    x: rotation.x * 0.45,
-    y: rotation.y * -0.72,
-    z: rotation.z,
-  })));
-  const edges = sphereMeshEdges;
-
-  context.save();
-  context.shadowColor = palette.mesh;
-  context.shadowBlur = 10;
-  edges.forEach(([first, second]) => {
-    const depth = (points[first].z + points[second].z) / 2;
-    const opacity = 0.12 + ((depth + 1) / 2) * 0.48;
-    drawSegment(context, points[first], points[second], palette.mesh, opacity, 0.85);
-  });
-  context.restore();
-
-  points.forEach((point, index) => {
-    const opacity = 0.24 + ((point.z + 1) / 2) * 0.65;
-    context.beginPath();
-    context.arc(point.x, point.y, point.z > 0.45 ? 1.9 : 1.15, 0, TAU);
-    context.fillStyle = index % 13 === 0 ? palette.secondary : palette.mesh;
-    context.globalAlpha = opacity;
-    context.fill();
-  });
-  context.globalAlpha = 1;
-
-  const core = context.createRadialGradient(
-    center.x - scale * 0.2, center.y - scale * 0.28, 0,
-    center.x, center.y, scale * 0.9
-  );
-  core.addColorStop(0, palette.core);
-  core.addColorStop(1, 'rgba(0, 0, 0, 0)');
-  context.fillStyle = core;
-  context.beginPath();
-  context.arc(center.x, center.y, scale * 0.85, 0, TAU);
-  context.fill();
+function makeFloor() {
+  const out = [];
+  for (let i = -8; i <= 8; i += 1) {
+    const x = i * 0.32;
+    pushLine(out,[x,1.35,1.8],[x,1.35,-3.8]);
+  }
+  for (let i = 0; i < 13; i += 1) {
+    const z = 1.8 - i * 0.44;
+    pushLine(out,[-3.3,1.35,z],[3.3,1.35,z]);
+  }
+  return new Float32Array(out);
 }
 
 export default function Scene3D({ theme = 'dark' }) {
@@ -237,132 +133,122 @@ export default function Scene3D({ theme = 'dark' }) {
     const canvas = canvasRef.current;
     if (!wrapper || !canvas) return undefined;
 
-    let context;
+    let gl;
     try {
-      context = canvas.getContext('2d', { alpha: true });
-    } catch {
-      context = null;
-    }
-    if (!context) return undefined;
+      gl = canvas.getContext('webgl', { alpha: true, antialias: true, powerPreference: 'low-power' })
+        || canvas.getContext('experimental-webgl', { alpha: true, antialias: true });
+    } catch { gl = null; }
+    if (!gl) { setReady(false); return undefined; }
 
+    const program = createProgram(gl);
+    if (!program) { setReady(false); return undefined; }
+
+    const locations = {
+      position: gl.getAttribLocation(program, 'aPosition'),
+      resolution: gl.getUniformLocation(program, 'uResolution'),
+      rotation: gl.getUniformLocation(program, 'uRotation'),
+      scale: gl.getUniformLocation(program, 'uScale'),
+      pointSize: gl.getUniformLocation(program, 'uPointSize'),
+      color: gl.getUniformLocation(program, 'uColor'),
+      opacity: gl.getUniformLocation(program, 'uOpacity'),
+    };
     const palette = theme === 'dark'
-      ? {
-          grid: 'rgba(122, 164, 194, 0.28)',
-          mesh: '#a5c8df',
-          orbit: '#ff9b83',
-          secondary: '#85ded2',
-          cube: '#78b9d4',
-          halo: 'rgba(78, 143, 181, 0.16)',
-          core: 'rgba(117, 201, 211, 0.11)',
-        }
-      : {
-          grid: 'rgba(38, 71, 93, 0.23)',
-          mesh: '#44657c',
-          orbit: '#99462f',
-          secondary: '#237c78',
-          cube: '#527f96',
-          halo: 'rgba(77, 145, 171, 0.13)',
-          core: 'rgba(65, 154, 153, 0.10)',
-        };
+      ? { mesh: [0.65,0.79,0.88], orbit: [1.0,0.55,0.43], secondary: [0.52,0.87,0.82], cube: [0.47,0.72,0.83], grid: [0.28,0.42,0.52] }
+      : { mesh: [0.27,0.40,0.49], orbit: [0.60,0.27,0.18], secondary: [0.14,0.49,0.47], cube: [0.32,0.50,0.59], grid: [0.25,0.39,0.48] };
 
-    const points = spherePoints(190);
-    const edges = sphereEdges(points);
-    let width = 0;
-    let height = 0;
-    let frame = 0;
-    let visible = true;
-    let reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const sphere = makeSphere();
+    const geometries = [
+      { data: makeFloor(), mode: gl.LINES, color: palette.grid, opacity: 0.24, scale: 0.31 },
+      { data: makeOrbit(1.92,0.72,0.4), mode: gl.LINES, color: palette.orbit, opacity: 0.82, scale: 0.31, rotation: [1.12,0,0.34] },
+      { data: makeOrbit(2.2,0.48,1.1), mode: gl.LINES, color: palette.secondary, opacity: 0.58, scale: 0.31, rotation: [0.22,0,1.08] },
+      { data: makeCube(), mode: gl.LINES, color: palette.cube, opacity: 0.5, scale: 0.31 },
+      { data: sphere.lines, mode: gl.LINES, color: palette.mesh, opacity: 0.66, scale: 0.31, sphere: true },
+      { data: sphere.points, mode: gl.POINTS, color: palette.secondary, opacity: 0.86, scale: 0.31, sphere: true, pointSize: 3.0 },
+    ];
+
+    gl.useProgram(program);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+    gl.clearColor(0,0,0,0);
+    const buffers = geometries.map((geometry) => {
+      const buffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+      gl.bufferData(gl.ARRAY_BUFFER, geometry.data, gl.STATIC_DRAW);
+      return buffer;
+    });
+
+    let width = 1, height = 1, frame = 0, visible = true, lost = false;
+    let reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let pointer = { x: 0, y: 0 };
-    let lastTime = 0;
+    let lastTimestamp = 0;
 
+    const render = (timestamp) => {
+      if (lost) return;
+      lastTimestamp = timestamp;
+      gl.viewport(0,0,canvas.width,canvas.height);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.useProgram(program);
+      gl.uniform2f(locations.resolution,width,height);
+      geometries.forEach((geometry,index) => {
+        gl.bindBuffer(gl.ARRAY_BUFFER,buffers[index]);
+        gl.enableVertexAttribArray(locations.position);
+        gl.vertexAttribPointer(locations.position,3,gl.FLOAT,false,0,0);
+        const rotation = geometry.rotation || (geometry.sphere
+          ? [0.2 + pointer.y * 0.18 + Math.sin(timestamp*0.00045)*0.06, timestamp*0.00023 + pointer.x*0.32, Math.sin(timestamp*0.00025)*0.08]
+          : [0.2 + pointer.y*0.12, timestamp*0.00012, 0]);
+        gl.uniform3fv(locations.rotation,rotation);
+        gl.uniform1f(locations.scale,geometry.scale);
+        gl.uniform1f(locations.pointSize,geometry.pointSize || 1.0);
+        gl.uniform3fv(locations.color,geometry.color);
+        gl.uniform1f(locations.opacity,geometry.opacity);
+        gl.drawArrays(geometry.mode,0,geometry.data.length/3);
+      });
+    };
+
+    const stop = () => { if(frame) cancelAnimationFrame(frame); frame=0; };
+    const animate = (time) => { render(time); if(visible && !reduced && !lost) frame=requestAnimationFrame(animate); };
+    const start = () => { if(!frame && visible && !reduced && !lost) frame=requestAnimationFrame(animate); };
     const resize = () => {
-      const bounds = wrapper.getBoundingClientRect();
-      width = Math.max(1, bounds.width);
-      height = Math.max(1, bounds.height);
-      const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
-      canvas.width = Math.round(width * pixelRatio);
-      canvas.height = Math.round(height * pixelRatio);
-      canvas.style.width = width + 'px';
-      canvas.style.height = height + 'px';
-      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-      draw(reducedMotion ? 0 : lastTime);
+      const rect = wrapper.getBoundingClientRect();
+      width = Math.max(1,rect.width); height = Math.max(1,rect.height);
+      const ratio = Math.min(window.devicePixelRatio || 1,1.35);
+      canvas.width = Math.round(width*ratio); canvas.height = Math.round(height*ratio);
+      canvas.style.width = width+'px'; canvas.style.height = height+'px';
+      render(reduced ? 0 : lastTimestamp);
     };
-
-    const draw = (timestamp) => {
-      lastTime = timestamp;
-      const elapsed = reducedMotion ? 0 : timestamp * 0.001;
-      renderScene(context, width, height, elapsed, pointer, palette, points, edges);
+    const onPointer = (event) => {
+      const rect = wrapper.getBoundingClientRect();
+      if(event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) return;
+      pointer = { x: ((event.clientX-rect.left)/rect.width-0.5)*2, y: ((event.clientY-rect.top)/rect.height-0.5)*2 };
+      if(reduced) render(0);
     };
-
-    const stop = () => {
-      if (frame) window.cancelAnimationFrame(frame);
-      frame = 0;
-    };
-
-    const animate = (timestamp) => {
-      draw(timestamp);
-      if (visible && !reducedMotion) frame = window.requestAnimationFrame(animate);
-    };
-
-    const start = () => {
-      if (frame || !visible || reducedMotion) return;
-      frame = window.requestAnimationFrame(animate);
-    };
-
-    const onPointerMove = (event) => {
-      const bounds = wrapper.getBoundingClientRect();
-      const inside = event.clientX >= bounds.left && event.clientX <= bounds.right
-        && event.clientY >= bounds.top && event.clientY <= bounds.bottom;
-      if (!inside) return;
-      pointer = {
-        x: ((event.clientX - bounds.left) / bounds.width - 0.5) * 2,
-        y: ((event.clientY - bounds.top) / bounds.height - 0.5) * 2,
-      };
-      if (reducedMotion) draw(0);
-    };
-
-    const onMotionChange = (event) => {
-      reducedMotion = event.matches;
-      if (reducedMotion) {
-        stop();
-        draw(0);
-      } else {
-        start();
-      }
-    };
-
-    const observer = typeof IntersectionObserver !== 'undefined'
-      ? new IntersectionObserver(([entry]) => {
-          visible = entry.isIntersecting;
-          if (visible) start();
-          else stop();
-        }, { threshold: 0.01 })
-      : null;
-
-    const resizeObserver = typeof ResizeObserver !== 'undefined'
-      ? new ResizeObserver(resize)
-      : null;
-
-    observer?.observe(wrapper);
-    resizeObserver?.observe(wrapper);
-    if (!resizeObserver) window.addEventListener('resize', resize);
-    window.addEventListener('pointermove', onPointerMove, { passive: true });
-    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    motionPreference.addEventListener?.('change', onMotionChange);
-
-    resize();
-    setReady(true);
-    start();
+    const onMotion = (event) => { reduced=event.matches; if(reduced){stop();render(0);} else start(); };
+    const onContextLost = (event) => { event.preventDefault(); lost=true; stop(); setReady(false); };
+    const onContextRestored = () => { lost=false; resize(); setReady(true); start(); };
+    const observer = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver(([entry]) => {
+      visible=entry.isIntersecting; if(visible) start(); else stop();
+    },{threshold:0.01}) : null;
+    const resizeObserver = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(resize) : null;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    canvas.addEventListener('webglcontextlost',onContextLost,false);
+    canvas.addEventListener('webglcontextrestored',onContextRestored,false);
+    observer?.observe(wrapper); resizeObserver?.observe(wrapper);
+    if(!resizeObserver) window.addEventListener('resize',resize);
+    window.addEventListener('pointermove',onPointer,{passive:true});
+    motion.addEventListener?.('change',onMotion);
+    resize(); setReady(true); start();
 
     return () => {
-      stop();
-      observer?.disconnect();
-      resizeObserver?.disconnect();
-      if (!resizeObserver) window.removeEventListener('resize', resize);
-      window.removeEventListener('pointermove', onPointerMove);
-      motionPreference.removeEventListener?.('change', onMotionChange);
+      stop(); observer?.disconnect(); resizeObserver?.disconnect();
+      if(!resizeObserver) window.removeEventListener('resize',resize);
+      window.removeEventListener('pointermove',onPointer);
+      motion.removeEventListener?.('change',onMotion);
+      canvas.removeEventListener('webglcontextlost',onContextLost);
+      canvas.removeEventListener('webglcontextrestored',onContextRestored);
+      buffers.forEach((buffer)=>gl.deleteBuffer(buffer));
+      gl.deleteProgram(program);
     };
-  }, [theme]);
+  },[theme]);
 
   return (
     <div ref={wrapperRef} className={ready ? 'scene3d is-ready' : 'scene3d'}>
