@@ -71,9 +71,9 @@ The portfolio includes an interactive procedural 3D hero, depth-based project ca
 
 ## Immersive 3D experience
 
-The homepage uses a custom procedural 3D scene rendered on Canvas. It combines a rotating wireframe sphere, spatial orbits, a perspective grid and pointer-responsive parallax. Project cards use layered depth and restrained 3D transforms. The scene is decorative: all navigation and project information remain normal HTML content and do not depend on the canvas.
+The homepage uses a custom procedural 3D scene rendered with native WebGL. It combines a rotating wireframe sphere, spatial orbits, a perspective grid and pointer-responsive parallax. Project cards use layered depth and restrained 3D transforms. The scene is decorative: all navigation and project information remain normal HTML content and do not depend on WebGL.
 
-The renderer caps device pixel ratio, pauses when it leaves the viewport, respects `prefers-reduced-motion`, responds to container resizing and includes a CSS poster fallback. No external 3D model or third-party asset is downloaded at runtime.
+The renderer caps device pixel ratio, pauses when it leaves the viewport, respects `prefers-reduced-motion`, responds to container resizing and includes a CSS poster fallback for browsers without WebGL or when the graphics context is lost. Geometry is generated locally in the browser. No external 3D model, Three.js dependency or third-party asset is downloaded at runtime.
 
 ## Theme contrast and accessibility
 
