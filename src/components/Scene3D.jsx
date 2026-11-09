@@ -66,7 +66,7 @@ function pushLine(target, a, b) {
 function makeSphere() {
   const points = [];
   const lines = [];
-  const count = 220;
+  const count = 156;
   const golden = Math.PI * (3 - Math.sqrt(5));
   for (let i = 0; i < count; i += 1) {
     const y = 1 - (i / (count - 1)) * 2;
@@ -85,7 +85,7 @@ function makeSphere() {
 
 function makeOrbit(radius, tilt, phase) {
   const result = [];
-  const segments = 180;
+  const segments = 128;
   for (let i = 0; i < segments; i += 1) {
     const a = (i / segments) * TAU;
     const b = ((i + 1) / segments) * TAU;
@@ -180,7 +180,7 @@ export default function Scene3D({ theme = 'dark' }) {
     let width = 1, height = 1, frame = 0, visible = true, lost = false;
     let reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let pointer = { x: 0, y: 0 };
-    let lastTimestamp = 0;
+    let lastTimestamp = 0, lastDrawTime = 0;
 
     const render = (timestamp) => {
       if (lost) return;
@@ -206,12 +206,12 @@ export default function Scene3D({ theme = 'dark' }) {
     };
 
     const stop = () => { if(frame) cancelAnimationFrame(frame); frame=0; };
-    const animate = (time) => { render(time); if(visible && !reduced && !lost) frame=requestAnimationFrame(animate); };
+    const animate = (time) => { if (time - lastDrawTime >= 1000 / 30) { render(time); lastDrawTime = time; } if(visible && !reduced && !lost) frame=requestAnimationFrame(animate); };
     const start = () => { if(!frame && visible && !reduced && !lost) frame=requestAnimationFrame(animate); };
     const resize = () => {
       const rect = wrapper.getBoundingClientRect();
       width = Math.max(1,rect.width); height = Math.max(1,rect.height);
-      const ratio = Math.min(window.devicePixelRatio || 1,1.35);
+      const ratio = Math.min(window.devicePixelRatio || 1,1.2);
       canvas.width = Math.round(width*ratio); canvas.height = Math.round(height*ratio);
       canvas.style.width = width+'px'; canvas.style.height = height+'px';
       render(reduced ? 0 : lastTimestamp);
