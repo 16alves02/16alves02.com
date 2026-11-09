@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import {
   ArrowDownRight, ArrowUpRight, BriefcaseBusiness, CalendarDays, Check,
   Camera, ChevronDown, Clock3, Code2, ContactRound, Download, Gamepad2, Globe,
-  GraduationCap, Link2, MapPin, Menu, Moon, Play, Shapes, Sparkles, Sun, X,
+  GraduationCap, Link2, Mail, MapPin, Menu, Moon, Play, Shapes, Sparkles, Sun, X,
 } from 'lucide-react';
 import { projects } from './data/projects.js';
 import DeferredEngineeringStories from './components/DeferredEngineeringStories.jsx';
