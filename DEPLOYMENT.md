@@ -10,7 +10,7 @@
 - **Root directory:** `/`
 - **Build command:** `npm run build`
 - **Build output directory:** `dist`
-- **Environment variables:** none required by the current static portfolio
+- **Environment variables:** Supabase and Resend variables are required for the CMS and contact workflow. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md).
 
 Cloudflare Pages is connected to GitHub. Changes merged into `main` trigger production deployments; pull requests create preview deployments. Use the stable project URL for canonical metadata and public portfolio links, never a hash-based preview URL.
 

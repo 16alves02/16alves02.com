@@ -6,3 +6,7 @@ dist
 .DS_Store
 Thumbs.db
 .cv-python/
+
+.dev.vars
+.dev.vars.*
+.wrangler/
