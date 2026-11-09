@@ -18,7 +18,7 @@ function getChoice() {
   try { return window.localStorage.getItem(STORAGE_KEY); } catch { return null; }
 }
 
-export function ExternalGameEmbed() {
+export function ExternalGameEmbed({ language = 'en' }) {
   const [choice, setChoice] = useState(getChoice);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export function ExternalGameEmbed() {
     window.dispatchEvent(new Event(CHANGE_EVENT));
   };
 
-  const t = copy['pt-PT'];
+  const t = copy[language] || copy.en;
   return (
     <div className="raw-itch-embed">
       <div className="raw-embed-heading">
