@@ -150,6 +150,27 @@ export const projects = [
     source: 'https://github.com/16alves02/hoop',
     image: 'https://wsrv.nl/?url=raw.githubusercontent.com%2F16alves02%2Fhoop%2Fmain%2Fpublic%2Fimg%2Fscreenshots%2Fhome.PNG&w=800&output=webp&q=72',
     imageAlt: 'Actual homepage screenshot from the HOOP basketball-store project',
+    status: 'Live demo',
+    caseStudy: {
+      en: {
+        problem: 'Explore the shopping journey for a basketball store through a functional client-side interface.',
+        architecture: 'React and TypeScript with Vite and React Router. The project is an academic frontend concept rather than a production commerce system.',
+        contribution: 'Implemented product discovery, search, filters, product pages, favourites, shared cart state and a multi-step simulated checkout.',
+        challenges: 'Keeping product browsing, favourites and cart state consistent while moving through the checkout steps.',
+        quality: 'The interface demonstrates the client-side shopping flow. Checkout is simulated; there are no real orders, payment processing or live commerce backend.',
+        status: 'Academic frontend project. Live demo available; purchases are not real.',
+        result: 'A navigable basketball-store frontend covering product discovery through a simulated checkout.',
+      },
+      pt: {
+        problem: 'Explorar o percurso de compra numa loja de basquetebol através de uma interface funcional do lado do cliente.',
+        architecture: 'React e TypeScript com Vite e React Router. É um conceito académico de frontend, não um sistema de comércio pronto para produção.',
+        contribution: 'Implementação da descoberta de produtos, pesquisa, filtros, páginas de produto, favoritos, estado partilhado do carrinho e checkout simulado em várias etapas.',
+        challenges: 'Manter consistentes a navegação do catálogo, os favoritos e o estado do carrinho ao longo das etapas de checkout.',
+        quality: 'A interface demonstra o percurso de compra no frontend. O checkout é simulado; não existem encomendas reais, processamento de pagamentos ou backend de comércio ativo.',
+        status: 'Projeto académico de frontend. Demo disponível; as compras não são reais.',
+        result: 'Frontend navegável de uma loja de basquetebol, desde a descoberta de produtos até ao checkout simulado.',
+      },
+    },
     visual: 'hoop',
   },
   {
