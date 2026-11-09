@@ -30,5 +30,7 @@ jobs:
         run: npm ci
       - name: Build portfolio
         run: npm run build
+      - name: Verify theme contrast
+        run: npm run verify:theme
       - name: Verify production assets
         run: npm run verify:production
