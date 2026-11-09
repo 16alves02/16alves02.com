@@ -59,6 +59,8 @@ async function api(path, options = {}) {
     headers: {
       ...authHeaders(),
       'Content-Type': 'application/json',
+      'Accept-Profile': 'portfolio',
+      'Content-Profile': 'portfolio',
       Prefer: 'return=representation',
       ...(options.headers || {}),
     },
