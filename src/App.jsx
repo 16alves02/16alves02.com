@@ -7,6 +7,7 @@ import {
 import { projects } from './data/projects.js';
 import EngineeringStories from './components/EngineeringStories.jsx';
 import SiteUtilities, { ExternalGameEmbed } from './components/SiteUtilities.jsx';
+import Scene3D from './components/Scene3D.jsx';
 
 const socials = [
   { label: 'GitHub', short: 'GH', url: 'https://github.com/16alves02', kind: 'code' },
@@ -1084,7 +1085,7 @@ function getInitialTheme() {
     const saved = window.localStorage.getItem('16alves02-theme');
     if (saved === 'light' || saved === 'dark') return saved;
   } catch { /* Storage can be unavailable in restricted contexts. */ }
-  return 'light';
+  return 'dark';
 }
 
 function getInitialLanguage() {
@@ -1200,7 +1201,7 @@ export default function App() {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    if (themeColorMeta) themeColorMeta.content = theme === 'dark' ? '#151416' : '#d8d5cd';
+    if (themeColorMeta) themeColorMeta.content = theme === 'dark' ? '#080d14' : '#f1f2ef';
     try { window.localStorage.setItem('16alves02-theme', theme); } catch { /* Ignore storage errors. */ }
   }, [theme]);
 
@@ -1333,6 +1334,11 @@ export default function App() {
       <main id="main-content">
         <section className="hero" id="home">
           <div className="hero-back-number" aria-hidden="true">16</div>
+          <div className="hero-3d-stage" aria-hidden="true">
+            <Scene3D theme={theme} />
+            <div className="hero-scene-hud hero-scene-hud-top">PROCEDURAL / 3D FIELD</div>
+            <div className="hero-scene-hud hero-scene-hud-bottom">INTERFACES / SYSTEMS / SOFTWARE</div>
+          </div>
           <div className="hero-inner hero-inner-focused hero-inner-universe">
             <div className="hero-copy">
               <div className="hero-meta"><span className="status-dot" />{t.role}<span className="meta-slash">/</span>{t.eyebrow}</div>

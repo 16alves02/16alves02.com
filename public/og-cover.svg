@@ -1,13 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
-  <rect width="1200" height="630" fill="#F7F5F0"/>
-  <path d="M0 88H1200M0 548H1200" stroke="#171717" stroke-opacity=".12"/>
-  <rect x="82" y="92" width="54" height="7" rx="3.5" fill="#FF6A2A"/>
-  <text x="82" y="145" fill="#625E58" font-family="monospace" font-size="16" letter-spacing="4">16ALVES02 / PORTUGAL</text>
-  <text x="78" y="290" fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="700" letter-spacing="-7">Leonardo</text>
-  <text x="78" y="400" fill="#FF6A2A" font-family="Arial, Helvetica, sans-serif" font-size="116" font-weight="700" letter-spacing="-8">Alves.</text>
-  <text x="84" y="466" fill="#625E58" font-family="monospace" font-size="21" letter-spacing="4">SOFTWARE DEVELOPER</text>
-  <rect x="895" y="142" width="190" height="190" rx="18" fill="#FF6A2A"/>
-  <text x="925" y="278" fill="#171717" font-family="Arial, Helvetica, sans-serif" font-size="106" font-weight="800" letter-spacing="-10">16</text>
-  <text x="1090" y="362" fill="#A83D18" font-family="monospace" font-size="15" text-anchor="end" letter-spacing="3">BUILD / LEARN / REFINE</text>
-  <text x="84" y="584" fill="#625E58" font-family="monospace" font-size="15" letter-spacing="2">WEB / BACKEND / MOBILE / SOFTWARE</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#080D14"/>
+      <stop offset="1" stop-color="#111E2C"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="100" y1="0" x2="900" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFAD94"/>
+      <stop offset="1" stop-color="#A94730"/>
+    </linearGradient>
+    <linearGradient id="cool" x1="700" y1="30" x2="1100" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#85DED2"/>
+      <stop offset="1" stop-color="#477F9C"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(270 0 0 270 900 300)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4D9DB0" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#4D9DB0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="560" y="-30" width="680" height="690" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g opacity=".18" stroke="#A9C8D8">
+    <path d="M0 70H1200M0 140H1200M0 210H1200M0 280H1200M0 350H1200M0 420H1200M0 490H1200M0 560H1200"/>
+    <path d="M70 0V630M140 0V630M210 0V630M280 0V630M350 0V630M420 0V630M490 0V630M560 0V630M630 0V630M700 0V630M770 0V630M840 0V630M910 0V630M980 0V630M1050 0V630M1120 0V630"/>
+  </g>
+  <g opacity=".25" filter="url(#soft)">
+    <circle cx="915" cy="300" r="190" fill="#5BA5B2"/>
+  </g>
+  <g stroke="url(#cool)" stroke-width="2" opacity=".7">
+    <path d="M886 85 1060 184 1060 382 886 481 712 382 712 184 886 85Z"/>
+    <path d="M886 85V284M1060 184 886 284 712 184M886 284 1060 382M886 284 886 481M886 284 712 382"/>
+    <path d="M886 85 1060 382M1060 184 712 382M712 184 1060 382M886 481 1060 184"/>
+  </g>
+  <g stroke="url(#warm)" stroke-width="2.4" opacity=".92">
+    <ellipse cx="886" cy="284" rx="250" ry="88" transform="rotate(-24 886 284)"/>
+    <ellipse cx="886" cy="284" rx="245" ry="92" transform="rotate(58 886 284)"/>
+    <ellipse cx="886" cy="284" rx="215" ry="72" transform="rotate(90 886 284)"/>
+  </g>
+  <g fill="#85DED2">
+    <circle cx="1015" cy="174" r="5"/>
+    <circle cx="681" cy="299" r="4"/>
+    <circle cx="1001" cy="443" r="4"/>
+    <circle cx="885" cy="85" r="4"/>
+  </g>
+  <g fill="#FFAD94">
+    <circle cx="1090" cy="310" r="5"/>
+    <circle cx="786" cy="456" r="4"/>
+  </g>
+  <path d="M82 99H131" stroke="url(#warm)" stroke-width="6" stroke-linecap="round"/>
+  <text x="82" y="143" fill="#AFC0CB" font-family="monospace" font-size="17" letter-spacing="4">16ALVES02 / PORTUGAL</text>
+  <text x="76" y="278" fill="#F0F5F7" font-family="Arial, Helvetica, sans-serif" font-size="100" font-weight="700" letter-spacing="-7">Leonardo</text>
+  <text x="76" y="382" fill="#FFAD94" font-family="Arial, Helvetica, sans-serif" font-size="112" font-weight="700" letter-spacing="-8">Alves.</text>
+  <text x="84" y="450" fill="#85DED2" font-family="monospace" font-size="20" letter-spacing="4">SOFTWARE DEVELOPER</text>
+  <text x="84" y="558" fill="#AFC0CB" font-family="monospace" font-size="15" letter-spacing="2">WEB / BACKEND / MOBILE / SOFTWARE</text>
+  <text x="1116" y="588" fill="#B9CBD5" font-family="monospace" font-size="13" text-anchor="end" letter-spacing="2">BUILD / LEARN / REFINE</text>
 </svg>

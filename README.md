@@ -67,13 +67,19 @@ Technologies used across coursework, internships and projects. Practical experie
 
 ## Website
 
-The portfolio includes responsive layouts, seven interface languages, persistent light and dark themes shared with the legal and 404 pages, language-aware CV downloads, project case studies and links to professional and social profiles.
+The portfolio includes an interactive procedural 3D hero, depth-based project cards, responsive layouts, seven interface languages, persistent light and dark themes shared with the legal and 404 pages, language-aware CV downloads, project case studies and links to professional and social profiles.
+
+## Immersive 3D experience
+
+The homepage uses a custom procedural 3D scene rendered on Canvas. It combines a rotating wireframe sphere, spatial orbits, a perspective grid and pointer-responsive parallax. Project cards use layered depth and restrained 3D transforms. The scene is decorative: all navigation and project information remain normal HTML content and do not depend on the canvas.
+
+The renderer caps device pixel ratio, pauses when it leaves the viewport, respects `prefers-reduced-motion`, responds to container resizing and includes a CSS poster fallback. No external 3D model or third-party asset is downloaded at runtime.
 
 ## Theme contrast and accessibility
 
 The light and dark themes use separate text-accent and button-fill colors. Large content sections use neutral theme surfaces instead of saturated orange backgrounds, and filled controls use a foreground color with a WCAG AA contrast ratio of at least 4.5:1. The saved theme preference is also applied by the privacy, terms and 404 pages.
 
-Run `npm run verify:theme` to check the theme color tokens and contrast ratios. This check is included in GitHub Actions.
+Run `npm run verify:theme` to check the theme color tokens, key WCAG AA contrast ratios, 3D scene fallback and motion handling. This check is included in GitHub Actions.
 
 ## Run locally
 

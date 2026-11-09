@@ -73,4 +73,36 @@ for (const page of ['public/404.html', 'public/privacy.html', 'public/terms.html
   assert.match(html, /data-theme/, `${page} must apply its theme to the document`);
 }
 
-console.log('Theme contrast verification passed (WCAG AA 4.5:1 for accent text and filled controls).');
+const immersiveStyles = readFileSync('src/immersive-3d.css', 'utf8');
+const immersiveLight = rule(immersiveStyles, '.site-shell');
+const immersiveDark = rule(immersiveStyles, 'html[data-theme="dark"] .site-shell');
+
+const immersiveTokens = [
+  ['Light accent', variable(immersiveLight, '--accent'), ['--page', '--page-alt']],
+  ['Light signal', variable(immersiveLight, '--signal'), ['--page', '--page-alt']],
+  ['Dark accent', variable(immersiveDark, '--accent'), ['--page', '--page-alt', '--surface-2']],
+  ['Dark signal', variable(immersiveDark, '--signal'), ['--page', '--page-alt', '--surface-2']],
+];
+
+for (const [label, foreground, backgrounds] of immersiveTokens) {
+  const theme = label.startsWith('Light') ? immersiveLight : immersiveDark;
+  for (const background of backgrounds) {
+    assertReadable(label + ' on ' + background, foreground, variable(theme, background));
+  }
+}
+
+assertReadable('Light 3D theme filled button', '#ffffff', variable(immersiveLight, '--accent-fill'));
+assertReadable('Dark 3D theme filled button', '#ffffff', variable(immersiveDark, '--accent-fill'));
+assertReadable('Dark 3D theme filled button hover', '#ffffff', variable(immersiveDark, '--accent-hover'));
+assertReadable('Internship callout body copy', '#becbd2', '#09121c');
+assertReadable('Internship callout heading', '#f0f5f7', '#09121c');
+
+const scene = readFileSync('src/components/Scene3D.jsx', 'utf8');
+assert.match(scene, /getContext\('2d'/, 'The 3D scene must use a broadly supported canvas renderer');
+assert.match(scene, /scene3d-poster/, 'The scene must include a static fallback poster');
+assert.match(scene, /IntersectionObserver/, 'The scene must pause when outside the viewport');
+assert.match(scene, /prefers-reduced-motion/, 'The scene must respect reduced-motion preferences');
+assert.match(scene, /ResizeObserver/, 'The scene must respond to container size changes');
+assert.match(immersiveStyles, /@media \(prefers-reduced-motion: reduce\)/, '3D hover effects must respect reduced motion');
+
+console.log('Theme and 3D contrast verification passed (WCAG AA 4.5:1 for theme accents, signals and filled controls).');

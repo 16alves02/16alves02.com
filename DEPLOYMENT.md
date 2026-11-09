@@ -22,10 +22,11 @@ No Wrangler configuration file is needed for this static Vite deployment.
 npm ci
 npm run build
 npm run verify:theme
+npm run verify:production
 npm run preview
 ```
 
-The production build is generated in `dist/`. The theme verification checks readable accent text and filled controls in both themes; manually review the homepage, privacy page, terms page and 404 page in light and dark mode before release.
+The production build is generated in `dist/`. Theme verification checks readable accent and signal colors, filled controls, the 3D scene fallback and reduced-motion handling. Before release, review the 3D hero and project-card depth on desktop and mobile, then check the homepage, privacy page, terms page and 404 page in both themes. Confirm that the canvas pauses when scrolled away and remains non-essential to navigation.
 
 ## Production readiness checklist
 
