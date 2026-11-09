@@ -3,9 +3,9 @@ import { ArrowLeft, ArrowUpRight, Github, ExternalLink } from 'lucide-react';
 export default function ProjectDetailPage({ project, language = 'en', theme = 'dark' }) {
   const pt = language === 'pt-PT';
   const locale = pt ? 'pt' : language;
-  const study = project.caseStudy?.[locale] || project.caseStudy?.en || null;
   const translation = project.translations?.[locale] || project.translations?.[language] || {};
-  const title = project.name || 'Project';
+  const study = translation.caseStudy?.[locale] || translation.caseStudy || project.caseStudy?.[locale] || project.caseStudy?.en || null;
+  const title = translation.name || project.name || 'Project';
   const status = translation.status || project.status || (pt ? 'Em desenvolvimento' : 'In development');
   const back = pt ? 'Voltar aos projetos' : 'Back to projects';
   const fields = study ? [

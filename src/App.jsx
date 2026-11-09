@@ -1201,9 +1201,14 @@ export default function App() {
   const isPortuguese = language === 'pt-PT';
   const featuredProjectNames = ['SaborGest', 'RunLattice', 'MRDR.', 'HOOP'];
   const localeProjectRows = cmsRows.filter((row) => row.content_type === 'project' && (row.locale === 'all' || row.locale === language));
-  const activeProjects = localeProjectRows.length
-    ? localeProjectRows.map((row) => ({ ...row.content, slug: row.slug, number: row.content?.number || String(row.sort_order).padStart(2, '0') }))
-    : projects;
+  const projectContentMap = new Map();
+  localeProjectRows.filter((row) => row.locale === 'all').forEach((row) => projectContentMap.set(row.slug, { ...row.content, slug: row.slug, number: row.content?.number || String(row.sort_order).padStart(2, '0') }));
+  localeProjectRows.filter((row) => row.locale === language && row.locale !== 'all').forEach((row) => {
+    const base = projectContentMap.get(row.slug);
+    if (base) projectContentMap.set(row.slug, { ...base, translations: { ...(base.translations || {}), [language]: row.content } });
+    else projectContentMap.set(row.slug, { ...row.content, slug: row.slug, translations: { [language]: row.content } });
+  });
+  const activeProjects = projectContentMap.size ? [...projectContentMap.values()] : projects;
   const allTechnologies = [...new Set(activeProjects.flatMap((project) => project.stack || []))].sort((a, b) => a.localeCompare(b));
   const projectFiltersActive = Boolean(projectSearch.trim() || projectTechnology !== 'all' || projectStatus !== 'all');
   const filteredProjects = activeProjects.filter((project) => {
@@ -1223,6 +1228,10 @@ export default function App() {
     : [...(experienceByLanguage[language] || experienceByLanguage.en)].sort((a, b) => ({ cnc: 0, mc: 1, clickbeauty: 2, aej: 3 }[a.id] ?? 9) - ({ cnc: 0, mc: 1, clickbeauty: 2, aej: 3 }[b.id] ?? 9));
   const skillRows = cmsRows.filter((row) => row.content_type === 'skill_group' && (row.locale === 'all' || row.locale === language)).sort((a, b) => a.sort_order - b.sort_order);
   const skillGroups = skillRows.length ? skillRows.map((row) => [row.content?.name || row.slug, ...(row.content?.items || [])]) : t.skillGroups;
+  const educationRows = cmsRows.filter((row) => row.content_type === 'education' && (row.locale === 'all' || row.locale === language)).sort((a, b) => a.sort_order - b.sort_order);
+  const educationEntries = educationRows.map((row) => ({ ...row.content, id: row.content?.id || row.slug }));
+  const profileRow = cmsRows.find((row) => row.content_type === 'profile' && row.locale === language) || cmsRows.find((row) => row.content_type === 'profile' && row.locale === 'all');
+  const engineeringRows = cmsRows.filter((row) => row.content_type === 'engineering_note' && (row.locale === 'all' || row.locale === language)).sort((a, b) => a.sort_order - b.sort_order).map((row) => ({ ...row.content, slug: row.slug }));
   const activeLanguage = languageOptions.find((option) => option.code === language) || languageOptions[0];
   const cvHref = language === 'pt-PT' ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const cvFilename = language === 'pt-PT' ? 'Leonardo-Alves-CV-PT-Engenharia-Software.pdf' : 'Leonardo-Alves-CV-EN-Software-Engineering.pdf';
@@ -1290,7 +1299,7 @@ export default function App() {
     setTheme((current) => current === 'light' ? 'dark' : 'light');
   }
 
-  if (currentPath === '/profile') return <ProfilePage language={language} theme={theme} skills={skillGroups} experience={relevantExperience} />;
+  if (currentPath === '/profile') return <ProfilePage language={language} theme={theme} skills={skillGroups} experience={relevantExperience} education={educationEntries} profile={profileRow?.content || {}} />;
   if (routeProjectSlug) return routeProject
     ? <ProjectDetailPage project={routeProject} language={language} theme={theme} />
     : <main className="portfolio-detail-page" data-theme={theme}><a href="/">← {isPortuguese ? 'Voltar ao portefólio' : 'Back to portfolio'}</a><h1>404</h1><p>{isPortuguese ? 'Projeto não encontrado.' : 'Project not found.'}</p></main>;
@@ -1460,7 +1469,7 @@ export default function App() {
         </section>
 
         <DeferredEngineeringStories language={language} />
-        <PortfolioExtras language={language} projects={activeProjects} />
+        <PortfolioExtras language={language} projects={activeProjects} notes={engineeringRows} />
 
 <section className="about-section" id="about">
           <div className="about-band"><span>02 / {t.navAbout.toUpperCase()}</span><span>16ALVES02®</span><span>{t.aboutBandTagline}</span></div>
