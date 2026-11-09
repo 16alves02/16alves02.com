@@ -33,7 +33,7 @@ export async function onRequestPost({ request, env }) {
   rateUrl.searchParams.set('ip_hash', 'eq.' + ipHash);
   rateUrl.searchParams.set('created_at', 'gte.' + since);
   rateUrl.searchParams.set('limit', '5');
-  const headers = { apikey: serviceKey };
+  const headers = { apikey: serviceKey, 'Accept-Profile': 'portfolio' };
 
   const rateCheck = await fetch(rateUrl, { headers });
   if (!rateCheck.ok) return json({ error: 'Contact service is temporarily unavailable.' }, 503);
@@ -42,7 +42,7 @@ export async function onRequestPost({ request, env }) {
 
   const saved = await fetch(new URL('/rest/v1/contact_messages', supabaseUrl), {
     method: 'POST',
-    headers: { ...headers, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+    headers: { ...headers, 'Content-Type': 'application/json', 'Content-Profile': 'portfolio', Prefer: 'return=minimal' },
     body: JSON.stringify({ name, email, subject, message, ip_hash: ipHash, status: 'new' }),
   });
   if (!saved.ok) return json({ error: 'Message could not be saved. Please try again.' }, 502);
