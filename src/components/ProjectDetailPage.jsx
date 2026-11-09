@@ -14,7 +14,7 @@ export default function ProjectDetailPage({ project, language = 'en', theme = 'd
     [pt ? 'Contributo' : 'Contribution', study.contribution],
     [pt ? 'Desafios técnicos' : 'Technical challenges', study.challenges],
     [pt ? 'Qualidade e validação' : 'Quality and validation', study.quality],
-    [pt ? 'Resultado' : 'Outcome', study.result],
+    [pt ? 'Estado atual' : 'Current status', study.status],
   ] : [[pt ? 'Sobre o projeto' : 'About this project', translation.description || project.description]];
 
   return (

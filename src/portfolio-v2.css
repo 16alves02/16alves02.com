@@ -2,7 +2,7 @@
 .site-shell{--portfolio-orange:#f07832;--accent:#f07832;--signal:#f07832}
 html[data-theme="light"] .site-shell{--portfolio-ink:#171717;--portfolio-paper:#f1efea;--portfolio-muted:#5f5a53;--portfolio-line:rgba(23,23,23,.16)}
 .site-shell .brand-owner{letter-spacing:.16em}
-.project-explorer-controls{display:grid;grid-template-columns:minmax(220px,1.4fr) minmax(160px,.8fr) minmax(150px,.7fr) auto;gap:10px;align-items:end;margin:0 0 22px;padding:16px;border:1px solid var(--portfolio-line);background:var(--portfolio-panel)}
+.project-explorer-controls{display:grid;grid-template-columns:minmax(200px,1.3fr) minmax(145px,.8fr) minmax(145px,.7fr) minmax(145px,.7fr) auto;gap:10px;align-items:end;margin:0 0 22px;padding:16px;border:1px solid var(--portfolio-line);background:var(--portfolio-panel)}
 .project-explorer-controls label{display:grid;gap:6px;color:var(--portfolio-muted);font:9px var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .project-explorer-controls input,.project-explorer-controls select{min-width:0;min-height:40px;padding:0 11px;border:1px solid var(--portfolio-line);border-radius:3px;background:transparent;color:var(--ink);font:12px var(--sans,Arial)}
 .project-explorer-controls select option{color:#171717;background:#f1efea}

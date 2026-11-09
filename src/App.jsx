@@ -1186,6 +1186,7 @@ export default function App() {
   const [cmsRows, setCmsRows] = useState([]);
   const [projectSearch, setProjectSearch] = useState('');
   const [projectTechnology, setProjectTechnology] = useState('all');
+  const [projectCategory, setProjectCategory] = useState('all');
   const [projectStatus, setProjectStatus] = useState('all');
   const languageMenuRef = useRef(null);
   useEffect(() => {
@@ -1210,13 +1211,15 @@ export default function App() {
   });
   const activeProjects = projectContentMap.size ? [...projectContentMap.values()] : projects;
   const allTechnologies = [...new Set(activeProjects.flatMap((project) => project.stack || []))].sort((a, b) => a.localeCompare(b));
-  const projectFiltersActive = Boolean(projectSearch.trim() || projectTechnology !== 'all' || projectStatus !== 'all');
+  const allCategories = [...new Set(activeProjects.map((project) => project.category || project.type).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  const projectFiltersActive = Boolean(projectSearch.trim() || projectTechnology !== 'all' || projectCategory !== 'all' || projectStatus !== 'all');
   const filteredProjects = activeProjects.filter((project) => {
     const term = projectSearch.trim().toLowerCase();
     const matchesSearch = !term || [project.name, project.description, ...(project.stack || [])].join(' ').toLowerCase().includes(term);
     const matchesTechnology = projectTechnology === 'all' || (project.stack || []).includes(projectTechnology);
+    const matchesCategory = projectCategory === 'all' || (project.category || project.type) === projectCategory;
     const matchesStatus = projectStatus === 'all' || String(project.status || '').toLowerCase().includes(projectStatus);
-    return matchesSearch && matchesTechnology && matchesStatus;
+    return matchesSearch && matchesTechnology && matchesCategory && matchesStatus;
   });
   const featuredProjects = projectFiltersActive
     ? filteredProjects
@@ -1439,8 +1442,9 @@ export default function App() {
             <div className="project-explorer-controls" aria-label={isPortuguese ? 'Filtros de projetos' : 'Project filters'}>
               <label><span>{isPortuguese ? 'Pesquisar' : 'Search'}</span><input value={projectSearch} onChange={(event) => setProjectSearch(event.target.value)} placeholder={isPortuguese ? 'Nome, descrição ou tecnologia' : 'Name, description or technology'} /></label>
               <label><span>{isPortuguese ? 'Tecnologia' : 'Technology'}</span><select value={projectTechnology} onChange={(event) => setProjectTechnology(event.target.value)}><option value="all">{isPortuguese ? 'Todas' : 'All'}</option>{allTechnologies.map((technology) => <option key={technology} value={technology}>{technology}</option>)}</select></label>
+              <label><span>{isPortuguese ? 'Categoria' : 'Category'}</span><select value={projectCategory} onChange={(event) => setProjectCategory(event.target.value)}><option value="all">{isPortuguese ? 'Todas' : 'All'}</option>{allCategories.map((category) => <option key={category} value={category}>{category}</option>)}</select></label>
               <label><span>{isPortuguese ? 'Estado' : 'Status'}</span><select value={projectStatus} onChange={(event) => setProjectStatus(event.target.value)}><option value="all">{isPortuguese ? 'Todos' : 'All'}</option><option value="development">{isPortuguese ? 'Em desenvolvimento' : 'In development'}</option><option value="prototype">{isPortuguese ? 'Protótipo' : 'Prototype'}</option><option value="live">Live</option></select></label>
-              {projectFiltersActive && <button type="button" onClick={() => { setProjectSearch(''); setProjectTechnology('all'); setProjectStatus('all'); }}>{isPortuguese ? 'Limpar filtros' : 'Clear filters'}</button>}
+              {projectFiltersActive && <button type="button" onClick={() => { setProjectSearch(''); setProjectTechnology('all'); setProjectCategory('all'); setProjectStatus('all'); }}>{isPortuguese ? 'Limpar filtros' : 'Clear filters'}</button>}
             </div>
             <div className="projects-grid featured-projects-grid">
               {featuredProjects.map((project, index) => (
@@ -1489,9 +1493,9 @@ export default function App() {
             <div><p className="section-kicker">{t.pathKicker}</p><h2>{t.pathTitle}<span className="brand-dot">.</span></h2></div>
             <div className="education-card">
               <span className="education-label">{t.educationKicker}</span>
-              <h3>{t.educationTitle}</h3>
-              <span className="education-date">{t.educationDate}</span>
-              <p>{t.educationWhere}</p>
+              <h3>{educationEntries[0]?.title || t.educationTitle}</h3>
+              <span className="education-date">{educationEntries[0]?.date || t.educationDate}</span>
+              <p>{educationEntries[0]?.where || t.educationWhere}</p>
               <div className="education-rule" />
               {t.educationAdditional && <p className="education-additional">{t.educationAdditional}</p>}
             </div>
@@ -1503,7 +1507,7 @@ export default function App() {
                 <div>
                   <h3>{experience.role}</h3>
                   <p className="experience-company">{experience.company}</p>
-                  <div className="tag-list">{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  <div className="tag-list">{(experience.tags || []).map((tag) => <span key={tag}>{tag}</span>)}</div>
                 </div>
                 <ArrowUpRight className="experience-symbol" size={18} strokeWidth={1.7} aria-hidden="true" />
               </article>
