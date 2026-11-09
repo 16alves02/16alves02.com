@@ -14,8 +14,9 @@
       --paper-deep: #eeece5;
       --ink: #20201e;
       --muted: #5f5853;
-      --accent: #b9381b;
-      --accent-fill: #f05a28;
+      --accent: #85331f;
+      --accent-on-fill: #ffffff;
+      --accent-fill: #a8422a;
       --line: rgba(33, 26, 31, .22);
       --shadow: #211a1f;
     }
@@ -25,8 +26,9 @@
       --paper-deep: #1e1e1a;
       --ink: #f3f1eb;
       --muted: #c0bbb1;
-      --accent: #ff9478;
-      --accent-fill: #ff704f;
+      --accent: #ff9b83;
+      --accent-on-fill: #ffffff;
+      --accent-fill: #b84a2f;
       --line: rgba(247, 243, 236, .22);
       --shadow: #000;
     }
@@ -119,7 +121,7 @@
       transition: background-color .15s ease, color .15s ease;
     }
     .button-secondary { color: var(--ink); background: transparent; }
-    .button:hover { background: var(--accent-fill); color: #20201e; }
+    .button:hover { background: var(--accent-fill); color: var(--accent-on-fill); }
     .button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
     footer {
       margin-top: 30px;
