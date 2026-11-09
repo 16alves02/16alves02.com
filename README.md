@@ -2,7 +2,7 @@
 
 Personal portfolio for Leonardo Alves, Software Developer and CTeSP Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro (2025–2027).
 
-**[Open the portfolio](https://16alves02.netlify.app)** · **[Professional GitHub](https://github.com/16alves02)** · **[Academic GitHub](https://github.com/13alves05)** · **[LinkedIn](https://www.linkedin.com/in/16alves02/)**
+**[Open the portfolio](https://16alves02.pages.dev)** · **[Professional GitHub](https://github.com/16alves02)** · **[Academic GitHub](https://github.com/13alves05)** · **[LinkedIn](https://www.linkedin.com/in/16alves02/)**
 
 ## Professional profile
 
@@ -92,3 +92,15 @@ The production build is generated in `dist/`.
 ## Author
 
 **Leonardo Alves** · [GitHub](https://github.com/16alves02) · [LinkedIn](https://www.linkedin.com/in/16alves02/) · [Email](mailto:16alves02@gmail.com)
+
+## Deployment
+
+The portfolio is published with **Cloudflare Pages** at [16alves02.pages.dev](https://16alves02.pages.dev).
+
+- **Repository:** `16alves02/16alves02.com`
+- **Production branch:** `main`
+- **Build command:** `npm run build`
+- **Build output:** `dist/`
+- **Root directory:** `/`
+
+Pull requests receive separate Cloudflare Pages preview deployments. The stable production URL remains the project subdomain above.
