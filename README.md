@@ -1,88 +1,73 @@
-# 16alves02 Portfolio
+# Leonardo Alves — Software Developer Portfolio
 
-Personal portfolio for Leonardo Alves, a Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro (2025–2027), building a path towards software engineering.
+Personal portfolio for Leonardo Alves, Software Developer and CTeSP Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro (2025–2027).
 
-**[Open the portfolio](https://16alves02-com.vercel.app)** · **[GitHub profile](https://github.com/16alves02)**
+**[Open the portfolio](https://16alves02.netlify.app)** · **[Professional GitHub](https://github.com/16alves02)** · **[Academic GitHub](https://github.com/13alves05)** · **[LinkedIn](https://www.linkedin.com/in/16alves02/)**
 
-## Professional direction
+## Professional profile
 
-The long-term goal is to become a software engineer who can reason about and contribute to complete systems: interfaces, business logic, APIs, data persistence, background processing, testing and mobile applications.
+I am a Software Developer with practical experience in web development, backend development and application projects. My work includes user interfaces, business logic, REST APIs, relational databases, asynchronous processing and Android development.
 
-The portfolio presents academic and personal projects as evidence of this learning path. It distinguishes what is implemented from what is still a prototype, in development or planned.
+The projects below show different parts of that work. Their descriptions distinguish implemented functionality from prototypes, academic simulations and work that is still in development.
 
-## Internship availability
+## Internship
 
-Seeking a **paid 680-hour curricular software development internship starting in February 2027**, preferably in **Coimbra, Portugal**. Open to on-site, hybrid or remote opportunities.
+Seeking a **paid 680-hour curricular Software Development internship starting in February 2027**.
 
-- Start: February 2027
-- Duration: 680 hours
-- Preferred location: Coimbra, Portugal
-- Work arrangement: On-site / hybrid / remote
-- Type: Paid curricular internship
+- **Location:** Oliveira de Azeméis and nearby areas for on-site opportunities.
+- **Mobility:** Aveiro, Porto and Coimbra districts.
+- **Work arrangement:** on-site, hybrid or remote.
+- **Duration:** 680 hours.
+- **Availability:** February 2027.
 
-CV downloads:
-- English: `/cv-leonardo-alves-en.pdf`
-- Portuguese: `/cv-leonardo-alves-pt.pdf`
+## Featured projects
 
-## Four featured projects
-
-The portfolio highlights these projects in the same order.
-
-| Project | Engineering focus | Technologies | Current status |
+| Project | What it demonstrates | Technologies | Status |
 | --- | --- | --- | --- |
-| **SaborGest** | Integrated management system with a PHP web panel, REST API, relational database and Kotlin Android kiosk. Scope includes schedules, attendance, stock and communication between clients. | PHP 8.3, PDO, REST API, MySQL/MariaDB, Kotlin, Android, Retrofit | Academic project in development; integration, acceptance and security validation remain. Not production-ready. |
-| **RunLattice** | Workflow automation prototype exploring a visual editor, graph validation, API operations, persistence, execution history and asynchronous processing. | Next.js, React, TypeScript, Route Handlers, Zod, PostgreSQL, Prisma, Redis, BullMQ, Vitest | Worker simulates workflow traversal. External integrations, authentication and workspace isolation are not implemented. |
-| **MRDR.** | Original deduction game exploring case generation and validation, a modular logic engine, campaign progression, achievements and automated tests. | React 19, TypeScript, Vite, Zustand, Vitest, Capacitor | In development. Project documentation describes 200 cases and automated checks for validity and unique solutions. |
-| **RAW.** | Interactive conversation and party-game application with multiple modes, card interactions, swipe gestures, animated transitions, localisation and a mobile/PWA-oriented experience. | React, JavaScript, Tailwind CSS, Framer Motion, PWA, localisation | Live interactive project; source repository is private. |
+| **SaborGest** | An academic management system combining a PHP web panel, REST API, relational database and Kotlin Android kiosk. Its scope includes staff schedules, attendance records and stock movements. | PHP, PDO, REST API, MySQL/MariaDB, Kotlin, Android, Retrofit | In development. Integration, device-key configuration, Android validation, deployment and acceptance checks remain. Not production-ready. |
+| **RunLattice** | A workflow automation prototype with authenticated organisation workspaces, a visual builder, PostgreSQL persistence and Redis/BullMQ execution. Implemented paths include signed inbound webhooks, scheduled triggers and a live Discord action. | Next.js, React, TypeScript, Better Auth, PostgreSQL, Prisma, Redis, BullMQ, Vitest | Early-stage prototype. Discord is the only live external action; durable step resumption and additional provider actions are not implemented. Not production-ready. |
+| **MRDR.** | An original deduction game with procedural case generation, clue relationships, solution validation, campaign progression and automated tests. | React, TypeScript, Vite, Zustand, Vitest, Capacitor | In development. The game is not presented as a finished release. |
+| **RAW.** | An interactive conversation and party-game application with multiple modes, card interactions, multilingual interface and a mobile/PWA-oriented experience. | React, JavaScript, Tailwind CSS, Framer Motion, PWA | Live interactive project. Source repository is private. |
 
 ## Additional projects
 
-- **Nova Imagem by Maura Pereira** - client website in preparation with the salon owner. Service descriptions, imagery, opening hours and publication details require confirmation. A CMS-based content editing workflow is planned but not yet implemented or validated.
-- **HOOP** - educational basketball-store frontend with product discovery, filters, favourites, cart and a simulated checkout; no real payments. [Repository](https://github.com/16alves02/hoop) · [Demo](https://hoop-16alves02.netlify.app)
-- **Todo App** - browser task manager with filters and local persistence. [Repository](https://github.com/16alves02/todo-app) · [Demo](https://todo-app-three-beta-56.vercel.app)
-- **ArraySorting** - C console program demonstrating Selection Sort, Insertion Sort, Bubble Sort and a small Bogo Sort example. [Repository](https://github.com/16alves02/ArraySorting)
-- **Basket Hub** - academic group project for basketball management, covering teams, players, games, events, registrations, organisers, venues, sponsors, rankings and statistics. Built with Kotlin, Ktor, Thymeleaf and Exposed. [Group repository](https://github.com/bmgoliveira-UA/basket-hub)
-- **Tocadiscos Editora** - command-line music-publisher catalogue manager developed by a four-person academic team. Leonardo Alves and Bruno Oliveira were the main contributors; Gabriela Tavares and Vinicius Toniato also participated. Built with Python, Pygame, Whoosh and pandas. [Group repository](https://github.com/13alves05/tocadiscos-editora)
-- **Academic GitHub profile** - coursework and academic group projects are also organised under [13alves05](https://github.com/13alves05).
-- **Two of Hearts** - vector playing-card illustration inspired by Lenços de Namorados from Minho. [Repository](https://github.com/16alves02/two-of-hearts-portuguese-folk-art)
+- **HOOP** — academic basketball-store frontend with product discovery, search, filters, favourites, cart and a simulated checkout. Authentication and payments are simulations; no real purchases are processed. [Repository](https://github.com/16alves02/hoop) · [Live demo](https://hoop-16alves02.netlify.app)
+- **Nova Imagem by Maura Pereira** — website project for a local salon. Content and publication details still require confirmation; the content-management workflow is not yet configured for the owner.
+- **Basket Hub** — academic group project for basketball management, covering teams, players, games, events, registrations, venues, sponsors, rankings and statistics. Built with Kotlin, Ktor, Thymeleaf and Exposed. [Official group repository](https://github.com/bmgoliveira-UA/basket-hub)
+- **Tocadiscos Editora** — command-line music catalogue manager developed by a four-person academic team. Leonardo Alves and Bruno Oliveira were the main contributors; Gabriela Tavares and Vinicius Toniato also participated. Built with Python, Pygame, Whoosh and pandas. [Academic repository](https://github.com/13alves05/tocadiscos-editora)
+- **Todo App** — browser task manager with filtering and local persistence. [Repository](https://github.com/16alves02/todo-app)
+- **ArraySorting** — C console program demonstrating sorting algorithms. [Repository](https://github.com/16alves02/ArraySorting)
+- **Two of Hearts** — vector playing-card illustration inspired by Lenços de Namorados from Minho. [Repository](https://github.com/16alves02/two-of-hearts-portuguese-folk-art)
+
+More academic work and group projects are organised in the [academic GitHub profile](https://github.com/13alves05).
 
 ## Technical foundation
 
-These technologies are connected to coursework, previous software internships or the projects above; experience varies by tool.
+Technologies used across coursework, internships and projects. Practical experience varies by technology.
 
-- **Languages:** JavaScript, TypeScript, PHP, Kotlin, C
-- **Frontend:** React, Next.js, Vite, React Router, HTML5, CSS3, Tailwind CSS, Framer Motion
-- **Backend and APIs:** PHP, PDO, REST APIs, Next.js Route Handlers, Zod
-- **Data and persistence:** SQL, MySQL/MariaDB, PostgreSQL, Prisma
+- **Languages:** JavaScript, TypeScript, PHP, Kotlin, C, Python
+- **Frontend:** React, Next.js, Vite, React Router, HTML, CSS, Tailwind CSS
+- **Backend and APIs:** PHP, PDO, REST APIs, Next.js Route Handlers
+- **Data:** SQL, MySQL/MariaDB, PostgreSQL, Prisma
 - **Background processing:** Redis, BullMQ
 - **Mobile:** Kotlin, Android, Capacitor
 - **Testing and tools:** Vitest, Git, GitHub, Docker Compose
 
-Node.js is used as the runtime environment for the Next.js project; it is not presented as a separate production backend project.
+## Experience
 
-## Experience and education
+- **Backend Development Intern — ClickBeauty / Alvocromático** · Apr–Jul 2023 · PHP, MySQL, internal web systems and code maintenance.
+- **Web Development Intern — Associação Estamos Juntos (AEJ)** · Jul 2022 · HTML, CSS, JavaScript, PHP and database integration.
+- **CNC Machine Operator — Schmidt Light Metal Group** · Feb 2025–May 2026.
+- **Store Operator — MC** · May–Aug 2024.
 
-Software development experience:
-- Backend Development Intern - ClickBeauty / Alvocromático · Apr–Jul 2023 · PHP, MySQL, internal web systems and code maintenance.
-- Web Development Intern - Associação Estamos Juntos (AEJ) · Jul 2022 · HTML, CSS, JavaScript, PHP and database integration.
+## Education
 
-Additional professional experience:
-- CNC Machine Operator - Schmidt Light Metal Group · Feb 2025–May 2026.
-- Store Operator - MC · May–Aug 2024.
+- **CTeSP in Software Development** — Escola Superior Aveiro Norte, Universidade de Aveiro · 2025–2027 · In progress.
+- **Professional Course in IT Systems Management and Programming** — Escola Secundária Dr. Serafim Leite · 2020–2023.
 
-Education:
-- CTeSP in Software Development - Escola Superior Aveiro Norte, Universidade de Aveiro · 2025–2027 · In progress.
-- Professional Course in IT Systems Management and Programming - Escola Secundária Dr. Serafim Leite · 2020–2023.
+## Website
 
-## Site features
-
-- Responsive layout and seven languages: English, Portuguese (Portugal), Spanish, French, Italian, German and Japanese.
-- Light/dark themes, keyboard navigation, skip link and reduced-motion support.
-- CSS 3D project carousel with keyboard, pointer, touch and scroll controls.
-- Editorial engineering stories with scroll-linked chapter emphasis and factual architecture diagrams.
-- Language-aware CV downloads and prefilled internship enquiry email.
-- Project cards distinguish public links, private repositories and development status.
-- No WebGL or Three.js dependency.
+The portfolio includes responsive layouts, seven interface languages, light and dark themes, language-aware CV downloads, project case studies and links to professional and social profiles.
 
 ## Run locally
 
@@ -95,7 +80,7 @@ npm install
 npm run dev
 ```
 
-## Production build
+## Build
 
 ```bash
 npm run build
@@ -104,15 +89,6 @@ npm run preview
 
 The production build is generated in `dist/`.
 
-## Project structure
-
-- `src/App.jsx` - page sections, copy, language handling and navigation.
-- `src/components/ProjectCarousel.jsx` - CSS 3D featured-project carousel and input handling.
-- `src/components/EngineeringStories.jsx` - editorial engineering case studies and scroll progress.
-- `src/styles.css` - layout, themes, responsive styling and motion preferences.
-- `src/data/projects.js` - project descriptions, technology stacks, links and status.
-- `public/` - downloadable CVs and site assets.
-
 ## Author
 
-Leonardo Alves · [GitHub](https://github.com/16alves02) · [LinkedIn](https://www.linkedin.com/in/16alves02/) · [Email](mailto:16alves02@gmail.com)
+**Leonardo Alves** · [GitHub](https://github.com/16alves02) · [LinkedIn](https://www.linkedin.com/in/16alves02/) · [Email](mailto:16alves02@gmail.com)
