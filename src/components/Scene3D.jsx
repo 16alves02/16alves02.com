@@ -224,7 +224,7 @@ export default function Scene3D({ theme = 'dark' }) {
     };
     const onMotion = (event) => { reduced=event.matches; if(reduced){stop();render(0);} else start(); };
     const onContextLost = (event) => { event.preventDefault(); lost=true; stop(); setReady(false); };
-    const onContextRestored = () => { lost=false; resize(); setReady(true); start(); };
+    const onContextRestored = () => { lost=true; setReady(false); };
     const observer = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver(([entry]) => {
       visible=entry.isIntersecting; if(visible) start(); else stop();
     },{threshold:0.01}) : null;
