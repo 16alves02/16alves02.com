@@ -1218,7 +1218,7 @@ export default function App() {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    if (themeColorMeta) themeColorMeta.content = theme === 'dark' ? '#111110' : '#f7f3ec';
+    if (themeColorMeta) themeColorMeta.content = theme === 'dark' ? '#151416' : '#d8d5cd';
     try { window.localStorage.setItem('16alves02-theme', theme); } catch { /* Ignore storage errors. */ }
   }, [theme]);
 
