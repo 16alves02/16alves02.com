@@ -1024,7 +1024,7 @@ function ProjectArtwork({ type, name, image, imageAlt, previewUnavailable, langu
 function ProjectCard({ project, t, featured = false, language = 'en', position = 1, total = projects.length }) {
   const projectLocale = language === 'pt-PT' ? 'pt' : language;
   const dynamicDetails = project.translations?.[projectLocale] || project.translations?.[language];
-  const details = dynamicDetails || extraProjectTranslations[language]?.[project.number] || projectTranslations[projectLocale]?.[project.number] || project;
+  const details = dynamicDetails || (project.cmsManaged ? project : extraProjectTranslations[language]?.[project.number] || projectTranslations[projectLocale]?.[project.number] || project);
   const caseStudy = project.caseStudy?.[projectLocale] || project.caseStudy?.en;
   const projectSlug = project.slug || slugify(project.name);
   return (
@@ -1033,7 +1033,7 @@ function ProjectCard({ project, t, featured = false, language = 'en', position =
       <div className="project-info">
         <div className="project-meta"><span>{details.type}</span><span>{project.year}</span></div>
         <h3>{project.name}<span className="brand-dot">.</span></h3>
-        <p>{t.projectSummaries?.[project.name] || details.description}</p>
+        <p>{dynamicDetails?.summary || dynamicDetails?.description || (project.cmsManaged ? project.description : t.projectSummaries?.[project.name] || details.description)}</p>
         <div className="tag-list">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
         {caseStudy && <details className="project-case-study">
           <summary>{t.caseStudyLabel}</summary>
@@ -1200,14 +1200,14 @@ export default function App() {
     || cmsRows.find((row) => row.content_type === 'home_copy' && row.locale === 'all');
   const t = { ...(localeCopy[language] || localeCopy.en), ...(localeRow?.content || {}) };
   const isPortuguese = language === 'pt-PT';
-  const featuredProjectNames = ['SaborGest', 'RunLattice', 'MRDR.', 'HOOP'];
+  const featuredProjectSlugs = ['saborgest', 'runlattice', 'mrdr', 'hoop'];
   const localeProjectRows = cmsRows.filter((row) => row.content_type === 'project' && (row.locale === 'all' || row.locale === language));
   const projectContentMap = new Map();
-  localeProjectRows.filter((row) => row.locale === 'all').forEach((row) => projectContentMap.set(row.slug, { ...row.content, slug: row.slug, number: row.content?.number || String(row.sort_order).padStart(2, '0') }));
+  localeProjectRows.filter((row) => row.locale === 'all').forEach((row) => projectContentMap.set(row.slug, { ...row.content, slug: row.slug, cmsManaged: true, number: row.content?.number || String(row.sort_order).padStart(2, '0') }));
   localeProjectRows.filter((row) => row.locale === language && row.locale !== 'all').forEach((row) => {
     const base = projectContentMap.get(row.slug);
     if (base) projectContentMap.set(row.slug, { ...base, translations: { ...(base.translations || {}), [language]: row.content } });
-    else projectContentMap.set(row.slug, { ...row.content, slug: row.slug, translations: { [language]: row.content } });
+    else projectContentMap.set(row.slug, { ...row.content, slug: row.slug, cmsManaged: true, translations: { [language]: row.content } });
   });
   const activeProjects = projectContentMap.size ? [...projectContentMap.values()] : projects;
   const allTechnologies = [...new Set(activeProjects.flatMap((project) => project.stack || []))].sort((a, b) => a.localeCompare(b));
@@ -1223,16 +1223,32 @@ export default function App() {
   });
   const featuredProjects = projectFiltersActive
     ? filteredProjects
-    : featuredProjectNames.map((name) => activeProjects.find((project) => project.name === name)).filter(Boolean);
-  const additionalProjects = projectFiltersActive ? [] : activeProjects.filter((project) => !featuredProjectNames.includes(project.name));
+    : featuredProjectSlugs.map((slug) => activeProjects.find((project) => (project.slug || slugify(project.name)) === slug)).filter(Boolean);
+  const additionalProjects = projectFiltersActive ? [] : activeProjects.filter((project) => !featuredProjectSlugs.includes(project.slug || slugify(project.name)));
   const experienceRows = cmsRows.filter((row) => row.content_type === 'experience' && (row.locale === 'all' || row.locale === language)).sort((a, b) => a.sort_order - b.sort_order);
-  const relevantExperience = experienceRows.length
-    ? experienceRows.map((row) => ({ ...row.content, id: row.content?.id || row.slug }))
-    : [...(experienceByLanguage[language] || experienceByLanguage.en)].sort((a, b) => ({ cnc: 0, mc: 1, clickbeauty: 2, aej: 3 }[a.id] ?? 9) - ({ cnc: 0, mc: 1, clickbeauty: 2, aej: 3 }[b.id] ?? 9));
+  const experienceMap = new Map((experienceByLanguage[language] || experienceByLanguage.en).map((item) => [item.id, item]));
+  const experienceOrder = new Map([['cnc', 0], ['mc', 1], ['clickbeauty', 2], ['aej', 3]]);
+  experienceRows.forEach((row) => {
+    const id = row.content?.id || row.slug;
+    experienceMap.set(id, { ...(experienceMap.get(id) || {}), ...row.content, id });
+    experienceOrder.set(id, row.sort_order);
+  });
+  const relevantExperience = [...experienceMap.values()].sort((a, b) => (experienceOrder.get(a.id) ?? 99) - (experienceOrder.get(b.id) ?? 99));
   const skillRows = cmsRows.filter((row) => row.content_type === 'skill_group' && (row.locale === 'all' || row.locale === language)).sort((a, b) => a.sort_order - b.sort_order);
-  const skillGroups = skillRows.length ? skillRows.map((row) => [row.content?.name || row.slug, ...(row.content?.items || [])]) : t.skillGroups;
+  const skillMap = new Map((t.skillGroups || []).map((group) => [slugify(group[0]), group]));
+  skillRows.forEach((row) => skillMap.set(row.slug, [row.content?.name || row.slug, ...(row.content?.items || [])]));
+  const skillGroups = [...skillMap.values()];
   const educationRows = cmsRows.filter((row) => row.content_type === 'education' && (row.locale === 'all' || row.locale === language)).sort((a, b) => a.sort_order - b.sort_order);
-  const educationEntries = educationRows.map((row) => ({ ...row.content, id: row.content?.id || row.slug }));
+  const baseEducation = isPortuguese ? [
+    { id: 'ctesp', title: 'CTeSP em Desenvolvimento de Software', date: '2025–2027', where: 'Escola Superior Aveiro Norte · Universidade de Aveiro', description: 'Em curso' },
+    { id: 'professional', title: 'Gestão e Programação de Sistemas Informáticos', date: '2020–2023', where: 'Escola Secundária Dr. Serafim Leite' },
+  ] : [
+    { id: 'ctesp', title: 'CTeSP in Software Development', date: '2025–2027', where: 'Escola Superior Aveiro Norte · University of Aveiro', description: 'In progress' },
+    { id: 'professional', title: 'IT Systems Management and Programming', date: '2020–2023', where: 'Escola Secundária Dr. Serafim Leite' },
+  ];
+  const educationMap = new Map(baseEducation.map((item) => [item.id, item]));
+  educationRows.forEach((row) => educationMap.set(row.slug, { ...(educationMap.get(row.slug) || {}), ...row.content, id: row.content?.id || row.slug }));
+  const educationEntries = [...educationMap.values()].sort((a, b) => a.id.localeCompare(b.id));
   const profileRow = cmsRows.find((row) => row.content_type === 'profile' && row.locale === language) || cmsRows.find((row) => row.content_type === 'profile' && row.locale === 'all');
   const engineeringRows = cmsRows.filter((row) => row.content_type === 'engineering_note' && (row.locale === 'all' || row.locale === language)).sort((a, b) => a.sort_order - b.sort_order).map((row) => ({ ...row.content, slug: row.slug }));
   const activeLanguage = languageOptions.find((option) => option.code === language) || languageOptions[0];
@@ -1302,9 +1318,9 @@ export default function App() {
     setTheme((current) => current === 'light' ? 'dark' : 'light');
   }
 
-  if (currentPath === '/profile') return <ProfilePage language={language} theme={theme} skills={skillGroups} experience={relevantExperience} education={educationEntries} profile={profileRow?.content || {}} />;
+  if (currentPath === '/profile') return <ProfilePage language={language} setLanguage={setLanguage} languageOptions={languageOptions} theme={theme} setTheme={setTheme} skills={skillGroups} experience={relevantExperience} education={educationEntries} profile={profileRow?.content || {}} />;
   if (routeProjectSlug) return routeProject
-    ? <ProjectDetailPage project={routeProject} language={language} theme={theme} />
+    ? <ProjectDetailPage project={routeProject} language={language} setLanguage={setLanguage} languageOptions={languageOptions} theme={theme} setTheme={setTheme} />
     : <main className="portfolio-detail-page" data-theme={theme}><a href="/">← {isPortuguese ? 'Voltar ao portefólio' : 'Back to portfolio'}</a><h1>404</h1><p>{isPortuguese ? 'Projeto não encontrado.' : 'Project not found.'}</p></main>;
 
   return (

@@ -1,6 +1,6 @@
-import { ArrowLeft, ArrowUpRight, Download } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Download, Moon, Sun } from 'lucide-react';
 
-export default function ProfilePage({ language = 'en', theme = 'dark', skills = [], experience = [], education = [], profile = {} }) {
+export default function ProfilePage({ language = 'en', setLanguage, languageOptions = [], theme = 'dark', setTheme, skills = [], experience = [], education = [], profile = {} }) {
   const pt = language === 'pt-PT';
   const title = profile.title || (pt ? 'Perfil profissional' : 'Professional profile');
   const intro = profile.intro || (pt ? 'Software Developer com experiência prática em projetos web, backend e aplicações. Estudante de Desenvolvimento de Software na Escola Superior Aveiro Norte, Universidade de Aveiro.' : 'Software Developer with practical experience across web, backend and application projects. Software Development student at Escola Superior Aveiro Norte, University of Aveiro.');
@@ -11,7 +11,7 @@ export default function ProfilePage({ language = 'en', theme = 'dark', skills = 
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   return (
     <main className="portfolio-detail-page profile-page" data-theme={theme}>
-      <div className="detail-topbar"><a href="/" className="detail-brand">16alves02<span>.</span></a><span>ALV16 STUDIOS</span></div>
+      <div className="detail-topbar"><a href="/" className="detail-brand">16alves02<span>.</span></a><div className="detail-topbar-actions"><label className="detail-language"><span className="sr-only">Language</span><select value={language} onChange={(event) => setLanguage?.(event.target.value)} aria-label={pt ? 'Idioma' : 'Language'}>{languageOptions.map((item) => <option key={item.code} value={item.code}>{item.nativeName}</option>)}</select></label><button type="button" className="detail-theme-toggle" onClick={() => setTheme?.(theme === 'dark' ? 'light' : 'dark')} aria-label={pt ? 'Alterar tema' : 'Toggle theme'}>{theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}</button><span>ALV16 STUDIOS</span></div></div>
       <article className="detail-content">
         <a href="/" className="detail-back"><ArrowLeft size={16} />{pt ? 'Voltar ao início' : 'Back home'}</a>
         <p className="detail-kicker">16ALVES02 / {pt ? 'PERCURSO E COMPETÊNCIAS' : 'BACKGROUND & SKILLS'}</p>

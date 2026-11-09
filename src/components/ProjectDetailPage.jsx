@@ -1,6 +1,6 @@
-import { ArrowLeft, ArrowUpRight, Code2, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Code2, ExternalLink, Moon, Sun } from 'lucide-react';
 
-export default function ProjectDetailPage({ project, language = 'en', theme = 'dark' }) {
+export default function ProjectDetailPage({ project, language = 'en', setLanguage, languageOptions = [], theme = 'dark', setTheme }) {
   const pt = language === 'pt-PT';
   const locale = pt ? 'pt' : language;
   const translation = project.translations?.[locale] || project.translations?.[language] || {};
@@ -19,7 +19,7 @@ export default function ProjectDetailPage({ project, language = 'en', theme = 'd
 
   return (
     <main className="portfolio-detail-page" data-theme={theme}>
-      <div className="detail-topbar"><a href="/" className="detail-brand">16alves02<span>.</span></a><span>ALV16 STUDIOS</span></div>
+      <div className="detail-topbar"><a href="/" className="detail-brand">16alves02<span>.</span></a><div className="detail-topbar-actions"><label className="detail-language"><span className="sr-only">Language</span><select value={language} onChange={(event) => setLanguage?.(event.target.value)} aria-label={pt ? 'Idioma' : 'Language'}>{languageOptions.map((item) => <option key={item.code} value={item.code}>{item.nativeName}</option>)}</select></label><button type="button" className="detail-theme-toggle" onClick={() => setTheme?.(theme === 'dark' ? 'light' : 'dark')} aria-label={pt ? 'Alterar tema' : 'Toggle theme'}>{theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}</button><span>ALV16 STUDIOS</span></div></div>
       <article className="detail-content">
         <a href="/#work" className="detail-back"><ArrowLeft size={16} />{back}</a>
         <p className="detail-kicker">{translation.type || project.type || (pt ? 'Projeto' : 'Project')} · {project.year || ''}</p>

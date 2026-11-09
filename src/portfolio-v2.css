@@ -88,3 +88,5 @@ html[data-theme="light"] .site-shell{--portfolio-ink:#171717;--portfolio-paper:#
 .portfolio-detail-page[data-theme="light"] .detail-status{color:#7b3917;border-color:rgba(152,68,22,.45)}
 .portfolio-detail-page[data-theme="light"] .detail-actions a{color:#171717}
 @media(max-width:760px){.cms-notes-grid{grid-template-columns:1fr}}
+
+.detail-topbar-actions{display:flex;align-items:center;gap:9px}.detail-language select,.detail-theme-toggle{height:34px;border:1px solid var(--portfolio-line);background:transparent;color:inherit;padding:0 9px;font:10px var(--mono);cursor:pointer}.detail-language option{color:#171717;background:#f1efea}.detail-theme-toggle{width:36px;display:grid;place-items:center}.detail-topbar-actions>span{margin-left:8px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
