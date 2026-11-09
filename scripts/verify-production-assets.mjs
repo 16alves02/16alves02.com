@@ -49,4 +49,17 @@ assert.match(terms, /<title>Termos de Utilização/i);
 const notFound = readFileSync(resolve(root, '404.html'), 'utf8');
 assert.match(notFound, /name="robots" content="noindex, follow"/i, '404 page must not be indexed');
 
-console.log(`Production asset verification passed (${required.length} required assets, ${urls.length} sitemap URLs).`);
+const appSource = readFileSync(resolve('src/App.jsx'), 'utf8');
+const imageTags = [...appSource.matchAll(/<img\\b[\\s\\S]*?>/g)].map((match) => match[0]);
+assert.ok(imageTags.length > 0, 'Portfolio should contain its expected brand/project images');
+for (const tag of imageTags) {
+  assert.match(tag, /\\balt\\s*=/, `Image is missing alternative text: ${tag.slice(0, 120)}`);
+}
+
+const utilities = readFileSync(resolve('src/components/SiteUtilities.jsx'), 'utf8');
+assert.match(utilities, /mobile-contact-cta/, 'Mobile contact CTA must be present');
+assert.match(utilities, /privacy-consent/, 'Privacy consent interface must be present');
+assert.match(utilities, /localStorage\\.setItem\\(STORAGE_KEY/, 'Consent choice must be persisted');
+assert.match(utilities, /choice === 'accepted'/, 'Third-party player must be gated by explicit consent');
+
+console.log(`Production verification passed (${required.length} required assets, ${urls.length} sitemap URLs, ${imageTags.length} image tags).`);
