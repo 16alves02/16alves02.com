@@ -4,10 +4,12 @@ const clean = (value, max) => typeof value === 'string' ? value.trim().slice(0, 
 
 export async function onRequestPost({ request, env }) {
   if (!(request.headers.get('content-type') || '').includes('application/json')) return json({ error: 'Invalid request.' }, 415);
-  if (Number(request.headers.get('content-length') || 0) > 9000) return json({ error: 'Message too large.' }, 413);
+  let rawBody;
+  try { rawBody = await request.text(); } catch { return json({ error: 'Invalid request.' }, 400); }
+  if (new TextEncoder().encode(rawBody).byteLength > 9000) return json({ error: 'Message too large.' }, 413);
 
   let input;
-  try { input = await request.json(); } catch { return json({ error: 'Invalid JSON.' }, 400); }
+  try { input = JSON.parse(rawBody); } catch { return json({ error: 'Invalid JSON.' }, 400); }
   if (clean(input.website, 300)) return json({ success: true }, 202);
 
   const name = clean(input.name, 100);
@@ -19,11 +21,11 @@ export async function onRequestPost({ request, env }) {
   }
 
   const supabaseUrl = env.SUPABASE_URL;
-  const serviceKey = env.SUPABASE_SERVICE_ROLE_KEY;
+  const serviceKey = env.SUPABASE_SECRET_KEY || env.SUPABASE_SERVICE_ROLE_KEY;
   if (!supabaseUrl || !serviceKey) return json({ error: 'Contact service is not configured yet.' }, 503);
 
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
-  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ip));
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ip + ':' + serviceKey));
   const ipHash = [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
   const since = new Date(Date.now() - 60 * 60 * 1000).toISOString();
   const rateUrl = new URL('/rest/v1/contact_messages', supabaseUrl);
@@ -31,7 +33,7 @@ export async function onRequestPost({ request, env }) {
   rateUrl.searchParams.set('ip_hash', 'eq.' + ipHash);
   rateUrl.searchParams.set('created_at', 'gte.' + since);
   rateUrl.searchParams.set('limit', '5');
-  const headers = { apikey: serviceKey, Authorization: 'Bearer ' + serviceKey };
+  const headers = { apikey: serviceKey };
 
   const rateCheck = await fetch(rateUrl, { headers });
   if (!rateCheck.ok) return json({ error: 'Contact service is temporarily unavailable.' }, 503);

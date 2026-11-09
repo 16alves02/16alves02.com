@@ -24,12 +24,14 @@ async function loadConfig() {
   if (!config.supabaseUrl || !config.supabasePublishableKey) throw new Error('O Supabase ainda não está configurado no ambiente Cloudflare.');
 }
 function authHeaders(token = session?.access_token) {
-  return { apikey: config.supabasePublishableKey, Authorization: 'Bearer ' + (token || config.supabasePublishableKey) };
+  const headers = { apikey: config.supabasePublishableKey };
+  if (token) headers.Authorization = 'Bearer ' + token;
+  return headers;
 }
 async function authRequest(path, options = {}) {
   const response = await fetch(config.supabaseUrl + '/auth/v1' + path, {
     ...options,
-    headers: { ...authHeaders(null), 'Content-Type': 'application/json', ...(options.headers || {}) },
+    headers: { apikey: config.supabasePublishableKey, 'Content-Type': 'application/json', ...(options.headers || {}) },
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.msg || data.message || data.error_description || 'Falha de autenticação.');
