@@ -73,7 +73,9 @@ The portfolio includes an interactive procedural 3D hero, depth-based project ca
 
 The homepage uses a custom procedural 3D scene rendered with native WebGL. It combines a rotating wireframe sphere, spatial orbits, a perspective grid and pointer-responsive parallax. Project cards use layered depth and restrained 3D transforms. The scene is decorative: all navigation and project information remain normal HTML content and do not depend on WebGL.
 
-The renderer caps device pixel ratio, pauses when it leaves the viewport, respects `prefers-reduced-motion`, responds to container resizing and includes a CSS poster fallback for browsers without WebGL or when the graphics context is lost. Geometry is generated locally in the browser. No external 3D model, Three.js dependency or third-party asset is downloaded at runtime.
+The renderer caps device pixel ratio, targets 30 frames per second, pauses when it leaves the viewport, respects `prefers-reduced-motion`, responds to container resizing and includes a CSS poster fallback for browsers without WebGL or when the graphics context is lost. The WebGL scene is split into its own bundle, while the engineering case-study section is loaded only as it approaches the viewport. Geometry is generated locally in the browser. No external 3D model, Three.js dependency or third-party asset is downloaded at runtime.
+
+Project previews use verified artwork from the corresponding source repositories or public project deployments. Images are lazy-loaded and decoded asynchronously. Projects without a publicly usable image keep a clearly identified typographic preview rather than an invented product screenshot.
 
 ## Theme contrast and accessibility
 
