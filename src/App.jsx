@@ -205,6 +205,11 @@ const copy = {
 const languageOptions = [
   { code: 'pt-PT', short: 'PT-PT', compact: 'PT', name: 'Portuguese (Portugal)', nativeName: 'Português (Portugal)', htmlLang: 'pt-PT' },
   { code: 'en', short: 'EN', compact: 'EN', name: 'English', nativeName: 'English', htmlLang: 'en' },
+  { code: 'es', short: 'ES', compact: 'ES', name: 'Spanish', nativeName: 'Español', htmlLang: 'es' },
+  { code: 'fr', short: 'FR', compact: 'FR', name: 'French', nativeName: 'Français', htmlLang: 'fr' },
+  { code: 'it', short: 'IT', compact: 'IT', name: 'Italian', nativeName: 'Italiano', htmlLang: 'it' },
+  { code: 'de', short: 'DE', compact: 'DE', name: 'German', nativeName: 'Deutsch', htmlLang: 'de' },
+  { code: 'ja', short: 'JA', compact: 'JA', name: 'Japanese', nativeName: '日本語', htmlLang: 'ja' },
 ];
 
 const localeCopy = {
