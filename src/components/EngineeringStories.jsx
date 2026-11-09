@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { projects } from '../data/projects.js';
 
-const featuredProjects = projects.slice(0, 4);
+const featuredProjectNames = ['SaborGest', 'RunLattice', 'MRDR.', 'HOOP'];
+const featuredProjects = featuredProjectNames.map((name) => projects.find((project) => project.name === name)).filter(Boolean);
 
 const storyUi = {
   en: {
@@ -71,13 +72,13 @@ const storyUi = {
 };
 
 const storyStatus = {
-  en: { inDevelopment:'In development', prototype:'Prototype in development', live:'Live project' },
-  'pt-PT': { inDevelopment:'Em desenvolvimento', prototype:'Protótipo em desenvolvimento', live:'Projeto publicado' },
-  es: { inDevelopment:'En desarrollo', prototype:'Prototipo en desarrollo', live:'Proyecto publicado' },
-  fr: { inDevelopment:'En développement', prototype:'Prototype en développement', live:'Projet publié' },
-  it: { inDevelopment:'In sviluppo', prototype:'Prototipo in sviluppo', live:'Progetto pubblicato' },
-  de: { inDevelopment:'In Entwicklung', prototype:'Prototyp in Entwicklung', live:'Veröffentlichtes Projekt' },
-  ja: { inDevelopment:'開発中', prototype:'開発中のプロトタイプ', live:'公開中のプロジェクト' },
+  en: { inDevelopment:'In development', prototype:'Prototype in development', live:'Live demo' },
+  'pt-PT': { inDevelopment:'Em desenvolvimento', prototype:'Protótipo em desenvolvimento', live:'Demo publicada' },
+  es: { inDevelopment:'En desarrollo', prototype:'Prototipo en desarrollo', live:'Demo publicada' },
+  fr: { inDevelopment:'En développement', prototype:'Prototype en développement', live:'Démo publiée' },
+  it: { inDevelopment:'In sviluppo', prototype:'Prototipo in sviluppo', live:'Demo pubblicata' },
+  de: { inDevelopment:'In Entwicklung', prototype:'Prototyp in Entwicklung', live:'Live-Demo' },
+  ja: { inDevelopment:'開発中', prototype:'開発中のプロトタイプ', live:'公開デモ' },
 };
 
 const storyContent = {
@@ -101,38 +102,96 @@ const storyContent = {
   },
   RunLattice: {
     en: {
-      problem: 'The project explores how repeatable business tasks can be represented as visual workflows, validated before execution and monitored after being queued.',
-      architecture: 'Next.js and React provide the workspace and visual editor. Route Handlers and Zod validate workflow data; PostgreSQL and Prisma persist definitions and run records; Redis and BullMQ handle background jobs.',
-      implementation: 'The prototype includes workflow CRUD, graph validation, persistence, a queue-backed worker and execution history. Separating API requests from background processing establishes a foundation for longer-running tasks.',
-      limits: 'The worker currently simulates graph traversal. External service integrations, authentication and workspace isolation are not implemented, so this remains a prototype rather than a production automation service.',
-      nodes: ['Next.js / React UI', 'Route Handlers + Zod', 'PostgreSQL / Prisma', 'Redis + BullMQ', 'Worker · simulated traversal'],
-      stack: 'Next.js · React · TypeScript · PostgreSQL · Prisma · Redis · BullMQ',
+      problem: 'The project explores how repeatable business tasks can be designed as visual workflows, validated before execution and monitored after they are queued.',
+      architecture: 'Next.js, React and TypeScript power the workspace and visual editor. Better Auth manages authenticated organisation workspaces; PostgreSQL and Prisma persist workflow definitions and run records; Redis and BullMQ process jobs in the background.',
+      implementation: 'Implemented paths include workflow CRUD, graph validation, persistence, a queue worker, signed inbound webhooks, scheduled triggers, execution history and a live Discord message action.',
+      limits: 'This is an early-stage prototype, not a production automation platform. The worker currently supports one trigger and at most one condition node per run; Discord is the only live external action. AI-generated workflow plans are review-only drafts and disabled by default. Durable step resumption, exactly-once delivery and additional provider actions are not complete.',
+      nodes: ['Next.js / React editor', 'Better Auth workspaces', 'PostgreSQL / Prisma', 'Redis + BullMQ worker', 'Signed webhooks · cron · Discord'],
+      stack: 'Next.js · React · TypeScript · Better Auth · PostgreSQL · Prisma · Redis · BullMQ · Vitest',
     },
     pt: {
-      problem: 'O projeto explora como tarefas repetíveis podem ser representadas através de workflows visuais, validadas antes da execução e acompanhadas depois de entrarem na fila.',
-      architecture: 'Next.js e React disponibilizam o workspace e o editor visual. Route Handlers e Zod validam os dados; PostgreSQL e Prisma persistem definições e registos; Redis e BullMQ tratam do processamento em segundo plano.',
-      implementation: 'O protótipo inclui operações CRUD de workflows, validação do grafo, persistência, worker integrado com a fila e histórico de execuções. Separar os pedidos da API do processamento em background cria uma base para tarefas mais demoradas.',
-      limits: 'O worker simula atualmente o percurso do grafo. As integrações externas, autenticação e isolamento de workspaces ainda não estão implementados, pelo que continua a ser um protótipo.',
-      nodes: ['Interface Next.js / React', 'Route Handlers + Zod', 'PostgreSQL / Prisma', 'Redis + BullMQ', 'Worker · percurso simulado'],
-      stack: 'Next.js · React · TypeScript · PostgreSQL · Prisma · Redis · BullMQ',
+      problem: 'O projeto explora como tarefas repetíveis podem ser desenhadas como workflows visuais, validadas antes da execução e acompanhadas depois de entrarem na fila.',
+      architecture: 'Next.js, React e TypeScript suportam o workspace e o editor visual. Better Auth gere workspaces de organização autenticados; PostgreSQL e Prisma guardam definições e registos; Redis e BullMQ processam tarefas em segundo plano.',
+      implementation: 'Os fluxos implementados incluem operações CRUD, validação do grafo, persistência, worker de filas, webhooks de entrada assinados, triggers agendados, histórico de execuções e uma ação funcional para enviar mensagens no Discord.',
+      limits: 'É um protótipo em fase inicial, não uma plataforma de automação pronta para produção. O worker suporta atualmente um trigger e, no máximo, um nó de condição por execução; Discord é a única ação externa funcional. Os planos gerados por IA são rascunhos para revisão e estão desativados por predefinição. A retoma durável de etapas, entrega exatamente uma vez e outras ações de fornecedores ainda não estão concluídas.',
+      nodes: ['Editor Next.js / React', 'Workspaces Better Auth', 'PostgreSQL / Prisma', 'Worker Redis + BullMQ', 'Webhooks assinados · cron · Discord'],
+      stack: 'Next.js · React · TypeScript · Better Auth · PostgreSQL · Prisma · Redis · BullMQ · Vitest',
     },
   },
   'MRDR.': {
     en: {
-      problem: 'A deduction game depends on more than presenting clues: each generated case must remain logically consistent and lead to exactly one valid solution.',
+      problem: 'A deduction game depends on more than presenting clues: generated cases need coherent relationships between evidence and clues, and the logic must be validated.',
       architecture: 'The project separates the React 19 / TypeScript interface from the deduction engine, case generator, data and Zustand-based progress store. Vitest covers the core rules, while Capacitor provides the mobile packaging path.',
       implementation: 'The documented game includes generated cases, cross-referenced clues, a Portugal-inspired campaign, local progression, achievements and daily challenges. The generator validates a case before it enters the campaign.',
-      limits: 'MRDR. is still in development. The repository documents a 200-case campaign and automated validation, but the project has not been presented as a finished public release.',
+      limits: 'MRDR. is still in development. Case generation and validation are part of the documented scope, but campaign coverage and solution uniqueness are not presented as verified metrics.',
       nodes: ['React / TypeScript UI', 'Deduction engine', 'Case generator + validator', 'Zustand progress store', 'Vitest + Capacitor'],
       stack: 'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor',
     },
     pt: {
-      problem: 'Um jogo de dedução exige mais do que apresentar pistas: cada caso gerado tem de manter coerência lógica e conduzir a uma única solução válida.',
+      problem: 'Um jogo de dedução exige mais do que apresentar pistas: os casos gerados precisam de relações coerentes entre provas e pistas, e a lógica tem de ser validada.',
       architecture: 'O projeto separa a interface React 19 / TypeScript do motor de dedução, gerador de casos, dados e armazenamento de progresso com Zustand. O Vitest cobre as regras centrais e o Capacitor permite preparar a aplicação para mobile.',
       implementation: 'A documentação descreve casos gerados, pistas cruzadas, campanha inspirada em Portugal, progressão local, conquistas e desafios diários. O gerador valida cada caso antes de o incluir na campanha.',
-      limits: 'O MRDR. continua em desenvolvimento. O repositório documenta uma campanha de 200 casos e validação automatizada, mas o projeto ainda não é apresentado como uma versão pública finalizada.',
+      limits: 'O MRDR. continua em desenvolvimento. A geração e validação de casos fazem parte do âmbito documentado, mas a cobertura da campanha e a unicidade das soluções não são apresentadas como métricas verificadas.',
       nodes: ['Interface React / TypeScript', 'Motor de dedução', 'Gerador e validador', 'Progresso com Zustand', 'Vitest + Capacitor'],
       stack: 'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor',
+    },
+  },
+  HOOP: {
+    en: {
+      problem: 'Explore the main stages of an online shopping journey for a basketball store, from finding products to reviewing a cart and completing a checkout flow.',
+      architecture: 'A client-side application built with React and TypeScript, bundled with Vite and organised with React Router. The project focuses on interface state and navigation rather than a production commerce backend.',
+      implementation: 'The academic frontend includes product discovery, search and filters, product pages, favourites, shared cart state and a multi-step checkout simulation.',
+      limits: 'HOOP is an academic frontend concept. Checkout is simulated: it does not create real orders, process payments or connect to a live commerce backend.',
+      nodes: ['React interface', 'Product catalogue', 'Filters · favourites · cart', 'Checkout flow', 'Simulation · no real payments'],
+      stack: 'React · TypeScript · Vite · React Router',
+    },
+    pt: {
+      problem: 'Explorar as principais etapas da experiência de compra numa loja de basquetebol, desde a descoberta de produtos até à revisão do carrinho e à finalização.',
+      architecture: 'Aplicação do lado do cliente desenvolvida com React e TypeScript, compilada com Vite e organizada com React Router. O foco está na interface, no estado e na navegação, não num backend de comércio pronto para produção.',
+      implementation: 'O frontend académico inclui descoberta de produtos, pesquisa e filtros, páginas de produto, favoritos, estado partilhado do carrinho e uma simulação de checkout em várias etapas.',
+      limits: 'O HOOP é um conceito académico de frontend. O checkout é simulado: não cria encomendas reais, não processa pagamentos nem está ligado a um backend de comércio ativo.',
+      nodes: ['Interface React', 'Catálogo de produtos', 'Filtros · favoritos · carrinho', 'Fluxo de checkout', 'Simulação · sem pagamentos reais'],
+      stack: 'React · TypeScript · Vite · React Router',
+    },
+    es: {
+      problem: 'Explorar las principales etapas de una compra en una tienda de baloncesto, desde descubrir productos hasta revisar el carrito y completar el proceso.',
+      architecture: 'Aplicación del lado del cliente desarrollada con React y TypeScript, compilada con Vite y organizada con React Router. El foco está en la interfaz, el estado y la navegación, no en un backend comercial de producción.',
+      implementation: 'El frontend académico incluye catálogo, búsqueda y filtros, páginas de producto, favoritos, estado compartido del carrito y una simulación de checkout en varios pasos.',
+      limits: 'HOOP es un concepto académico de frontend. El checkout es simulado: no crea pedidos reales, no procesa pagos ni se conecta a un backend comercial activo.',
+      nodes: ['Interfaz React', 'Catálogo de productos', 'Filtros · favoritos · carrito', 'Flujo de checkout', 'Simulación · sin pagos reales'],
+      stack: 'React · TypeScript · Vite · React Router',
+    },
+    fr: {
+      problem: 'Explorer les principales étapes d’un achat dans une boutique de basketball, de la découverte des produits à la vérification du panier et à la finalisation.',
+      architecture: 'Application côté client développée avec React et TypeScript, compilée avec Vite et structurée avec React Router. Le projet porte sur l’interface, l’état et la navigation, pas sur un backend e-commerce de production.',
+      implementation: 'Le frontend académique comprend un catalogue, la recherche et les filtres, des fiches produit, des favoris, un panier partagé et une simulation de paiement en plusieurs étapes.',
+      limits: 'HOOP est un concept frontend académique. La finalisation est simulée : aucune commande réelle ni aucun paiement ne sont traités, et aucun backend commercial actif n’est connecté.',
+      nodes: ['Interface React', 'Catalogue produits', 'Filtres · favoris · panier', 'Parcours de commande', 'Simulation · aucun paiement réel'],
+      stack: 'React · TypeScript · Vite · React Router',
+    },
+    it: {
+      problem: 'Esplorare le principali fasi di acquisto in un negozio di basket, dalla scoperta dei prodotti alla revisione del carrello e al completamento del checkout.',
+      architecture: 'Applicazione client-side sviluppata con React e TypeScript, compilata con Vite e organizzata con React Router. Il progetto si concentra su interfaccia, stato e navigazione, non su un backend e-commerce di produzione.',
+      implementation: 'Il frontend accademico include catalogo, ricerca e filtri, pagine prodotto, preferiti, stato condiviso del carrello e una simulazione di checkout in più passaggi.',
+      limits: 'HOOP è un concept frontend accademico. Il checkout è simulato: non crea ordini reali, non elabora pagamenti e non è collegato a un backend commerciale attivo.',
+      nodes: ['Interfaccia React', 'Catalogo prodotti', 'Filtri · preferiti · carrello', 'Flusso checkout', 'Simulazione · nessun pagamento reale'],
+      stack: 'React · TypeScript · Vite · React Router',
+    },
+    de: {
+      problem: 'Die wichtigsten Schritte eines Online-Einkaufs für einen Basketball-Shop erkunden – von der Produktsuche bis zum Warenkorb und Checkout.',
+      architecture: 'Eine clientseitige Anwendung mit React und TypeScript, gebündelt mit Vite und strukturiert mit React Router. Im Mittelpunkt stehen Oberfläche, Zustand und Navigation, nicht ein produktives Commerce-Backend.',
+      implementation: 'Das akademische Frontend umfasst Produktsuche, Filter, Produktseiten, Merkliste, einen gemeinsamen Warenkorb und einen mehrstufigen Checkout-Prototyp.',
+      limits: 'HOOP ist ein akademisches Frontend-Konzept. Der Checkout ist simuliert: Es werden keine echten Bestellungen erstellt oder Zahlungen verarbeitet; eine aktive Commerce-Backend-Anbindung besteht nicht.',
+      nodes: ['React-Oberfläche', 'Produktkatalog', 'Filter · Merkliste · Warenkorb', 'Checkout-Ablauf', 'Simulation · keine echten Zahlungen'],
+      stack: 'React · TypeScript · Vite · React Router',
+    },
+    ja: {
+      problem: 'バスケットボール用品店のオンライン購入体験について、商品発見からカート確認、チェックアウトまでの主な段階を検討します。',
+      architecture: 'ReactとTypeScriptで構築し、Viteでバンドル、React Routerで画面遷移を管理するクライアント側アプリケーションです。本番用のECバックエンドではなく、UI、状態管理、ナビゲーションに重点を置いています。',
+      implementation: '学習用フロントエンドには、商品一覧、検索とフィルター、商品ページ、お気に入り、共有カート状態、複数ステップのチェックアウトシミュレーションが含まれます。',
+      limits: 'HOOPは学術的なフロントエンドのコンセプトです。チェックアウトはシミュレーションであり、実際の注文作成、決済処理、本番ECバックエンドとの接続はありません。',
+      nodes: ['React UI', '商品カタログ', 'フィルター · お気に入り · カート', 'チェックアウトフロー', 'シミュレーション · 実決済なし'],
+      stack: 'React · TypeScript · Vite · React Router',
     },
   },
   'RAW.': {
@@ -171,11 +230,11 @@ const additionalStoryContent = {
     ja: { problem:'繰り返し作業をビジュアルなworkflowとして表し、処理前に検証し、キュー投入後の状態を確認します。', architecture:'Next.js/Reactのエディター、Route HandlersとZodの検証、PostgreSQL/Prismaの永続化、Redis/BullMQのバックグラウンド処理で構成します。', implementation:'プロトタイプにはCRUD、グラフ検証、永続化、キューworker、実行履歴が含まれます。', limits:'workerは現在グラフ走査をシミュレートします。外部連携、認証、workspace分離は未実装です。', nodes:['Next.js / React UI','Route Handlers + Zod','PostgreSQL / Prisma','Redis + BullMQ','Worker · 走査シミュレーション'], stack:'Next.js · React · TypeScript · PostgreSQL · Prisma · Redis · BullMQ' },
   },
   'MRDR.': {
-    es: { problem:'Cada caso generado debe ser lógico y tener una única solución válida; no basta con mostrar pistas.', architecture:'La interfaz React 19/TypeScript está separada del motor, generador, datos y estado Zustand. Vitest cubre reglas y Capacitor prepara el empaquetado móvil.', implementation:'La documentación describe casos generados, pistas cruzadas, campaña inspirada en Portugal, progreso local, logros y retos diarios.', limits:'MRDR. sigue en desarrollo. El repositorio documenta 200 casos y validación automatizada, pero no es un lanzamiento público terminado.', nodes:['Interfaz React / TypeScript','Motor de deducción','Generador y validador','Progreso con Zustand','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
-    fr: { problem:'Chaque affaire générée doit être cohérente et avoir une seule solution valide ; il ne suffit pas d’afficher des indices.', architecture:'L’interface React 19/TypeScript est séparée du moteur, du générateur, des données et du progrès Zustand. Vitest couvre les règles et Capacitor prépare le mobile.', implementation:'La documentation décrit des affaires générées, des indices croisés, une campagne inspirée du Portugal, la progression locale, des succès et des défis quotidiens.', limits:'MRDR. est en développement. Le dépôt décrit 200 affaires et une validation automatisée, mais pas une version publique finale.', nodes:['Interface React / TypeScript','Moteur de déduction','Générateur et validateur','Progression avec Zustand','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
-    it: { problem:'Ogni caso generato deve essere coerente e avere un’unica soluzione valida; non basta presentare gli indizi.', architecture:'L’interfaccia React 19/TypeScript è separata da motore, generatore, dati e progresso Zustand. Vitest copre le regole e Capacitor prepara il mobile.', implementation:'La documentazione descrive casi generati, indizi incrociati, campagna ispirata al Portogallo, progressione locale, achievement e sfide giornaliere.', limits:'MRDR. è in sviluppo. Il repository documenta 200 casi e validazione automatica, ma non una release pubblica conclusa.', nodes:['Interfaccia React / TypeScript','Motore deduttivo','Generatore e validatore','Progressione con Zustand','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
-    de: { problem:'Jeder generierte Fall muss logisch konsistent sein und genau eine gültige Lösung besitzen; Hinweise allein reichen nicht.', architecture:'Die React-19-/TypeScript-Oberfläche ist vom Motor, Generator, den Daten und dem Zustand-Fortschritt getrennt. Vitest prüft Regeln, Capacitor bereitet mobile Bereitstellung vor.', implementation:'Dokumentiert sind generierte Fälle, verknüpfte Hinweise, eine Portugal-Kampagne, lokaler Fortschritt, Erfolge und tägliche Herausforderungen.', limits:'MRDR. ist in Entwicklung. Das Repository beschreibt 200 Fälle und automatische Validierung, aber keine fertige öffentliche Version.', nodes:['React / TypeScript UI','Deduktionsmotor','Fallgenerator und Validator','Fortschritt mit Zustand','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
-    ja: { problem:'各生成ケースには論理的一貫性があり、正しい解答が一つだけ存在する必要があります。手掛かりを表示するだけでは不十分です。', architecture:'React 19/TypeScript UIを推理エンジン、生成器、データ、Zustandによる進行管理から分離します。Vitestで規則をテストし、Capacitorでモバイルに備えます。', implementation:'文書には、生成ケース、相互参照される手掛かり、ポルトガルをモチーフにしたキャンペーン、ローカル進行、実績、デイリーチャレンジが記載されています。', limits:'MRDR.は開発中です。リポジトリには200件のケースと自動検証が記載されていますが、完成した公開版ではありません。', nodes:['React / TypeScript UI','推理エンジン','ケース生成・検証','Zustandによる進行管理','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
+    es: { problem:'Cada caso generado debe ser lógico y tener una única solución válida; no basta con mostrar pistas.', architecture:'La interfaz React 19/TypeScript está separada del motor, generador, datos y estado Zustand. Vitest cubre reglas y Capacitor prepara el empaquetado móvil.', implementation:'La documentación describe casos generados, pistas cruzadas, campaña inspirada en Portugal, progreso local, logros y retos diarios.', limits:'MRDR. sigue en desarrollo. La generación y validación de casos forman parte del alcance documentado, pero la cobertura de la campaña y la unicidad de las soluciones no se presentan como métricas verificadas.', nodes:['Interfaz React / TypeScript','Motor de deducción','Generador y validador','Progreso con Zustand','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
+    fr: { problem:'Un jeu de déduction ne consiste pas seulement à afficher des indices : les affaires générées doivent relier les preuves et les indices de façon cohérente, avec une logique à valider.', architecture:'L’interface React 19/TypeScript est séparée du moteur, du générateur, des données et du progrès Zustand. Vitest couvre les règles et Capacitor prépare le mobile.', implementation:'La documentation décrit des affaires générées, des indices croisés, une campagne inspirée du Portugal, la progression locale, des succès et des défis quotidiens.', limits:'MRDR. est en développement. La génération et la validation des affaires font partie du périmètre documenté ; la couverture de la campagne et l’unicité des solutions ne sont pas présentées comme des mesures vérifiées.', nodes:['Interface React / TypeScript','Moteur de déduction','Générateur et validateur','Progression avec Zustand','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
+    it: { problem:'Un gioco di deduzione non consiste solo nel presentare indizi: i casi generati devono collegare prove e indizi in modo coerente e la logica deve essere convalidata.', architecture:'L’interfaccia React 19/TypeScript è separata da motore, generatore, dati e progresso Zustand. Vitest copre le regole e Capacitor prepara il mobile.', implementation:'La documentazione descrive casi generati, indizi incrociati, campagna ispirata al Portogallo, progressione locale, achievement e sfide giornaliere.', limits:'MRDR. è in sviluppo. La generazione e la convalida dei casi fanno parte dell’ambito documentato; la copertura della campagna e l’unicità delle soluzioni non sono presentate come metriche verificate.', nodes:['Interfaccia React / TypeScript','Motore deduttivo','Generatore e validatore','Progressione con Zustand','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
+    de: { problem:'Ein Deduktionsspiel besteht aus mehr als Hinweisen: Generierte Fälle müssen Beweise und Hinweise logisch verknüpfen, und die Regeln müssen überprüft werden.', architecture:'Die React-19-/TypeScript-Oberfläche ist vom Motor, Generator, den Daten und dem Zustand-Fortschritt getrennt. Vitest prüft Regeln, Capacitor bereitet mobile Bereitstellung vor.', implementation:'Dokumentiert sind generierte Fälle, verknüpfte Hinweise, eine Portugal-Kampagne, lokaler Fortschritt, Erfolge und tägliche Herausforderungen.', limits:'MRDR. ist in Entwicklung. Fallgenerierung und Validierung gehören zum dokumentierten Umfang; Kampagnenabdeckung und eindeutige Lösungen werden nicht als verifizierte Kennzahlen dargestellt.', nodes:['React / TypeScript UI','Deduktionsmotor','Fallgenerator und Validator','Fortschritt mit Zustand','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
+    ja: { problem:'推理ゲームでは手掛かりを表示するだけでは不十分です。生成されたケースでは証拠と手掛かりの関係に一貫性が必要で、ロジックの検証も重要です。', architecture:'React 19/TypeScript UIを推理エンジン、生成器、データ、Zustandによる進行管理から分離します。Vitestで規則をテストし、Capacitorでモバイルに備えます。', implementation:'文書には、生成ケース、相互参照される手掛かり、ポルトガルをモチーフにしたキャンペーン、ローカル進行、実績、デイリーチャレンジが記載されています。', limits:'MRDR.は開発中です。ケース生成と検証は文書化された範囲に含まれますが、キャンペーンの網羅性や解答の一意性を検証済みの指標としては提示していません。', nodes:['React / TypeScript UI','推理エンジン','ケース生成・検証','Zustandによる進行管理','Vitest + Capacitor'], stack:'React 19 · TypeScript · Vite · Zustand · Vitest · Capacitor' },
   },
   'RAW.': {
     es: { problem:'RAW. explora cómo hacer más atractivas las conversaciones y los juegos en grupo con varios modos e interacciones breves.', architecture:'React y JavaScript construyen la interfaz; Tailwind CSS define los estilos y Framer Motion las transiciones. También explora PWA, localización y contenido organizado por modos.', implementation:'La aplicación publicada reúne mazos de preguntas, modos de juego, tarjetas interactivas, gestos de deslizamiento y transiciones animadas.', limits:'RAW. está disponible como proyecto interactivo, pero el repositorio es privado. No se afirman adopción comercial ni métricas de uso.', nodes:['Mazos de preguntas','Modos de juego','Interfaz React','Tarjetas y gestos','Motion + localización'], stack:'React · JavaScript · Tailwind CSS · Framer Motion' },
@@ -249,7 +308,7 @@ export default function EngineeringStories({ language = 'en' }) {
       <div className="engineering-story-list">
         {featuredProjects.map((project, projectIndex) => {
           const content = storyContent[project.name]?.[copyLanguage] || storyContent[project.name]?.en;
-          const status = project.status?.toLowerCase().includes('prototype') ? ui.prototype : project.status ? ui.inDevelopment : ui.live;
+          const status = project.status?.toLowerCase().includes('prototype') ? ui.prototype : /live|demo|published|publicado/i.test(project.status || '') ? ui.live : project.status ? ui.inDevelopment : ui.live;
           return (
             <article className={`engineering-story story-${project.visual}`} key={project.name}>
               <div className="story-copy">
