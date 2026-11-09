@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { ArrowRight, Terminal, Play, RotateCcw } from 'lucide-react';
 
-export default function PortfolioExtras({ language = 'en', projects = [] }) {
+export default function PortfolioExtras({ language = 'en', projects = [], notes = [] }) {
   const pt = language === 'pt-PT';
   const [command, setCommand] = useState('');
   const [history, setHistory] = useState([{ input: 'help', output: pt ? 'Comandos: help, about, projects, contact' : 'Commands: help, about, projects, contact' }]);
@@ -49,6 +49,7 @@ export default function PortfolioExtras({ language = 'en', projects = [] }) {
           <div className="lab-controls"><button type="button" onClick={sortNumbers}><Play size={14} />{pt ? 'Ordenar' : 'Sort'}</button><button type="button" className="lab-reset" onClick={resetNumbers}><RotateCcw size={14} />{pt ? 'Repor' : 'Reset'}</button><span>{sorted ? (pt ? 'Ordenado' : 'Sorted') : (pt ? 'A aguardar ação' : 'Waiting for input')}</span></div>
         </section>
       </div>
+      {notes.length > 0 && <div className="cms-engineering-notes"><div className="experiment-heading"><span>{pt ? 'NOTAS DE ENGENHARIA' : 'ENGINEERING NOTES'}</span><span className="experiment-index">{notes.length} / {pt ? 'ARTIGOS' : 'NOTES'}</span></div><div className="cms-notes-grid">{notes.map((note) => <article className="cms-note-card" key={note.slug}><span>{note.kicker || 'ENGINEERING NOTE'}</span><h3>{note.title}</h3><p>{note.summary || note.description}</p>{note.url && <a href={note.url}>{pt ? 'Ler nota' : 'Read note'} <ArrowRight size={14} /></a>}</article>)}</div></div>}
       <div className="portfolio-tech-ribbon"><span>{pt ? 'TECNOLOGIAS NO PORTFÓLIO' : 'TECHNOLOGIES IN THE PORTFOLIO'}</span>{technologies.map((technology) => <i key={technology}>{technology}</i>)}</div>
     </section>
   );
