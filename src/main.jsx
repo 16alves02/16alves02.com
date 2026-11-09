@@ -4,6 +4,7 @@ import App from './App.jsx';
 import './index.css';
 import './portfolio.css';
 import './site-utilities.css';
+import './theme-contrast.css';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
