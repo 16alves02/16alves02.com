@@ -105,13 +105,13 @@ export default function App() {
   return (
     <div className={dark ? 'site dark' : 'site'}>
       <header className="header">
-        <a className="wordmark" href="#top" aria-label="Leonardo Alves — início">16alves02<span>.</span></a>
+        <a className="wordmark" href="#top">16alves02<span>.</span></a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}>{menuOpen ? <X /> : <Menu />}</button>
         <nav className={menuOpen ? 'nav open' : 'nav'} aria-label="Navegação principal">
           {t.nav.map((label, i) => <a key={label} href={['#projects', '#about', '#experience', '#contact'][i]} onClick={closeMenu}>{label}</a>)}
         </nav>
         <div className="header-actions">
-          <button className="text-button" onClick={() => setLanguage(pt ? 'en' : 'pt-PT')} aria-label="Change language">{pt ? 'EN' : 'PT'}</button>
+          <button className="text-button" onClick={() => setLanguage(pt ? 'en' : 'pt-PT')}>{pt ? 'EN' : 'PT'}</button>
           <button className="icon-button" onClick={() => setDark(!dark)} aria-label={dark ? 'Ativar tema claro' : 'Ativar tema escuro'}>{dark ? <Sun size={17} /> : <Moon size={17} />}</button>
           <a className="cv-link" href={cv} download><Download size={15} />{t.cv}</a>
         </div>
@@ -168,7 +168,7 @@ export default function App() {
             <input type="hidden" name="_subject" value="Novo contacto através do portefólio" />
             <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_template" value="table" />
-            <input type="text" name="_honey" className="honeypot" tabIndex="-1" autoComplete="off" />
+            <input type="text" name="_honey" className="honeypot" tabIndex="-1" aria-hidden="true" autoComplete="off" />
             <label>{t.name}<input name="name" required maxLength="100" autoComplete="name" /></label>
             <label>{t.email}<input type="email" name="email" required maxLength="254" autoComplete="email" /></label>
             <label>{t.subject}<input name="subject" required maxLength="140" /></label>
