@@ -15,7 +15,7 @@ export default function Header({ copy, language, setLanguage, theme, setTheme })
     <header className="site-header">
       <div className="header-inner">
         <a href="#top" className="brand" aria-label="16alves02 home" onClick={closeMenu}>
-          <img className="brand-logo" src="/logo.svg" alt="" />
+          <img className="brand-logo" src="/logo.png" alt="" />
           <span className="brand-wordmark">16alves02<span>.</span></span>
         </a>
 
