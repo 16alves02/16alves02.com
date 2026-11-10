@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Download, Code2, BriefcaseBusiness, Mail, Moon, Sun, Menu, X } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Download, Code2, BriefcaseBusiness, Instagram, Youtube, Twitch, Mail, Moon, Sun, Menu, X } from 'lucide-react';
 
 const content = {
   'pt-PT': {
@@ -198,7 +198,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer"><a className="wordmark" href="#top">16alves02<span>.</span></a><div className="socials"><a href="https://github.com/16alves02" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 /></a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BriefcaseBusiness /></a><a href="mailto:16alves02@gmail.com" aria-label="Email"><Mail /></a></div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
+      <footer className="footer"><a className="wordmark" href="#top">16alves02<span>.</span></a><div className="socials"><a href="https://github.com/16alves02" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 /></a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BriefcaseBusiness /></a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer" aria-label="GitHub académico"><Code2 /></a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram /></a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer" aria-label="YouTube"><Youtube /></a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer" aria-label="Twitch"><Twitch /></a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer" aria-label="Uiverse"><Code2 /></a><a href="mailto:16alves02@gmail.com" aria-label="Email"><Mail /></a></div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
 }
