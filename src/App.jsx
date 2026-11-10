@@ -209,14 +209,14 @@ export default function App() {
     <div className={dark ? 'site dark' : 'site'}>
       <header className="header">
         <a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}>{menuOpen ? <X /> : <Menu />}</button>
-        <nav className={menuOpen ? 'nav open' : 'nav'} aria-label="Navegação principal">
+        <button className="menu-toggle" aria-expanded={menuOpen} aria-controls="primary-navigation" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}>{menuOpen ? <X /> : <Menu />}</button>
+        <nav id="primary-navigation" className={menuOpen ? 'nav open' : 'nav'} aria-label="Navegação principal">
           {t.nav.map((label, i) => <a key={label} href={['#projects', '#about', '#experience', '#contact'][i]} onClick={closeMenu}>{label}</a>)}
         </nav>
         <div className="header-actions">
-          <button className="text-button" onClick={() => setLanguage(pt ? 'en' : 'pt-PT')}>{pt ? 'EN' : 'PT'}</button>
+          <button className="text-button" aria-label={pt ? 'Switch language to English' : 'Mudar idioma para português'} onClick={() => setLanguage(pt ? 'en' : 'pt-PT')}>{pt ? 'EN' : 'PT'}</button>
           <button className="icon-button" onClick={() => setDark(!dark)} aria-label={dark ? 'Ativar tema claro' : 'Ativar tema escuro'}>{dark ? <Sun size={17} /> : <Moon size={17} />}</button>
-          <a className="cv-link" href={cv} download><Download size={15} />{t.cv}</a>
+          <a className="cv-link" href={cv} download aria-label={pt ? 'Descarregar currículo em português' : 'Download English CV'}><Download size={15} />{t.cv}</a>
         </div>
       </header>
 
@@ -239,7 +239,7 @@ export default function App() {
               <article className="project-row reveal" key={project.name}>
                 <span className="project-index">0{i + 1}</span>
                 <div className="project-main">
-                  {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''}`} src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />}
+                  {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''}`} src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true; }} />}
                   <div className="project-topline"><span>{project.type}</span><span>{project.year}</span></div>
                   <h3>{project.name}</h3>
                   <p>{pt ? project.description : project.descriptionEn}</p>
@@ -287,7 +287,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials" aria-label={t.socialLabel}><a href="https://github.com/16alves02" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer">GitHub académico</a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer">YouTube</a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer">Twitch</a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer">Uiverse</a><a href="mailto:16alves02@gmail.com">Email</a></div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
+      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials" aria-label={t.socialLabel}><a href="https://github.com/16alves02" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer">GitHub académico</a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer">YouTube</a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer">Twitch</a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer">Uiverse</a><a href="mailto:16alves02@gmail.com">Email</a></div><div className="footer-meta"><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span><div><a href="/privacy.html">{pt ? 'Privacidade' : 'Privacy'}</a><a href="/terms.html">{pt ? 'Termos' : 'Terms'}</a></div></div></footer>
     </div>
   );
 }
