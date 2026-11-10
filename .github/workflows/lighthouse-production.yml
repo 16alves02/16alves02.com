@@ -23,7 +23,7 @@ jobs:
         shell: bash
         run: |
           site="https://16alves02.pages.dev/"
-          marker='name="portfolio-build" content="2026-11-10-static-pages"'
+          marker='name="portfolio-build" content="2026-11-10-static-prerender"'
           for attempt in {1..30}; do
             html="$(curl --location --fail --silent --show-error --max-time 20 --user-agent "PortfolioLighthouseCheck/1.0 (https://github.com/16alves02/16alves02.com)" "$site" 2>/dev/null || true)"
             if grep -Fq "$marker" <<< "$html"; then
