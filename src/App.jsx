@@ -26,7 +26,9 @@ const content = {
     focusValue: <>Desenvolvimento de Software<br />Web · Backend · Aplicações</>,
     locationValue: <>Oliveira de Azeméis, Portugal<br />Disponível para Aveiro, Porto e Coimbra</>,
     educationValue: <>CTeSP em Desenvolvimento de Software<br />Universidade de Aveiro · 2025–2027</>,
-    availability: 'DISPONÍVEL PARA OPORTUNIDADES'
+    availability: 'DISPONÍVEL PARA OPORTUNIDADES',
+    opportunityLabel: 'ESTÁGIO',
+    opportunityValue: <>Estágio curricular · 680 horas<br />Fevereiro de 2027 · preferência remunerado</>
   },
   en: {
     nav: ['Projects', 'About', 'Experience', 'Contact'],
@@ -52,7 +54,9 @@ const content = {
     focusValue: <>Software Development<br />Web · Backend · Applications</>,
     locationValue: <>Oliveira de Azeméis, Portugal<br />Open to Aveiro, Porto & Coimbra</>,
     educationValue: <>CTeSP Software Development<br />University of Aveiro · 2025–2027</>,
-    availability: 'AVAILABLE FOR OPPORTUNITIES'
+    availability: 'AVAILABLE FOR OPPORTUNITIES',
+    opportunityLabel: 'INTERNSHIP',
+    opportunityValue: <>Curricular internship · 680 hours<br />February 2027 · preferably paid</>
   }
 };
 
@@ -238,7 +242,7 @@ export default function App() {
 
         <section className="section about-section reveal" id="about">
           <div className="section-heading"><div><span className="eyebrow-number">02 / {t.profileLabel}</span><h2>{t.about}</h2></div></div>
-          <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>{t.focusLabel}</span><p>{t.focusValue}</p></div><div><span>{t.locationLabel}</span><p>{t.locationValue}</p></div><div><span>{t.educationLabel}</span><p>{t.educationValue}</p></div></div></div>
+          <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>{t.focusLabel}</span><p>{t.focusValue}</p></div><div><span>{t.locationLabel}</span><p>{t.locationValue}</p></div><div><span>{t.educationLabel}</span><p>{t.educationValue}</p></div><div><span>{t.opportunityLabel}</span><p>{t.opportunityValue}</p></div></div></div>
         </section>
 
         <section className="section experience-section reveal" id="experience">
