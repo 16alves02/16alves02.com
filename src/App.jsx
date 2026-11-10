@@ -221,7 +221,7 @@ export default function App() {
 
   useEffect(() => {
     const themeColor = document.querySelector('meta[name="theme-color"]');
-    if (themeColor) themeColor.content = dark ? '#171715' : '#fafaf8';
+    if (themeColor) themeColor.content = dark ? '#02020E' : '#FDFDF1';
   }, [dark]);
 
   useEffect(() => {
