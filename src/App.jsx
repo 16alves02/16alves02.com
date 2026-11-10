@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Download, Code2, BriefcaseBusiness, Mail, Moon, Sun, Menu, X } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Download, Mail, Moon, Sun, Menu, X } from 'lucide-react';
 
 const content = {
   'pt-PT': {
@@ -169,7 +169,7 @@ const skillGroups = [
   { key: 'languages', items: ['JavaScript', 'TypeScript', 'PHP', 'Kotlin', 'Python', 'C', 'SQL'] },
   { key: 'frontend', items: ['HTML', 'CSS', 'React', 'Next.js', 'Vite', 'Android'] },
   { key: 'backend', items: ['REST APIs', 'MySQL', 'PostgreSQL', 'Redis', 'Ktor'] },
-  { key: 'tools', items: ['Git', 'GitHub', 'Docker', 'Prisma', 'Figma'] }
+  { key: 'tools', items: ['Git', 'GitHub', 'Docker', 'Prisma'] }
 ];
 
 export default function App() {
