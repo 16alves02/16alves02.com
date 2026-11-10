@@ -99,6 +99,51 @@ const projects = [
     href: 'https://hoop-16alves02.netlify.app',
     source: 'https://github.com/16alves02/hoop'
   }
+  {
+    name: 'Basket Hub', year: '2025–26', type: 'ACADEMIC · BASKETBALL PLATFORM',
+    description: 'Plataforma web académica para gestão de equipas, jogadores, jogos, inscrições, eventos, pavilhões e estatísticas de basquetebol.',
+    descriptionEn: 'An academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.',
+    stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
+    status: 'Projeto académico', statusEn: 'Academic project',
+    href: 'https://github.com/13alves05/basket-hub'
+  },
+  {
+    name: 'Tocadiscos Editora', year: '2025–26', type: 'ACADEMIC · GROUP PROJECT',
+    description: 'Aplicação de linha de comandos para gerir autores, álbuns e músicas, com pesquisa, relatórios financeiros, reprodução de áudio e histórico reversível.',
+    descriptionEn: 'A command-line application for managing artists, albums and tracks, with search, financial reports, audio playback and reversible change history.',
+    stack: ['Python', 'Pandas', 'Whoosh', 'Pygame'],
+    status: 'Projeto académico de grupo', statusEn: 'Academic group project',
+    href: 'https://github.com/13alves05/tocadiscos-editora'
+  },
+  {
+    name: 'Todo App', year: '2025', type: 'PERSONAL · WEB APPLICATION',
+    image: 'https://raw.githubusercontent.com/16alves02/todo-app/main/assets/screenshot.png',
+    imageAlt: 'Captura real da aplicação Todo App', imageFit: 'cover',
+    description: 'Gestor de tarefas no browser com filtros, tarefas concluídas, armazenamento local e navegação por teclado.',
+    descriptionEn: 'A browser-based task manager with filters, completed tasks, local storage and keyboard navigation.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'localStorage'],
+    status: 'Demo disponível', statusEn: 'Live demo',
+    href: 'https://todo-app-three-beta-56.vercel.app',
+    source: 'https://github.com/16alves02/todo-app'
+  },
+  {
+    name: 'ArraySorting', year: '2025', type: 'ACADEMIC · ALGORITHMS',
+    description: 'Programa interativo em C para explorar Selection Sort, Insertion Sort, Bubble Sort e uma demonstração de Bogo Sort.',
+    descriptionEn: 'An interactive C program exploring Selection Sort, Insertion Sort, Bubble Sort and a Bogo Sort demonstration.',
+    stack: ['C', 'Algorithms', 'Arrays'],
+    status: 'Exercício académico', statusEn: 'Academic exercise',
+    href: 'https://github.com/16alves02/ArraySorting'
+  },
+  {
+    name: 'Two of Hearts', year: '2026', type: 'ACADEMIC · VECTOR ILLUSTRATION',
+    image: 'https://raw.githubusercontent.com/16alves02/two-of-hearts-portuguese-folk-art/main/assets/front.png',
+    imageAlt: 'Ilustração vetorial final da carta Two of Hearts', imageFit: 'contain',
+    description: 'Ilustração vetorial inspirada nos Lenços de Namorados do Minho, reinterpretando motivos tradicionais portugueses numa carta de jogar.',
+    descriptionEn: 'A vector illustration inspired by the Minho love handkerchiefs, reinterpreting traditional Portuguese motifs as a playing card.',
+    stack: ['Affinity', 'Vector Illustration', 'Portuguese Folk Art'],
+    status: 'Projeto académico', statusEn: 'Academic project',
+    href: 'https://github.com/16alves02/two-of-hearts-portuguese-folk-art'
+  },
 ];
 
 const experience = [
@@ -144,7 +189,7 @@ export default function App() {
   return (
     <div className={dark ? 'site dark' : 'site'}>
       <header className="header">
-        <a className="wordmark" href="#top">16alves02<span>.</span></a>
+        <a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}>{menuOpen ? <X /> : <Menu />}</button>
         <nav className={menuOpen ? 'nav open' : 'nav'} aria-label="Navegação principal">
           {t.nav.map((label, i) => <a key={label} href={['#projects', '#about', '#experience', '#contact'][i]} onClick={closeMenu}>{label}</a>)}
@@ -182,7 +227,7 @@ export default function App() {
                   <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
                 </div>
                 <div className="project-side">
-                  <span className="project-status">{pt ? project.status : (project.name === 'RAW.' ? 'Private source' : project.name === 'RunLattice' ? 'Prototype' : project.name === 'HOOP' ? 'Academic project' : 'In development')}</span>
+                  <span className="project-status">{pt ? project.status : (project.statusEn || (project.name === 'RAW.' ? 'Private source' : project.name === 'RunLattice' ? 'Prototype' : project.name === 'HOOP' ? 'Academic project' : 'In development'))}</span>
                   {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
                   {project.source && <a href={project.source} target="_blank" rel="noreferrer">GitHub <Code2 size={15} /></a>}
                 </div>
@@ -219,7 +264,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer"><a className="wordmark" href="#top">16alves02<span>.</span></a><div className="socials"><a href="https://github.com/16alves02" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 /></a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BriefcaseBusiness /></a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer" aria-label="GitHub académico"><Code2 /></a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer" aria-label="Instagram"><ArrowUpRight /></a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer" aria-label="YouTube"><ArrowUpRight /></a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer" aria-label="Twitch"><ArrowUpRight /></a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer" aria-label="Uiverse"><Code2 /></a><a href="mailto:16alves02@gmail.com" aria-label="Email"><Mail /></a></div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
+      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials"><a href="https://github.com/16alves02" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 /></a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BriefcaseBusiness /></a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer" aria-label="GitHub académico"><Code2 /></a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer" aria-label="Instagram"><ArrowUpRight /></a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer" aria-label="YouTube"><ArrowUpRight /></a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer" aria-label="Twitch"><ArrowUpRight /></a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer" aria-label="Uiverse"><Code2 /></a><a href="mailto:16alves02@gmail.com" aria-label="Email"><Mail /></a></div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
 }
