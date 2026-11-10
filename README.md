@@ -11,6 +11,10 @@ A lightweight, static portfolio for Leonardo Alves, Software Developer and Softw
 
 Software Developer with practical experience in web and backend development, currently studying for a CTeSP in Software Development (2025–2027).
 
+## Current objective
+
+Seeking a **680-hour curricular internship starting in February 2027**, preferably paid. Open to opportunities in the Aveiro, Porto and Coimbra areas, as well as suitable remote or hybrid arrangements.
+
 ## Projects
 
 - **SaborGest** — academic management system for small food businesses, combining a PHP web panel, REST API, relational database and Kotlin Android kiosk. In development.
