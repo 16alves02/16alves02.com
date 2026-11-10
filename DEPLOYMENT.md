@@ -11,6 +11,7 @@
 - **Build command:** `npm run build`
 - **Build output directory:** `dist`
 - **Environment variables:** none required for the static site
+- **Node.js:** pinned to 22.23.4 via `.node-version`
 
 Cloudflare Pages is connected to GitHub. Merges into `main` trigger production deployments; pull requests create preview deployments. The canonical URL, Open Graph URL, sitemap and public portfolio links must use `https://16alves02.pages.dev`.
 
@@ -35,5 +36,5 @@ The production build is generated in `dist/`. Before release, verify the homepag
 - [ ] Confirm the latest `main` commit has a successful Cloudflare Pages production deployment.
 - [ ] Verify `/`, `/privacy.html`, `/terms.html`, `/sitemap.xml`, `/robots.txt`, both CV downloads and a deliberately missing path in production. The missing path must return HTTP 404.
 - [ ] Submit a real contact-form test and complete the initial FormSubmit email confirmation if requested.
-- [ ] Run Lighthouse on the deployed production URL for Performance, Accessibility, Best Practices and SEO. Record the actual results; do not claim 100/100 without a completed test.
+- [ ] Run Lighthouse on the deployed production URL for Performance, Accessibility, Best Practices and SEO. The `.github/workflows/lighthouse-production.yml` workflow waits for the current release marker and uploads the JSON report as a GitHub Actions artifact. Record the actual results; do not claim 100/100 without a completed test.
 - [ ] Re-submit `/sitemap.xml` in Google Search Console after deployment and inspect the sitemap report.
