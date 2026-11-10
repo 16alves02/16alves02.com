@@ -8,7 +8,7 @@ const content = {
     headline: <>Desenvolvimento de<br /><em>software com propósito.</em></>,
     intro: 'Sou o Leonardo, Software Developer generalista. Desenvolvo software em diferentes áreas — da interface e lógica de negócio às APIs, dados e aplicações.',
     projects: 'Projetos selecionados',
-    projectsIntro: 'Alguns dos projetos em que tenho trabalhado, entre desenvolvimento académico e projetos pessoais.',
+    projectsIntro: 'Projetos selecionados que demonstram diferentes áreas do desenvolvimento de software, do backend às aplicações e automação.',
     about: 'Um pouco sobre mim',
     aboutText: 'Sou estudante de Desenvolvimento de Software na Escola Superior Aveiro Norte, Universidade de Aveiro. Tenho experiência prática em desenvolvimento web e backend, e gosto de trabalhar em diferentes partes de um produto — da interface à lógica e aos dados.',
     experience: 'Experiência',
@@ -41,7 +41,7 @@ const content = {
     headline: <>Building<br /><em>software with purpose.</em></>,
     intro: "I'm Leonardo, a generalist Software Developer. I build software across interfaces, business logic, APIs, data and applications.",
     projects: 'Selected projects',
-    projectsIntro: 'A selection of academic and personal projects I have been working on.',
+    projectsIntro: 'Selected work demonstrating different areas of software development, from backend systems to applications and automation.',
     about: 'A little about me',
     aboutText: "I'm a Software Development student at Escola Superior Aveiro Norte, University of Aveiro. I have practical experience in web and backend development, and enjoy working across different parts of a product — from interfaces to logic and data.",
     experience: 'Experience',
@@ -73,8 +73,8 @@ const content = {
 const projects = [
   {
     name: 'SaborGest', year: '2026–27', type: 'ACADEMIC · WEB / ANDROID', typePt: 'ACADÉMICO · WEB / ANDROID',
-    description: 'Sistema académico de gestão de horários, assiduidade e stock para pequenos negócios de restauração, com painel web em PHP, API REST e quiosque Android em Kotlin.',
-    descriptionEn: 'An academic system for managing schedules, attendance and stock in small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk.',
+    description: 'Sistema de gestão para pequenos negócios de restauração, com painel Web, API REST em PHP e quiosque Android em Kotlin. Inclui colaboradores, horários, picagens, relatórios e operações de stock.',
+    descriptionEn: 'A management system for small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk. Covers staff, schedules, clock-ins, reports and stock operations.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
     status: 'Em desenvolvimento · código privado',
     statusEn: 'In development · private source'
@@ -82,8 +82,8 @@ const projects = [
   {
     name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
     image: '/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
-    description: 'Protótipo de uma plataforma de automação com editor visual, modelos, execução em segundo plano, gatilhos agendados e por webhook, planeamento de workflows por IA em rascunhos sujeitos a revisão e integração Discord.',
-    descriptionEn: 'An early-stage automation platform with a visual editor, templates, background execution, scheduled and webhook triggers, AI workflow planning that produces drafts for user review, and a Discord integration.',
+    description: 'Plataforma de automação com workspaces e permissões, editor visual, modelos, execução assíncrona com Redis/BullMQ, webhooks assinados, tarefas agendadas e planeamento de workflows por IA sujeito a revisão.',
+    descriptionEn: 'An automation platform with workspaces and roles, a visual editor, templates, Redis/BullMQ background execution, signed webhooks, scheduled triggers and AI workflow planning that remains subject to user review.',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
     status: 'Protótipo',
     href: 'https://github.com/16alves02/RunLattice'
@@ -91,15 +91,15 @@ const projects = [
   {
     name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME', typePt: 'ALV16 STUDIOS · JOGO',
     image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageAltEn: 'MRDR game identity artwork', imageFit: 'cover',
-    description: 'Jogo original de dedução criminal, centrado na análise de pistas e resolução de casos. Continua em desenvolvimento.',
-    descriptionEn: 'An original criminal deduction game focused on analysing clues and solving cases. Still in development.',
+    description: 'Jogo original de dedução criminal com casos procedurais, suspeitos, álibis, cronologias e pistas interligadas. O motor valida soluções únicas; a campanha está organizada em 20 mundos e 200 casos. Continua em desenvolvimento.',
+    descriptionEn: 'An original crime-deduction game with procedural cases, suspects, alibis, timelines and connected clues. Its engine validates unique solutions; the campaign spans 20 worlds and 200 cases. Still in development.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
     status: 'Em desenvolvimento'
   },
   {
     name: 'RAW.', year: '2026', type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
-    description: 'Aplicação interativa de conversas e jogos sociais, com vários modos, cartões, baralhos e interface multilingue.',
-    descriptionEn: 'An interactive conversation and party-game app with multiple modes, cards, decks and a multilingual interface.',
+    description: 'Aplicação social de cartas com três modos de jogo, 27 baralhos e conteúdo em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
+    descriptionEn: 'A card-based social app with three play modes, 27 decks and content in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
     stack: ['React', 'JavaScript', 'PWA'],
     status: 'Em desenvolvimento', statusEn: 'In development',
     href: 'https://alv16studios.itch.io/raw-conversation-game',
@@ -166,11 +166,10 @@ export default function App() {
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const socialLinks = [
-    [Code2, 'GitHub', 'https://github.com/16alves02'],
-    [BriefcaseBusiness, 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
-    [Code2, 'GitHub académico', 'https://github.com/13alves05'],
-    [Camera, 'Instagram', 'https://www.instagram.com/16alves02/'],
-    [Mail, 'Email', 'mailto:16alves02@gmail.com']
+    [BriefcaseBusiness, 'LinkedIn · @16alves02', 'https://www.linkedin.com/in/16alves02/'],
+    [Code2, 'GitHub pessoal · @16alves02', 'https://github.com/16alves02'],
+    [Code2, 'GitHub académico · @13alves05', 'https://github.com/13alves05'],
+    [Camera, 'Instagram · @16alves02', 'https://www.instagram.com/16alves02/']
   ];
 
   useEffect(() => {
@@ -307,17 +306,30 @@ export default function App() {
             <small>{t.direct} <a href="mailto:16alves02@gmail.com">16alves02@gmail.com</a></small>
           </form>
         </section>
-        <section className="section faq-section reveal" id="faq"><div className="section-heading"><div><span className="eyebrow-number">06 / FAQ</span><h2>{pt ? 'Perguntas frequentes' : 'Frequently asked questions'}</h2></div><p>{pt ? 'Respostas rápidas sobre o meu percurso, projetos e disponibilidade.' : 'Quick answers about my background, projects and availability.'}</p></div><div className="faq-list">{(pt ? [
-          ['Estás à procura de estágio?', 'Sim. Procuro um estágio curricular de 680 horas, com início previsto em fevereiro de 2027. Tenho preferência por uma oportunidade remunerada e trabalho remoto.'],
-          ['Os projetos apresentados estão concluídos?', 'Não todos. O estado é indicado em cada projeto: alguns são trabalhos académicos concluídos, outros são protótipos ou continuam em desenvolvimento.'],
-          ['Que tipo de trabalho procuras?', 'Sou Software Developer generalista e tenho interesse em desenvolvimento web, backend e aplicações. Estou disponível para aprender novas tecnologias conforme as necessidades da equipa.'],
-          ['Como posso entrar em contacto?', 'Podes utilizar o formulário desta página ou escrever diretamente para 16alves02@gmail.com.']
-        ] : [
-          ['Are you looking for an internship?', 'Yes. I am seeking a 680-hour curricular internship starting in February 2027. I prefer a paid opportunity and remote work.'],
-          ['Are all showcased projects finished?', 'No. Each project has its own status: some are completed academic assignments, while others are prototypes or remain in development.'],
-          ['What kind of work are you interested in?', 'I am a generalist Software Developer interested in web development, backend systems and applications. I am open to learning technologies that fit the team’s needs.'],
-          ['How can I contact you?', 'Use the contact form on this page or email me directly at 16alves02@gmail.com.']
-        ]).map(([q,a]) => <details className="faq-item" key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></section>
+        <section className="section faq-section reveal" id="faq">
+          <div className="section-heading"><div><span className="eyebrow-number">06 / FAQ</span><h2>{pt ? 'Perguntas para recrutadores' : 'Recruiter questions'}</h2></div><p>{pt ? 'Informação prática sobre o meu perfil, experiência e disponibilidade.' : 'Practical information about my profile, experience and availability.'}</p></div>
+          <div className="faq-list">{(pt ? [
+            ['Que oportunidade procuras?', 'Procuro um estágio curricular remunerado de 680 horas, com início previsto em fevereiro de 2027, no âmbito do CTeSP em Desenvolvimento de Software.'],
+            ['Que tipo de funções te interessam?', 'Sou Software Developer generalista. Tenho interesse em desenvolvimento de software, web, backend, APIs, bases de dados e aplicações, sem me limitar a uma única stack.'],
+            ['Onde podes trabalhar?', 'Estou baseado em Oliveira de Azeméis. Considero oportunidades em Aveiro, Porto e Coimbra, em regime remoto, híbrido ou presencial. Tenho preferência por remoto.'],
+            ['Que experiência tens em desenvolvimento?', 'Realizei um estágio de backend na ClickBeauty / Alvocromático, entre abril e julho de 2023, e um estágio de desenvolvimento Web na Associação Estamos Juntos, em julho de 2022. Trabalhei também como operador CNC entre fevereiro de 2025 e maio de 2026.'],
+            ['Quais são os projetos mais relevantes?', 'SaborGest demonstra integração Web, API, base de dados e Android; RunLattice explora automação e execução assíncrona; MRDR. é um jogo de dedução com geração procedural; RAW. é uma aplicação social com demonstração pública. HOOP, Basket Hub e Tocadiscos Editora complementam a seleção com projetos académicos.'],
+            ['Os projetos estão concluídos e o código está disponível?', 'Não todos. O estado de cada projeto está identificado no portefólio. Alguns repositórios são privados ou pertencem a equipas académicas; quando existe uma demonstração pública, essa ligação é indicada. Não apresento protótipos como produtos finalizados.'],
+            ['Que tecnologias conheces?', 'Tenho trabalhado com JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, APIs REST, MySQL/MariaDB, PostgreSQL, Redis, Docker e Prisma. A experiência prática varia conforme a tecnologia e o projeto.'],
+            ['Que idiomas utilizas?', 'Português: nativo. Inglês: intermédio. Espanhol: básico. O portefólio e o CV estão disponíveis em português e inglês.'],
+            ['Como podemos falar sobre uma oportunidade?', 'Podes enviar uma mensagem pelo formulário de contacto ou escrever diretamente para 16alves02@gmail.com. O LinkedIn também está disponível no rodapé.']
+          ] : [
+            ['What opportunity are you seeking?', 'I am looking for a paid 680-hour curricular internship starting in February 2027, as part of my Software Development CTeSP programme.'],
+            ['What kind of roles interest you?', 'I position myself as a generalist Software Developer. My interests include software development, web, backend, APIs, databases and applications. I am not tied to a single stack.'],
+            ['Where are you available to work?', 'I am based in Oliveira de Azeméis, Portugal, and consider opportunities in Aveiro, Porto and Coimbra. I am open to remote, hybrid and on-site work, with a preference for remote.'],
+            ['What software development experience do you have?', 'I completed a backend internship at ClickBeauty / Alvocromático from April to July 2023 and a Web development internship at Associação Estamos Juntos in July 2022. I also worked as a CNC machine operator from February 2025 to May 2026.'],
+            ['Which projects best represent your work?', 'SaborGest demonstrates Web, API, database and Android integration; RunLattice explores workflow automation and background execution; MRDR. is a procedural deduction game; RAW. is a social app with a public demo. HOOP, Basket Hub and Tocadiscos Editora add academic work across different stacks.'],
+            ['Are the projects finished and is their source code public?', 'Not all projects are finished. Their current status is stated in the portfolio. Some repositories are private or belong to academic teams; public demos are linked where available. Prototypes are not presented as finished products.'],
+            ['Which technologies have you used?', 'I have worked with JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, REST APIs, MySQL/MariaDB, PostgreSQL, Redis, Docker and Prisma. Practical depth varies by technology and project.'],
+            ['Which languages do you speak?', 'Portuguese: native. English: intermediate. Spanish: basic. The portfolio and CV are available in Portuguese and English.'],
+            ['How can we discuss an opportunity?', 'Send a message through the contact form or email me directly at 16alves02@gmail.com. LinkedIn is also linked in the footer.']
+          ]).map(([q,a]) => <details className="faq-item" key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div>
+        </section>
       </main>
 
       <a className="mobile-contact-cta" href="#contact"><Mail size={16}/>{pt ? 'Entrar em contacto' : 'Contact me'}</a>
