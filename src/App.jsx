@@ -205,9 +205,22 @@ export default function App() {
     if (ogDescription) ogDescription.content = pt
       ? 'Projetos de software, desenvolvimento web e aplicações por Leonardo Alves.'
       : 'Software projects, web development and applications by Leonardo Alves.';
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.content = pt ? 'Leonardo Alves | Software Developer' : 'Leonardo Alves | Software Developer';
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) twitterDescription.content = pt
+      ? 'Projetos pessoais e académicos em desenvolvimento web, backend e aplicações.'
+      : 'Personal and academic projects in web development, backend and applications.';
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) ogLocale.content = pt ? 'pt_PT' : 'en_GB';
   }, [pt]);
 
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = dark ? '#171715' : '#fafaf8';
+  }, [dark]);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
