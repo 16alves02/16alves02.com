@@ -73,7 +73,6 @@ const content = {
 const projects = [
   {
     name: 'SaborGest', year: '2026–27', type: 'ACADEMIC · WEB / ANDROID', typePt: 'ACADÉMICO · WEB / ANDROID',
-    image: 'https://raw.githubusercontent.com/16alves02/SaborGest/main/web/assets/saborgest-logo.png', imageAlt: 'Logótipo do SaborGest', imageAltEn: 'SaborGest logo', imageFit: 'contain',
     description: 'Sistema académico de gestão de horários, assiduidade e stock para pequenos negócios de restauração, com painel web em PHP, API REST e quiosque Android em Kotlin.',
     descriptionEn: 'An academic system for managing schedules, attendance and stock in small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
@@ -82,7 +81,7 @@ const projects = [
   },
   {
     name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
-    image: 'https://raw.githubusercontent.com/16alves02/RunLattice/main/public/brand/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
+    image: '/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
     description: 'Protótipo de uma plataforma de automação com editor visual, modelos, execução em segundo plano, gatilhos agendados e por webhook, planeamento de workflows por IA em rascunhos sujeitos a revisão e integração Discord.',
     descriptionEn: 'An early-stage automation platform with a visual editor, templates, background execution, scheduled and webhook triggers, AI workflow planning that produces drafts for user review, and a Discord integration.',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],

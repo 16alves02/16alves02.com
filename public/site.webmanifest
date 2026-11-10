@@ -4,13 +4,13 @@
   "description": "Portefólio de Leonardo Alves, Software Developer.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#fafaf8",
-  "theme_color": "#fafaf8",
+  "background_color": "#FDFDF1",
+  "theme_color": "#EC5E27",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/logo.png",
       "sizes": "any",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any"
     }
   ]
