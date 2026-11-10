@@ -78,8 +78,8 @@ const projects = [
   {
     name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME',
     image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageFit: 'cover',
-    description: 'Jogo original de dedução criminal, com casos gerados proceduralmente, pistas interligadas e progressão de campanha. Continua em desenvolvimento.',
-    descriptionEn: 'An original criminal deduction game with procedurally generated cases, connected clues and campaign progression. Still in development.',
+    description: 'Jogo original de dedução criminal, centrado na análise de pistas e resolução de casos. Continua em desenvolvimento.',
+    descriptionEn: 'An original criminal deduction game focused on analysing clues and solving cases. Still in development.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
     status: 'Em desenvolvimento'
   },
