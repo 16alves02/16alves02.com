@@ -108,3 +108,5 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
 .header-contact{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;background:var(--text);color:var(--bg);font-size:11px;transition:background .2s ease,transform .2s ease}
 .header-contact:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
 @media(max-width:720px){.header-contact{display:none}}
+
+.form-error{margin:0;color:#b33a2b;font-size:12px;line-height:1.6}
