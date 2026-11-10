@@ -68,11 +68,7 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
   .project-preview{height:175px}
 }
 
-/* Compact, recognisable text marks for social links. */
-.socials{flex-wrap:wrap}.socials a{display:inline-flex;align-items:center;width:auto;height:auto;padding:3px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;color:var(--muted);font:500 10px/1.5 'DM Sans',sans-serif;letter-spacing:0;transition:color .2s ease,border-color .2s ease,transform .2s ease}.socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
-
-.legal-links{display:flex;gap:14px;align-items:center}.legal-links a{font-size:10px;color:var(--muted);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}.legal-links a:hover{color:var(--accent);text-decoration-color:var(--accent)}
-@media(max-width:720px){.legal-links{width:100%;order:3}.footer>span{order:4}}
+.socials{display:flex;align-items:center;gap:13px;flex-wrap:wrap}.socials a{display:grid;place-items:center;width:30px;height:30px;padding:0;border:1px solid transparent;border-radius:50%;color:var(--muted);transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease}.socials a:hover{color:var(--accent);border-color:var(--line);background:var(--surface);transform:translateY(-2px)}.socials svg{width:17px;height:17px}.legal-links{display:flex;gap:14px;align-items:center}.legal-links a{font-size:10px;color:var(--muted);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}.legal-links a:hover{color:var(--accent);text-decoration-color:var(--accent)}@media(max-width:720px){.legal-links{width:100%;order:3}.footer>span{order:4}}
 
 /* Recruiter-focused skills and internship sections. */
 .skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px;border-top:1px solid var(--line);padding-top:25px}.skill-group{border-bottom:1px solid var(--line);padding-bottom:22px}.skill-group>span{font:600 10px 'DM Sans',sans-serif;letter-spacing:1px;color:var(--muted);text-transform:uppercase}.skill-group .tags{margin-top:13px}.internship-note{max-width:var(--max);margin:0 auto;padding:0 28px 80px}.internship-note>div{border-left:3px solid var(--accent);background:var(--surface);padding:22px 25px;max-width:760px}.internship-note p{margin:12px 0 0;max-width:680px;color:var(--muted);font-size:14px;line-height:1.8}
@@ -114,3 +110,14 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
 /* Brand mark inherits the orange accent while retaining the original SVG silhouette. */
 .brand-lockup>.brand-symbol{display:block;width:34px;height:34px;flex:none;background:var(--accent);-webkit-mask:url('/logo.svg') center/contain no-repeat;mask:url('/logo.svg') center/contain no-repeat}
 @media(max-width:720px){.brand-lockup>.brand-symbol{width:31px;height:31px}}
+
+
+/* Consistent motion: restrained, transform/opacity-only transitions. */
+@media (prefers-reduced-motion: no-preference) {
+  .project-row{transition:transform .28s cubic-bezier(.2,.7,.2,1),border-color .28s ease}
+  .project-row:hover{transform:translateX(5px)}
+  .primary-link,.secondary-link,.cv-link,.header-contact,.icon-button,.text-button{transition:transform .22s ease,color .22s ease,background .22s ease,border-color .22s ease}
+  .primary-link:hover,.cv-link:hover,.header-contact:hover{transform:translateY(-2px)}
+  .faq-item summary{transition:color .2s ease}
+  .faq-item summary:hover{color:var(--accent)}
+}
