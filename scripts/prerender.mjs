@@ -24,11 +24,16 @@ try {
     throw new Error('Could not find the empty React root in dist/index.html');
   }
 
-  await writeFile(
-    outputPath,
-    document.replace(rootElement, '<div id="root">' + markup + '</div>'),
-    'utf8',
-  );
+  let output = document.replace(rootElement, '<div id="root">' + markup + '</div>');
+  const stylesheetLink = output.match(/<link\\b(?=[^>]*\\brel="stylesheet")(?=[^>]*\\bhref="([^"]+)")[^>]*>/);
+
+  if (stylesheetLink) {
+    const stylesheetPath = resolve(root, 'dist', stylesheetLink[1].replace(/^\\/+/, ''));
+    const stylesheet = await readFile(stylesheetPath, 'utf8');
+    output = output.replace(stylesheetLink[0], '<style>' + stylesheet + '</style>');
+  }
+
+  await writeFile(outputPath, output, 'utf8');
 } finally {
   await server.close();
 }
