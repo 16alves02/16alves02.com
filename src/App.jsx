@@ -116,6 +116,10 @@ export default function App() {
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
 
+  useEffect(() => {
+    document.documentElement.lang = pt ? 'pt-PT' : 'en';
+  }, [pt]);
+
   const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
