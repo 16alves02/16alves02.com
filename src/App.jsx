@@ -21,6 +21,7 @@ const content = {
     cv: 'Descarregar CV',
     allProjects: 'Ver projeto', private: 'Projeto privado', progress: 'Em desenvolvimento',
     footer: 'Desenhado e desenvolvido por Leonardo Alves.',
+    privacyLabel: 'Privacidade', termsLabel: 'Termos',
     workLabel: 'TRABALHO', profileLabel: 'PERFIL', backgroundLabel: 'PERCURSO', contactLabel: 'CONTACTO',
     focusLabel: 'FOCO', locationLabel: 'LOCALIZAÇÃO', educationLabel: 'FORMAÇÃO',
     focusValue: <>Desenvolvimento de Software<br />Web · Backend · Aplicações</>,
@@ -49,6 +50,7 @@ const content = {
     cv: 'Download CV',
     allProjects: 'View project', private: 'Private project', progress: 'In development',
     footer: 'Designed and developed by Leonardo Alves.',
+    privacyLabel: 'Privacy', termsLabel: 'Terms',
     workLabel: 'WORK', profileLabel: 'PROFILE', backgroundLabel: 'BACKGROUND', contactLabel: 'CONTACT',
     focusLabel: 'FOCUS', locationLabel: 'LOCATION', educationLabel: 'EDUCATION',
     focusValue: <>Software Development<br />Web · Backend · Applications</>,
@@ -283,7 +285,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([mark, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><span aria-hidden="true">{mark}</span></a>)}</div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
+      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([mark, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><span aria-hidden="true">{mark}</span></a>)}</div><nav className="legal-links" aria-label={pt ? 'Informação legal' : 'Legal information'}><a href="/privacy.html">{t.privacyLabel}</a><a href="/terms.html">{t.termsLabel}</a></nav><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
 }
