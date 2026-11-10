@@ -25,10 +25,10 @@ try {
   }
 
   let output = document.replace(rootElement, '<div id="root">' + markup + '</div>');
-  const stylesheetLink = output.match(/<link\\b(?=[^>]*\\brel="stylesheet")(?=[^>]*\\bhref="([^"]+)")[^>]*>/);
+  const stylesheetLink = output.match(/<link\b(?=[^>]*\brel="stylesheet")(?=[^>]*\bhref="([^"]+)")[^>]*>/);
 
   if (stylesheetLink) {
-    const stylesheetPath = resolve(root, 'dist', stylesheetLink[1].replace(/^\\/+/, ''));
+    const stylesheetPath = resolve(root, 'dist', stylesheetLink[1].replace(/^\/+/, ''));
     const stylesheet = await readFile(stylesheetPath, 'utf8');
     output = output.replace(stylesheetLink[0], '<style>' + stylesheet + '</style>');
   }
