@@ -78,8 +78,8 @@ const projects = [
   {
     name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME',
     image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageFit: 'cover',
-    description: 'Jogo original de dedução criminal, com casos gerados proceduralmente, pistas interligadas e progressão de campanha. Continua em desenvolvimento.',
-    descriptionEn: 'An original criminal deduction game with procedurally generated cases, connected clues and campaign progression. Still in development.',
+    description: 'Jogo original de dedução criminal, centrado na análise de pistas e resolução de casos. Continua em desenvolvimento.',
+    descriptionEn: 'An original criminal deduction game focused on analysing clues and solving cases. Still in development.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
     status: 'Em desenvolvimento'
   },
@@ -242,7 +242,7 @@ export default function App() {
         </section>
 
         <section className="section experience-section reveal" id="experience">
-          <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />CTeSP in Software Development<br />Escola Superior Aveiro Norte · Universidade de Aveiro<br />2025–2027</p></div>
+          <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{pt ? <>CTeSP em Desenvolvimento de Software<br />Escola Superior Aveiro Norte · Universidade de Aveiro</> : <>CTeSP in Software Development<br />Escola Superior Aveiro Norte · University of Aveiro</>}<br />2025–2027</p></div>
           <div className="experience-list">{experience.map(([date, role, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{role}</strong><span>{company}</span></div>)}</div>
           <div className="education-note"><span>2020 — 2023</span><p>Curso Profissional de Gestão e Programação de Sistemas Informáticos<br />Escola Secundária Dr. Serafim Leite</p></div>
         </section>
