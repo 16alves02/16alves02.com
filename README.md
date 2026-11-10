@@ -14,8 +14,8 @@ Software Developer with practical experience in web and backend development, cur
 ## Selected work
 
 - **SaborGest** — academic management system combining a PHP web panel, REST API, relational database and Kotlin Android kiosk. In development; not production-ready.
-- **RunLattice** — early-stage workflow automation prototype with visual workflows, background execution, signed webhooks and a Discord action. Not production-ready.
-- **MRDR.** — original criminal deduction game with procedurally generated cases and connected clues. In development.
+- **RunLattice** — early-stage workflow automation prototype. Not production-ready.
+- **MRDR.** — original criminal deduction game focused on clue analysis and case solving. In development.
 - **RAW.** — interactive social conversation and party-game application. Source repository is private.
 - **HOOP** — academic basketball-store frontend with product discovery, filters, favourites, cart and simulated checkout.
 
@@ -37,7 +37,11 @@ Project descriptions distinguish implemented work from prototypes and academic s
 
 The site is intentionally static and lightweight: React, Vite, semantic HTML and CSS. It includes Portuguese and English content, light and dark themes, responsive navigation, project links, CV downloads and a contact form.
 
-The contact form uses FormSubmit as a third-party form relay. There is no custom backend, database, CMS, admin area or Supabase dependency. The first submission may require confirming the destination email address with the form provider.
+The contact form uses FormSubmit as a third-party form relay. Form submissions are handled by that provider and are subject to its privacy policy and processing practices. The first submission may require confirming the destination email address with FormSubmit. There is no custom backend, database, CMS or admin area. The portfolio does not currently have an analytics provider connected, so clicks, CV downloads and form conversions are not being measured.
+
+## Professional objective
+
+Seeking a **paid 680-hour curricular internship**, expected to start in February 2027. Open to opportunities around Aveiro, Porto and Coimbra, including remote work.
 
 ## Local development
 
