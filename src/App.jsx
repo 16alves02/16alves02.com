@@ -179,6 +179,7 @@ export default function App() {
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState('');
   const t = content[language];
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
@@ -312,7 +313,7 @@ export default function App() {
 
         <section className="contact-section reveal" id="contact">
           <div className="contact-copy"><span className="eyebrow-number">05 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
-          <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST" onSubmit={() => setIsSubmitting(true)}>
+          <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST" onInvalid={() => setFormError(pt ? "Verifica os campos obrigatórios e o formato do email." : "Please check the required fields and email format.")} onSubmit={() => { setFormError(""); setIsSubmitting(true); }}>
             <input type="hidden" name="_subject" value={pt ? "Novo contacto através do portefólio" : "New message from the portfolio"} />
             <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_template" value="table" />
@@ -322,6 +323,7 @@ export default function App() {
             <label>{t.email}<input type="email" name="email" required maxLength="254" autoComplete="email" /></label>
             <label>{t.subject}<input name="subject" required maxLength="140" /></label>
             <label>{t.message}<textarea name="message" rows="4" required minLength="10" maxLength="4000" /></label>
+            {formError && <p className="form-error" role="alert">{formError}</p>}
             <button type="submit" disabled={isSubmitting}>{isSubmitting ? t.sending : t.send} <ArrowUpRight size={17} /></button>
             <small>{t.direct} <a href="mailto:16alves02@gmail.com">16alves02@gmail.com</a></small>
           </form>
