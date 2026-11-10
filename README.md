@@ -15,6 +15,15 @@ Software Developer with practical experience in web and backend development, cur
 
 Seeking a **680-hour curricular internship starting in February 2027**, preferably paid. Open to opportunities in the Aveiro, Porto and Coimbra areas, as well as suitable remote or hybrid arrangements.
 
+## Technical skills
+
+Technologies and tools used across the projects shown here:
+
+- **Languages:** JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL
+- **Frontend and applications:** HTML, CSS, React, Next.js, Vite, Android
+- **Backend and data:** REST APIs, MySQL, PostgreSQL, Redis, Ktor
+- **Tools:** Git, GitHub, Docker, Prisma
+
 ## Projects
 
 - **SaborGest** — academic management system for small food businesses, combining a PHP web panel, REST API, relational database and Kotlin Android kiosk. In development.
