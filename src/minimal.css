@@ -104,3 +104,7 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
  .mobile-contact-cta{position:fixed;z-index:20;display:flex;align-items:center;justify-content:center;gap:9px;left:16px;right:16px;bottom:max(14px,env(safe-area-inset-bottom));padding:14px 18px;background:var(--text);color:var(--bg);font-size:12px;font-weight:600;box-shadow:0 8px 28px rgba(0,0,0,.16)}
  .footer{padding-bottom:90px}
 }
+
+.header-contact{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;background:var(--text);color:var(--bg);font-size:11px;transition:background .2s ease,transform .2s ease}
+.header-contact:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
+@media(max-width:720px){.header-contact{display:none}}
