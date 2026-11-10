@@ -1,0 +1,69 @@
+name: Production Lighthouse
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.23.4"
+
+      - name: Wait for the Cloudflare Pages production release
+        shell: bash
+        run: |
+          site="https://16alves02.pages.dev/"
+          marker='name="portfolio-build" content="2026-11-10-static-pages"'
+          for attempt in {1..30}; do
+            html="$(curl --fail --silent --show-error --max-time 20 "$site" 2>/dev/null || true)"
+            if grep -Fq "$marker" <<< "$html"; then
+              echo "Cloudflare Pages is serving the expected release."
+              exit 0
+            fi
+            echo "Waiting for Cloudflare Pages deployment ($attempt/30)..."
+            sleep 10
+          done
+          echo "The expected release was not detected at $site."
+          exit 1
+
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Install Lighthouse
+        run: npm install --global lighthouse@12.8.2
+
+      - name: Run Lighthouse
+        run: |
+          lighthouse https://16alves02.pages.dev/ \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --output=json \
+            --output-path=./lighthouse-report.json \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --quiet
+
+      - name: Print category scores
+        run: |
+          node --input-type=module -e '
+            import fs from "node:fs";
+            const report = JSON.parse(fs.readFileSync("lighthouse-report.json", "utf8"));
+            for (const [key, category] of Object.entries(report.categories)) {
+              console.log(category.title + ": " + Math.round(category.score * 100) + "/100");
+            }
+          '
+
+      - name: Upload Lighthouse report
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-lighthouse-report
+          path: lighthouse-report.json
+          if-no-files-found: error
