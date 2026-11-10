@@ -26,7 +26,7 @@ function ratio(a, b) {
 }
 assert.ok(ratio('#191919', '#fafaf8') >= 4.5, 'Light theme body text must meet WCAG AA');
 assert.ok(ratio('#f1f1ec', '#171715') >= 4.5, 'Dark theme body text must meet WCAG AA');
-assert.ok(ratio('#777771', '#fafaf8') >= 4.5, 'Light theme muted text must meet WCAG AA');
+assert.ok(ratio('#6b6b65', '#fafaf8') >= 4.5, 'Light theme muted text must meet WCAG AA');
 assert.ok(ratio('#aaa9a1', '#171715') >= 4.5, 'Dark theme muted text must meet WCAG AA');
 
 console.log('Minimal portfolio accessibility and theme checks passed.');
