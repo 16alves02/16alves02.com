@@ -1,19 +1,21 @@
-# Leonardo Alves — Software Developer Portfolio
+# Leonardo Alves, Software Developer Portfolio
 
 A lightweight, static portfolio for Leonardo Alves, Software Developer and Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro.
 
 **Live site:** https://16alves02.pages.dev  
 **GitHub:** https://github.com/16alves02  
 **LinkedIn:** https://www.linkedin.com/in/16alves02/  
+**Instagram:** https://www.instagram.com/16alves02/  
+**Academic GitHub:** https://github.com/13alves05  
 **Contact:** 16alves02@gmail.com
 
 ## About
 
-Software Developer with practical experience in web and backend development, currently studying for a CTeSP in Software Development (2025–2027).
+Software Developer with practical experience in web and backend development, currently studying for a CTeSP in Software Development (2025-2027).
 
 ## Current objective
 
-Seeking a **680-hour curricular internship starting in February 2027**, preferably paid. Open to opportunities in the Aveiro, Porto and Coimbra areas, with a preference for remote work.
+Seeking a **paid 680-hour curricular internship starting in February 2027**. Based in Oliveira de Azeméis, open to on-site work nearby and hybrid or remote opportunities across Aveiro, Porto and Coimbra.
 
 ## Technical skills
 
@@ -26,30 +28,30 @@ Technologies and tools used across the projects shown here:
 
 ## Projects
 
-- **SaborGest** — academic system for managing schedules, attendance and stock in small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk. In development.
-- **RunLattice** — early-stage workflow automation prototype with a visual editor, templates, background execution, scheduled and signed-webhook triggers, AI workflow planning drafts for user review, and a Discord integration. Not production-ready.
-- **MRDR.** — original criminal deduction game focused on analysing clues and solving cases. In development.
-- **RAW.** — interactive conversation and party-game application. Its source repository is private.
-- **HOOP** — academic basketball-store frontend built with React, TypeScript, Vite and React Router. Includes search, filters, favourites, cart and a simulated checkout; it does not process real payments.
-- **Basket Hub** — academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.
-- **Tocadiscos Editora** — academic command-line application for managing artists, albums and tracks, with search, financial reports, audio playback and reversible change history.
-- **Todo App** — browser-based task manager with filters, completed tasks, local storage and keyboard navigation.
-- **ArraySorting** — interactive C program demonstrating Selection Sort, Insertion Sort, Bubble Sort and Bogo Sort.
-- **Two of Hearts** — vector illustration inspired by the Minho love handkerchiefs, reinterpreting traditional Portuguese motifs as a playing card.
+- **SaborGest**, academic system for managing schedules, attendance and stock in small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk. In development.
+- **RunLattice**, early-stage workflow automation prototype with a visual editor, templates, background execution, scheduled and signed-webhook triggers, AI workflow planning drafts for user review, and a Discord integration. Not production-ready.
+- **MRDR.**, original criminal deduction game focused on analysing clues and solving cases. In development.
+- **RAW.**, social card app with three modes, 27 decks and six languages. Public demos are available; the project remains in development and its source repository is private.
+- **HOOP**, academic basketball-store frontend built with React, TypeScript, Vite and React Router. Includes search, filters, favourites, cart and a simulated checkout; it does not process real payments.
+- **Basket Hub**, academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.
+- **Tocadiscos Editora**, academic command-line application for managing artists, albums and tracks, with search, financial reports, audio playback and reversible change history.
+- **Todo App**, browser-based task manager with filters, completed tasks, local storage and keyboard navigation.
+- **ArraySorting**, interactive C program demonstrating Selection Sort, Insertion Sort, Bubble Sort and Bogo Sort.
+- **Two of Hearts**, vector illustration inspired by the Minho love handkerchiefs, reinterpreting traditional Portuguese motifs as a playing card.
 
 Project descriptions distinguish academic work, prototypes and projects still in development from production-ready software.
 
 ## Education
 
-- **CTeSP in Software Development** — Escola Superior Aveiro Norte, Universidade de Aveiro · 2025–2027
-- **Professional Course in IT Systems Management and Programming** — Escola Secundária Dr. Serafim Leite · 2020–2023
+- **CTeSP in Software Development**, Escola Superior Aveiro Norte, Universidade de Aveiro · 2025-2027
+- **Professional Course in IT Systems Management and Programming**, Escola Secundária Dr. Serafim Leite · 2020-2023
 
 ## Experience
 
-- CNC Machine Operator — Schmidt Light Metal Group · 2025–2026
-- Store Operator — MC · 2024
-- Backend Development Intern — ClickBeauty / Alvocromático · 2023
-- Web Development Intern — Associação Estamos Juntos (AEJ) · 2022
+- CNC Machine Operator, Schmidt Light Metal Group · 2025-2026
+- Store Operator, MC · 2024
+- Backend Development Intern, ClickBeauty / Alvocromático · 2023
+- Web Development Intern, Associação Estamos Juntos (AEJ) · 2022
 
 ## Technical approach
 
