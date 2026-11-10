@@ -11,15 +11,20 @@ A lightweight, static portfolio for Leonardo Alves, Software Developer and Softw
 
 Software Developer with practical experience in web and backend development, currently studying for a CTeSP in Software Development (2025–2027).
 
-## Selected work
+## Projects
 
-- **SaborGest** — academic management system combining a PHP web panel, REST API, relational database and Kotlin Android kiosk. In development; not production-ready.
-- **RunLattice** — early-stage workflow automation prototype with visual workflows, background execution, signed webhooks and a Discord action. Not production-ready.
-- **MRDR.** — original criminal deduction game with procedurally generated cases and connected clues. In development.
-- **RAW.** — interactive social conversation and party-game application. Source repository is private.
-- **HOOP** — academic basketball-store frontend with product discovery, filters, favourites, cart and simulated checkout.
+- **SaborGest** — academic management system for small food businesses, combining a PHP web panel, REST API, relational database and Kotlin Android kiosk. In development.
+- **RunLattice** — early-stage workflow automation platform prototype with a visual workflow editor, background execution, signed webhooks and a Discord integration. Not production-ready.
+- **MRDR.** — original criminal deduction game focused on analysing clues and solving cases. In development.
+- **RAW.** — interactive conversation and party-game application. Its source repository is private.
+- **HOOP** — academic basketball-store frontend with search, filters, favourites, cart and a simulated checkout; it does not process real payments.
+- **Basket Hub** — academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.
+- **Tocadiscos Editora** — academic command-line application for managing artists, albums and tracks, with search, financial reports, audio playback and reversible change history.
+- **Todo App** — browser-based task manager with filters, completed tasks, local storage and keyboard navigation.
+- **ArraySorting** — interactive C program demonstrating Selection Sort, Insertion Sort, Bubble Sort and Bogo Sort.
+- **Two of Hearts** — vector illustration inspired by the Minho love handkerchiefs, reinterpreting traditional Portuguese motifs as a playing card.
 
-Project descriptions distinguish implemented work from prototypes and academic simulations.
+Project descriptions distinguish academic work, prototypes and projects still in development from production-ready software.
 
 ## Education
 
@@ -28,10 +33,10 @@ Project descriptions distinguish implemented work from prototypes and academic s
 
 ## Experience
 
-- Backend Development Intern — ClickBeauty / Alvocromático · Apr–Jul 2023
-- Web Development Intern — Associação Estamos Juntos (AEJ) · Jul 2022
-- CNC Machine Operator — Schmidt Light Metal Group · Feb 2025–May 2026
-- Store Operator — MC · May–Aug 2024
+- CNC Machine Operator — Schmidt Light Metal Group · 2025–2026
+- Store Operator — MC · 2024
+- Backend Development Intern — ClickBeauty / Alvocromático · 2023
+- Web Development Intern — Associação Estamos Juntos (AEJ) · 2022
 
 ## Technical approach
 
