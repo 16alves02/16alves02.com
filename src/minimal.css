@@ -77,3 +77,30 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
 /* Recruiter-focused skills and internship sections. */
 .skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px;border-top:1px solid var(--line);padding-top:25px}.skill-group{border-bottom:1px solid var(--line);padding-bottom:22px}.skill-group>span{font:600 10px 'DM Sans',sans-serif;letter-spacing:1px;color:var(--muted);text-transform:uppercase}.skill-group .tags{margin-top:13px}.internship-note{max-width:var(--max);margin:0 auto;padding:0 28px 80px}.internship-note>div{border-left:3px solid var(--accent);background:var(--surface);padding:22px 25px;max-width:760px}.internship-note p{margin:12px 0 0;max-width:680px;color:var(--muted);font-size:14px;line-height:1.8}
 @media(max-width:720px){.skills-grid{grid-template-columns:1fr;gap:18px}.internship-note{padding:0 20px 65px}.internship-note>div{padding:18px}}
+
+/* Portrait-led hero: editorial monochrome image, restrained orange details. */
+.hero-with-portrait{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.72fr);column-gap:clamp(36px,7vw,100px);align-items:center;padding-top:clamp(68px,9vw,112px)}
+.hero-copy{min-width:0}.hero-portrait{position:relative;margin:0;justify-self:end;width:min(100%,370px);height:clamp(360px,43vw,540px);overflow:hidden;background:#171717;border-radius:2px}
+.hero-portrait:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(0,0,0,.7));pointer-events:none}
+.hero-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:grayscale(1);display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.hero-portrait:hover img{transform:scale(1.025)}
+.hero-portrait figcaption{position:absolute;z-index:1;bottom:16px;left:18px;color:#fff;font:600 9px 'DM Sans',sans-serif;letter-spacing:1.4px}
+.hero-portrait figcaption span{color:#ff6a2a}
+.hero-with-portrait .hero-meta{grid-column:1/-1;width:100%}
+.faq-section{border-top:1px solid var(--line)}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line);padding:20px 0}
+.faq-item summary{list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;cursor:pointer;font-size:14px;font-weight:500}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary span{color:var(--accent);font-size:20px;transition:transform .2s ease}
+.faq-item[open] summary span{transform:rotate(45deg)}
+.faq-item p{max-width:720px;color:var(--muted);font-size:13px;line-height:1.8;margin:13px 30px 0 0}
+.mobile-contact-cta{display:none}
+.contact-form button:disabled{opacity:.65;cursor:wait}
+@media(max-width:720px){
+ .hero-with-portrait{grid-template-columns:1fr;gap:28px;padding-top:78px}
+ .hero-portrait{justify-self:start;width:min(100%,340px);height:clamp(320px,105vw,450px);grid-row:2}
+ .hero-with-portrait .hero-meta{grid-row:3;margin-top:35px}
+ .mobile-contact-cta{position:fixed;z-index:20;display:flex;align-items:center;justify-content:center;gap:9px;left:16px;right:16px;bottom:max(14px,env(safe-area-inset-bottom));padding:14px 18px;background:var(--text);color:var(--bg);font-size:12px;font-weight:600;box-shadow:0 8px 28px rgba(0,0,0,.16)}
+ .footer{padding-bottom:90px}
+}
