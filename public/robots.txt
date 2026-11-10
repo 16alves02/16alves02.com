@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://16alves02.pages.dev/sitemap.xml
+Sitemap: https://16alves02-com.vercel.app/sitemap.xml
