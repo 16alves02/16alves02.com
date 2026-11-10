@@ -23,10 +23,10 @@ def styles():
         "name": ParagraphStyle("name", fontName="Helvetica-Bold", fontSize=23, leading=25, textColor=INK, spaceAfter=1),
         "role": ParagraphStyle("role", fontName="Helvetica-Bold", fontSize=9, leading=11, textColor=ACCENT, spaceAfter=4),
         "contact": ParagraphStyle("contact", fontName="Helvetica", fontSize=7.7, leading=9.5, textColor=MUTED),
-        "section": ParagraphStyle("section", fontName="Helvetica-Bold", fontSize=9, leading=10.5, textColor=INK, spaceBefore=5, spaceAfter=2),
-        "body": ParagraphStyle("body", fontName="Helvetica", fontSize=7.7, leading=9.5, textColor=INK, spaceAfter=1.2),
-        "small": ParagraphStyle("small", fontName="Helvetica", fontSize=7.1, leading=8.6, textColor=MUTED, spaceAfter=1),
-        "project": ParagraphStyle("project", fontName="Helvetica", fontSize=7.2, leading=8.7, textColor=INK, spaceAfter=1.4),
+        "section": ParagraphStyle("section", fontName="Helvetica-Bold", fontSize=9.4, leading=11.2, textColor=INK, spaceBefore=5, spaceAfter=2),
+        "body": ParagraphStyle("body", fontName="Helvetica", fontSize=8.1, leading=10.0, textColor=INK, spaceAfter=1.2),
+        "small": ParagraphStyle("small", fontName="Helvetica", fontSize=7.5, leading=9.1, textColor=MUTED, spaceAfter=1),
+        "project": ParagraphStyle("project", fontName="Helvetica", fontSize=7.7, leading=9.3, textColor=INK, spaceAfter=1.4),
     }
 
 def p(text, s, style="body"):
@@ -109,14 +109,15 @@ def build(path, english=False):
         filename = "cv-leonardo-alves-pt.pdf"
 
     doc = SimpleDocTemplate(str(PUBLIC / filename), pagesize=A4, rightMargin=13*mm, leftMargin=13*mm,
-                            topMargin=10*mm, bottomMargin=10*mm,
+                            topMargin=11*mm, bottomMargin=10*mm,
                             title="Leonardo Alves - CV", author="Leonardo Alves")
     story = [
         p("LEONARDO ALVES", s, "name"),
         p(escape(role), s, "role"),
         p('<link href="mailto:16alves02@gmail.com" color="#55554F">16alves02@gmail.com</link>  ·  +351 913 958 525  ·  Oliveira de Azeméis, Portugal<br/>'
           '<link href="https://16alves02.pages.dev/" color="#EC5E27">16alves02.com</link>  ·  '
-          '<link href="https://github.com/16alves02" color="#EC5E27">GitHub</link>  ·  '
+          '<link href="https://github.com/16alves02" color="#EC5E27">GitHub pessoal</link>  ·  '
+          '<link href="https://github.com/13alves05" color="#EC5E27">GitHub académico</link>  ·  '
           '<link href="https://www.linkedin.com/in/16alves02/" color="#EC5E27">LinkedIn</link>', s, "contact"),
         Spacer(1, 4),
     ]
