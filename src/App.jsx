@@ -65,7 +65,7 @@ const content = {
 const projects = [
   {
     name: 'SaborGest', year: '2026–27', type: 'ACADEMIC · WEB / ANDROID', typePt: 'ACADÉMICO · WEB / ANDROID',
-    image: 'https://raw.githubusercontent.com/16alves02/SaborGest/main/web/assets/saborgest-logo.png', imageAlt: 'Logótipo do SaborGest', imageFit: 'contain',
+    image: 'https://raw.githubusercontent.com/16alves02/SaborGest/main/web/assets/saborgest-logo.png', imageAlt: 'Logótipo do SaborGest', imageAltEn: 'SaborGest logo', imageFit: 'contain',
     description: 'Sistema académico de gestão para pequenos negócios de restauração, com painel web em PHP, API REST, base de dados relacional e quiosque Android em Kotlin.',
     descriptionEn: 'An academic management system for small food businesses, with a PHP web panel, REST API, relational database and Kotlin Android kiosk.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
@@ -74,7 +74,7 @@ const projects = [
   },
   {
     name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
-    image: 'https://raw.githubusercontent.com/16alves02/RunLattice/main/public/brand/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageFit: 'contain',
+    image: 'https://raw.githubusercontent.com/16alves02/RunLattice/main/public/brand/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
     description: 'Protótipo de uma plataforma de automação com editor visual de workflows, execução assíncrona, webhooks assinados e integração Discord.',
     descriptionEn: 'An early-stage workflow automation platform with a visual editor, background execution, signed webhooks and a Discord integration.',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
@@ -83,7 +83,7 @@ const projects = [
   },
   {
     name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME', typePt: 'ALV16 STUDIOS · JOGO',
-    image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageFit: 'cover',
+    image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageAltEn: 'MRDR game identity artwork', imageFit: 'cover',
     description: 'Jogo original de dedução criminal, centrado na análise de pistas e resolução de casos. Continua em desenvolvimento.',
     descriptionEn: 'An original criminal deduction game focused on analysing clues and solving cases. Still in development.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
@@ -98,7 +98,7 @@ const projects = [
   },
   {
     name: 'HOOP', year: '2025', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
-    image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageFit: 'cover',
+    image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageAltEn: 'HOOP storefront homepage screenshot', imageFit: 'cover',
     description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
     descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
     stack: ['HTML', 'CSS', 'JavaScript'],
@@ -124,7 +124,7 @@ const projects = [
   {
     name: 'Todo App', year: '2025', type: 'PERSONAL · WEB APPLICATION', typePt: 'PESSOAL · APLICAÇÃO WEB',
     image: 'https://raw.githubusercontent.com/16alves02/todo-app/main/assets/screenshot.png',
-    imageAlt: 'Captura real da aplicação Todo App', imageFit: 'cover',
+    imageAlt: 'Captura real da aplicação Todo App', imageAltEn: 'Todo App interface screenshot', imageFit: 'cover',
     description: 'Gestor de tarefas no browser com filtros, tarefas concluídas, armazenamento local e navegação por teclado.',
     descriptionEn: 'A browser-based task manager with filters, completed tasks, local storage and keyboard navigation.',
     stack: ['HTML', 'CSS', 'JavaScript', 'localStorage'],
@@ -143,7 +143,7 @@ const projects = [
   {
     name: 'Two of Hearts', year: '2026', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
     image: 'https://raw.githubusercontent.com/16alves02/two-of-hearts-portuguese-folk-art/main/assets/front.png',
-    imageAlt: 'Ilustração vetorial final da carta Two of Hearts', imageFit: 'contain',
+    imageAlt: 'Ilustração vetorial final da carta Two of Hearts', imageAltEn: 'Final Two of Hearts vector illustration', imageFit: 'contain',
     description: 'Ilustração vetorial inspirada nos Lenços de Namorados do Minho, reinterpretando motivos tradicionais portugueses numa carta de jogar.',
     descriptionEn: 'A vector illustration inspired by the Minho love handkerchiefs, reinterpreting traditional Portuguese motifs as a playing card.',
     stack: ['Affinity', 'Vector Illustration', 'Portuguese Folk Art'],
@@ -184,6 +184,12 @@ export default function App() {
     if (description) description.content = pt
       ? 'Portefólio de Leonardo Alves, Software Developer em Portugal. Explora projetos de software, aplicações web, backend e desenvolvimento Android.'
       : 'Portfolio of Leonardo Alves, Software Developer in Portugal. Explore software projects, web applications, backend and Android development.';
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = pt ? 'Leonardo Alves — Software Developer' : 'Leonardo Alves — Software Developer';
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) ogDescription.content = pt
+      ? 'Projetos de software, desenvolvimento web e aplicações por Leonardo Alves.'
+      : 'Software projects, web development and applications by Leonardo Alves.';
   }, [pt]);
 
   const closeMenu = () => setMenuOpen(false);
@@ -241,7 +247,7 @@ export default function App() {
               <article className="project-row reveal" key={project.name}>
                 <span className="project-index">0{i + 1}</span>
                 <div className="project-main">
-                  {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''}`} src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />}
+                  {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''}`} src={project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" />}
                   <div className="project-topline"><span>{pt ? project.typePt : project.type}</span><span>{project.year}</span></div>
                   <h3>{project.name}</h3>
                   <p>{pt ? project.description : project.descriptionEn}</p>
