@@ -32,7 +32,7 @@ const content = {
     educationHeading: 'CTeSP em Desenvolvimento de Software', educationPlace: 'Escola Superior Aveiro Norte · Universidade de Aveiro · 2025–2027',
     cnc: 'Operador de máquina CNC', store: 'Operador de loja', backendIntern: 'Estágio de desenvolvimento back-end', webIntern: 'Estágio de desenvolvimento Web',
     skillsGroups: ['Linguagens', 'Frontend e aplicações', 'Backend e dados', 'Ferramentas'],
-    socialLabel: 'Redes e perfis'
+    socialLabel: 'Redes e perfis', professionalCourse: 'Curso Profissional de Gestão e Programação de Sistemas Informáticos', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
   },
   en: {
     nav: ['Projects', 'About', 'Experience', 'Contact'],
@@ -64,7 +64,7 @@ const content = {
     educationHeading: 'CTeSP in Software Development', educationPlace: 'Escola Superior Aveiro Norte · University of Aveiro · 2025–2027',
     cnc: 'CNC Machine Operator', store: 'Store Assistant', backendIntern: 'Back-end Development Intern', webIntern: 'Web Development Intern',
     skillsGroups: ['Languages', 'Frontend & applications', 'Backend & data', 'Tools'],
-    socialLabel: 'Social profiles'
+    socialLabel: 'Social profiles', professionalCourse: 'Vocational Course in IT Systems Management and Programming', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
   }
 };
 
@@ -260,20 +260,20 @@ export default function App() {
           <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>{t.focusLabel}</span><p>{t.focusValue}</p></div><div><span>{t.locationLabel}</span><p>{t.locationValue}</p></div><div><span>{t.educationLabel}</span><p>{t.educationValue}</p></div></div></div>
         </section>
 
-        <section className="section skills-section reveal" id="skills"><div className="section-heading"><div><span className="eyebrow-number">03 / SKILLS</span><h2>{t.skills}</h2></div><p>{t.skillsIntro}</p></div><div className="skills-grid">{skillGroups.map((group, i) => <div className="skill-group" key={group.key}><span>{t.skillsGroups[i]}</span><div className="tags">{group.items.map(item => <span key={item}>{item}</span>)}</div></div>)}</div></section>
+        <section className="section skills-section reveal" id="skills"><div className="section-heading"><div><span className="eyebrow-number">03 / {pt ? 'COMPETÊNCIAS' : 'SKILLS'}</span><h2>{t.skills}</h2></div><p>{t.skillsIntro}</p></div><div className="skills-grid">{skillGroups.map((group, i) => <div className="skill-group" key={group.key}><span>{t.skillsGroups[i]}</span><div className="tags">{group.items.map(item => <span key={item}>{item}</span>)}</div></div>)}</div></section>
 
         <section className="section experience-section reveal" id="experience">
           <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{t.educationHeading}<br />{t.educationPlace}</p></div>
           <div className="experience-list">{experience.map(([date, roleKey, roleEn, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{pt ? t[roleKey] : roleEn}</strong><span>{company}</span></div>)}</div>
-          <div className="education-note"><span>2020 — 2023</span><p>Curso Profissional de Gestão e Programação de Sistemas Informáticos<br />Escola Secundária Dr. Serafim Leite</p></div>
+          <div className="education-note"><span>2020 — 2023</span><p>{t.professionalCourse}<br />{t.professionalSchool}</p></div>
         </section>
 
-        <section className="internship-note reveal"><div><span className="eyebrow-number">{t.internship}</span><p>{t.internshipText}</p></div></section>
+        <section className="internship-note reveal"><div><span className="eyebrow-number">04 / {t.internship}</span><p>{t.internshipText}</p></div></section>
 
         <section className="contact-section reveal" id="contact">
           <div className="contact-copy"><span className="eyebrow-number">04 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
           <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Novo contacto através do portefólio" />
+            <input type="hidden" name="_subject" value={pt ? 'Novo contacto através do portefólio' : 'New contact from portfolio'} />
             <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_template" value="table" />
             <input type="text" name="_honey" className="honeypot" tabIndex="-1" aria-hidden="true" autoComplete="off" />
