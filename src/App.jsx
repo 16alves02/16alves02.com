@@ -59,6 +59,7 @@ const content = {
 const projects = [
   {
     name: 'SaborGest', year: '2026–27', type: 'ACADEMIC · WEB / ANDROID',
+    image: 'https://raw.githubusercontent.com/16alves02/SaborGest/main/web/assets/saborgest-logo.png', imageAlt: 'Logótipo do SaborGest', imageFit: 'contain',
     description: 'Sistema académico de gestão para pequenos negócios de restauração, com painel web em PHP, API REST, base de dados relacional e quiosque Android em Kotlin.',
     descriptionEn: 'An academic management system for small food businesses, with a PHP web panel, REST API, relational database and Kotlin Android kiosk.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
@@ -67,6 +68,7 @@ const projects = [
   },
   {
     name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION',
+    image: 'https://raw.githubusercontent.com/16alves02/RunLattice/main/public/brand/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageFit: 'contain',
     description: 'Protótipo de uma plataforma de automação com editor visual de workflows, execução assíncrona, webhooks assinados e integração Discord.',
     descriptionEn: 'An early-stage workflow automation platform with a visual editor, background execution, signed webhooks and a Discord integration.',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
@@ -75,6 +77,7 @@ const projects = [
   },
   {
     name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME',
+    image: 'https://raw.githubusercontent.com/16alves02/MRDR/main/public/brand/cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageFit: 'cover',
     description: 'Jogo original de dedução criminal, com casos gerados proceduralmente, pistas interligadas e progressão de campanha. Continua em desenvolvimento.',
     descriptionEn: 'An original criminal deduction game with procedurally generated cases, connected clues and campaign progression. Still in development.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
@@ -89,6 +92,7 @@ const projects = [
   },
   {
     name: 'HOOP', year: '2025', type: 'ACADEMIC · E-COMMERCE',
+    image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageFit: 'cover',
     description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
     descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
     stack: ['HTML', 'CSS', 'JavaScript'],
@@ -167,6 +171,7 @@ export default function App() {
               <article className="project-row reveal" key={project.name}>
                 <span className="project-index">0{i + 1}</span>
                 <div className="project-main">
+                  {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''}`} src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />}
                   <div className="project-topline"><span>{project.type}</span><span>{project.year}</span></div>
                   <h3>{project.name}</h3>
                   <p>{pt ? project.description : project.descriptionEn}</p>
