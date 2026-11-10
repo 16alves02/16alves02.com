@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="section-divider border-t px-5 py-7 sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
         <a href="#home" className="font-mono text-sm font-medium">
-          16alves02<span className="accent">.</span>
+          <img src="/logo.png" alt="" width="28" height="28" /> 16alves02<span className="accent">.</span>
         </a>
 
         <p className="muted-text text-xs">
