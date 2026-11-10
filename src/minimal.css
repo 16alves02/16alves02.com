@@ -44,3 +44,8 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
     animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important;
   }
 }
+
+/* Project previews sourced from each project's own repository. */
+.project-preview{display:block;width:100%;max-width:560px;height:190px;margin:0 0 22px;border:1px solid var(--line);border-radius:3px;background:var(--surface);object-fit:cover;object-position:center;transition:transform .35s ease,border-color .2s ease}.project-preview-contain{object-fit:contain;padding:22px}.project-row:hover .project-preview{border-color:var(--accent)}
+@media(max-width:720px){.project-preview{height:160px;max-width:100%;margin-bottom:18px}.project-preview-contain{padding:18px}}
+@media(prefers-reduced-motion:reduce){.project-preview{transition:none}}
