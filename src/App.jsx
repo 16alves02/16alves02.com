@@ -47,33 +47,33 @@ const content = {
 const projects = [
   {
     name: 'SaborGest', year: '2026–27', type: 'ACADEMIC · WEB / ANDROID',
-    description: 'Sistema académico de gestão para pequenos negócios de restauração, com painel web em PHP, API REST, base de dados relacional e quiosque Android em Kotlin.',
+    description: 'Sistema académico de gestão para pequenos negócios de restauração, com painel web em PHP, API REST, base de dados relacional e quiosque Android em Kotlin.',\n    descriptionEn: 'An academic management system for small food businesses, with a PHP web panel, REST API, relational database and Kotlin Android kiosk.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
     status: 'Em desenvolvimento',
     href: 'https://github.com/16alves02/SaborGest'
   },
   {
     name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION',
-    description: 'Protótipo de uma plataforma de automação com editor visual de workflows, execução assíncrona, webhooks assinados e integração Discord.',
+    description: 'Protótipo de uma plataforma de automação com editor visual de workflows, execução assíncrona, webhooks assinados e integração Discord.',\n    descriptionEn: 'An early-stage workflow automation platform with a visual editor, background execution, signed webhooks and a Discord integration.',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
     status: 'Protótipo',
     href: 'https://github.com/16alves02/RunLattice'
   },
   {
     name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME',
-    description: 'Jogo original de dedução criminal, com casos gerados proceduralmente, pistas interligadas e progressão de campanha. Continua em desenvolvimento.',
+    description: 'Jogo original de dedução criminal, com casos gerados proceduralmente, pistas interligadas e progressão de campanha. Continua em desenvolvimento.',\n    descriptionEn: 'An original criminal deduction game with procedurally generated cases, connected clues and campaign progression. Still in development.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
     status: 'Em desenvolvimento'
   },
   {
     name: 'RAW.', year: '2026', type: 'ALV16 STUDIOS · SOCIAL GAME',
-    description: 'Aplicação interativa de conversas e jogos sociais, com vários modos, cartões, baralhos e interface multilingue.',
+    description: 'Aplicação interativa de conversas e jogos sociais, com vários modos, cartões, baralhos e interface multilingue.',\n    descriptionEn: 'An interactive conversation and party-game app with multiple modes, cards, decks and a multilingual interface.',
     stack: ['React', 'JavaScript', 'PWA'],
     status: 'Código privado'
   },
   {
     name: 'HOOP', year: '2025', type: 'ACADEMIC · E-COMMERCE',
-    description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
+    description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',\n    descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
     stack: ['HTML', 'CSS', 'JavaScript'],
     href: 'https://hoop-16alves02.netlify.app',
     source: 'https://github.com/16alves02/hoop'
@@ -133,11 +133,11 @@ export default function App() {
                 <div className="project-main">
                   <div className="project-topline"><span>{project.type}</span><span>{project.year}</span></div>
                   <h3>{project.name}</h3>
-                  <p>{project.description}</p>
+                  <p>{pt ? project.description : project.descriptionEn}</p>
                   <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
                 </div>
                 <div className="project-side">
-                  <span className="project-status">{project.status}</span>
+                  <span className="project-status">{pt ? project.status : (project.name === 'RAW.' ? 'Private source' : project.name === 'RunLattice' ? 'Prototype' : project.name === 'HOOP' ? 'Academic project' : 'In development')}</span>
                   {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
                   {project.source && <a href={project.source} target="_blank" rel="noreferrer">GitHub <Github size={15} /></a>}
                 </div>
