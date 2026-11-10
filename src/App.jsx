@@ -32,7 +32,7 @@ const content = {
     educationHeading: 'CTeSP em Desenvolvimento de Software', educationPlace: 'Escola Superior Aveiro Norte · Universidade de Aveiro · 2025–2027',
     cnc: 'Operador de máquina CNC', store: 'Operador de loja', backendIntern: 'Estágio de desenvolvimento back-end', webIntern: 'Estágio de desenvolvimento Web',
     skillsGroups: ['Linguagens', 'Frontend e aplicações', 'Backend e dados', 'Ferramentas'],
-    socialLabel: 'Redes e perfis', professionalCourse: 'Curso Profissional de Gestão e Programação de Sistemas Informáticos', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
+    socialLabel: 'Redes e perfis', academicGithub: 'GitHub académico', nextStep: 'PRÓXIMO OBJETIVO', professionalCourse: 'Curso Profissional de Gestão e Programação de Sistemas Informáticos', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
   },
   en: {
     nav: ['Projects', 'About', 'Experience', 'Contact'],
@@ -64,7 +64,7 @@ const content = {
     educationHeading: 'CTeSP in Software Development', educationPlace: 'Escola Superior Aveiro Norte · University of Aveiro · 2025–2027',
     cnc: 'CNC Machine Operator', store: 'Store Assistant', backendIntern: 'Back-end Development Intern', webIntern: 'Web Development Intern',
     skillsGroups: ['Languages', 'Frontend & applications', 'Backend & data', 'Tools'],
-    socialLabel: 'Social profiles', professionalCourse: 'Vocational Course in IT Systems Management and Programming', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
+    socialLabel: 'Social profiles', academicGithub: 'Academic GitHub', nextStep: 'NEXT OBJECTIVE', professionalCourse: 'Vocational Course in IT Systems Management and Programming', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
   }
 };
 
@@ -263,15 +263,15 @@ export default function App() {
         <section className="section skills-section reveal" id="skills"><div className="section-heading"><div><span className="eyebrow-number">03 / {pt ? 'COMPETÊNCIAS' : 'SKILLS'}</span><h2>{t.skills}</h2></div><p>{t.skillsIntro}</p></div><div className="skills-grid">{skillGroups.map((group, i) => <div className="skill-group" key={group.key}><span>{t.skillsGroups[i]}</span><div className="tags">{group.items.map(item => <span key={item}>{item}</span>)}</div></div>)}</div></section>
 
         <section className="section experience-section reveal" id="experience">
-          <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{t.educationHeading}<br />{t.educationPlace}</p></div>
+          <div className="section-heading"><div><span className="eyebrow-number">04 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{t.educationHeading}<br />{t.educationPlace}</p></div>
           <div className="experience-list">{experience.map(([date, roleKey, roleEn, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{pt ? t[roleKey] : roleEn}</strong><span>{company}</span></div>)}</div>
           <div className="education-note"><span>2020 — 2023</span><p>{t.professionalCourse}<br />{t.professionalSchool}</p></div>
         </section>
 
-        <section className="internship-note reveal"><div><span className="eyebrow-number">04 / {t.internship}</span><p>{t.internshipText}</p></div></section>
+        <section className="internship-note reveal"><div><span className="eyebrow-number">{t.nextStep}</span><p>{t.internshipText}</p></div></section>
 
         <section className="contact-section reveal" id="contact">
-          <div className="contact-copy"><span className="eyebrow-number">04 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
+          <div className="contact-copy"><span className="eyebrow-number">05 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
           <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST">
             <input type="hidden" name="_subject" value={pt ? 'Novo contacto através do portefólio' : 'New contact from portfolio'} />
             <input type="hidden" name="_captcha" value="true" />
@@ -287,7 +287,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials" aria-label={t.socialLabel}><a href="https://github.com/16alves02" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer">GitHub académico</a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer">YouTube</a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer">Twitch</a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer">Uiverse</a><a href="mailto:16alves02@gmail.com">Email</a></div><div className="footer-meta"><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span><div><a href="/privacy.html">{pt ? 'Privacidade' : 'Privacy'}</a><a href="/terms.html">{pt ? 'Termos' : 'Terms'}</a></div></div></footer>
+      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials" aria-label={t.socialLabel}><a href="https://github.com/16alves02" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer" >{t.academicGithub}</a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer">YouTube</a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer">Twitch</a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer">Uiverse</a><a href="mailto:16alves02@gmail.com">Email</a></div><div className="footer-meta"><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span><div><a href="/privacy.html">{pt ? 'Privacidade' : 'Privacy'}</a><a href="/terms.html">{pt ? 'Termos' : 'Terms'}</a></div></div></footer>
     </div>
   );
 }
