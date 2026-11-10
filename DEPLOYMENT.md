@@ -6,13 +6,15 @@
 - **Repository:** `16alves02/16alves02.com`
 - **Production branch:** `main`
 - **Production URL:** https://16alves02.pages.dev
-- **Framework preset:** None (Vite + React build configured manually)
+- **Framework:** Vite + React
 - **Root directory:** `/`
 - **Build command:** `npm run build`
 - **Build output directory:** `dist`
-- **Environment variables:** Supabase and Resend variables are required for the CMS and contact workflow. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md).
+- **Environment variables:** none required for the static site
 
-Cloudflare Pages is connected to GitHub. Changes merged into `main` trigger production deployments; pull requests create preview deployments. Use the stable project URL for canonical metadata and public portfolio links, never a hash-based preview URL.
+Cloudflare Pages is connected to GitHub. Merges into `main` trigger production deployments; pull requests create preview deployments. The canonical URL, Open Graph URL, sitemap and public portfolio links must use `https://16alves02.pages.dev`.
+
+The contact form uses FormSubmit as a third-party form relay and sends enquiries to `16alves02@gmail.com`. The first submission may require confirming the destination email address with FormSubmit. No custom backend, database, CMS, admin area, Supabase project or Pages Functions are required.
 
 No Wrangler configuration file is needed for this static Vite deployment.
 
@@ -26,15 +28,12 @@ npm run verify:production
 npm run preview
 ```
 
-The production build is generated in `dist/`. Theme verification checks readable accent and signal colors, filled controls, the 3D scene fallback and reduced-motion handling. Before release, review the 3D hero and project-card depth on desktop and mobile, then check the homepage, privacy page, terms page and 404 page in both themes. Confirm that the canvas pauses when scrolled away and remains non-essential to navigation.
+The production build is generated in `dist/`. Before release, verify the homepage, privacy page, terms page and 404 page in both themes. Check keyboard navigation, reduced-motion behavior, mobile and desktop layouts, CV downloads, external project links and the contact form.
 
-## Production readiness checklist
+## Production checklist
 
-- [ ] In Cloudflare Pages, open the `16alves02` project > **Metrics** > **Web Analytics** > **Enable**. Cloudflare injects the privacy-focused beacon on the next deployment. Confirm real page-view data appears in the dashboard before describing analytics as active.
-- [ ] Add a domain that the site owner controls under **Custom domains**. Do not change canonical URLs, sitemap URLs, or DNS until ownership and the target hostname are confirmed. After activation, update all canonical, Open Graph, sitemap, robots and legal-page URLs together.
-- [ ] Verify `/privacy.html`, `/terms.html`, `/sitemap.xml`, `/robots.txt`, and a deliberately missing path in production. The missing path must return HTTP 404.
-- [ ] Re-submit `/sitemap.xml` in Google Search Console after the production deployment and inspect the sitemap details. A successful browser render or URL live test does not itself prove that the Sitemaps report has processed the file.
-
-## Portfolio CMS and contact service
-
-The private admin interface is available at `/admin`. It uses Supabase Auth and the `portfolio_content` and `contact_messages` tables. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) for database, administrator-account and Cloudflare Pages variable setup. Pages Functions are restricted to `/api/*` through `public/_routes.json`; static portfolio pages continue to be served as assets.
+- [ ] Confirm the latest `main` commit has a successful Cloudflare Pages production deployment.
+- [ ] Verify `/`, `/privacy.html`, `/terms.html`, `/sitemap.xml`, `/robots.txt`, both CV downloads and a deliberately missing path in production. The missing path must return HTTP 404.
+- [ ] Submit a real contact-form test and complete the initial FormSubmit email confirmation if requested.
+- [ ] Run Lighthouse on the deployed production URL for Performance, Accessibility, Best Practices and SEO. Record the actual results; do not claim 100/100 without a completed test.
+- [ ] Re-submit `/sitemap.xml` in Google Search Console after deployment and inspect the sitemap report.
