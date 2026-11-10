@@ -6,11 +6,11 @@ const content = {
     nav: ['Projetos', 'Sobre', 'Percurso', 'Contacto'],
     role: 'SOFTWARE DEVELOPER · PORTUGAL',
     headline: <>Desenvolvimento de<br /><em>software com propósito.</em></>,
-    intro: 'Sou o Leonardo, Software Developer generalista. Desenvolvo software em diferentes áreas — da interface e lógica de negócio às APIs, dados e aplicações.',
+    intro: 'Sou o Leonardo, Software Developer generalista. Desenvolvo software em diferentes áreas, da interface e lógica de negócio às APIs, dados e aplicações.',
     projects: 'Projetos selecionados',
-    projectsIntro: 'Projetos selecionados que demonstram diferentes áreas do desenvolvimento de software, do backend às aplicações e automação.',
+    projectsIntro: 'Quatro projetos em destaque, organizados por origem e contexto. Cada descrição identifica o que está construído e o estado atual.',
     about: 'Um pouco sobre mim',
-    aboutText: 'Sou estudante de Desenvolvimento de Software na Escola Superior Aveiro Norte, Universidade de Aveiro. Tenho experiência prática em desenvolvimento web e backend, e gosto de trabalhar em diferentes partes de um produto — da interface à lógica e aos dados.',
+    aboutText: 'Sou estudante de Desenvolvimento de Software na Escola Superior Aveiro Norte, Universidade de Aveiro. Tenho experiência prática em desenvolvimento web e backend, e gosto de trabalhar em diferentes partes de um produto, da interface à lógica e aos dados.',
     experience: 'Experiência',
     education: 'Formação',
     contact: 'Vamos conversar?',
@@ -26,13 +26,13 @@ const content = {
     focusLabel: 'FOCO', locationLabel: 'LOCALIZAÇÃO', educationLabel: 'FORMAÇÃO',
     focusValue: <>Desenvolvimento de Software<br />Web · Backend · Aplicações</>,
     locationValue: <>Oliveira de Azeméis, Portugal<br />Aveiro, Porto e Coimbra · preferência por remoto</>,
-    educationValue: <>CTeSP em Desenvolvimento de Software<br />Universidade de Aveiro · 2025–2027</>,
-    availability: 'À PROCURA DE ESTÁGIO CURRICULAR · FEVEREIRO 2027',
+    educationValue: <>CTeSP em Desenvolvimento de Software<br />Universidade de Aveiro · 2025-2027</>,
+    availability: 'DISPONÍVEL PARA ESTÁGIO CURRICULAR · FEVEREIRO 2027',
     skills: 'Competências técnicas', skillsIntro: 'Tecnologias e ferramentas utilizadas nos projetos apresentados.',
     skillsGroups: ['Linguagens', 'Frontend e aplicações', 'Backend e dados', 'Ferramentas'],
     internshipText: 'Procuro um estágio curricular remunerado de 680 horas, com início previsto em fevereiro de 2027 e preferência por trabalho remoto. Quero integrar uma equipa, contribuir para trabalho real e evoluir com acompanhamento e feedback.',
     nextStep: 'PRÓXIMO OBJETIVO',
-    educationHeading: 'CTeSP em Desenvolvimento de Software', educationPlace: 'Escola Superior Aveiro Norte · Universidade de Aveiro · 2025–2027',
+    educationHeading: 'CTeSP em Desenvolvimento de Software', educationPlace: 'Escola Superior Aveiro Norte · Universidade de Aveiro · 2025-2027',
     professionalCourse: 'Curso Profissional de Gestão e Programação de Sistemas Informáticos', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
   },
   en: {
@@ -41,9 +41,9 @@ const content = {
     headline: <>Building<br /><em>software with purpose.</em></>,
     intro: "I'm Leonardo, a generalist Software Developer. I build software across interfaces, business logic, APIs, data and applications.",
     projects: 'Selected projects',
-    projectsIntro: 'Selected work demonstrating different areas of software development, from backend systems to applications and automation.',
+    projectsIntro: 'Four featured projects, organised by origin and context. Each description distinguishes implemented work from current project status.',
     about: 'A little about me',
-    aboutText: "I'm a Software Development student at Escola Superior Aveiro Norte, University of Aveiro. I have practical experience in web and backend development, and enjoy working across different parts of a product — from interfaces to logic and data.",
+    aboutText: "I'm a Software Development student at Escola Superior Aveiro Norte, University of Aveiro. I have practical experience in web and backend development, and enjoy working across different parts of a product, from interfaces to logic and data.",
     experience: 'Experience',
     education: 'Education',
     contact: "Let's talk",
@@ -59,20 +59,20 @@ const content = {
     focusLabel: 'FOCUS', locationLabel: 'LOCATION', educationLabel: 'EDUCATION',
     focusValue: <>Software Development<br />Web · Backend · Applications</>,
     locationValue: <>Oliveira de Azeméis, Portugal<br />Aveiro, Porto & Coimbra · remote preferred</>,
-    educationValue: <>CTeSP Software Development<br />University of Aveiro · 2025–2027</>,
-    availability: 'SEEKING A CURRICULAR INTERNSHIP · FEBRUARY 2027',
+    educationValue: <>CTeSP Software Development<br />University of Aveiro · 2025-2027</>,
+    availability: 'AVAILABLE FOR CURRICULAR INTERNSHIP · FEBRUARY 2027',
     skills: 'Technical skills', skillsIntro: 'Technologies and tools used across the projects shown here.',
     skillsGroups: ['Languages', 'Frontend & applications', 'Backend & data', 'Tools'],
     internshipText: 'I am seeking a paid, 680-hour curricular internship starting in February 2027, preferably remote. I would like to join a team, contribute to real work and grow through guidance and feedback.',
     nextStep: 'NEXT OBJECTIVE',
-    educationHeading: 'CTeSP in Software Development', educationPlace: 'Escola Superior Aveiro Norte · University of Aveiro · 2025–2027',
+    educationHeading: 'CTeSP in Software Development', educationPlace: 'Escola Superior Aveiro Norte · University of Aveiro · 2025-2027',
     professionalCourse: 'Vocational Course in IT Systems Management and Programming', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
   }
 };
 
 const projects = [
   {
-    name: 'SaborGest', year: '2026–27', type: 'ACADEMIC · WEB / ANDROID', typePt: 'ACADÉMICO · WEB / ANDROID',
+    name: 'SaborGest', year: '2026-27', group: 'academic', featured: true, type: 'ACADEMIC · WEB / ANDROID', typePt: 'ACADÉMICO · WEB / ANDROID',
     description: 'Sistema de gestão para pequenos negócios de restauração, com painel Web, API REST em PHP e quiosque Android em Kotlin. Inclui colaboradores, horários, picagens, relatórios e operações de stock.',
     descriptionEn: 'A management system for small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk. Covers staff, schedules, clock-ins, reports and stock operations.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
@@ -80,7 +80,7 @@ const projects = [
     statusEn: 'In development · private source'
   },
   {
-    name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
+    name: 'RunLattice', year: '2026', group: 'personal', featured: true, type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
     image: '/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
     description: 'Plataforma de automação com workspaces e permissões, editor visual, modelos, execução assíncrona com Redis/BullMQ, webhooks assinados, tarefas agendadas e planeamento de workflows por IA sujeito a revisão.',
     descriptionEn: 'An automation platform with workspaces and roles, a visual editor, templates, Redis/BullMQ background execution, signed webhooks, scheduled triggers and AI workflow planning that remains subject to user review.',
@@ -89,7 +89,7 @@ const projects = [
     href: 'https://github.com/16alves02/RunLattice'
   },
   {
-    name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME', typePt: 'ALV16 STUDIOS · JOGO',
+    name: 'MRDR.', year: '2026', group: 'studio', featured: true, type: 'ALV16 STUDIOS · GAME', typePt: 'ALV16 STUDIOS · JOGO',
     image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageAltEn: 'MRDR game identity artwork', imageFit: 'cover',
     description: 'Jogo original de dedução criminal com casos procedurais, suspeitos, álibis, cronologias e pistas interligadas. O motor valida soluções únicas; a campanha está organizada em 20 mundos e 200 casos. Continua em desenvolvimento.',
     descriptionEn: 'An original crime-deduction game with procedural cases, suspects, alibis, timelines and connected clues. Its engine validates unique solutions; the campaign spans 20 worlds and 200 cases. Still in development.',
@@ -97,16 +97,16 @@ const projects = [
     status: 'Em desenvolvimento'
   },
   {
-    name: 'RAW.', year: '2026', type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
+    name: 'RAW.', year: '2026', group: 'studio', featured: true, type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
     description: 'Aplicação social de cartas com três modos de jogo, 27 baralhos e conteúdo em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
     descriptionEn: 'A card-based social app with three play modes, 27 decks and content in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
     stack: ['React', 'JavaScript', 'PWA'],
-    status: 'Em desenvolvimento', statusEn: 'In development',
+    status: 'Em desenvolvimento · demo pública', statusEn: 'In development · public demo',
     href: 'https://alv16studios.itch.io/raw-conversation-game',
     source: 'https://raw-app-bice.vercel.app', sourceLabel: 'Demo web'
   },
   {
-    name: 'HOOP', year: '2025–26', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
+    name: 'HOOP', year: '2025-26', group: 'academic', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
     image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageAltEn: 'HOOP storefront homepage screenshot', imageFit: 'cover',
     description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
     descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
@@ -115,7 +115,7 @@ const projects = [
     source: 'https://github.com/16alves02/hoop'
   },
   {
-    name: 'Basket Hub', year: '2025–26', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
+    name: 'Basket Hub', year: '2025-26', group: 'academic', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
     description: 'Plataforma web académica para gestão de equipas, jogadores, jogos, inscrições, eventos, pavilhões e estatísticas de basquetebol.',
     descriptionEn: 'An academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.',
     stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
@@ -123,7 +123,7 @@ const projects = [
     href: 'https://github.com/bmgoliveira-UA/basket-hub'
   },
   {
-    name: 'Tocadiscos Editora', year: '2025–26', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
+    name: 'Tocadiscos Editora', year: '2025-26', group: 'academic', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
     description: 'Aplicação de linha de comandos para gerir autores, álbuns e músicas, com pesquisa, relatórios financeiros, reprodução de áudio e histórico reversível.',
     descriptionEn: 'A command-line application for managing artists, albums and tracks, with search, financial reports, audio playback and reversible change history.',
     stack: ['Python', 'Pandas', 'Whoosh', 'Pygame'],
@@ -131,7 +131,7 @@ const projects = [
     href: 'https://github.com/13alves05/tocadiscos-editora'
   },
   {
-    name: 'Two of Hearts', year: '2026', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
+    name: 'Two of Hearts', year: '2026', group: 'academic', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
     image: 'https://raw.githubusercontent.com/16alves02/two-of-hearts-portuguese-folk-art/main/assets/front.png',
     imageAlt: 'Ilustração vetorial final da carta Two of Hearts', imageAltEn: 'Final Two of Hearts vector illustration', imageFit: 'contain',
     description: 'Ilustração vetorial inspirada nos Lenços de Namorados do Minho, reinterpretando motivos tradicionais portugueses numa carta de jogar.',
@@ -150,7 +150,7 @@ const skillGroups = [
 ];
 
 const experience = [
-  ['fev. 2025 — mai. 2026', 'Feb 2025 — May 2026', 'Operador de máquina CNC', 'CNC Machine Operator', 'Schmidt Light Metal Group'],
+  ['fev. 2025 - mai. 2026', 'Feb 2025 - May 2026', 'Operador de máquina CNC', 'CNC Machine Operator', 'Schmidt Light Metal Group'],
   ['2024', '2024', 'Operador de loja', 'Store Assistant', 'MC'],
   ['2023', '2023', 'Estágio de desenvolvimento back-end', 'Backend Development Intern', 'ClickBeauty / Alvocromático'],
   ['2022', '2022', 'Estágio de desenvolvimento Web', 'Web Development Intern', 'Associação Estamos Juntos (AEJ)']
@@ -180,7 +180,7 @@ export default function App() {
       ? 'Portefólio de Leonardo Alves, Software Developer em Portugal. Explora projetos de software, aplicações web, backend e desenvolvimento Android.'
       : 'Portfolio of Leonardo Alves, Software Developer in Portugal. Explore software projects, web applications, backend and Android development.';
     const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.content = pt ? 'Leonardo Alves — Software Developer' : 'Leonardo Alves — Software Developer';
+    if (ogTitle) ogTitle.content = pt ? 'Leonardo Alves, Software Developer' : 'Leonardo Alves, Software Developer';
     const ogDescription = document.querySelector('meta[property="og:description"]');
     if (ogDescription) ogDescription.content = pt
       ? 'Projetos de software, desenvolvimento web e aplicações por Leonardo Alves.'
@@ -253,25 +253,37 @@ export default function App() {
 
         <section className="section projects-section reveal" id="projects">
           <div className="section-heading"><div><span className="eyebrow-number">01 / {t.workLabel}</span><h2>{t.projects}</h2></div><p>{t.projectsIntro}</p></div>
-          <div className="project-list">
-            {projects.map((project, i) => (
-              <article className="project-row reveal" key={project.name}>
-                <span className="project-index">0{i + 1}</span>
-                <div className="project-main">
-                  {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''}`} src={project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true; }} />}
-                  <div className="project-topline"><span>{pt ? project.typePt : project.type}</span><span>{project.year}</span></div>
-                  <h3>{project.name}</h3>
-                  <p>{pt ? project.description : project.descriptionEn}</p>
-                  <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
-                </div>
-                <div className="project-side">
-                  <span className="project-status">{pt ? project.status : (project.statusEn || (project.name === 'RAW.' ? 'Private source' : project.name === 'RunLattice' ? 'Prototype' : project.name === 'HOOP' ? 'Academic project' : 'In development'))}</span>
-                  {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
-                  {project.source && <a href={project.source} target="_blank" rel="noreferrer">{project.sourceLabel || 'GitHub'} <ArrowUpRight size={15} /></a>}
-                </div>
-              </article>
-            ))}
-          </div>
+          {[
+            { key: 'personal', title: pt ? 'Projetos pessoais' : 'Personal projects', description: pt ? 'Produtos e experiências que desenvolvo por iniciativa própria.' : 'Products and experiments I build independently.' },
+            { key: 'academic', title: pt ? 'Projetos académicos' : 'Academic projects', description: pt ? 'Trabalho individual e de grupo desenvolvido no percurso académico.' : 'Individual and team work developed during my studies.' },
+            { key: 'studio', title: 'ALV16 STUDIOS', description: pt ? 'Projetos criativos e experiências interativas independentes.' : 'Independent creative projects and interactive experiences.' }
+          ].map(group => (
+            <div className={`project-group project-group-${group.key}`} key={group.key}>
+              <div className="project-group-heading">
+                <h3>{group.title}</h3>
+                <p>{group.description}</p>
+              </div>
+              <div className="project-list">
+                {projects.filter(project => project.group === group.key).map(project => (
+                  <article className={`project-row reveal ${project.featured ? 'featured-project' : ''}`} key={project.name}>
+                    <span className="project-index">{String(projects.indexOf(project) + 1).padStart(2, '0')}</span>
+                    <div className="project-main">
+                      {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''} ${project.name === 'RunLattice' ? 'project-preview-runlattice' : ''}`} src={project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true; }} />}
+                      <div className="project-topline"><span>{pt ? project.typePt : project.type}</span><span>{project.year}</span></div>
+                      <h3>{project.name}</h3>
+                      <p>{pt ? project.description : project.descriptionEn}</p>
+                      <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
+                    </div>
+                    <div className="project-side">
+                      <span className="project-status">{pt ? project.status : (project.statusEn || (project.name === 'RAW.' ? 'Public demo · private source' : project.name === 'RunLattice' ? 'Prototype' : project.name === 'HOOP' ? 'Academic project' : 'In development'))}</span>
+                      {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
+                      {project.source && <a href={project.source} target="_blank" rel="noreferrer">{project.sourceLabel || 'GitHub'} <ArrowUpRight size={15} /></a>}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
         </section>
 
         <section className="section about-section reveal" id="about">
@@ -284,7 +296,7 @@ export default function App() {
         <section className="section experience-section reveal" id="experience">
           <div className="section-heading"><div><span className="eyebrow-number">04 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{t.educationHeading}<br />{t.educationPlace}</p></div>
           <div className="experience-list">{experience.map(([datePt, dateEn, rolePt, roleEn, company]) => <div className="experience-row reveal" key={company}><span>{pt ? datePt : dateEn}</span><strong>{pt ? rolePt : roleEn}</strong><span>{company}</span></div>)}</div>
-          <div className="education-note"><span>2020 — 2023</span><p>{t.professionalCourse}<br />{t.professionalSchool}</p></div>
+          <div className="education-note"><span>2020, 2023</span><p>{t.professionalCourse}<br />{t.professionalSchool}</p></div>
         </section>
 
         <section className="internship-note reveal"><div><span className="eyebrow-number">{t.nextStep}</span><p>{t.internshipText}</p></div></section>
