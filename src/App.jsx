@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X, Github, Linkedin, Instagram } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X, BriefcaseBusiness, Camera } from 'lucide-react';
 
 const content = {
   'pt-PT': {
@@ -167,10 +167,10 @@ export default function App() {
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const socialLinks = [
-    [Github, 'GitHub', 'https://github.com/16alves02'],
-    [Linkedin, 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
-    [Github, 'GitHub académico', 'https://github.com/13alves05'],
-    [Instagram, 'Instagram', 'https://www.instagram.com/16alves02/'],
+    [Code2, 'GitHub', 'https://github.com/16alves02'],
+    [BriefcaseBusiness, 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
+    [Code2, 'GitHub académico', 'https://github.com/13alves05'],
+    [Camera, 'Instagram', 'https://www.instagram.com/16alves02/'],
     [Mail, 'Email', 'mailto:16alves02@gmail.com']
   ];
 
