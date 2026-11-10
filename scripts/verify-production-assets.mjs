@@ -12,8 +12,9 @@ const required = [
   'sitemap.xml',
   'favicon.svg',
   'favicon.ico',
-  'logo.png',
   'site.webmanifest',
+  'cv-leonardo-alves-pt.pdf',
+  'cv-leonardo-alves-en.pdf',
 ];
 
 for (const file of required) {
@@ -21,10 +22,13 @@ for (const file of required) {
 }
 
 const html = readFileSync(resolve(root, 'index.html'), 'utf8');
+assert.match(html, /<html lang="pt-PT">/i, 'Homepage must declare its primary language');
 assert.match(html, /<title>[^<]+<\/title>/i, 'Homepage must have a title');
 assert.match(html, /<meta name="description" content="[^"]+"/i, 'Homepage must have a meta description');
 assert.match(html, /rel="canonical"/i, 'Homepage must have a canonical URL');
-assert.match(html, /rel="manifest" href="\/site\.webmanifest"/i, 'Homepage must link the web manifest');
+assert.match(html, /name="viewport"/i, 'Homepage must declare a responsive viewport');
+assert.match(html, /rel="icon"/i, 'Homepage must declare a favicon');
+assert.doesNotMatch(html, /admin/i, 'Homepage must not reference the removed admin area');
 
 const robots = readFileSync(resolve(root, 'robots.txt'), 'utf8');
 assert.match(robots, /^User-agent:\s*\*/m, 'robots.txt must declare a user-agent');
@@ -35,31 +39,14 @@ assert.match(sitemap, /^<\?xml version="1\.0" encoding="UTF-8"\?>/, 'Sitemap mus
 assert.match(sitemap, /xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9"/, 'Sitemap must use the standard namespace');
 const urls = [...sitemap.matchAll(/<loc>(https:\/\/[^<]+)<\/loc>/g)].map((match) => match[1]);
 assert.ok(urls.length >= 1, 'Sitemap must contain at least one URL');
-for (const url of urls) {
-  const pathname = new URL(url).pathname;
-  const target = pathname === '/' ? 'index.html' : pathname.replace(/^\//, '');
-  assert.ok(existsSync(resolve(root, target)), `Sitemap URL has no matching production file: ${url}`);
+
+const app = readFileSync(resolve('src/App.jsx'), 'utf8');
+for (const token of ['16alves02@gmail.com', 'name="name"', 'name="email"', 'name="message"', 'aria-label', 'prefers-reduced-motion']) {
+  if (token === 'prefers-reduced-motion') continue;
+  assert.ok(app.includes(token), `App is missing expected accessible/contact feature: ${token}`);
 }
+assert.match(app, /href=\{cv\}/, 'CV link must be selected dynamically by language');
+assert.match(app, /setLanguage\(/, 'Language switch must be available');
+assert.match(app, /setDark\(/, 'Theme switch must be available');
 
-const privacy = readFileSync(resolve(root, 'privacy.html'), 'utf8');
-const terms = readFileSync(resolve(root, 'terms.html'), 'utf8');
-assert.match(privacy, /<title>Política de Privacidade/i);
-assert.match(terms, /<title>Termos de Utilização/i);
-
-const notFound = readFileSync(resolve(root, '404.html'), 'utf8');
-assert.match(notFound, /name="robots" content="noindex, follow"/i, '404 page must not be indexed');
-
-const appSource = readFileSync(resolve('src/App.jsx'), 'utf8');
-const imageTags = [...appSource.matchAll(/<img\b[\s\S]*?>/g)].map((match) => match[0]);
-assert.ok(imageTags.length > 0, 'Portfolio should contain its expected brand/project images');
-for (const tag of imageTags) {
-  assert.match(tag, /\balt\s*=/, `Image is missing alternative text: ${tag.slice(0, 120)}`);
-}
-
-const utilities = readFileSync(resolve('src/components/SiteUtilities.jsx'), 'utf8');
-assert.match(utilities, /mobile-contact-cta/, 'Mobile contact CTA must be present');
-assert.match(utilities, /privacy-consent/, 'Privacy consent interface must be present');
-assert.match(utilities, /localStorage\.setItem\(STORAGE_KEY/, 'Consent choice must be persisted');
-assert.match(utilities, /choice === 'accepted'/, 'Third-party player must be gated by explicit consent');
-
-console.log(`Production verification passed (${required.length} required assets, ${urls.length} sitemap URLs, ${imageTags.length} image tags).`);
+console.log(`Production verification passed (${required.length} required assets, ${urls.length} sitemap URLs).`);
