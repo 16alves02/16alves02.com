@@ -1,96 +1,51 @@
 <!doctype html>
 <html lang="pt-PT">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="index,follow">
-  <meta name="description" content="Política de privacidade do portefólio pessoal de Leonardo Alves, incluindo preferências locais e serviços externos.">
-  <meta name="theme-color" content="#f7f5f0">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="alternate icon" href="/favicon.ico">
-  <link rel="canonical" href="https://16alves02.pages.dev/privacy.html">
-  <title>Política de Privacidade | Leonardo Alves</title>
-  <script>
-    (() => {
-      let theme = 'light';
-      try {
-        theme = localStorage.getItem('16alves02-theme') === 'dark' ? 'dark' : 'light';
-      } catch {
-        theme = 'light';
-      }
-      document.documentElement.dataset.theme = theme;
-      const themeColor = document.querySelector('meta[name="theme-color"]');
-      if (themeColor) themeColor.content = theme === 'dark' ? '#151513' : '#f7f5f0';
-    })();
-  </script>
-  <style>
-    :root{color-scheme:light;--bg:#f7f5f0;--fg:#171717;--muted:#514d47;--line:rgba(23,23,23,.16);--accent:#85331f}
-    :root[data-theme="dark"]{color-scheme:dark;--bg:#151513;--fg:#f3f1eb;--muted:#c0bbb1;--line:rgba(243,241,235,.18);--accent:#ff9b83}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,sans-serif}
-    main{width:min(860px,calc(100% - 40px));margin:0 auto;padding:56px 0 88px}
-    a{color:var(--accent)}.eyebrow{font:12px/1.4 monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-    h1{font-size:clamp(2.4rem,7vw,4.5rem);line-height:1.05;letter-spacing:-.05em;margin:18px 0}
-    h2{font-size:1.3rem;margin:34px 0 8px}p,li{color:var(--muted)}.top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .back{display:inline-block;margin-top:36px;text-decoration:none;font-weight:700}
-    .notice{border-left:3px solid var(--accent);padding:12px 18px;background:color-mix(in srgb,var(--accent) 8%,transparent)}
-    nav{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0 38px}
-    section{scroll-margin-top:20px}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow"><meta name="description" content="Política de privacidade do portefólio de Leonardo Alves.">
+<link rel="canonical" href="https://16alves02.pages.dev/privacy.html"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Política de Privacidade | Leonardo Alves</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#191919;background:#fafaf8;font-synthesis:none}*{box-sizing:border-box}body{margin:0;line-height:1.75}main{width:min(820px,calc(100% - 40px));margin:auto;padding:48px 0 80px}a{color:#b94a20}h1{font-size:clamp(2.4rem,7vw,4rem);line-height:1.05;letter-spacing:-.05em}h2{font-size:1.25rem;margin:32px 0 8px}p,li{color:#555}nav{display:flex;gap:18px;margin:24px 0}section{scroll-margin-top:20px}.back{display:inline-block;margin-top:32px;font-weight:600;text-decoration:none}
+</style>
 </head>
-<body>
-<main>
-  <div class="top"><a href="/" aria-label="Voltar ao portefólio">← 16alves02</a><span class="eyebrow">Última atualização: 9 de novembro de 2026</span></div>
-  <h1>Política de Privacidade</h1>
-  <p>Esta política explica como são tratados os dados durante a utilização do portefólio pessoal de Leonardo Alves, disponível em <a href="https://16alves02.pages.dev/">16alves02.pages.dev</a>.</p>
-  <nav aria-label="Idiomas"><a href="#pt">Português</a><a href="#en">English</a></nav>
-  <section id="pt">
-    <h2>1. Responsável pelo tratamento</h2>
-    <p>O responsável pelo tratamento dos dados associados a este portefólio é Leonardo Alves. Para questões relacionadas com privacidade ou exercício de direitos, utiliza o endereço <a href="mailto:alv16studios@gmail.com">alv16studios@gmail.com</a>.</p>
-    <h2>2. Dados tratados pelo próprio site</h2>
-    <p>O site não pede a criação de uma conta. Quando utilizas o formulário de contacto, são recolhidos o nome, endereço de email, assunto e conteúdo da mensagem. Para limitar submissões abusivas, é também guardado um resumo criptográfico (hash) do endereço IP, em vez do endereço IP em texto simples na tabela de mensagens. Não incluas dados pessoais sensíveis que não sejam necessários para responder ao teu contacto. As preferências de idioma, tema visual e consentimento de conteúdo externo podem ser guardadas no armazenamento local do navegador (localStorage), para manter as escolhas entre visitas. Estas preferências não são cookies e podem ser apagadas nas definições do navegador.</p>
-    <p>As mensagens são guardadas numa base de dados para permitir responder e gerir o pedido. São mantidas apenas durante o período necessário para esse fim e eliminadas quando deixarem de ser necessárias, sem prejuízo de obrigações legais aplicáveis.</p>
-    <h2>3. Alojamento e serviços externos</h2>
-    <ul>
-      <li><strong>Cloudflare Pages:</strong> disponibiliza o alojamento e a entrega do site. A infraestrutura pode tratar dados técnicos de pedidos para segurança, fiabilidade e funcionamento do serviço. Consulte a <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">política de privacidade da Cloudflare</a>.</li>
-      <li><strong>Supabase:</strong> fornece a base de dados e a autenticação do painel privado. Os dados submetidos no formulário são armazenados na base de dados do projeto. Consulte a <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">política de privacidade da Supabase</a>.</li>
-      <li><strong>Resend:</strong> quando as notificações por email estão configuradas, recebe os detalhes da mensagem para os enviar ao endereço de contacto. Consulte a <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">política de privacidade da Resend</a>.</li>
-      <li><strong>Google Fonts:</strong> o navegador pode solicitar ficheiros de fontes aos servidores da Google para apresentar a tipografia do site. Consulte a <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">política de privacidade da Google</a>.</li>
-      <li><strong>itch.io:</strong> o leitor incorporado do projeto RAW. só é carregado depois de escolher carregar conteúdo externo. Ao fazê-lo, o navegador liga-se à itch.io, que passa a tratar dados segundo as suas próprias condições e política.</li>
-      <li><strong>wsrv.nl:</strong> é utilizado como serviço externo de conversão da imagem Open Graph para pré-visualizações de partilha. O pedido pode ser feito pela plataforma que consulta os metadados, não necessariamente pelo visitante.</li>
-      <li><strong>Ligações externas:</strong> os links para GitHub, LinkedIn e outras plataformas conduzem a serviços independentes, com políticas próprias.</li>
-    </ul>
-    <h2>4. Cookies e analytics</h2>
-    <p>O código atual do portefólio não instala uma ferramenta própria de analytics nem utiliza cookies próprios para publicidade ou criação de perfis. Conteúdo incorporado de terceiros é opcional e requer uma ação do visitante para ser carregado. Os serviços externos podem aplicar as suas próprias tecnologias quando são utilizados.</p>
-    <h2>5. Direitos dos titulares</h2>
-    <p>Quando o RGPD é aplicável, pode solicitar acesso, retificação, apagamento, limitação ou oposição ao tratamento e, quando aplicável, portabilidade dos dados, contactando <a href="mailto:alv16studios@gmail.com">alv16studios@gmail.com</a>. Também pode apresentar reclamação à Comissão Nacional de Proteção de Dados (<a href="https://www.cnpd.pt/" target="_blank" rel="noopener noreferrer">CNPD</a>).</p>
-    <h2>6. Alterações</h2>
-    <p>Esta política pode ser atualizada quando o site ou os serviços utilizados mudarem. A data no início identifica a revisão mais recente.</p>
-  </section>
-  <section id="en">
-    <h2>Privacy Policy — English</h2>
-    <p>This policy explains how data is handled when using Leonardo Alves' personal portfolio at <a href="https://16alves02.pages.dev/">16alves02.pages.dev</a>.</p>
-    <h2>1. Data controller and contact</h2>
-    <p>The controller for data associated with this portfolio is Leonardo Alves. For privacy questions or requests, contact <a href="mailto:alv16studios@gmail.com">alv16studios@gmail.com</a>. This personal portfolio has no contact submission form.</p>
-    <h2>2. Data handled by the website</h2>
-    <p>The website does not require visitors to create an account. When you use the contact form, it collects your name, email address, subject and message. To limit abusive submissions, a cryptographic hash of the IP address is stored instead of the plain IP address in the message table. Do not include sensitive personal information that is not needed to respond. Language, appearance and optional third-party-content preferences may be stored in your browser's localStorage to remember your choices. These preferences are not cookies and can be cleared in your browser settings. Contact messages are stored in a database so they can be reviewed and answered. They are kept only for as long as needed for that purpose and deleted when no longer necessary, subject to applicable legal obligations.</p>
-    <h2>3. Hosting and third-party services</h2>
-    <ul>
-      <li><strong>Cloudflare Pages</strong> hosts and delivers the website and may process technical request data for security and reliability. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare's privacy policy</a>.</li>
-      <li><strong>Supabase</strong> provides the database and private dashboard authentication. Contact form submissions are stored in the project's database. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase's privacy policy</a>.</li>
-      <li><strong>Resend</strong> receives contact details when email notifications are configured and delivers them to the portfolio contact address. See <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Resend's privacy policy</a>.</li>
-      <li><strong>Google Fonts</strong> may receive browser requests for font files. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>.</li>
-      <li><strong>itch.io</strong> loads the RAW. embedded player only after you choose to load external content. Its own terms and privacy policy then apply.</li>
-      <li><strong>wsrv.nl</strong> converts the Open Graph image for link previews. The requesting social platform may make this request.</li>
-      <li>Links to GitHub, LinkedIn and other platforms lead to independent services with their own privacy policies.</li>
-    </ul>
-    <h2>4. Cookies and analytics</h2>
-    <p>The current portfolio source does not install its own analytics tool or use first-party advertising or profiling cookies. Third-party embedded content is optional and requires an explicit visitor action. External providers may use their own technologies when their services are accessed.</p>
-    <h2>5. Your rights</h2>
-    <p>Where the GDPR applies, you may request access, rectification, erasure, restriction, objection and, where applicable, data portability by emailing <a href="mailto:alv16studios@gmail.com">alv16studios@gmail.com</a>. You may also lodge a complaint with the Portuguese Data Protection Authority (<a href="https://www.cnpd.pt/" target="_blank" rel="noopener noreferrer">CNPD</a>).</p>
-    <h2>6. Changes</h2>
-    <p>This policy may change when the website or its services change. The date above identifies the latest revision.</p>
-  </section>
-  <a class="back" href="/">← Voltar ao portefólio</a>
-</main>
-</body>
-</html>
+<body><main>
+<a href="/">← 16alves02</a><h1>Política de Privacidade</h1>
+<p>Última atualização: 10 de novembro de 2026</p>
+<p>Esta política descreve o tratamento de dados associado ao portefólio pessoal de Leonardo Alves, disponível em <a href="https://16alves02.pages.dev/">16alves02.pages.dev</a>.</p>
+<nav aria-label="Idiomas"><a href="#pt">Português</a><a href="#en">English</a></nav>
+<section id="pt">
+<h2>1. Responsável e contacto</h2>
+<p>O responsável pelo portefólio é Leonardo Alves. Para questões de privacidade ou pedidos relativos aos teus dados, contacta <a href="mailto:16alves02@gmail.com">16alves02@gmail.com</a>.</p>
+<h2>2. Formulário de contacto</h2>
+<p>Se utilizares o formulário, os campos nome, email, assunto e mensagem são enviados para a FormSubmit, um serviço externo que encaminha a mensagem para o endereço de contacto do titular. A FormSubmit trata os dados necessários à prestação desse serviço e poderá processar dados técnicos da ligação, de acordo com os seus próprios termos e política de privacidade. Consulta <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> antes de submeter informação. Não incluas dados sensíveis ou informação de terceiros que não sejam necessários para o contacto.</p>
+<p>O portefólio não mantém uma base de dados própria nem uma área de utilizador para guardar mensagens. A mensagem é recebida através do serviço externo e fica sujeita às condições de tratamento e retenção desse serviço e da caixa de email de destino.</p>
+<h2>3. Alojamento e dados técnicos</h2>
+<p>O site é alojado através do Cloudflare Pages. Como parte da entrega e segurança do serviço, a infraestrutura de alojamento pode tratar dados técnicos dos pedidos, como endereço IP, informações do navegador e registos de segurança, de acordo com a <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">política de privacidade da Cloudflare</a>.</p>
+<h2>4. Cookies, armazenamento local e analytics</h2>
+<p>O código atual do portefólio não configura cookies próprios, não guarda preferências de tema ou idioma em armazenamento local e não tem um serviço de analytics ligado. Por isso, não são atualmente medidos cliques, downloads do CV ou conversões do formulário. Se estas funcionalidades forem adicionadas, esta política será atualizada.</p>
+<h2>5. Ligações externas</h2>
+<p>O site contém ligações para plataformas como GitHub, LinkedIn, Instagram, YouTube, Twitch e Uiverse. Ao abri-las, passas a utilizar serviços independentes, sujeitos às respetivas políticas de privacidade.</p>
+<h2>6. Direitos</h2>
+<p>Quando aplicável, podes solicitar acesso, retificação ou apagamento dos dados pessoais, bem como exercer os restantes direitos previstos no RGPD, contactando <a href="mailto:16alves02@gmail.com">16alves02@gmail.com</a>. Também podes apresentar reclamação à Comissão Nacional de Proteção de Dados (<a href="https://www.cnpd.pt/" target="_blank" rel="noopener noreferrer">CNPD</a>).</p>
+<h2>7. Alterações</h2><p>Esta política pode ser atualizada se o site ou os serviços utilizados mudarem.</p>
+</section>
+<section id="en">
+<h2>Privacy Policy — English</h2>
+<h2>1. Controller and contact</h2>
+<p>The portfolio is operated by Leonardo Alves. For privacy questions or data requests, contact <a href="mailto:16alves02@gmail.com">16alves02@gmail.com</a>.</p>
+<h2>2. Contact form</h2>
+<p>If you use the contact form, your name, email address, subject and message are sent to FormSubmit, a third-party service that forwards the message to the portfolio owner's contact email. FormSubmit processes information needed to provide this service and may process technical connection data under its own terms and privacy policy. Please review <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> before submitting. Do not include sensitive data or unnecessary information about other people.</p>
+<p>The portfolio does not operate its own database or user account area for contact messages. Messages are handled by the external service and are subject to that service's processing and retention practices and the destination email provider.</p>
+<h2>3. Hosting and technical data</h2>
+<p>The website is hosted through Cloudflare Pages. The hosting infrastructure may process technical request data, such as IP address, browser information and security logs, under the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a>.</p>
+<h2>4. Cookies, local storage and analytics</h2>
+<p>The current portfolio source does not set first-party cookies, store theme or language preferences in local storage, or connect an analytics service. Clicks, CV downloads and contact-form conversions are therefore not currently measured. This policy will be updated if these features are introduced.</p>
+<h2>5. External links</h2>
+<p>The website links to services such as GitHub, LinkedIn, Instagram, YouTube, Twitch and Uiverse. When you open those services, their own privacy policies apply.</p>
+<h2>6. Your rights</h2>
+<p>Where applicable, you may request access, correction or deletion of personal data and exercise other rights under the GDPR by contacting <a href="mailto:16alves02@gmail.com">16alves02@gmail.com</a>. You may also lodge a complaint with the Portuguese Data Protection Authority (<a href="https://www.cnpd.pt/" target="_blank" rel="noopener noreferrer">CNPD</a>).</p>
+<h2>7. Changes</h2><p>This policy may be updated when the website or its services change.</p>
+</section>
+<a class="back" href="/">← Voltar ao portefólio</a>
+</main></body></html>
