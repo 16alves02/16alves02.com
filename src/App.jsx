@@ -98,7 +98,7 @@ const projects = [
     stack: ['HTML', 'CSS', 'JavaScript'],
     href: 'https://hoop-16alves02.netlify.app',
     source: 'https://github.com/16alves02/hoop'
-  }
+  },
   {
     name: 'Basket Hub', year: '2025–26', type: 'ACADEMIC · BASKETBALL PLATFORM',
     description: 'Plataforma web académica para gestão de equipas, jogadores, jogos, inscrições, eventos, pavilhões e estatísticas de basquetebol.',
