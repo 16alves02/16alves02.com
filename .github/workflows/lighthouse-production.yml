@@ -25,7 +25,7 @@ jobs:
           site="https://16alves02.pages.dev/"
           marker='name="portfolio-build" content="2026-11-10-static-pages"'
           for attempt in {1..30}; do
-            html="$(curl --fail --silent --show-error --max-time 20 "$site" 2>/dev/null || true)"
+            html="$(curl --location --fail --silent --show-error --max-time 20 --user-agent "PortfolioLighthouseCheck/1.0 (https://github.com/16alves02/16alves02.com)" "$site" 2>/dev/null || true)"
             if grep -Fq "$marker" <<< "$html"; then
               echo "Cloudflare Pages is serving the expected release."
               exit 0
