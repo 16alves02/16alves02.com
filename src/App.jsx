@@ -27,9 +27,13 @@ const content = {
     focusValue: <>Desenvolvimento de Software<br />Web · Backend · Aplicações</>,
     locationValue: <>Oliveira de Azeméis, Portugal<br />Aveiro, Porto e Coimbra · preferência por remoto</>,
     educationValue: <>CTeSP em Desenvolvimento de Software<br />Universidade de Aveiro · 2025–2027</>,
-    availability: 'DISPONÍVEL PARA OPORTUNIDADES',
-    opportunityLabel: 'ESTÁGIO',
-    opportunityValue: <>Estágio curricular · 680 horas<br />Fevereiro de 2027 · preferência remunerado</>
+    availability: 'À PROCURA DE ESTÁGIO CURRICULAR · FEVEREIRO 2027',
+    skills: 'Competências técnicas', skillsIntro: 'Tecnologias e ferramentas utilizadas nos projetos apresentados.',
+    skillsGroups: ['Linguagens', 'Frontend e aplicações', 'Backend e dados', 'Ferramentas'],
+    internshipText: 'Procuro um estágio curricular remunerado de 680 horas, com início previsto em fevereiro de 2027 e preferência por trabalho remoto. Quero integrar uma equipa, contribuir para trabalho real e evoluir com acompanhamento e feedback.',
+    nextStep: 'PRÓXIMO OBJETIVO',
+    educationHeading: 'CTeSP em Desenvolvimento de Software', educationPlace: 'Escola Superior Aveiro Norte · Universidade de Aveiro · 2025–2027',
+    professionalCourse: 'Curso Profissional de Gestão e Programação de Sistemas Informáticos', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
   },
   en: {
     nav: ['Projects', 'About', 'Experience', 'Contact'],
@@ -56,9 +60,13 @@ const content = {
     focusValue: <>Software Development<br />Web · Backend · Applications</>,
     locationValue: <>Oliveira de Azeméis, Portugal<br />Aveiro, Porto & Coimbra · remote preferred</>,
     educationValue: <>CTeSP Software Development<br />University of Aveiro · 2025–2027</>,
-    availability: 'AVAILABLE FOR OPPORTUNITIES',
-    opportunityLabel: 'INTERNSHIP',
-    opportunityValue: <>Curricular internship · 680 hours<br />February 2027 · preferably paid</>
+    availability: 'SEEKING A CURRICULAR INTERNSHIP · FEBRUARY 2027',
+    skills: 'Technical skills', skillsIntro: 'Technologies and tools used across the projects shown here.',
+    skillsGroups: ['Languages', 'Frontend & applications', 'Backend & data', 'Tools'],
+    internshipText: 'I am seeking a paid, 680-hour curricular internship starting in February 2027, preferably remote. I would like to join a team, contribute to real work and grow through guidance and feedback.',
+    nextStep: 'NEXT OBJECTIVE',
+    educationHeading: 'CTeSP in Software Development', educationPlace: 'Escola Superior Aveiro Norte · University of Aveiro · 2025–2027',
+    professionalCourse: 'Vocational Course in IT Systems Management and Programming', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
   }
 };
 
@@ -150,6 +158,13 @@ const projects = [
     status: 'Projeto académico', statusEn: 'Academic project',
     href: 'https://github.com/16alves02/two-of-hearts-portuguese-folk-art'
   },
+];
+
+const skillGroups = [
+  { key: 'languages', items: ['JavaScript', 'TypeScript', 'PHP', 'Kotlin', 'Python', 'C', 'SQL'] },
+  { key: 'frontend', items: ['HTML', 'CSS', 'React', 'Next.js', 'Vite', 'Android'] },
+  { key: 'backend', items: ['REST APIs', 'MySQL', 'PostgreSQL', 'Redis', 'Ktor'] },
+  { key: 'tools', items: ['Git', 'GitHub', 'Docker', 'Prisma'] }
 ];
 
 const experience = [
@@ -247,7 +262,7 @@ export default function App() {
               <article className="project-row reveal" key={project.name}>
                 <span className="project-index">0{i + 1}</span>
                 <div className="project-main">
-                  {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''}`} src={project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" />}
+                  {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''}`} src={project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true; }} />}
                   <div className="project-topline"><span>{pt ? project.typePt : project.type}</span><span>{project.year}</span></div>
                   <h3>{project.name}</h3>
                   <p>{pt ? project.description : project.descriptionEn}</p>
@@ -265,14 +280,18 @@ export default function App() {
 
         <section className="section about-section reveal" id="about">
           <div className="section-heading"><div><span className="eyebrow-number">02 / {t.profileLabel}</span><h2>{t.about}</h2></div></div>
-          <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>{t.focusLabel}</span><p>{t.focusValue}</p></div><div><span>{t.locationLabel}</span><p>{t.locationValue}</p></div><div><span>{t.educationLabel}</span><p>{t.educationValue}</p></div><div><span>{t.opportunityLabel}</span><p>{t.opportunityValue}</p></div></div></div>
+          <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>{t.focusLabel}</span><p>{t.focusValue}</p></div><div><span>{t.locationLabel}</span><p>{t.locationValue}</p></div><div><span>{t.educationLabel}</span><p>{t.educationValue}</p></div></div></div>
         </section>
 
+        <section className="section skills-section reveal" id="skills"><div className="section-heading"><div><span className="eyebrow-number">03 / {pt ? 'COMPETÊNCIAS' : 'SKILLS'}</span><h2>{t.skills}</h2></div><p>{t.skillsIntro}</p></div><div className="skills-grid">{skillGroups.map((group, i) => <div className="skill-group" key={group.key}><span>{t.skillsGroups[i]}</span><div className="tags">{group.items.map(item => <span key={item}>{item}</span>)}</div></div>)}</div></section>
+
         <section className="section experience-section reveal" id="experience">
-          <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{pt ? <>CTeSP em Desenvolvimento de Software<br />Escola Superior Aveiro Norte · Universidade de Aveiro</> : <>CTeSP in Software Development<br />Escola Superior Aveiro Norte · University of Aveiro</>}<br />2025–2027</p></div>
+          <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{t.educationHeading}<br />{t.educationPlace}</p></div>
           <div className="experience-list">{experience.map(([date, rolePt, roleEn, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{pt ? rolePt : roleEn}</strong><span>{company}</span></div>)}</div>
-          <div className="education-note"><span>2020 — 2023</span><p>{pt ? <>Curso Profissional de Gestão e Programação de Sistemas Informáticos<br />Escola Secundária Dr. Serafim Leite</> : <>Vocational Course in IT Systems Management and Programming<br />Escola Secundária Dr. Serafim Leite</>}</p></div>
+          <div className="education-note"><span>2020 — 2023</span><p>{t.professionalCourse}<br />{t.professionalSchool}</p></div>
         </section>
+
+        <section className="internship-note reveal"><div><span className="eyebrow-number">{t.nextStep}</span><p>{t.internshipText}</p></div></section>
 
         <section className="contact-section reveal" id="contact">
           <div className="contact-copy"><span className="eyebrow-number">04 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
