@@ -20,7 +20,13 @@ const content = {
     direct: 'Ou escreve diretamente para',
     cv: 'Descarregar CV',
     allProjects: 'Ver projeto', private: 'Projeto privado', progress: 'Em desenvolvimento',
-    footer: 'Desenhado e desenvolvido por Leonardo Alves.'
+    footer: 'Desenhado e desenvolvido por Leonardo Alves.',
+    workLabel: 'TRABALHO', profileLabel: 'PERFIL', backgroundLabel: 'PERCURSO', contactLabel: 'CONTACTO',
+    focusLabel: 'FOCO', locationLabel: 'LOCALIZAÇÃO', educationLabel: 'FORMAÇÃO',
+    focusValue: <>Desenvolvimento de Software<br />Web · Backend · Aplicações</>,
+    locationValue: <>Oliveira de Azeméis, Portugal<br />Disponível para Aveiro, Porto e Coimbra</>,
+    educationValue: <>CTeSP em Desenvolvimento de Software<br />Universidade de Aveiro · 2025–2027</>,
+    availability: 'DISPONÍVEL PARA OPORTUNIDADES'
   },
   en: {
     nav: ['Projects', 'About', 'Experience', 'Contact'],
@@ -40,7 +46,13 @@ const content = {
     direct: 'Or email me directly at',
     cv: 'Download CV',
     allProjects: 'View project', private: 'Private project', progress: 'In development',
-    footer: 'Designed and developed by Leonardo Alves.'
+    footer: 'Designed and developed by Leonardo Alves.',
+    workLabel: 'WORK', profileLabel: 'PROFILE', backgroundLabel: 'BACKGROUND', contactLabel: 'CONTACT',
+    focusLabel: 'FOCUS', locationLabel: 'LOCATION', educationLabel: 'EDUCATION',
+    focusValue: <>Software Development<br />Web · Backend · Applications</>,
+    locationValue: <>Oliveira de Azeméis, Portugal<br />Open to Aveiro, Porto & Coimbra</>,
+    educationValue: <>CTeSP Software Development<br />University of Aveiro · 2025–2027</>,
+    availability: 'AVAILABLE FOR OPPORTUNITIES'
   }
 };
 
@@ -145,11 +157,11 @@ export default function App() {
             <a className="primary-link" href="#projects">{t.projects} <ArrowDownRight size={17} /></a>
             <a className="secondary-link" href="mailto:16alves02@gmail.com"><Mail size={16} /> 16alves02@gmail.com</a>
           </div>
-          <div className="hero-meta hero-reveal hero-reveal-5"><span>OLIVEIRA DE AZEMÉIS, PORTUGAL</span><span>AVAILABLE FOR OPPORTUNITIES</span></div>
+          <div className="hero-meta hero-reveal hero-reveal-5"><span>OLIVEIRA DE AZEMÉIS, PORTUGAL</span><span>{t.availability}</span></div>
         </section>
 
         <section className="section projects-section reveal" id="projects">
-          <div className="section-heading"><div><span className="eyebrow-number">01 / WORK</span><h2>{t.projects}</h2></div><p>{t.projectsIntro}</p></div>
+          <div className="section-heading"><div><span className="eyebrow-number">01 / {t.workLabel}</span><h2>{t.projects}</h2></div><p>{t.projectsIntro}</p></div>
           <div className="project-list">
             {projects.map((project, i) => (
               <article className="project-row reveal" key={project.name}>
@@ -171,18 +183,18 @@ export default function App() {
         </section>
 
         <section className="section about-section reveal" id="about">
-          <div className="section-heading"><div><span className="eyebrow-number">02 / PROFILE</span><h2>{t.about}</h2></div></div>
-          <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>FOCUS</span><p>Software Development<br />Web · Backend · Applications</p></div><div><span>LOCATION</span><p>Oliveira de Azeméis, Portugal<br />Open to Aveiro, Porto & Coimbra</p></div><div><span>EDUCATION</span><p>CTeSP Software Development<br />Universidade de Aveiro · 2025–2027</p></div></div></div>
+          <div className="section-heading"><div><span className="eyebrow-number">02 / {t.profileLabel}</span><h2>{t.about}</h2></div></div>
+          <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>{t.focusLabel}</span><p>{t.focusValue}</p></div><div><span>{t.locationLabel}</span><p>{t.locationValue}</p></div><div><span>{t.educationLabel}</span><p>{t.educationValue}</p></div></div></div>
         </section>
 
         <section className="section experience-section reveal" id="experience">
-          <div className="section-heading"><div><span className="eyebrow-number">03 / BACKGROUND</span><h2>{t.experience}</h2></div><p>{t.education}<br />CTeSP in Software Development<br />Escola Superior Aveiro Norte · Universidade de Aveiro<br />2025–2027</p></div>
+          <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />CTeSP in Software Development<br />Escola Superior Aveiro Norte · Universidade de Aveiro<br />2025–2027</p></div>
           <div className="experience-list">{experience.map(([date, role, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{role}</strong><span>{company}</span></div>)}</div>
           <div className="education-note"><span>2020 — 2023</span><p>Curso Profissional de Gestão e Programação de Sistemas Informáticos<br />Escola Secundária Dr. Serafim Leite</p></div>
         </section>
 
         <section className="contact-section reveal" id="contact">
-          <div className="contact-copy"><span className="eyebrow-number">04 / CONTACT</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
+          <div className="contact-copy"><span className="eyebrow-number">04 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
           <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="Novo contacto através do portefólio" />
             <input type="hidden" name="_captcha" value="true" />
