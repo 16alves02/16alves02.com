@@ -121,3 +121,6 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
   .faq-item summary{transition:color .2s ease}
   .faq-item summary:hover{color:var(--accent)}
 }
+
+/* Original personal brand artwork */
+.brand-logo{display:block;width:34px;height:34px;object-fit:contain;flex:0 0 auto;border-radius:5px}.brand-lockup{gap:10px}

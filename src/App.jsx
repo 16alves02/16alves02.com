@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X, BriefcaseBusiness, Camera, PlaySquare, MessageCircle, Palette } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X, Github, Linkedin, Instagram } from 'lucide-react';
 
 const content = {
   'pt-PT': {
     nav: ['Projetos', 'Sobre', 'Percurso', 'Contacto'],
     role: 'SOFTWARE DEVELOPER · PORTUGAL',
     headline: <>Desenvolvimento de<br /><em>software com propósito.</em></>,
-    intro: 'Sou o Leonardo. Desenvolvo projetos web e aplicações, gosto de resolver problemas e de transformar ideias em software útil.',
+    intro: 'Sou o Leonardo, Software Developer generalista. Desenvolvo software em diferentes áreas — da interface e lógica de negócio às APIs, dados e aplicações.',
     projects: 'Projetos selecionados',
     projectsIntro: 'Alguns dos projetos em que tenho trabalhado, entre desenvolvimento académico e projetos pessoais.',
     about: 'Um pouco sobre mim',
@@ -39,7 +39,7 @@ const content = {
     nav: ['Projects', 'About', 'Experience', 'Contact'],
     role: 'SOFTWARE DEVELOPER · PORTUGAL',
     headline: <>Building<br /><em>software with purpose.</em></>,
-    intro: "I'm Leonardo. I build web projects and applications, enjoy solving problems, and turning ideas into useful software.",
+    intro: "I'm Leonardo, a generalist Software Developer. I build software across interfaces, business logic, APIs, data and applications.",
     projects: 'Selected projects',
     projectsIntro: 'A selection of academic and personal projects I have been working on.',
     about: 'A little about me',
@@ -77,8 +77,8 @@ const projects = [
     description: 'Sistema académico de gestão de horários, assiduidade e stock para pequenos negócios de restauração, com painel web em PHP, API REST e quiosque Android em Kotlin.',
     descriptionEn: 'An academic system for managing schedules, attendance and stock in small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
-    status: 'Em desenvolvimento',
-    href: 'https://github.com/16alves02/SaborGest'
+    status: 'Em desenvolvimento · código privado',
+    statusEn: 'In development · private source'
   },
   {
     name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
@@ -102,7 +102,9 @@ const projects = [
     description: 'Aplicação interativa de conversas e jogos sociais, com vários modos, cartões, baralhos e interface multilingue.',
     descriptionEn: 'An interactive conversation and party-game app with multiple modes, cards, decks and a multilingual interface.',
     stack: ['React', 'JavaScript', 'PWA'],
-    status: 'Código privado'
+    status: 'Em desenvolvimento', statusEn: 'In development',
+    href: 'https://alv16studios.itch.io/raw-conversation-game',
+    source: 'https://raw-app-bice.vercel.app'
   },
   {
     name: 'HOOP', year: '2025–26', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
@@ -119,7 +121,7 @@ const projects = [
     descriptionEn: 'An academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.',
     stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
     status: 'Projeto académico', statusEn: 'Academic project',
-    href: 'https://github.com/13alves05/basket-hub'
+    href: 'https://github.com/bmgoliveira-UA/basket-hub'
   },
   {
     name: 'Tocadiscos Editora', year: '2025–26', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
@@ -128,25 +130,6 @@ const projects = [
     stack: ['Python', 'Pandas', 'Whoosh', 'Pygame'],
     status: 'Projeto académico de grupo', statusEn: 'Academic group project',
     href: 'https://github.com/13alves05/tocadiscos-editora'
-  },
-  {
-    name: 'Todo App', year: '2025', type: 'PERSONAL · WEB APPLICATION', typePt: 'PESSOAL · APLICAÇÃO WEB',
-    image: 'https://raw.githubusercontent.com/16alves02/todo-app/main/assets/screenshot.png',
-    imageAlt: 'Captura real da aplicação Todo App', imageAltEn: 'Todo App interface screenshot', imageFit: 'cover',
-    description: 'Gestor de tarefas no browser com filtros, tarefas concluídas, armazenamento local e navegação por teclado.',
-    descriptionEn: 'A browser-based task manager with filters, completed tasks, local storage and keyboard navigation.',
-    stack: ['HTML', 'CSS', 'JavaScript', 'localStorage'],
-    status: 'Demo disponível', statusEn: 'Live demo',
-    href: 'https://todo-app-three-beta-56.vercel.app',
-    source: 'https://github.com/16alves02/todo-app'
-  },
-  {
-    name: 'ArraySorting', year: '2025', type: 'ACADEMIC · ALGORITHMS', typePt: 'ACADÉMICO · ALGORITMOS',
-    description: 'Programa interativo em C para explorar Selection Sort, Insertion Sort, Bubble Sort e uma demonstração de Bogo Sort.',
-    descriptionEn: 'An interactive C program exploring Selection Sort, Insertion Sort, Bubble Sort and a Bogo Sort demonstration.',
-    stack: ['C', 'Algorithms', 'Arrays'],
-    status: 'Exercício académico', statusEn: 'Academic exercise',
-    href: 'https://github.com/16alves02/ArraySorting'
   },
   {
     name: 'Two of Hearts', year: '2026', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
@@ -168,7 +151,7 @@ const skillGroups = [
 ];
 
 const experience = [
-  ['2025 — 2026', 'Operador de máquina CNC', 'CNC Machine Operator', 'Schmidt Light Metal Group'],
+  ['fev. 2025 — mai. 2026', 'Operador de máquina CNC', 'CNC Machine Operator', 'Schmidt Light Metal Group'],
   ['2024', 'Operador de loja', 'Store Assistant', 'MC'],
   ['2023', 'Estágio de desenvolvimento back-end', 'Backend Development Intern', 'ClickBeauty / Alvocromático'],
   ['2022', 'Estágio de desenvolvimento Web', 'Web Development Intern', 'Associação Estamos Juntos (AEJ)']
@@ -184,13 +167,10 @@ export default function App() {
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const socialLinks = [
-    [Code2, 'GitHub', 'https://github.com/16alves02'],
-    [BriefcaseBusiness, 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
-    [Code2, 'GitHub académico', 'https://github.com/13alves05'],
-    [Camera, 'Instagram', 'https://www.instagram.com/16alves02/'],
-    [PlaySquare, 'YouTube', 'https://www.youtube.com/@16alves02'],
-    [MessageCircle, 'Twitch', 'https://www.twitch.tv/16alves02'],
-    [Palette, 'Uiverse', 'https://uiverse.io/16alves02'],
+    [Github, 'GitHub', 'https://github.com/16alves02'],
+    [Linkedin, 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
+    [Github, 'GitHub académico', 'https://github.com/13alves05'],
+    [Instagram, 'Instagram', 'https://www.instagram.com/16alves02/'],
     [Mail, 'Email', 'mailto:16alves02@gmail.com']
   ];
 
@@ -246,7 +226,7 @@ export default function App() {
   return (
     <div className={dark ? 'site dark' : 'site'}>
       <header className="header">
-        <a className="wordmark brand-lockup" href="#top"><span className="brand-symbol" aria-hidden="true" /><span>16alves02<span>.</span></span></a>
+        <a className="wordmark brand-lockup" href="#top"><img className="brand-logo" src="/logo.png" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? (pt ? 'Fechar menu' : 'Close menu') : (pt ? 'Abrir menu' : 'Open menu')} aria-expanded={menuOpen} aria-controls="primary-navigation">{menuOpen ? <X /> : <Menu />}</button>
         <nav id="primary-navigation" className={menuOpen ? 'nav open' : 'nav'} aria-label={pt ? 'Navegação principal' : 'Main navigation'}>
           {t.nav.map((label, i) => <a key={label} href={['#projects', '#about', '#experience', '#contact'][i]} onClick={closeMenu}>{label}</a>)}
@@ -269,7 +249,7 @@ export default function App() {
               <a className="secondary-link" href="#contact"><Mail size={16} /> {pt ? 'Falar comigo' : 'Get in touch'}</a>
             </div>
           </div>
-          <figure className="hero-portrait hero-reveal hero-reveal-3"><img src="/leonardo-portrait.svg" alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></figure>
+          <figure className="hero-portrait hero-reveal hero-reveal-3"><img src="/leonardo-portrait.jpg" alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></figure>
           <div className="hero-meta hero-reveal hero-reveal-5"><span>OLIVEIRA DE AZEMÉIS, PORTUGAL</span><span>{t.availability}</span></div>
         </section>
 
@@ -342,7 +322,7 @@ export default function App() {
       </main>
 
       <a className="mobile-contact-cta" href="#contact"><Mail size={16}/>{pt ? 'Entrar em contacto' : 'Contact me'}</a>
-      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><span className="brand-symbol" aria-hidden="true" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([Icon, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><Icon size={17} strokeWidth={1.7}/></a>)}</div><nav className="legal-links" aria-label={pt ? 'Informação legal' : 'Legal information'}><a href="/faq.html">FAQ</a><a href="/privacy.html">{t.privacyLabel}</a><a href="/terms.html">{t.termsLabel}</a></nav><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
+      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img className="brand-logo" src="/logo.png" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([Icon, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><Icon size={17} strokeWidth={1.7}/></a>)}</div><nav className="legal-links" aria-label={pt ? 'Informação legal' : 'Legal information'}><a href="/faq.html">FAQ</a><a href="/privacy.html">{t.privacyLabel}</a><a href="/terms.html">{t.termsLabel}</a></nav><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
 }
