@@ -71,3 +71,6 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
 /* Compact, recognisable text marks for social links. */
 .socials a{width:27px;height:27px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--muted);font:700 9px/1 'DM Sans',sans-serif;letter-spacing:-.25px;transition:color .2s ease,border-color .2s ease,transform .2s ease}
 .socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+
+.legal-links{display:flex;gap:14px;align-items:center}.legal-links a{font-size:10px;color:var(--muted);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}.legal-links a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+@media(max-width:720px){.legal-links{width:100%;order:3}.footer>span{order:4}}
