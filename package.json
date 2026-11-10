@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "verify:production": "node scripts/verify-production-assets.mjs",
     "verify:theme": "node scripts/verify-theme-contrast.mjs"
