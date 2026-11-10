@@ -6,6 +6,8 @@ import './portfolio.css';
 import './site-utilities.css';
 import './theme-contrast.css';
 import './immersive-3d.css';
+import './identity-refresh.css';
+import './portfolio-v2.css';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

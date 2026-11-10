@@ -105,7 +105,7 @@ The production build is generated in `dist/`.
 
 ## Author
 
-**Leonardo Alves** · [GitHub](https://github.com/16alves02) · [LinkedIn](https://www.linkedin.com/in/16alves02/) · [Email](mailto:16alves02@gmail.com)
+**Leonardo Alves** · [GitHub](https://github.com/16alves02) · [LinkedIn](https://www.linkedin.com/in/16alves02/) · [Email](mailto:alv16studios@gmail.com)
 
 ## Deployment
 
@@ -118,3 +118,8 @@ The portfolio is published with **Cloudflare Pages** at [16alves02.pages.dev](ht
 - **Root directory:** `/`
 
 Pull requests receive separate Cloudflare Pages preview deployments. The stable production URL remains the project subdomain above.
+
+
+## Content management
+
+The private content manager is available at `/admin`. It uses Supabase and Cloudflare Pages Functions. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) before configuring the database, admin account and Cloudflare secrets. Changes should be reviewed in a pull request before production release.

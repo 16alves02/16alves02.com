@@ -10,7 +10,7 @@
 - **Root directory:** `/`
 - **Build command:** `npm run build`
 - **Build output directory:** `dist`
-- **Environment variables:** none required by the current static portfolio
+- **Environment variables:** Supabase and Resend variables are required for the CMS and contact workflow. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md).
 
 Cloudflare Pages is connected to GitHub. Changes merged into `main` trigger production deployments; pull requests create preview deployments. Use the stable project URL for canonical metadata and public portfolio links, never a hash-based preview URL.
 
@@ -34,3 +34,7 @@ The production build is generated in `dist/`. Theme verification checks readable
 - [ ] Add a domain that the site owner controls under **Custom domains**. Do not change canonical URLs, sitemap URLs, or DNS until ownership and the target hostname are confirmed. After activation, update all canonical, Open Graph, sitemap, robots and legal-page URLs together.
 - [ ] Verify `/privacy.html`, `/terms.html`, `/sitemap.xml`, `/robots.txt`, and a deliberately missing path in production. The missing path must return HTTP 404.
 - [ ] Re-submit `/sitemap.xml` in Google Search Console after the production deployment and inspect the sitemap details. A successful browser render or URL live test does not itself prove that the Sitemaps report has processed the file.
+
+## Portfolio CMS and contact service
+
+The private admin interface is available at `/admin`. It uses Supabase Auth and the `portfolio_content` and `contact_messages` tables. See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) for database, administrator-account and Cloudflare Pages variable setup. Pages Functions are restricted to `/api/*` through `public/_routes.json`; static portfolio pages continue to be served as assets.
