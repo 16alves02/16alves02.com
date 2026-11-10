@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const portraitBase64 = await readFile(resolve(root, 'assets/leonardo-portrait.jpg.base64'), 'utf8');
+await writeFile(resolve(root, 'dist/leonardo-portrait.jpg'), Buffer.from(portraitBase64.trim(), 'base64'));
 const server = await createServer({
   configFile: resolve(root, 'vite.config.js'),
   root,
