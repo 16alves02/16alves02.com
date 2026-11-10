@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X, BriefcaseBusiness, Camera, PlaySquare, MessageCircle, Palette, Github } from 'lucide-react';
 
 const content = {
   'pt-PT': {
@@ -178,18 +178,19 @@ export default function App() {
   const [language, setLanguage] = useState('pt-PT');
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const t = content[language];
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const socialLinks = [
-    ['GH', 'GitHub', 'https://github.com/16alves02'],
-    ['in', 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
-    ['UA', 'GitHub académico', 'https://github.com/13alves05'],
-    ['IG', 'Instagram', 'https://www.instagram.com/16alves02/'],
-    ['YT', 'YouTube', 'https://www.youtube.com/@16alves02'],
-    ['TW', 'Twitch', 'https://www.twitch.tv/16alves02'],
-    ['UV', 'Uiverse', 'https://uiverse.io/16alves02'],
-    ['@', 'Email', 'mailto:16alves02@gmail.com']
+    [Github, 'GitHub', 'https://github.com/16alves02'],
+    [BriefcaseBusiness, 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
+    [Code2, 'GitHub académico', 'https://github.com/13alves05'],
+    [Camera, 'Instagram', 'https://www.instagram.com/16alves02/'],
+    [PlaySquare, 'YouTube', 'https://www.youtube.com/@16alves02'],
+    [MessageCircle, 'Twitch', 'https://www.twitch.tv/16alves02'],
+    [Palette, 'Uiverse', 'https://uiverse.io/16alves02'],
+    [Mail, 'Email', 'mailto:16alves02@gmail.com']
   ];
 
   useEffect(() => {
@@ -257,14 +258,17 @@ export default function App() {
       </header>
 
       <main id="top">
-        <section className="hero">
-          <div className="eyebrow hero-reveal hero-reveal-1"><span className="status-dot" />{t.role}</div>
-          <h1 className="hero-reveal hero-reveal-2">{t.headline}</h1>
-          <p className="hero-intro hero-reveal hero-reveal-3">{t.intro}</p>
-          <div className="hero-links hero-reveal hero-reveal-4">
-            <a className="primary-link" href="#projects">{t.projects} <ArrowDownRight size={17} /></a>
-            <a className="secondary-link" href="mailto:16alves02@gmail.com"><Mail size={16} /> 16alves02@gmail.com</a>
+        <section className="hero hero-with-portrait">
+          <div className="hero-copy">
+            <div className="eyebrow hero-reveal hero-reveal-1"><span className="status-dot" />{t.role}</div>
+            <h1 className="hero-reveal hero-reveal-2">{t.headline}</h1>
+            <p className="hero-intro hero-reveal hero-reveal-3">{t.intro}</p>
+            <div className="hero-links hero-reveal hero-reveal-4">
+              <a className="primary-link" href="#projects">{t.projects} <ArrowDownRight size={17} /></a>
+              <a className="secondary-link" href="#contact"><Mail size={16} /> {pt ? 'Falar comigo' : 'Get in touch'}</a>
+            </div>
           </div>
+          <figure className="hero-portrait hero-reveal hero-reveal-3"><img src="/leonardo-portrait.svg" alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></figure>
           <div className="hero-meta hero-reveal hero-reveal-5"><span>OLIVEIRA DE AZEMÉIS, PORTUGAL</span><span>{t.availability}</span></div>
         </section>
 
@@ -308,22 +312,35 @@ export default function App() {
 
         <section className="contact-section reveal" id="contact">
           <div className="contact-copy"><span className="eyebrow-number">05 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
-          <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST">
+          <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST" onSubmit={() => setIsSubmitting(true)}>
             <input type="hidden" name="_subject" value={pt ? "Novo contacto através do portefólio" : "New message from the portfolio"} />
             <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://16alves02.pages.dev/thanks.html" />
             <input type="text" name="_honey" className="honeypot" tabIndex="-1" aria-hidden="true" autoComplete="off" />
             <label>{t.name}<input name="name" required maxLength="100" autoComplete="name" /></label>
             <label>{t.email}<input type="email" name="email" required maxLength="254" autoComplete="email" /></label>
             <label>{t.subject}<input name="subject" required maxLength="140" /></label>
             <label>{t.message}<textarea name="message" rows="4" required minLength="10" maxLength="4000" /></label>
-            <button type="submit">{t.send} <ArrowUpRight size={17} /></button>
+            <button type="submit" disabled={isSubmitting}>{isSubmitting ? t.sending : t.send} <ArrowUpRight size={17} /></button>
             <small>{t.direct} <a href="mailto:16alves02@gmail.com">16alves02@gmail.com</a></small>
           </form>
         </section>
+        <section className="section faq-section reveal" id="faq"><div className="section-heading"><div><span className="eyebrow-number">06 / FAQ</span><h2>{pt ? 'Perguntas frequentes' : 'Frequently asked questions'}</h2></div><p>{pt ? 'Respostas rápidas sobre o meu percurso, projetos e disponibilidade.' : 'Quick answers about my background, projects and availability.'}</p></div><div className="faq-list">{(pt ? [
+          ['Estás à procura de estágio?', 'Sim. Procuro um estágio curricular de 680 horas, com início previsto em fevereiro de 2027. Tenho preferência por uma oportunidade remunerada e trabalho remoto.'],
+          ['Os projetos apresentados estão concluídos?', 'Não todos. O estado é indicado em cada projeto: alguns são trabalhos académicos concluídos, outros são protótipos ou continuam em desenvolvimento.'],
+          ['Que tipo de trabalho procuras?', 'Sou Software Developer generalista e tenho interesse em desenvolvimento web, backend e aplicações. Estou disponível para aprender novas tecnologias conforme as necessidades da equipa.'],
+          ['Como posso entrar em contacto?', 'Podes utilizar o formulário desta página ou escrever diretamente para 16alves02@gmail.com.']
+        ] : [
+          ['Are you looking for an internship?', 'Yes. I am seeking a 680-hour curricular internship starting in February 2027. I prefer a paid opportunity and remote work.'],
+          ['Are all showcased projects finished?', 'No. Each project has its own status: some are completed academic assignments, while others are prototypes or remain in development.'],
+          ['What kind of work are you interested in?', 'I am a generalist Software Developer interested in web development, backend systems and applications. I am open to learning technologies that fit the team’s needs.'],
+          ['How can I contact you?', 'Use the contact form on this page or email me directly at 16alves02@gmail.com.']
+        ]).map(([q,a]) => <details className="faq-item" key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></section>
       </main>
 
-      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([mark, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}>{label}</a>)}</div><nav className="legal-links" aria-label={pt ? 'Informação legal' : 'Legal information'}><a href="/privacy.html">{t.privacyLabel}</a><a href="/terms.html">{t.termsLabel}</a></nav><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
+      <a className="mobile-contact-cta" href="#contact"><Mail size={16}/>{pt ? 'Entrar em contacto' : 'Contact me'}</a>
+      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([Icon, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><Icon size={17} strokeWidth={1.7}/></a>)}</div><nav className="legal-links" aria-label={pt ? 'Informação legal' : 'Legal information'}><a href="/faq.html">FAQ</a><a href="/privacy.html">{t.privacyLabel}</a><a href="/terms.html">{t.termsLabel}</a></nav><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
 }
