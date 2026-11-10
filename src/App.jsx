@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Download, Code2, BriefcaseBusiness, Mail, Moon, Sun, Menu, X } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X } from 'lucide-react';
 
 const content = {
   'pt-PT': {
