@@ -74,8 +74,8 @@ const projects = [
   {
     name: 'SaborGest', year: '2026–27', type: 'ACADEMIC · WEB / ANDROID', typePt: 'ACADÉMICO · WEB / ANDROID',
     image: 'https://raw.githubusercontent.com/16alves02/SaborGest/main/web/assets/saborgest-logo.png', imageAlt: 'Logótipo do SaborGest', imageAltEn: 'SaborGest logo', imageFit: 'contain',
-    description: 'Sistema académico de gestão para pequenos negócios de restauração, com painel web em PHP, API REST, base de dados relacional e quiosque Android em Kotlin.',
-    descriptionEn: 'An academic management system for small food businesses, with a PHP web panel, REST API, relational database and Kotlin Android kiosk.',
+    description: 'Sistema académico de gestão de horários, assiduidade e stock para pequenos negócios de restauração, com painel web em PHP, API REST e quiosque Android em Kotlin.',
+    descriptionEn: 'An academic system for managing schedules, attendance and stock in small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
     status: 'Em desenvolvimento',
     href: 'https://github.com/16alves02/SaborGest'
@@ -83,8 +83,8 @@ const projects = [
   {
     name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
     image: 'https://raw.githubusercontent.com/16alves02/RunLattice/main/public/brand/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
-    description: 'Protótipo de uma plataforma de automação com editor visual de workflows, execução assíncrona, webhooks assinados e integração Discord.',
-    descriptionEn: 'An early-stage workflow automation platform with a visual editor, background execution, signed webhooks and a Discord integration.',
+    description: 'Protótipo de uma plataforma de automação com editor visual, modelos, execução em segundo plano, gatilhos agendados e por webhook, planeamento de workflows por IA em rascunhos sujeitos a revisão e integração Discord.',
+    descriptionEn: 'An early-stage automation platform with a visual editor, templates, background execution, scheduled and webhook triggers, AI workflow planning that produces drafts for user review, and a Discord integration.',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
     status: 'Protótipo',
     href: 'https://github.com/16alves02/RunLattice'
@@ -105,11 +105,11 @@ const projects = [
     status: 'Código privado'
   },
   {
-    name: 'HOOP', year: '2025', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
+    name: 'HOOP', year: '2025–26', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
     image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageAltEn: 'HOOP storefront homepage screenshot', imageFit: 'cover',
     description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
     descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
-    stack: ['HTML', 'CSS', 'JavaScript'],
+    stack: ['React', 'TypeScript', 'Vite', 'React Router'],
     href: 'https://hoop-16alves02.netlify.app',
     source: 'https://github.com/16alves02/hoop'
   },
