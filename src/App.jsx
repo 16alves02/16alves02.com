@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowDownRight, ArrowUpRight, Download, Code2, BriefcaseBusiness, Mail, Moon, Sun, Menu, X } from 'lucide-react';
 
 const content = {
@@ -102,6 +102,25 @@ export default function App() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const elements = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return undefined;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+    document.documentElement.classList.add('motion-ready');
+    elements.forEach((element) => observer.observe(element));
+    return () => { observer.disconnect(); document.documentElement.classList.remove('motion-ready'); };
+  }, []);
+
   return (
     <div className={dark ? 'site dark' : 'site'}>
       <header className="header">
@@ -119,21 +138,21 @@ export default function App() {
 
       <main id="top">
         <section className="hero">
-          <div className="eyebrow"><span className="status-dot" />{t.role}</div>
-          <h1>{t.headline}</h1>
-          <p className="hero-intro">{t.intro}</p>
-          <div className="hero-links">
+          <div className="eyebrow hero-reveal hero-reveal-1"><span className="status-dot" />{t.role}</div>
+          <h1 className="hero-reveal hero-reveal-2">{t.headline}</h1>
+          <p className="hero-intro hero-reveal hero-reveal-3">{t.intro}</p>
+          <div className="hero-links hero-reveal hero-reveal-4">
             <a className="primary-link" href="#projects">{t.projects} <ArrowDownRight size={17} /></a>
             <a className="secondary-link" href="mailto:16alves02@gmail.com"><Mail size={16} /> 16alves02@gmail.com</a>
           </div>
-          <div className="hero-meta"><span>OLIVEIRA DE AZEMÉIS, PORTUGAL</span><span>AVAILABLE FOR OPPORTUNITIES</span></div>
+          <div className="hero-meta hero-reveal hero-reveal-5"><span>OLIVEIRA DE AZEMÉIS, PORTUGAL</span><span>AVAILABLE FOR OPPORTUNITIES</span></div>
         </section>
 
-        <section className="section projects-section" id="projects">
+        <section className="section projects-section reveal" id="projects">
           <div className="section-heading"><div><span className="eyebrow-number">01 / WORK</span><h2>{t.projects}</h2></div><p>{t.projectsIntro}</p></div>
           <div className="project-list">
             {projects.map((project, i) => (
-              <article className="project-row" key={project.name}>
+              <article className="project-row reveal" key={project.name}>
                 <span className="project-index">0{i + 1}</span>
                 <div className="project-main">
                   <div className="project-topline"><span>{project.type}</span><span>{project.year}</span></div>
@@ -151,18 +170,18 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section about-section" id="about">
+        <section className="section about-section reveal" id="about">
           <div className="section-heading"><div><span className="eyebrow-number">02 / PROFILE</span><h2>{t.about}</h2></div></div>
           <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>FOCUS</span><p>Software Development<br />Web · Backend · Applications</p></div><div><span>LOCATION</span><p>Oliveira de Azeméis, Portugal<br />Open to Aveiro, Porto & Coimbra</p></div><div><span>EDUCATION</span><p>CTeSP Software Development<br />Universidade de Aveiro · 2025–2027</p></div></div></div>
         </section>
 
-        <section className="section experience-section" id="experience">
+        <section className="section experience-section reveal" id="experience">
           <div className="section-heading"><div><span className="eyebrow-number">03 / BACKGROUND</span><h2>{t.experience}</h2></div><p>{t.education}<br />CTeSP in Software Development<br />Escola Superior Aveiro Norte · Universidade de Aveiro<br />2025–2027</p></div>
-          <div className="experience-list">{experience.map(([date, role, company]) => <div className="experience-row" key={company}><span>{date}</span><strong>{role}</strong><span>{company}</span></div>)}</div>
+          <div className="experience-list">{experience.map(([date, role, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{role}</strong><span>{company}</span></div>)}</div>
           <div className="education-note"><span>2020 — 2023</span><p>Curso Profissional de Gestão e Programação de Sistemas Informáticos<br />Escola Secundária Dr. Serafim Leite</p></div>
         </section>
 
-        <section className="contact-section" id="contact">
+        <section className="contact-section reveal" id="contact">
           <div className="contact-copy"><span className="eyebrow-number">04 / CONTACT</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
           <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="Novo contacto através do portefólio" />
