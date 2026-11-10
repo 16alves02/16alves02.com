@@ -110,3 +110,7 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
 @media(max-width:720px){.header-contact{display:none}}
 
 .form-error{margin:0;color:#b33a2b;font-size:12px;line-height:1.6}
+
+/* Brand mark inherits the orange accent while retaining the original SVG silhouette. */
+.brand-lockup>.brand-symbol{display:block;width:34px;height:34px;flex:none;background:var(--accent);-webkit-mask:url('/logo.svg') center/contain no-repeat;mask:url('/logo.svg') center/contain no-repeat}
+@media(max-width:720px){.brand-lockup>.brand-symbol{width:31px;height:31px}}
