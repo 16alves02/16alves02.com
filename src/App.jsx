@@ -26,7 +26,13 @@ const content = {
     focusValue: <>Desenvolvimento de Software<br />Web · Backend · Aplicações</>,
     locationValue: <>Oliveira de Azeméis, Portugal<br />Disponível para Aveiro, Porto e Coimbra</>,
     educationValue: <>CTeSP em Desenvolvimento de Software<br />Universidade de Aveiro · 2025–2027</>,
-    availability: 'DISPONÍVEL PARA OPORTUNIDADES'
+    availability: 'À PROCURA DE ESTÁGIO CURRICULAR · FEVEREIRO 2027',
+    skills: 'Competências técnicas', skillsIntro: 'Tecnologias e ferramentas utilizadas nos projetos apresentados.',
+    internship: 'Próximo objetivo', internshipText: 'Procuro um estágio curricular de 680 horas, com início previsto em fevereiro de 2027. Tenho interesse em integrar uma equipa, contribuir para trabalho real e evoluir com acompanhamento e feedback.',
+    educationHeading: 'CTeSP em Desenvolvimento de Software', educationPlace: 'Escola Superior Aveiro Norte · Universidade de Aveiro · 2025–2027',
+    cnc: 'Operador de máquina CNC', store: 'Operador de loja', backendIntern: 'Estágio de desenvolvimento back-end', webIntern: 'Estágio de desenvolvimento Web',
+    skillsGroups: ['Linguagens', 'Frontend e aplicações', 'Backend e dados', 'Ferramentas'],
+    socialLabel: 'Redes e perfis'
   },
   en: {
     nav: ['Projects', 'About', 'Experience', 'Contact'],
@@ -52,7 +58,13 @@ const content = {
     focusValue: <>Software Development<br />Web · Backend · Applications</>,
     locationValue: <>Oliveira de Azeméis, Portugal<br />Open to Aveiro, Porto & Coimbra</>,
     educationValue: <>CTeSP Software Development<br />University of Aveiro · 2025–2027</>,
-    availability: 'AVAILABLE FOR OPPORTUNITIES'
+    availability: 'SEEKING A CURRICULAR INTERNSHIP · FEBRUARY 2027',
+    skills: 'Technical skills', skillsIntro: 'Technologies and tools used across the projects shown here.',
+    internship: 'Next objective', internshipText: 'I am seeking a 680-hour curricular internship starting in February 2027. I would like to join a team, contribute to real work and grow through guidance and feedback.',
+    educationHeading: 'CTeSP in Software Development', educationPlace: 'Escola Superior Aveiro Norte · University of Aveiro · 2025–2027',
+    cnc: 'CNC Machine Operator', store: 'Store Assistant', backendIntern: 'Back-end Development Intern', webIntern: 'Web Development Intern',
+    skillsGroups: ['Languages', 'Frontend & applications', 'Backend & data', 'Tools'],
+    socialLabel: 'Social profiles'
   }
 };
 
@@ -63,7 +75,7 @@ const projects = [
     description: 'Sistema académico de gestão para pequenos negócios de restauração, com painel web em PHP, API REST, base de dados relacional e quiosque Android em Kotlin.',
     descriptionEn: 'An academic management system for small food businesses, with a PHP web panel, REST API, relational database and Kotlin Android kiosk.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
-    status: 'Em desenvolvimento',
+    status: 'Em desenvolvimento', statusEn: 'In development',
     href: 'https://github.com/16alves02/SaborGest'
   },
   {
@@ -78,10 +90,10 @@ const projects = [
   {
     name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME',
     image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageFit: 'cover',
-    description: 'Jogo original de dedução criminal, com casos gerados proceduralmente, pistas interligadas e progressão de campanha. Continua em desenvolvimento.',
-    descriptionEn: 'An original criminal deduction game with procedurally generated cases, connected clues and campaign progression. Still in development.',
+    description: 'Jogo original de dedução criminal, centrado na análise de pistas e resolução de casos. Continua em desenvolvimento.',
+    descriptionEn: 'An original criminal deduction game focused on analysing clues and solving cases. Still in development.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
-    status: 'Em desenvolvimento'
+    status: 'Em desenvolvimento', statusEn: 'In development'
   },
   {
     name: 'RAW.', year: '2026', type: 'ALV16 STUDIOS · SOCIAL GAME',
@@ -147,10 +159,17 @@ const projects = [
 ];
 
 const experience = [
-  ['2025 — 2026', 'Operador de máquina CNC', 'Schmidt Light Metal Group'],
-  ['2024', 'Operador de loja', 'MC'],
-  ['2023', 'Estágio de desenvolvimento back-end', 'ClickBeauty / Alvocromático'],
-  ['2022', 'Estágio de desenvolvimento Web', 'Associação Estamos Juntos (AEJ)']
+  ['2025 — 2026', 'cnc', 'CNC Machine Operator', 'Schmidt Light Metal Group'],
+  ['2024', 'store', 'Store Assistant', 'MC'],
+  ['2023', 'backendIntern', 'Back-end Development Intern', 'ClickBeauty / Alvocromático'],
+  ['2022', 'webIntern', 'Web Development Intern', 'Associação Estamos Juntos (AEJ)']
+];
+
+const skillGroups = [
+  { key: 'languages', items: ['JavaScript', 'TypeScript', 'PHP', 'Kotlin', 'Python', 'C', 'SQL'] },
+  { key: 'frontend', items: ['HTML', 'CSS', 'React', 'Next.js', 'Vite', 'Android'] },
+  { key: 'backend', items: ['REST APIs', 'MySQL', 'PostgreSQL', 'Redis', 'Ktor'] },
+  { key: 'tools', items: ['Git', 'GitHub', 'Docker', 'Prisma', 'Figma'] }
 ];
 
 export default function App() {
@@ -241,11 +260,15 @@ export default function App() {
           <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>{t.focusLabel}</span><p>{t.focusValue}</p></div><div><span>{t.locationLabel}</span><p>{t.locationValue}</p></div><div><span>{t.educationLabel}</span><p>{t.educationValue}</p></div></div></div>
         </section>
 
+        <section className="section skills-section reveal" id="skills"><div className="section-heading"><div><span className="eyebrow-number">03 / SKILLS</span><h2>{t.skills}</h2></div><p>{t.skillsIntro}</p></div><div className="skills-grid">{skillGroups.map((group, i) => <div className="skill-group" key={group.key}><span>{t.skillsGroups[i]}</span><div className="tags">{group.items.map(item => <span key={item}>{item}</span>)}</div></div>)}</div></section>
+
         <section className="section experience-section reveal" id="experience">
-          <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />CTeSP in Software Development<br />Escola Superior Aveiro Norte · Universidade de Aveiro<br />2025–2027</p></div>
-          <div className="experience-list">{experience.map(([date, role, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{role}</strong><span>{company}</span></div>)}</div>
+          <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{t.educationHeading}<br />{t.educationPlace}</p></div>
+          <div className="experience-list">{experience.map(([date, roleKey, roleEn, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{pt ? t[roleKey] : roleEn}</strong><span>{company}</span></div>)}</div>
           <div className="education-note"><span>2020 — 2023</span><p>Curso Profissional de Gestão e Programação de Sistemas Informáticos<br />Escola Secundária Dr. Serafim Leite</p></div>
         </section>
+
+        <section className="internship-note reveal"><div><span className="eyebrow-number">{t.internship}</span><p>{t.internshipText}</p></div></section>
 
         <section className="contact-section reveal" id="contact">
           <div className="contact-copy"><span className="eyebrow-number">04 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
@@ -264,7 +287,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials"><a href="https://github.com/16alves02" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 /></a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BriefcaseBusiness /></a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer" aria-label="GitHub académico"><Code2 /></a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer" aria-label="Instagram"><ArrowUpRight /></a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer" aria-label="YouTube"><ArrowUpRight /></a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer" aria-label="Twitch"><ArrowUpRight /></a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer" aria-label="Uiverse"><Code2 /></a><a href="mailto:16alves02@gmail.com" aria-label="Email"><Mail /></a></div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
+      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials" aria-label={t.socialLabel}><a href="https://github.com/16alves02" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer">GitHub académico</a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer">YouTube</a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer">Twitch</a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer">Uiverse</a><a href="mailto:16alves02@gmail.com">Email</a></div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
 }
