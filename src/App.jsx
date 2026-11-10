@@ -104,7 +104,7 @@ const projects = [
     stack: ['React', 'JavaScript', 'PWA'],
     status: 'Em desenvolvimento', statusEn: 'In development',
     href: 'https://alv16studios.itch.io/raw-conversation-game',
-    source: 'https://raw-app-bice.vercel.app'
+    source: 'https://raw-app-bice.vercel.app', sourceLabel: 'Demo web'
   },
   {
     name: 'HOOP', year: '2025–26', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
@@ -249,7 +249,7 @@ export default function App() {
               <a className="secondary-link" href="#contact"><Mail size={16} /> {pt ? 'Falar comigo' : 'Get in touch'}</a>
             </div>
           </div>
-          <figure className="hero-portrait hero-reveal hero-reveal-3"><img src="/leonardo-portrait.jpg" alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></figure>
+          <figure className="hero-portrait hero-reveal hero-reveal-3"><img src="/leonardo-portrait.svg" alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></figure>
           <div className="hero-meta hero-reveal hero-reveal-5"><span>OLIVEIRA DE AZEMÉIS, PORTUGAL</span><span>{t.availability}</span></div>
         </section>
 
@@ -269,7 +269,7 @@ export default function App() {
                 <div className="project-side">
                   <span className="project-status">{pt ? project.status : (project.statusEn || (project.name === 'RAW.' ? 'Private source' : project.name === 'RunLattice' ? 'Prototype' : project.name === 'HOOP' ? 'Academic project' : 'In development'))}</span>
                   {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
-                  {project.source && <a href={project.source} target="_blank" rel="noreferrer">GitHub <Code2 size={15} /></a>}
+                  {project.source && <a href={project.source} target="_blank" rel="noreferrer">{project.sourceLabel || 'GitHub'} <ArrowUpRight size={15} /></a>}
                 </div>
               </article>
             ))}
