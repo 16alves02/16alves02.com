@@ -24,7 +24,7 @@ const content = {
     workLabel: 'TRABALHO', profileLabel: 'PERFIL', backgroundLabel: 'PERCURSO', contactLabel: 'CONTACTO',
     focusLabel: 'FOCO', locationLabel: 'LOCALIZAÇÃO', educationLabel: 'FORMAÇÃO',
     focusValue: <>Desenvolvimento de Software<br />Web · Backend · Aplicações</>,
-    locationValue: <>Oliveira de Azeméis, Portugal<br />Disponível para Aveiro, Porto e Coimbra</>,
+    locationValue: <>Oliveira de Azeméis, Portugal<br />Aveiro, Porto e Coimbra · preferência por remoto</>,
     educationValue: <>CTeSP em Desenvolvimento de Software<br />Universidade de Aveiro · 2025–2027</>,
     availability: 'DISPONÍVEL PARA OPORTUNIDADES',
     opportunityLabel: 'ESTÁGIO',
@@ -52,7 +52,7 @@ const content = {
     workLabel: 'WORK', profileLabel: 'PROFILE', backgroundLabel: 'BACKGROUND', contactLabel: 'CONTACT',
     focusLabel: 'FOCUS', locationLabel: 'LOCATION', educationLabel: 'EDUCATION',
     focusValue: <>Software Development<br />Web · Backend · Applications</>,
-    locationValue: <>Oliveira de Azeméis, Portugal<br />Open to Aveiro, Porto & Coimbra</>,
+    locationValue: <>Oliveira de Azeméis, Portugal<br />Aveiro, Porto & Coimbra · remote preferred</>,
     educationValue: <>CTeSP Software Development<br />University of Aveiro · 2025–2027</>,
     availability: 'AVAILABLE FOR OPPORTUNITIES',
     opportunityLabel: 'INTERNSHIP',
@@ -62,7 +62,7 @@ const content = {
 
 const projects = [
   {
-    name: 'SaborGest', year: '2026–27', type: 'ACADEMIC · WEB / ANDROID',
+    name: 'SaborGest', year: '2026–27', type: 'ACADEMIC · WEB / ANDROID', typePt: 'ACADÉMICO · WEB / ANDROID',
     image: 'https://raw.githubusercontent.com/16alves02/SaborGest/main/web/assets/saborgest-logo.png', imageAlt: 'Logótipo do SaborGest', imageFit: 'contain',
     description: 'Sistema académico de gestão para pequenos negócios de restauração, com painel web em PHP, API REST, base de dados relacional e quiosque Android em Kotlin.',
     descriptionEn: 'An academic management system for small food businesses, with a PHP web panel, REST API, relational database and Kotlin Android kiosk.',
@@ -71,7 +71,7 @@ const projects = [
     href: 'https://github.com/16alves02/SaborGest'
   },
   {
-    name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION',
+    name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
     image: 'https://raw.githubusercontent.com/16alves02/RunLattice/main/public/brand/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageFit: 'contain',
     description: 'Protótipo de uma plataforma de automação com editor visual de workflows, execução assíncrona, webhooks assinados e integração Discord.',
     descriptionEn: 'An early-stage workflow automation platform with a visual editor, background execution, signed webhooks and a Discord integration.',
@@ -80,7 +80,7 @@ const projects = [
     href: 'https://github.com/16alves02/RunLattice'
   },
   {
-    name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME',
+    name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME', typePt: 'ALV16 STUDIOS · JOGO',
     image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageFit: 'cover',
     description: 'Jogo original de dedução criminal, centrado na análise de pistas e resolução de casos. Continua em desenvolvimento.',
     descriptionEn: 'An original criminal deduction game focused on analysing clues and solving cases. Still in development.',
@@ -88,14 +88,14 @@ const projects = [
     status: 'Em desenvolvimento'
   },
   {
-    name: 'RAW.', year: '2026', type: 'ALV16 STUDIOS · SOCIAL GAME',
+    name: 'RAW.', year: '2026', type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
     description: 'Aplicação interativa de conversas e jogos sociais, com vários modos, cartões, baralhos e interface multilingue.',
     descriptionEn: 'An interactive conversation and party-game app with multiple modes, cards, decks and a multilingual interface.',
     stack: ['React', 'JavaScript', 'PWA'],
     status: 'Código privado'
   },
   {
-    name: 'HOOP', year: '2025', type: 'ACADEMIC · E-COMMERCE',
+    name: 'HOOP', year: '2025', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
     image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageFit: 'cover',
     description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
     descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
@@ -104,7 +104,7 @@ const projects = [
     source: 'https://github.com/16alves02/hoop'
   },
   {
-    name: 'Basket Hub', year: '2025–26', type: 'ACADEMIC · BASKETBALL PLATFORM',
+    name: 'Basket Hub', year: '2025–26', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
     description: 'Plataforma web académica para gestão de equipas, jogadores, jogos, inscrições, eventos, pavilhões e estatísticas de basquetebol.',
     descriptionEn: 'An academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.',
     stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
@@ -112,7 +112,7 @@ const projects = [
     href: 'https://github.com/13alves05/basket-hub'
   },
   {
-    name: 'Tocadiscos Editora', year: '2025–26', type: 'ACADEMIC · GROUP PROJECT',
+    name: 'Tocadiscos Editora', year: '2025–26', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
     description: 'Aplicação de linha de comandos para gerir autores, álbuns e músicas, com pesquisa, relatórios financeiros, reprodução de áudio e histórico reversível.',
     descriptionEn: 'A command-line application for managing artists, albums and tracks, with search, financial reports, audio playback and reversible change history.',
     stack: ['Python', 'Pandas', 'Whoosh', 'Pygame'],
@@ -120,7 +120,7 @@ const projects = [
     href: 'https://github.com/13alves05/tocadiscos-editora'
   },
   {
-    name: 'Todo App', year: '2025', type: 'PERSONAL · WEB APPLICATION',
+    name: 'Todo App', year: '2025', type: 'PERSONAL · WEB APPLICATION', typePt: 'PESSOAL · APLICAÇÃO WEB',
     image: 'https://raw.githubusercontent.com/16alves02/todo-app/main/assets/screenshot.png',
     imageAlt: 'Captura real da aplicação Todo App', imageFit: 'cover',
     description: 'Gestor de tarefas no browser com filtros, tarefas concluídas, armazenamento local e navegação por teclado.',
@@ -131,7 +131,7 @@ const projects = [
     source: 'https://github.com/16alves02/todo-app'
   },
   {
-    name: 'ArraySorting', year: '2025', type: 'ACADEMIC · ALGORITHMS',
+    name: 'ArraySorting', year: '2025', type: 'ACADEMIC · ALGORITHMS', typePt: 'ACADÉMICO · ALGORITMOS',
     description: 'Programa interativo em C para explorar Selection Sort, Insertion Sort, Bubble Sort e uma demonstração de Bogo Sort.',
     descriptionEn: 'An interactive C program exploring Selection Sort, Insertion Sort, Bubble Sort and a Bogo Sort demonstration.',
     stack: ['C', 'Algorithms', 'Arrays'],
@@ -139,7 +139,7 @@ const projects = [
     href: 'https://github.com/16alves02/ArraySorting'
   },
   {
-    name: 'Two of Hearts', year: '2026', type: 'ACADEMIC · VECTOR ILLUSTRATION',
+    name: 'Two of Hearts', year: '2026', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
     image: 'https://raw.githubusercontent.com/16alves02/two-of-hearts-portuguese-folk-art/main/assets/front.png',
     imageAlt: 'Ilustração vetorial final da carta Two of Hearts', imageFit: 'contain',
     description: 'Ilustração vetorial inspirada nos Lenços de Namorados do Minho, reinterpretando motivos tradicionais portugueses numa carta de jogar.',
@@ -151,10 +151,10 @@ const projects = [
 ];
 
 const experience = [
-  ['2025 — 2026', 'Operador de máquina CNC', 'Schmidt Light Metal Group'],
-  ['2024', 'Operador de loja', 'MC'],
-  ['2023', 'Estágio de desenvolvimento back-end', 'ClickBeauty / Alvocromático'],
-  ['2022', 'Estágio de desenvolvimento Web', 'Associação Estamos Juntos (AEJ)']
+  ['2025 — 2026', 'Operador de máquina CNC', 'CNC Machine Operator', 'Schmidt Light Metal Group'],
+  ['2024', 'Operador de loja', 'Store Assistant', 'MC'],
+  ['2023', 'Estágio de desenvolvimento back-end', 'Backend Development Intern', 'ClickBeauty / Alvocromático'],
+  ['2022', 'Estágio de desenvolvimento Web', 'Web Development Intern', 'Associação Estamos Juntos (AEJ)']
 ];
 
 export default function App() {
@@ -164,9 +164,24 @@ export default function App() {
   const t = content[language];
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
+  const socialLinks = [
+    ['GH', 'GitHub', 'https://github.com/16alves02'],
+    ['in', 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
+    ['UA', 'GitHub académico', 'https://github.com/13alves05'],
+    ['IG', 'Instagram', 'https://www.instagram.com/16alves02/'],
+    ['YT', 'YouTube', 'https://www.youtube.com/@16alves02'],
+    ['TW', 'Twitch', 'https://www.twitch.tv/16alves02'],
+    ['UV', 'Uiverse', 'https://uiverse.io/16alves02'],
+    ['@', 'Email', 'mailto:16alves02@gmail.com']
+  ];
 
   useEffect(() => {
     document.documentElement.lang = pt ? 'pt-PT' : 'en';
+    document.title = pt ? 'Leonardo Alves | Software Developer em Portugal' : 'Leonardo Alves | Software Developer in Portugal';
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.content = pt
+      ? 'Portefólio de Leonardo Alves, Software Developer em Portugal. Explora projetos de software, aplicações web, backend e desenvolvimento Android.'
+      : 'Portfolio of Leonardo Alves, Software Developer in Portugal. Explore software projects, web applications, backend and Android development.';
   }, [pt]);
 
   const closeMenu = () => setMenuOpen(false);
@@ -194,13 +209,13 @@ export default function App() {
     <div className={dark ? 'site dark' : 'site'}>
       <header className="header">
         <a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}>{menuOpen ? <X /> : <Menu />}</button>
-        <nav className={menuOpen ? 'nav open' : 'nav'} aria-label="Navegação principal">
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? (pt ? 'Fechar menu' : 'Close menu') : (pt ? 'Abrir menu' : 'Open menu')} aria-expanded={menuOpen} aria-controls="primary-navigation">{menuOpen ? <X /> : <Menu />}</button>
+        <nav id="primary-navigation" className={menuOpen ? 'nav open' : 'nav'} aria-label={pt ? 'Navegação principal' : 'Main navigation'}>
           {t.nav.map((label, i) => <a key={label} href={['#projects', '#about', '#experience', '#contact'][i]} onClick={closeMenu}>{label}</a>)}
         </nav>
         <div className="header-actions">
-          <button className="text-button" onClick={() => setLanguage(pt ? 'en' : 'pt-PT')}>{pt ? 'EN' : 'PT'}</button>
-          <button className="icon-button" onClick={() => setDark(!dark)} aria-label={dark ? 'Ativar tema claro' : 'Ativar tema escuro'}>{dark ? <Sun size={17} /> : <Moon size={17} />}</button>
+          <button className="text-button" onClick={() => setLanguage(pt ? 'en' : 'pt-PT')} aria-label={pt ? 'Mudar idioma para inglês' : 'Switch language to Portuguese'}>{pt ? 'EN' : 'PT'}</button>
+          <button className="icon-button" onClick={() => setDark(!dark)} aria-label={dark ? (pt ? 'Ativar tema claro' : 'Enable light theme') : (pt ? 'Ativar tema escuro' : 'Enable dark theme')} aria-pressed={dark}>{dark ? <Sun size={17} /> : <Moon size={17} />}</button>
           <a className="cv-link" href={cv} download><Download size={15} />{t.cv}</a>
         </div>
       </header>
@@ -225,7 +240,7 @@ export default function App() {
                 <span className="project-index">0{i + 1}</span>
                 <div className="project-main">
                   {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''}`} src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />}
-                  <div className="project-topline"><span>{project.type}</span><span>{project.year}</span></div>
+                  <div className="project-topline"><span>{pt ? project.typePt : project.type}</span><span>{project.year}</span></div>
                   <h3>{project.name}</h3>
                   <p>{pt ? project.description : project.descriptionEn}</p>
                   <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
@@ -247,14 +262,14 @@ export default function App() {
 
         <section className="section experience-section reveal" id="experience">
           <div className="section-heading"><div><span className="eyebrow-number">03 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{pt ? <>CTeSP em Desenvolvimento de Software<br />Escola Superior Aveiro Norte · Universidade de Aveiro</> : <>CTeSP in Software Development<br />Escola Superior Aveiro Norte · University of Aveiro</>}<br />2025–2027</p></div>
-          <div className="experience-list">{experience.map(([date, role, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{role}</strong><span>{company}</span></div>)}</div>
-          <div className="education-note"><span>2020 — 2023</span><p>Curso Profissional de Gestão e Programação de Sistemas Informáticos<br />Escola Secundária Dr. Serafim Leite</p></div>
+          <div className="experience-list">{experience.map(([date, rolePt, roleEn, company]) => <div className="experience-row reveal" key={company}><span>{date}</span><strong>{pt ? rolePt : roleEn}</strong><span>{company}</span></div>)}</div>
+          <div className="education-note"><span>2020 — 2023</span><p>{pt ? <>Curso Profissional de Gestão e Programação de Sistemas Informáticos<br />Escola Secundária Dr. Serafim Leite</> : <>Vocational Course in IT Systems Management and Programming<br />Escola Secundária Dr. Serafim Leite</>}</p></div>
         </section>
 
         <section className="contact-section reveal" id="contact">
           <div className="contact-copy"><span className="eyebrow-number">04 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
           <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Novo contacto através do portefólio" />
+            <input type="hidden" name="_subject" value={pt ? "Novo contacto através do portefólio" : "New message from the portfolio"} />
             <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_template" value="table" />
             <input type="text" name="_honey" className="honeypot" tabIndex="-1" aria-hidden="true" autoComplete="off" />
@@ -268,7 +283,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials"><a href="https://github.com/16alves02" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 /></a><a href="https://www.linkedin.com/in/16alves02/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BriefcaseBusiness /></a><a href="https://github.com/13alves05" target="_blank" rel="noreferrer" aria-label="GitHub académico"><Code2 /></a><a href="https://www.instagram.com/16alves02/" target="_blank" rel="noreferrer" aria-label="Instagram"><ArrowUpRight /></a><a href="https://www.youtube.com/@16alves02" target="_blank" rel="noreferrer" aria-label="YouTube"><ArrowUpRight /></a><a href="https://www.twitch.tv/16alves02" target="_blank" rel="noreferrer" aria-label="Twitch"><ArrowUpRight /></a><a href="https://uiverse.io/16alves02" target="_blank" rel="noreferrer" aria-label="Uiverse"><Code2 /></a><a href="mailto:16alves02@gmail.com" aria-label="Email"><Mail /></a></div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
+      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img src="/brand-mark.svg" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([mark, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><span aria-hidden="true">{mark}</span></a>)}</div><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
 }
