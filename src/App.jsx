@@ -82,7 +82,7 @@ const projects = [
   {
     name: 'RunLattice', year: '2026', group: 'featured', featured: true, type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
     image: '/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
-    description: 'Protótipo de automação com workspaces autenticados, editor visual, modelos e execução assíncrona com Redis/BullMQ. Inclui webhooks assinados, agendamento e uma ação externa funcional para Discord. O planeamento por IA gera apenas rascunhos para revisão. Ainda não está preparado para produção.',
+    description: 'Protótipo de automação com workspaces, editor visual, modelos, execução assíncrona, webhooks assinados, agendamentos e propostas de workflows por IA sujeitas a revisão. A ação externa funcional envia mensagens para webhooks Discord; o worker suporta um trigger e, no máximo, uma condição. Ainda não está preparado para produção.',
     descriptionEn: 'An automation prototype with authenticated workspaces, a visual editor, templates and Redis/BullMQ background execution. It includes signed webhooks, scheduling and one live external action for Discord. AI planning produces review-only drafts. It is not production-ready.',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
     status: 'Protótipo em desenvolvimento',
@@ -130,16 +130,7 @@ const projects = [
     status: 'Projeto académico de grupo', statusEn: 'Academic group project',
     href: 'https://github.com/13alves05/tocadiscos-editora'
   },
-  {
-    name: 'Two of Hearts', year: '2026', group: 'other', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
-    image: 'https://raw.githubusercontent.com/16alves02/two-of-hearts-portuguese-folk-art/main/assets/front.png',
-    imageAlt: 'Ilustração vetorial final da carta Two of Hearts', imageAltEn: 'Final Two of Hearts vector illustration', imageFit: 'contain',
-    description: 'Ilustração vetorial inspirada nos Lenços de Namorados do Minho, reinterpretando motivos tradicionais portugueses numa carta de jogar.',
-    descriptionEn: 'A vector illustration inspired by the Minho love handkerchiefs, reinterpreting traditional Portuguese motifs as a playing card.',
-    stack: ['Affinity', 'Vector Illustration', 'Portuguese Folk Art'],
-    status: 'Projeto académico', statusEn: 'Academic project',
-    href: 'https://github.com/16alves02/two-of-hearts-portuguese-folk-art'
-  },
+
 ];
 
 const skillGroups = [
@@ -267,7 +258,7 @@ export default function App() {
                   <article className={`project-row reveal ${project.featured ? 'featured-project' : ''}`} key={project.name}>
                     <span className="project-index">{String(projects.indexOf(project) + 1).padStart(2, '0')}</span>
                     <div className="project-main">
-                      {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''} ${project.name === 'RunLattice' ? 'project-preview-runlattice' : ''}`} src={project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true; }} />}
+                      {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''} ${project.name === 'RunLattice' ? 'project-preview-runlattice' : ''}`} src={project.name === 'RunLattice' && !dark ? '/runlattice-logo-light.svg' : project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true; }} />}
                       <div className="project-topline"><span>{pt ? project.typePt : project.type}</span><span>{project.year}</span></div>
                       <h3>{project.name}</h3>
                       <p>{pt ? project.description : project.descriptionEn}</p>
@@ -335,6 +326,7 @@ export default function App() {
             ['What professional software experience do you have?', 'I completed a backend internship at ClickBeauty / Alvocromático from April to July 2023 and a Web development internship at Associação Estamos Juntos in July 2022.'],
             ['Which projects should I review first?', 'SaborGest demonstrates Web, API, database and Android integration; RunLattice is an automation prototype; MRDR. is an original game in development; RAW. has a public demo; HOOP is an individual academic frontend project.'],
             ['Are the projects finished and is the source public?', 'No. Each project status is stated. SaborGest and MRDR. are in development, RunLattice is a prototype and RAW. remains in development. Some repositories are private; public demos are linked.'],
+            ['What can RunLattice currently execute?', 'The prototype runs workflows manually, through signed webhooks or on a schedule. Its implemented external action sends messages to Discord webhooks. The worker supports one trigger and at most one condition. Arbitrary code execution and additional provider actions are not implemented yet.'],
             ['Which technologies have you used?', 'JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, REST APIs, MySQL/MariaDB, PostgreSQL, Redis, Docker and Prisma. Practical depth varies by technology and project.'],
             ['How can I contact you?', 'Use the contact form, email 16alves02@gmail.com or connect through LinkedIn, linked in the footer.']
           ]).map(([q,a]) => <details className="faq-item" key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div>
