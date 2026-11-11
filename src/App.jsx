@@ -97,7 +97,7 @@ const projects = [
     description: 'Aplicação social de cartas com três modos de jogo, 27 baralhos e conteúdo em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
     descriptionEn: 'A card-based social app with three play modes, 27 decks and content in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
     stack: ['React', 'JavaScript', 'PWA'],
-    status: 'Em desenvolvimento · demo pública', statusEn: 'In development · public demo',
+    status: 'Demo pública · código privado', statusEn: 'Public demo · private source',
     href: 'https://alv16studios.itch.io/raw-conversation-game',
     source: 'https://raw-app-bice.vercel.app', sourceLabel: 'Demo web',
     caseStudy: 'raw'
@@ -129,7 +129,8 @@ const projects = [
     descriptionEn: 'An academic group project for basketball management. The current version includes authentication, sessions and role- and scope-based permissions, alongside team, player, game and event management.',
     stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
     status: 'Projeto académico de grupo · não preparado para produção', statusEn: 'Academic group project · not production-ready',
-    href: 'https://github.com/13alves05/basket-hub'
+    href: 'https://github.com/13alves05/basket-hub',
+    caseStudy: 'basket-hub'
   },
   {
     name: 'Tocadiscos Editora', year: '2025-26', group: 'other', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
