@@ -25,12 +25,12 @@ const content = {
     workLabel: 'TRABALHO', profileLabel: 'PERFIL', backgroundLabel: 'PERCURSO', contactLabel: 'CONTACTO',
     focusLabel: 'FOCO', locationLabel: 'LOCALIZAÇÃO', educationLabel: 'FORMAÇÃO',
     focusValue: <>Desenvolvimento de Software<br />Web · Backend · Aplicações</>,
-    locationValue: <>Oliveira de Azeméis, Portugal<br />Aveiro, Porto e Coimbra · preferência por remoto</>,
+    locationValue: <>Aveiro, Portugal<br />Presencial perto de Oliveira de Azeméis · híbrido/remoto em Aveiro, Porto e Coimbra</>,
     educationValue: <>CTeSP em Desenvolvimento de Software<br />Universidade de Aveiro · 2025-2027</>,
     availability: 'DISPONÍVEL PARA ESTÁGIO CURRICULAR · FEVEREIRO 2027',
     skills: 'Competências técnicas', skillsIntro: 'Tecnologias e ferramentas utilizadas nos projetos apresentados.',
     skillsGroups: ['Linguagens', 'Frontend e aplicações', 'Backend e dados', 'Ferramentas'],
-    internshipText: 'Procuro um estágio curricular remunerado de 680 horas, a partir de fevereiro de 2027. Estou baseado em Oliveira de Azeméis, com preferência por remoto e disponibilidade para Aveiro, Porto e Coimbra.',
+    internshipText: 'Procuro um estágio curricular remunerado de 680 horas, com início previsto em fevereiro de 2027. Tenho preferência por trabalho presencial perto de Oliveira de Azeméis ou por oportunidades híbridas/remotas nos distritos de Aveiro, Porto e Coimbra.',
     nextStep: 'PRÓXIMO OBJETIVO',
     educationHeading: 'CTeSP em Desenvolvimento de Software', educationPlace: 'Escola Superior Aveiro Norte · Universidade de Aveiro · 2025-2027',
     professionalCourse: 'Curso Profissional de Gestão e Programação de Sistemas Informáticos', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
@@ -58,12 +58,12 @@ const content = {
     workLabel: 'WORK', profileLabel: 'PROFILE', backgroundLabel: 'BACKGROUND', contactLabel: 'CONTACT',
     focusLabel: 'FOCUS', locationLabel: 'LOCATION', educationLabel: 'EDUCATION',
     focusValue: <>Software Development<br />Web · Backend · Applications</>,
-    locationValue: <>Oliveira de Azeméis, Portugal<br />Aveiro, Porto & Coimbra · remote preferred</>,
+    locationValue: <>Aveiro, Portugal<br />On-site near Oliveira de Azeméis · hybrid/remote across Aveiro, Porto and Coimbra</>,
     educationValue: <>CTeSP Software Development<br />University of Aveiro · 2025-2027</>,
     availability: 'AVAILABLE FOR CURRICULAR INTERNSHIP · FEBRUARY 2027',
     skills: 'Technical skills', skillsIntro: 'Technologies and tools used across the projects shown here.',
     skillsGroups: ['Languages', 'Frontend & applications', 'Backend & data', 'Tools'],
-    internshipText: 'Seeking a paid, 680-hour curricular internship from February 2027. Based in Oliveira de Azeméis, with a preference for remote work and availability across Aveiro, Porto and Coimbra.',
+    internshipText: 'Seeking a paid, 680-hour curricular internship starting in February 2027. I prefer on-site work near Oliveira de Azeméis, or hybrid/remote opportunities across the Aveiro, Porto and Coimbra districts.',
     nextStep: 'NEXT OBJECTIVE',
     educationHeading: 'CTeSP in Software Development', educationPlace: 'Escola Superior Aveiro Norte · University of Aveiro · 2025-2027',
     professionalCourse: 'Vocational Course in IT Systems Management and Programming', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
@@ -76,32 +76,45 @@ const projects = [
     description: 'Sistema de gestão para pequenos negócios de restauração, com painel Web, API REST em PHP e quiosque Android em Kotlin. Inclui colaboradores, horários, picagens, relatórios e operações de stock.',
     descriptionEn: 'A management system for small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk. Covers staff, schedules, clock-ins, reports and stock operations.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
-    status: 'Em desenvolvimento · código privado',
+    status: 'Em desenvolvimento',
     caseStudy: 'saborgest',
-    statusEn: 'In development · private source'
+    href: 'https://github.com/16alves02/SaborGest',
+    statusEn: 'In development'
   },
   {
     name: 'RunLattice', year: '2026', group: 'featured', featured: true, type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
     image: '/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
-    description: 'Protótipo de automação com workspaces, editor visual, modelos, execução assíncrona, webhooks assinados, agendamentos e propostas de workflows por IA sujeitas a revisão. A ação externa funcional envia mensagens para webhooks Discord; o worker suporta um trigger e, no máximo, uma condição. Ainda não está preparado para produção.',
-    descriptionEn: 'An automation prototype with authenticated workspaces, a visual editor, templates and Redis/BullMQ background execution. It includes signed webhooks, scheduling and one live external action for Discord. AI planning produces review-only drafts. It is not production-ready.',
-    stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
+    description: 'Protótipo de automação com workspaces autenticados, editor visual, modelos, execução com Redis/BullMQ, webhooks assinados, agendamentos e propostas de workflows por IA sujeitas a revisão. Discord é a única ação externa funcional; o worker suporta um trigger e, no máximo, uma condição. Os fluxos de faturação Stripe aguardam validação end-to-end.',
+    descriptionEn: 'An automation prototype with authenticated workspaces, a visual editor, templates and Redis/BullMQ background execution. It includes signed webhooks, scheduling and one live external action for Discord. AI planning produces review-only drafts. Stripe billing flows still require end-to-end validation.',
+    stack: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ', 'Stripe'],
+    statusEn: 'Prototype in development',
     status: 'Protótipo em desenvolvimento',
     caseStudy: 'runlattice',
     href: 'https://github.com/16alves02/RunLattice'
   },
   {
+    name: 'RAW.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
+    description: 'Aplicação social de cartas com três modos de jogo, 27 baralhos e conteúdo em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
+    descriptionEn: 'A card-based social app with three play modes, 27 decks and content in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
+    stack: ['React', 'JavaScript', 'PWA'],
+    status: 'Demo pública · código privado', statusEn: 'Public demo · private source',
+    href: 'https://alv16studios.itch.io/raw-conversation-game',
+    source: 'https://raw-app-bice.vercel.app', sourceLabel: 'Demo web',
+    caseStudy: 'raw'
+  },
+  {
     name: 'MRDR.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · GAME', typePt: 'ALV16 STUDIOS · JOGO',
     image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageAltEn: 'MRDR game identity artwork', imageFit: 'cover',
-    description: 'Jogo original de dedução criminal com casos procedurais, suspeitos, álibis, cronologias e pistas interligadas. O motor valida soluções únicas; a estrutura narrativa prevista contempla 20 mundos e 200 casos, ainda em desenvolvimento.',
-    descriptionEn: 'An original crime-deduction game with procedural cases, suspects, alibis, timelines and connected clues. Its engine validates unique solutions; the planned narrative structure spans 20 worlds and 200 cases and remains in development.',
+    description: 'Jogo original de dedução criminal centrado na análise de provas, suspeitos, álibis, cronologias e pistas relacionadas. A versão funcional está concluída; a publicação pública e as versões nativas continuam pendentes.',
+    descriptionEn: 'An original crime-deduction game built around evidence, suspects, alibis, timelines and connected clues. The functional version is complete; public release and native distribution remain pending.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
-    status: 'Em desenvolvimento',
-    caseStudy: 'mrdr'
+    status: 'Versão funcional concluída · publicação pendente', statusEn: 'Functional version complete · release pending',
+    caseStudy: 'mrdr',
+    href: 'https://github.com/16alves02/mrdr'
   },
 
   {
-    name: 'HOOP', year: '2025-26', group: 'featured', featured: true, type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
+    name: 'HOOP', year: '2025-26', group: 'other', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
     image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/produto.PNG', imageAlt: 'Captura da página de produto da loja HOOP', imageAltEn: 'HOOP product page screenshot', imageFit: 'cover',
     description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
     descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
@@ -111,22 +124,13 @@ const projects = [
     caseStudy: 'hoop'
   },
   {
-    name: 'RAW.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
-    description: 'Aplicação social de cartas com três modos de jogo, 27 baralhos e conteúdo em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
-    descriptionEn: 'A card-based social app with three play modes, 27 decks and content in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
-    stack: ['React', 'JavaScript', 'PWA'],
-    status: 'Em desenvolvimento · demo pública', statusEn: 'In development · public demo',
-    href: 'https://alv16studios.itch.io/raw-conversation-game',
-    source: 'https://raw-app-bice.vercel.app', sourceLabel: 'Demo web',
-    caseStudy: 'raw'
-  },
-  {
     name: 'Basket Hub', year: '2025-26', group: 'other', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
-    description: 'Plataforma web académica para gestão de equipas, jogadores, jogos, inscrições, eventos, pavilhões e estatísticas de basquetebol.',
-    descriptionEn: 'An academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.',
+    description: 'Projeto académico de grupo para gestão de basquetebol. A versão atual inclui autenticação, sessões e permissões por função e âmbito, além da gestão de equipas, jogadores, jogos e eventos.',
+    descriptionEn: 'An academic group project for basketball management. The current version includes authentication, sessions and role- and scope-based permissions, alongside team, player, game and event management.',
     stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
-    status: 'Projeto académico', statusEn: 'Academic project',
-    href: 'https://github.com/bmgoliveira-UA/basket-hub'
+    status: 'Projeto académico de grupo · não preparado para produção', statusEn: 'Academic group project · not production-ready',
+    href: 'https://github.com/13alves05/basket-hub',
+    caseStudy: 'basket-hub'
   },
   {
     name: 'Tocadiscos Editora', year: '2025-26', group: 'other', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
@@ -136,14 +140,43 @@ const projects = [
     status: 'Projeto académico de grupo', statusEn: 'Academic group project',
     href: 'https://github.com/13alves05/tocadiscos-editora'
   },
+  {
+    name: 'Two of Hearts', year: '2026', group: 'other', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
+    image: 'https://raw.githubusercontent.com/16alves02/two-of-hearts-portuguese-folk-art/main/assets/front.png',
+    imageAlt: 'Ilustração final da carta Two of Hearts', imageAltEn: 'Final Two of Hearts playing-card illustration', imageFit: 'contain',
+    description: 'Ilustração vetorial de uma carta de jogar inspirada nos Lenços de Namorados do Minho, desenvolvida em Affinity e baseada em motivos da tradição popular portuguesa.',
+    descriptionEn: 'A vector playing-card illustration inspired by the Minho love handkerchiefs, developed in Affinity and based on Portuguese folk-art motifs.',
+    stack: ['Affinity', 'Vector illustration', 'Portuguese folk art'],
+    status: 'Projeto académico', statusEn: 'Academic project',
+    href: 'https://github.com/16alves02/two-of-hearts-portuguese-folk-art'
+  },
+  {
+    name: 'Todo App', year: '2025', group: 'other', type: 'PERSONAL · WEB APPLICATION', typePt: 'PESSOAL · APLICAÇÃO WEB',
+    image: 'https://raw.githubusercontent.com/16alves02/todo-app/main/assets/screenshot.png',
+    imageAlt: 'Captura real da aplicação Todo App', imageAltEn: 'Actual Todo App screenshot',
+    description: 'Gestor de tarefas no browser com filtros, tarefas concluídas, armazenamento local e navegação por teclado. Os dados ficam guardados apenas no browser utilizado.',
+    descriptionEn: 'A browser-based task manager with filters, completed tasks, local storage and keyboard navigation. Data stays in the browser where it was created.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'localStorage'],
+    status: 'Demo disponível', statusEn: 'Live demo',
+    href: 'https://todo-app-three-beta-56.vercel.app',
+    source: 'https://github.com/16alves02/todo-app'
+  },
+  {
+    name: 'ArraySorting', year: '2023', group: 'other', type: 'EARLY PROJECT · 12.º ANO', typePt: 'PROJETO INICIAL · 12.º ANO',
+    description: 'Programa de consola em C que demonstra Selection Sort, Insertion Sort, Bubble Sort e um exemplo de Bogo Sort, com menu interativo e validação de entradas.',
+    descriptionEn: 'A C console program demonstrating Selection Sort, Insertion Sort, Bubble Sort and a Bogo Sort example, with an interactive menu and input validation.',
+    stack: ['C', 'Arrays', 'Sorting algorithms'],
+    status: 'Projeto escolar', statusEn: 'School project',
+    href: 'https://github.com/16alves02/ArraySorting'
+  },
 
 ];
 
 const skillGroups = [
   { key: 'languages', items: ['JavaScript', 'TypeScript', 'PHP', 'Kotlin', 'Python', 'C', 'SQL'] },
   { key: 'frontend', items: ['HTML', 'CSS', 'React', 'Next.js', 'Vite', 'Android'] },
-  { key: 'backend', items: ['REST APIs', 'MySQL', 'PostgreSQL', 'Redis', 'Ktor'] },
-  { key: 'tools', items: ['Git', 'GitHub', 'Docker', 'Prisma'] }
+  { key: 'backend', items: ['REST APIs', 'MySQL', 'PostgreSQL', 'Redis', 'Ktor', 'Stripe'] },
+  { key: 'tools', items: ['Git', 'GitHub', 'Docker', 'Prisma', 'BullMQ'] }
 ];
 
 const experience = [

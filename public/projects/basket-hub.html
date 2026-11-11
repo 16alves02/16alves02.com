@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Estudo de caso do Basket Hub, projeto académico de grupo para gestão de basquetebol e controlo de acessos.">
+<link rel="canonical" href="https://16alves02.pages.dev/projects/basket-hub.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basket Hub | Leonardo Alves">
+<meta property="og:description" content="Projeto académico de grupo com gestão de basquetebol, autenticação e permissões por função e âmbito.">
+<meta property="og:url" content="https://16alves02.pages.dev/projects/basket-hub.html">
+<meta name="twitter:card" content="summary">
+<title>Basket Hub | Estudo de caso | Leonardo Alves</title>
+<style>
+:root{--bg:#fafaf8;--ink:#191919;--muted:#66665f;--line:#deded8;--accent:#ff6a2a;--panel:#f1f0eb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 system-ui,sans-serif}
+.wrap{width:min(980px,calc(100% - 48px));margin:auto}.bar{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-weight:800;letter-spacing:-1px;text-decoration:none;color:inherit}.brand b,h1 span{color:var(--accent)}button{border:0;background:none;font-weight:700;cursor:pointer;color:inherit}
+.back{font-size:12px;color:inherit;text-decoration:none;border-bottom:1px solid var(--line);margin-left:14px}
+.hero{padding:68px 0 46px;border-bottom:1px solid var(--line)}.eyebrow{font:700 10px/1.5 monospace;letter-spacing:1.3px;color:var(--muted)}
+h1{font-size:clamp(48px,9vw,88px);letter-spacing:-.075em;line-height:.98;margin:18px 0}.lead{max-width:740px;font-size:18px;color:var(--muted)}
+.tags,.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.tags span{font-size:11px;padding:6px 9px;border:1px solid var(--line);color:var(--muted)}
+.links a{display:inline-block;padding:10px 14px;background:var(--ink);color:var(--bg);font-size:12px;text-decoration:none}.links a.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+main{padding:42px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;margin-bottom:42px}
+.block{display:grid;grid-template-columns:210px 1fr;gap:28px;border-top:1px solid var(--line);padding:24px 0}
+h2{font-size:23px;letter-spacing:-.05em;margin:5px 0}.block p,.grid p,.block li{font-size:14px;color:var(--muted);line-height:1.85}
+ul{margin:0;padding-left:18px}.note{background:var(--panel);border-left:3px solid var(--accent);padding:18px}.note p{margin:0}
+footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:12px}
+[data-lang=en]{display:none}body.en [data-lang=pt]{display:none}body.en [data-lang=en]{display:block}body.en a[data-lang=en]{display:inline}
+@media(max-width:650px){.wrap{width:calc(100% - 40px)}.hero{padding:52px 0 36px}.grid{grid-template-columns:1fr;gap:12px}.block{grid-template-columns:1fr;gap:6px}.lead{font-size:16px}footer{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="bar"><a class="brand" href="/">16alves02<b>.</b></a><div><button id="lang" type="button" aria-label="Mudar idioma">EN</button><a class="back" href="/#projects" data-lang="pt">Voltar aos projetos ↗</a><a class="back" href="/#projects" data-lang="en">Back to projects ↗</a></div></header>
+<header class="hero">
+<div class="eyebrow">ACADÉMICO · PROJETO DE GRUPO</div>
+<h1>Basket Hub<span>.</span></h1>
+<p class="lead" data-lang="pt">Plataforma académica de gestão de basquetebol. A evolução mais recente acrescenta autenticação, sessões e permissões por função e âmbito às áreas de gestão da aplicação.</p>
+<p class="lead" data-lang="en">An academic basketball management platform. Its latest iteration adds authentication, sessions and role- and scope-based permissions to the application's management areas.</p>
+<div class="tags"><span>Kotlin</span><span>Ktor</span><span>Thymeleaf</span><span>Exposed</span><span>H2</span></div>
+<div class="links"><a href="https://github.com/13alves05/basket-hub" target="_blank" rel="noreferrer">GitHub</a></div>
+</header>
+<main>
+<div data-lang="pt">
+<div class="grid">
+<section><span class="eyebrow">CONTEXTO</span><h2>O problema</h2><p>Uma organização desportiva precisa de gerir equipas, jogadores, jogos, eventos, inscrições e instalações, mantendo os dados e as operações organizados.</p></section>
+<section><span class="eyebrow">ABORDAGEM</span><h2>A solução</h2><p>Aplicação Web académica desenvolvida em Kotlin com Ktor, páginas Thymeleaf e persistência H2. O trabalho foi desenvolvido em grupo e não é apresentado como projeto individual.</p></section>
+</div>
+<section class="block"><div><span class="eyebrow">FUNCIONALIDADES</span><h2>O que foi construído</h2></div><ul>
+<li>Gestão de equipas, jogadores, jogos, eventos, inscrições e pavilhões.</li>
+<li>Bootstrap inicial de administrador, limitado ao ambiente de desenvolvimento e protegido por token de utilização única.</li>
+<li>Autenticação com sessões Bearer opacas, expiração e revogação.</li>
+<li>Controlo de acesso por função e âmbito para administradores, gestores de equipa e organizadores.</li>
+<li>Verificações de autorização associadas às equipas e eventos atribuídos a cada utilizador.</li>
+</ul></section>
+<section class="block"><div><span class="eyebrow">ARQUITETURA</span><h2>Stack técnica</h2></div><p>Kotlin e Ktor para a aplicação de servidor, Thymeleaf para as páginas, Exposed para acesso a dados e H2 para persistência local. O projeto utiliza Gradle para gestão e validação do build.</p></section>
+<section class="block"><div><span class="eyebrow">COLABORAÇÃO</span><h2>Trabalho de grupo</h2></div><p>Este é um projeto académico coletivo. O repositório ligado corresponde à entrega do grupo; as funcionalidades e decisões não devem ser interpretadas como trabalho exclusivo de Leonardo Alves.</p></section>
+<section class="block"><div><span class="eyebrow">ESTADO ATUAL</span><h2>Limitações</h2></div><div class="note"><p>A base de segurança foi integrada na branch main, mas a aplicação não está preparada para produção. O arranque em ambiente de produção permanece bloqueado até a proteção das rotas e a validação de segurança estarem completas.</p></div></section>
+<section class="block"><div><span class="eyebrow">PRÓXIMOS PASSOS</span><h2>Validação necessária</h2></div><p>Alargar os testes HTTP e de IDOR, fechar as regras de autorização para inscrições, implementar recuperação e alteração de palavra-passe e limitação de tentativas, validar concorrência na proteção do último administrador e rever HTTPS, CORS e segredos de alojamento.</p></section>
+</div>
+<div data-lang="en">
+<div class="grid">
+<section><span class="eyebrow">CONTEXT</span><h2>The problem</h2><p>A sports organisation needs to manage teams, players, games, events, registrations and venues while keeping its data and operations organised.</p></section>
+<section><span class="eyebrow">APPROACH</span><h2>The solution</h2><p>An academic web application built with Kotlin, Ktor, Thymeleaf pages and H2 persistence. It was developed as a group project and is not presented as individual work.</p></section>
+</div>
+<section class="block"><div><span class="eyebrow">FEATURES</span><h2>What was built</h2></div><ul>
+<li>Management of teams, players, games, events, registrations and venues.</li>
+<li>Initial administrator bootstrap, restricted to development and protected by a one-time token.</li>
+<li>Authentication with opaque Bearer sessions, expiry and revocation.</li>
+<li>Role- and scope-based access control for administrators, team managers and organisers.</li>
+<li>Authorisation checks tied to each user's assigned teams and events.</li>
+</ul></section>
+<section class="block"><div><span class="eyebrow">ARCHITECTURE</span><h2>Technology stack</h2></div><p>Kotlin and Ktor for the server application, Thymeleaf for pages, Exposed for data access and H2 for local persistence. The project uses Gradle for build management and validation.</p></section>
+<section class="block"><div><span class="eyebrow">COLLABORATION</span><h2>Group project</h2></div><p>This is collaborative academic work. The linked repository is the group's submission; its features and decisions should not be interpreted as Leonardo Alves's individual work alone.</p></section>
+<section class="block"><div><span class="eyebrow">CURRENT STATUS</span><h2>Limitations</h2></div><div class="note"><p>The security baseline has been merged into the main branch, but the application is not production-ready. Production startup remains blocked until route protection and security validation are complete.</p></div></section>
+<section class="block"><div><span class="eyebrow">NEXT STEPS</span><h2>Further validation</h2></div><p>Expand HTTP and IDOR tests, finalise registration authorisation rules, implement password recovery and change plus rate limiting, validate last-administrator concurrency protection, and review hosting HTTPS, CORS and secrets.</p></section>
+</div>
+</main>
+<footer><span>© 2026 Leonardo Alves · 16alves02</span><a href="/#contact" data-lang="pt">Contacto</a><a href="/#contact" data-lang="en">Contact</a></footer>
+</div>
+<script>
+const body=document.body,button=document.getElementById('lang');
+button.addEventListener('click',()=>{const en=!body.classList.contains('en');body.classList.toggle('en',en);document.documentElement.lang=en?'en':'pt-PT';button.textContent=en?'PT':'EN';document.title=en?'Basket Hub | Case study | Leonardo Alves':'Basket Hub | Estudo de caso | Leonardo Alves';});
+</script>
+</body>
+</html>
