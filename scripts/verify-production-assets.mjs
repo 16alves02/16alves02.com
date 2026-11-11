@@ -15,6 +15,12 @@ const required = [
   'site.webmanifest',
   'cv-leonardo-alves-pt.pdf',
   'cv-leonardo-alves-en.pdf',
+  'projects/saborgest.html',
+  'projects/runlattice.html',
+  'projects/mrdr.html',
+  'projects/hoop.html',
+  'projects/raw.html',
+  'projects/basket-hub.html',
 ];
 
 for (const file of required) {
