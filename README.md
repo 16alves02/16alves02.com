@@ -33,6 +33,7 @@ Technologies and tools used across the projects shown here:
 - **HOOP** - Academic basketball-store frontend built with React and TypeScript. Includes product discovery, search, filters, favourites, cart and a simulated checkout. It does not process real purchases.
 - **Basket Hub** - Academic group project for basketball management. The current code includes administrator bootstrap, token sessions and role- and scope-based access control. It is not production-ready and is not an individual-only project.
 - **Tocadiscos Editora** - Academic group CLI application for managing a fictional music publisher catalogue, with search, royalty calculations, financial reports, audio playback and reversible change history.
+- **Nova Imagem by Maura Pereira** - Published client website for a hair salon, with service information, gallery, opening hours and direct contact. Online booking is not implemented; Sanity CMS setup remains pending.
 
 Additional academic and personal work includes Two of Hearts, Todo App and ArraySorting.
 
