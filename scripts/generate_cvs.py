@@ -57,10 +57,10 @@ def build(path, english=False):
              "Designing a workflow automation platform with a visual editor and an accessible no-code direction alongside developer-focused capabilities."),
             ("MRDR.", "Original game · in development · React, TypeScript, Vite, Capacitor",
              "Building an original criminal deduction game focused on clue analysis, logical reasoning and case solving."),
-            ("RAW.", "ALV16 STUDIOS · public demo · React, JavaScript, PWA",
-             "Interactive conversation and party-game app with multiple play modes, question decks and multilingual content. Source code is private."),
             ("HOOP", "Academic project · React, TypeScript, Vite",
              "Basketball e-commerce frontend featuring product browsing, search, filters, favourites, cart and a simulated checkout."),
+            ("RAW.", "ALV16 STUDIOS · public demo · React, JavaScript, PWA",
+             "Interactive conversation and party-game app with multiple play modes, question decks and multilingual content. Source code is private."),
         ]
         jobs = [
             ("Backend Development Intern", "ClickBeauty / Alvocromático", "Apr–Jul 2023", "Worked on backend features using PHP and MySQL, supported internal web systems and maintained existing code."),
@@ -92,10 +92,10 @@ def build(path, english=False):
              "Conceção de uma plataforma de automação de workflows com editor visual, orientada tanto a utilizadores sem código como a utilizadores técnicos."),
             ("MRDR.", "Jogo original · em desenvolvimento · React, TypeScript, Vite, Capacitor",
              "Desenvolvimento de um jogo original de dedução criminal, centrado na análise de pistas, raciocínio lógico e resolução de casos."),
-            ("RAW.", "ALV16 STUDIOS · demonstração pública · React, JavaScript, PWA",
-             "Aplicação interativa de conversação e jogos sociais, com vários modos, baralhos de perguntas e conteúdo multilingue. Código-fonte privado."),
             ("HOOP", "Projeto académico · React, TypeScript, Vite",
              "Frontend de comércio eletrónico de basquetebol, com catálogo, pesquisa, filtros, favoritos, carrinho e finalização de compra simulada."),
+            ("RAW.", "ALV16 STUDIOS · demonstração pública · React, JavaScript, PWA",
+             "Aplicação interativa de conversação e jogos sociais, com vários modos, baralhos de perguntas e conteúdo multilingue. Código-fonte privado."),
         ]
         jobs = [
             ("Estagiário de Desenvolvimento Backend", "ClickBeauty / Alvocromático", "abr.–jul. 2023", "Desenvolvimento de funcionalidades backend com PHP e MySQL, apoio a sistemas Web internos e manutenção de código."),
