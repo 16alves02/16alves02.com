@@ -1,21 +1,19 @@
-# Leonardo Alves, Software Developer Portfolio
+# Leonardo Alves - Software Developer Portfolio
 
-A lightweight, static portfolio for Leonardo Alves, Software Developer and Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro.
+A bilingual portfolio for Leonardo Alves, Software Developer and Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro.
 
 **Live site:** https://16alves02.pages.dev  
 **GitHub:** https://github.com/16alves02  
 **LinkedIn:** https://www.linkedin.com/in/16alves02/  
-**Instagram:** https://www.instagram.com/16alves02/  
-**Academic GitHub:** https://github.com/13alves05  
 **Contact:** 16alves02@gmail.com
 
 ## About
 
-Software Developer with practical experience in web and backend development, currently studying for a CTeSP in Software Development (2025-2027).
+Software Developer with practical experience in web and backend development, currently studying for a CTeSP in Software Development (2025-2027). Interested in building complete software products across interfaces, application logic, APIs, data and mobile applications.
 
 ## Current objective
 
-Seeking a **paid 680-hour curricular internship starting in February 2027**. Based in Oliveira de Azeméis, open to on-site work nearby and hybrid or remote opportunities across Aveiro, Porto and Coimbra.
+Seeking a **paid 680-hour curricular internship**, expected to start in February 2027. The portfolio location is Aveiro, Portugal. Available for on-site opportunities near Oliveira de Azeméis and hybrid or remote opportunities across the Aveiro, Porto and Coimbra districts.
 
 ## Technical skills
 
@@ -23,38 +21,40 @@ Technologies and tools used across the projects shown here:
 
 - **Languages:** JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL
 - **Frontend and applications:** HTML, CSS, React, Next.js, Vite, Android
-- **Backend and data:** REST APIs, MySQL, PostgreSQL, Redis, Ktor
-- **Tools:** Git, GitHub, Docker, Prisma
+- **Backend and data:** REST APIs, Ktor, MySQL, MariaDB, PostgreSQL, Redis
+- **Tools and infrastructure:** Git, GitHub, Docker, Prisma, BullMQ, Stripe
 
-## Projects
+## Selected projects
 
-- **SaborGest**, academic system for managing schedules, attendance and stock in small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk. In development, source repository is private.
-- **RunLattice**, workflow automation prototype with a visual editor, templates, background execution, scheduled and signed-webhook triggers, reviewable AI workflow drafts and a working Discord webhook action. The worker currently supports one trigger and at most one condition. Not production-ready.
-- **MRDR.**, original crime-deduction game focused on analysing clues and solving cases. In development, source repository is private.
-- **HOOP**, academic basketball-store frontend built with React, TypeScript, Vite and React Router. Includes search, filters, favourites, cart and a simulated checkout; it does not process real payments.
-- **RAW.**, social card app with three modes, 27 decks and six languages. Public demos are available; the project remains in development and its source repository is private.
-- **Basket Hub**, academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.
-- **Tocadiscos Editora**, academic command-line application for managing artists, albums and tracks, with search, financial reports, audio playback and reversible change history.
+- **SaborGest** - Academic management system for small food businesses, combining a PHP web panel, REST API, MySQL/MariaDB and a Kotlin Android kiosk. Includes staff scheduling, attendance and stock workflows. In development; not production-ready. Public source repository.
+- **RunLattice** - Workflow automation prototype with authenticated workspaces, a visual editor, templates, Redis/BullMQ execution, signed webhooks, scheduled triggers, a live Discord action and reviewable AI workflow plans. Stripe billing flows are implemented but still require sandbox and end-to-end verification. Not production-ready.
+- **RAW.** - Interactive social conversation and party-game app with three modes, 27 decks and content in six languages. Public web and itch.io demos are available; source code is private.
+- **MRDR.** - Original crime-deduction game built around evidence, suspects, alibis, timelines and connected clues. The functional version is complete; public web release, signed Android distribution and iOS validation remain pending.
+- **HOOP** - Academic basketball-store frontend built with React and TypeScript. Includes product discovery, search, filters, favourites, cart and a simulated checkout. It does not process real purchases.
+- **Basket Hub** - Academic group project for basketball management. The current code includes administrator bootstrap, token sessions and role- and scope-based access control. It is not production-ready and is not an individual-only project.
+- **Tocadiscos Editora** - Academic group CLI application for managing a fictional music publisher catalogue, with search, royalty calculations, financial reports, audio playback and reversible change history.
 
-Project descriptions distinguish academic work, prototypes and projects still in development from production-ready software.
+Additional academic and personal work includes Two of Hearts, Todo App and ArraySorting.
+
+Project descriptions distinguish individual work, group coursework, prototypes, live demos and software that is not ready for production.
 
 ## Education
 
-- **CTeSP in Software Development**, Escola Superior Aveiro Norte, Universidade de Aveiro · 2025-2027
-- **Professional Course in IT Systems Management and Programming**, Escola Secundária Dr. Serafim Leite · 2020-2023
+- **CTeSP in Software Development** - Escola Superior Aveiro Norte, Universidade de Aveiro (2025-2027)
+- **Professional Course in IT Systems Management and Programming** - Escola Secundária Dr. Serafim Leite (2020-2023)
 
 ## Experience
 
-- CNC Machine Operator, Schmidt Light Metal Group · 2025-2026
-- Store Operator, MC · 2024
-- Backend Development Intern, ClickBeauty / Alvocromático · 2023
-- Web Development Intern, Associação Estamos Juntos (AEJ) · 2022
+- Backend Development Intern - ClickBeauty / Alvocromático (Apr-Jul 2023)
+- Web Development Intern - Associação Estamos Juntos (AEJ) (Jul 2022)
+- CNC Machine Operator - Schmidt Light Metal Group (Feb 2025-May 2026)
+- Store Operator - MC (May-Aug 2024)
 
 ## Technical approach
 
-The site is intentionally static and lightweight: React, Vite, semantic HTML and CSS. It includes Portuguese and English content, light and dark themes, responsive navigation, project links, CV downloads and a contact form.
+The portfolio uses React, Vite, semantic HTML and CSS. It includes Portuguese and English content, light and dark themes, responsive navigation, project case studies, CV downloads and a contact form.
 
-The contact form uses FormSubmit as a third-party form relay. There is no custom backend, database, CMS, admin area or Supabase dependency. The first submission may require confirming the destination email address with the form provider.
+The contact form uses FormSubmit as a third-party form relay. Submissions are handled by that provider and are subject to its privacy policy and processing practices. The first submission may require confirming the destination email address. There is no custom backend, database, CMS or admin area. No analytics provider is currently connected, so clicks, CV downloads and form conversions are not measured.
 
 ## Local development
 
@@ -65,10 +65,12 @@ npm install
 npm run dev
 ```
 
-Build for production:
+Build and validate:
 
 ```bash
 npm run build
+npm run verify:theme
+npm run verify:production
 npm run preview
 ```
 
