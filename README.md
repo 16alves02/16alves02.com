@@ -31,8 +31,8 @@ Technologies and tools used across the projects shown here:
 - **SaborGest**, academic system for managing schedules, attendance and stock in small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk. In development.
 - **RunLattice**, early-stage workflow automation prototype with a visual editor, templates, background execution, scheduled and signed-webhook triggers, AI workflow planning drafts for user review, and a Discord integration. Not production-ready.
 - **MRDR.**, original criminal deduction game focused on analysing clues and solving cases. In development.
-- **RAW.**, social card app with three modes, 27 decks and six languages. Public demos are available; the project remains in development and its source repository is private.
 - **HOOP**, academic basketball-store frontend built with React, TypeScript, Vite and React Router. Includes search, filters, favourites, cart and a simulated checkout; it does not process real payments.
+- **RAW.**, social card app with three modes, 27 decks and six languages. Public demos are available; the project remains in development and its source repository is private.
 - **Basket Hub**, academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.
 - **Tocadiscos Editora**, academic command-line application for managing artists, albums and tracks, with search, financial reports, audio playback and reversible change history.
 - **Todo App**, browser-based task manager with filters, completed tasks, local storage and keyboard navigation.
