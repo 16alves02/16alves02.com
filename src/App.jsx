@@ -91,10 +91,20 @@ const projects = [
   {
     name: 'MRDR.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · GAME', typePt: 'ALV16 STUDIOS · JOGO',
     image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageAltEn: 'MRDR game identity artwork', imageFit: 'cover',
-    description: 'Jogo original de dedução criminal com casos procedurais, suspeitos, álibis, cronologias e pistas interligadas. O motor valida soluções únicas; a campanha está organizada em 20 mundos e 200 casos. Continua em desenvolvimento.',
-    descriptionEn: 'An original crime-deduction game with procedural cases, suspects, alibis, timelines and connected clues. Its engine validates unique solutions; the campaign spans 20 worlds and 200 cases. Still in development.',
+    description: 'Jogo original de dedução criminal com casos procedurais, suspeitos, álibis, cronologias e pistas interligadas. O motor valida soluções únicas; a estrutura narrativa prevista contempla 20 mundos e 200 casos, ainda em desenvolvimento.',
+    descriptionEn: 'An original crime-deduction game with procedural cases, suspects, alibis, timelines and connected clues. Its engine validates unique solutions; the planned narrative structure spans 20 worlds and 200 cases and remains in development.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
     status: 'Em desenvolvimento'
+  },
+
+  {
+    name: 'HOOP', year: '2025-26', group: 'featured', featured: true, type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
+    image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageAltEn: 'HOOP storefront homepage screenshot', imageFit: 'cover',
+    description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
+    descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
+    stack: ['React', 'TypeScript', 'Vite', 'React Router'],
+    href: 'https://hoop-16alves02.netlify.app',
+    source: 'https://github.com/16alves02/hoop'
   },
   {
     name: 'RAW.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
@@ -104,15 +114,6 @@ const projects = [
     status: 'Em desenvolvimento · demo pública', statusEn: 'In development · public demo',
     href: 'https://alv16studios.itch.io/raw-conversation-game',
     source: 'https://raw-app-bice.vercel.app', sourceLabel: 'Demo web'
-  },
-  {
-    name: 'HOOP', year: '2025-26', group: 'featured', featured: true, type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
-    image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageAltEn: 'HOOP storefront homepage screenshot', imageFit: 'cover',
-    description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
-    descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
-    stack: ['React', 'TypeScript', 'Vite', 'React Router'],
-    href: 'https://hoop-16alves02.netlify.app',
-    source: 'https://github.com/16alves02/hoop'
   },
   {
     name: 'Basket Hub', year: '2025-26', group: 'other', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
