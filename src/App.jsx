@@ -99,7 +99,7 @@ const projects = [
 
   {
     name: 'HOOP', year: '2025-26', group: 'featured', featured: true, type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
-    image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageAltEn: 'HOOP storefront homepage screenshot', imageFit: 'cover',
+    image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/produto.PNG', imageAlt: 'Captura da página de produto da loja HOOP', imageAltEn: 'HOOP product page screenshot', imageFit: 'cover',
     description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
     descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
     stack: ['React', 'TypeScript', 'Vite', 'React Router'],
