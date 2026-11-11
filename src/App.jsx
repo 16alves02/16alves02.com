@@ -6,11 +6,11 @@ const content = {
     nav: ['Projetos', 'Sobre', 'Percurso', 'Contacto'],
     role: 'SOFTWARE DEVELOPER · PORTUGAL',
     headline: <>Desenvolvimento de<br /><em>software com propósito.</em></>,
-    intro: 'Sou o Leonardo, Software Developer generalista. Desenvolvo software em diferentes áreas, da interface e lógica de negócio às APIs, dados e aplicações.',
+    intro: 'Sou o Leonardo, Software Developer generalista. Trabalho em aplicações web, backend, APIs, dados e aplicações móveis.',
     projects: 'Projetos selecionados',
-    projectsIntro: 'Quatro projetos em destaque, organizados por origem e contexto. Cada descrição identifica o que está construído e o estado atual.',
+    projectsIntro: 'Uma seleção de trabalho pessoal e académico. O âmbito e o estado de cada projeto estão identificados.',
     about: 'Um pouco sobre mim',
-    aboutText: 'Sou estudante de Desenvolvimento de Software na Escola Superior Aveiro Norte, Universidade de Aveiro. Tenho experiência prática em desenvolvimento web e backend, e gosto de trabalhar em diferentes partes de um produto, da interface à lógica e aos dados.',
+    aboutText: 'Estudo Desenvolvimento de Software na ESAN, Universidade de Aveiro. Tenho experiência em desenvolvimento web e backend e desenvolvo projetos pessoais e académicos em várias áreas.',
     experience: 'Experiência',
     education: 'Formação',
     contact: 'Vamos conversar?',
@@ -30,7 +30,7 @@ const content = {
     availability: 'DISPONÍVEL PARA ESTÁGIO CURRICULAR · FEVEREIRO 2027',
     skills: 'Competências técnicas', skillsIntro: 'Tecnologias e ferramentas utilizadas nos projetos apresentados.',
     skillsGroups: ['Linguagens', 'Frontend e aplicações', 'Backend e dados', 'Ferramentas'],
-    internshipText: 'Procuro um estágio curricular remunerado de 680 horas, com início previsto em fevereiro de 2027 e preferência por trabalho remoto. Quero integrar uma equipa, contribuir para trabalho real e evoluir com acompanhamento e feedback.',
+    internshipText: 'Procuro um estágio curricular remunerado de 680 horas, a partir de fevereiro de 2027. Estou baseado em Oliveira de Azeméis, com preferência por remoto e disponibilidade para Aveiro, Porto e Coimbra.',
     nextStep: 'PRÓXIMO OBJETIVO',
     educationHeading: 'CTeSP em Desenvolvimento de Software', educationPlace: 'Escola Superior Aveiro Norte · Universidade de Aveiro · 2025-2027',
     professionalCourse: 'Curso Profissional de Gestão e Programação de Sistemas Informáticos', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
@@ -39,11 +39,11 @@ const content = {
     nav: ['Projects', 'About', 'Experience', 'Contact'],
     role: 'SOFTWARE DEVELOPER · PORTUGAL',
     headline: <>Building<br /><em>software with purpose.</em></>,
-    intro: "I'm Leonardo, a generalist Software Developer. I build software across interfaces, business logic, APIs, data and applications.",
+    intro: "I'm Leonardo, a generalist Software Developer working across web applications, backend services, APIs, data and mobile apps.",
     projects: 'Selected projects',
-    projectsIntro: 'Four featured projects, organised by origin and context. Each description distinguishes implemented work from current project status.',
+    projectsIntro: 'A focused selection of personal and academic work, with each project scope and status clearly stated.',
     about: 'A little about me',
-    aboutText: "I'm a Software Development student at Escola Superior Aveiro Norte, University of Aveiro. I have practical experience in web and backend development, and enjoy working across different parts of a product, from interfaces to logic and data.",
+    aboutText: "I'm studying Software Development at ESAN, University of Aveiro, with practical experience in web and backend development and projects across different areas.",
     experience: 'Experience',
     education: 'Education',
     contact: "Let's talk",
@@ -63,7 +63,7 @@ const content = {
     availability: 'AVAILABLE FOR CURRICULAR INTERNSHIP · FEBRUARY 2027',
     skills: 'Technical skills', skillsIntro: 'Technologies and tools used across the projects shown here.',
     skillsGroups: ['Languages', 'Frontend & applications', 'Backend & data', 'Tools'],
-    internshipText: 'I am seeking a paid, 680-hour curricular internship starting in February 2027, preferably remote. I would like to join a team, contribute to real work and grow through guidance and feedback.',
+    internshipText: 'Seeking a paid, 680-hour curricular internship from February 2027. Based in Oliveira de Azeméis, with a preference for remote work and availability across Aveiro, Porto and Coimbra.',
     nextStep: 'NEXT OBJECTIVE',
     educationHeading: 'CTeSP in Software Development', educationPlace: 'Escola Superior Aveiro Norte · University of Aveiro · 2025-2027',
     professionalCourse: 'Vocational Course in IT Systems Management and Programming', professionalSchool: 'Escola Secundária Dr. Serafim Leite'
@@ -72,7 +72,7 @@ const content = {
 
 const projects = [
   {
-    name: 'SaborGest', year: '2026-27', group: 'academic', featured: true, type: 'ACADEMIC · WEB / ANDROID', typePt: 'ACADÉMICO · WEB / ANDROID',
+    name: 'SaborGest', year: '2026-27', group: 'featured', featured: true, type: 'ACADEMIC · WEB / ANDROID', typePt: 'ACADÉMICO · WEB / ANDROID',
     description: 'Sistema de gestão para pequenos negócios de restauração, com painel Web, API REST em PHP e quiosque Android em Kotlin. Inclui colaboradores, horários, picagens, relatórios e operações de stock.',
     descriptionEn: 'A management system for small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk. Covers staff, schedules, clock-ins, reports and stock operations.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
@@ -80,7 +80,7 @@ const projects = [
     statusEn: 'In development · private source'
   },
   {
-    name: 'RunLattice', year: '2026', group: 'personal', featured: true, type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
+    name: 'RunLattice', year: '2026', group: 'featured', featured: true, type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
     image: '/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
     description: 'Protótipo de automação com workspaces autenticados, editor visual, modelos e execução assíncrona com Redis/BullMQ. Inclui webhooks assinados, agendamento e uma ação externa funcional para Discord. O planeamento por IA gera apenas rascunhos para revisão. Ainda não está preparado para produção.',
     descriptionEn: 'An automation prototype with authenticated workspaces, a visual editor, templates and Redis/BullMQ background execution. It includes signed webhooks, scheduling and one live external action for Discord. AI planning produces review-only drafts. It is not production-ready.',
@@ -89,7 +89,7 @@ const projects = [
     href: 'https://github.com/16alves02/RunLattice'
   },
   {
-    name: 'MRDR.', year: '2026', group: 'studio', featured: true, type: 'ALV16 STUDIOS · GAME', typePt: 'ALV16 STUDIOS · JOGO',
+    name: 'MRDR.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · GAME', typePt: 'ALV16 STUDIOS · JOGO',
     image: '/mrdr-cover.svg', imageAlt: 'Imagem de identidade do jogo MRDR.', imageAltEn: 'MRDR game identity artwork', imageFit: 'cover',
     description: 'Jogo original de dedução criminal com casos procedurais, suspeitos, álibis, cronologias e pistas interligadas. O motor valida soluções únicas; a campanha está organizada em 20 mundos e 200 casos. Continua em desenvolvimento.',
     descriptionEn: 'An original crime-deduction game with procedural cases, suspects, alibis, timelines and connected clues. Its engine validates unique solutions; the campaign spans 20 worlds and 200 cases. Still in development.',
@@ -97,7 +97,7 @@ const projects = [
     status: 'Em desenvolvimento'
   },
   {
-    name: 'RAW.', year: '2026', group: 'studio', featured: true, type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
+    name: 'RAW.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
     description: 'Aplicação social de cartas com três modos de jogo, 27 baralhos e conteúdo em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
     descriptionEn: 'A card-based social app with three play modes, 27 decks and content in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
     stack: ['React', 'JavaScript', 'PWA'],
@@ -106,7 +106,7 @@ const projects = [
     source: 'https://raw-app-bice.vercel.app', sourceLabel: 'Demo web'
   },
   {
-    name: 'HOOP', year: '2025-26', group: 'academic', type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
+    name: 'HOOP', year: '2025-26', group: 'featured', featured: true, type: 'ACADEMIC · E-COMMERCE', typePt: 'ACADÉMICO · COMÉRCIO ELETRÓNICO',
     image: 'https://raw.githubusercontent.com/16alves02/hoop/main/public/img/screenshots/home.PNG', imageAlt: 'Captura do ecrã inicial da loja HOOP', imageAltEn: 'HOOP storefront homepage screenshot', imageFit: 'cover',
     description: 'Frontend académico de uma loja de basquetebol, com pesquisa, filtros, favoritos, carrinho e processo de compra simulado.',
     descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
@@ -115,7 +115,7 @@ const projects = [
     source: 'https://github.com/16alves02/hoop'
   },
   {
-    name: 'Basket Hub', year: '2025-26', group: 'academic', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
+    name: 'Basket Hub', year: '2025-26', group: 'other', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
     description: 'Plataforma web académica para gestão de equipas, jogadores, jogos, inscrições, eventos, pavilhões e estatísticas de basquetebol.',
     descriptionEn: 'An academic web platform for managing basketball teams, players, games, registrations, events, venues and statistics.',
     stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
@@ -123,7 +123,7 @@ const projects = [
     href: 'https://github.com/bmgoliveira-UA/basket-hub'
   },
   {
-    name: 'Tocadiscos Editora', year: '2025-26', group: 'academic', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
+    name: 'Tocadiscos Editora', year: '2025-26', group: 'other', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
     description: 'Aplicação de linha de comandos para gerir autores, álbuns e músicas, com pesquisa, relatórios financeiros, reprodução de áudio e histórico reversível.',
     descriptionEn: 'A command-line application for managing artists, albums and tracks, with search, financial reports, audio playback and reversible change history.',
     stack: ['Python', 'Pandas', 'Whoosh', 'Pygame'],
@@ -131,7 +131,7 @@ const projects = [
     href: 'https://github.com/13alves05/tocadiscos-editora'
   },
   {
-    name: 'Two of Hearts', year: '2026', group: 'academic', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
+    name: 'Two of Hearts', year: '2026', group: 'other', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
     image: 'https://raw.githubusercontent.com/16alves02/two-of-hearts-portuguese-folk-art/main/assets/front.png',
     imageAlt: 'Ilustração vetorial final da carta Two of Hearts', imageAltEn: 'Final Two of Hearts vector illustration', imageFit: 'contain',
     description: 'Ilustração vetorial inspirada nos Lenços de Namorados do Minho, reinterpretando motivos tradicionais portugueses numa carta de jogar.',
@@ -254,9 +254,8 @@ export default function App() {
         <section className="section projects-section reveal" id="projects">
           <div className="section-heading"><div><span className="eyebrow-number">01 / {t.workLabel}</span><h2>{t.projects}</h2></div><p>{t.projectsIntro}</p></div>
           {[
-            { key: 'personal', title: pt ? 'Projetos pessoais' : 'Personal projects', description: pt ? 'Produtos e experiências que desenvolvo por iniciativa própria.' : 'Products and experiments I build independently.' },
-            { key: 'academic', title: pt ? 'Projetos académicos' : 'Academic projects', description: pt ? 'Trabalho individual e de grupo desenvolvido no percurso académico.' : 'Individual and team work developed during my studies.' },
-            { key: 'studio', title: 'ALV16 STUDIOS', description: pt ? 'Projetos criativos e experiências interativas independentes.' : 'Independent creative projects and interactive experiences.' }
+            { key: 'featured', title: pt ? 'Projetos em destaque' : 'Featured projects', description: pt ? 'Os projetos que melhor demonstram a minha experiência e abordagem ao desenvolvimento.' : 'The projects that best demonstrate my experience and approach to software development.' },
+            { key: 'other', title: pt ? 'Projetos complementares' : 'Additional projects', description: pt ? 'Trabalho académico individual e de grupo, incluindo um projeto de ilustração.' : 'Individual and team academic work, including a vector illustration project.' }
           ].map(group => (
             <div className={`project-group project-group-${group.key}`} key={group.key}>
               <div className="project-group-heading">
@@ -321,25 +320,23 @@ export default function App() {
         <section className="section faq-section reveal" id="faq">
           <div className="section-heading"><div><span className="eyebrow-number">06 / FAQ</span><h2>{pt ? 'Perguntas para recrutadores' : 'Recruiter questions'}</h2></div><p>{pt ? 'Informação prática sobre o meu perfil, experiência e disponibilidade.' : 'Practical information about my profile, experience and availability.'}</p></div>
           <div className="faq-list">{(pt ? [
-            ['Que oportunidade procuras?', 'Procuro um estágio curricular remunerado de 680 horas, com início previsto em fevereiro de 2027, no âmbito do CTeSP em Desenvolvimento de Software.'],
-            ['Que tipo de funções te interessam?', 'Sou Software Developer generalista. Tenho interesse em desenvolvimento de software, web, backend, APIs, bases de dados e aplicações, sem me limitar a uma única stack.'],
-            ['Onde podes trabalhar?', 'Estou baseado em Oliveira de Azeméis. Considero oportunidades em Aveiro, Porto e Coimbra, em regime remoto, híbrido ou presencial. Tenho preferência por remoto.'],
-            ['Que experiência tens em desenvolvimento?', 'Realizei um estágio de backend na ClickBeauty / Alvocromático, entre abril e julho de 2023, e um estágio de desenvolvimento Web na Associação Estamos Juntos, em julho de 2022. Trabalhei também como operador CNC entre fevereiro de 2025 e maio de 2026.'],
-            ['Quais são os projetos mais relevantes?', 'SaborGest demonstra integração Web, API, base de dados e Android; RunLattice explora automação e execução assíncrona; MRDR. é um jogo de dedução com geração procedural; RAW. é uma aplicação social com demonstração pública. HOOP, Basket Hub e Tocadiscos Editora complementam a seleção com projetos académicos.'],
-            ['Os projetos estão concluídos e o código está disponível?', 'Não todos. O estado de cada projeto está identificado no portefólio. Alguns repositórios são privados ou pertencem a equipas académicas; quando existe uma demonstração pública, essa ligação é indicada. Não apresento protótipos como produtos finalizados.'],
-            ['Que tecnologias conheces?', 'Tenho trabalhado com JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, APIs REST, MySQL/MariaDB, PostgreSQL, Redis, Docker e Prisma. A experiência prática varia conforme a tecnologia e o projeto.'],
-            ['Que idiomas utilizas?', 'Português: nativo. Inglês: intermédio. Espanhol: básico. O portefólio e o CV estão disponíveis em português e inglês.'],
-            ['Como podemos falar sobre uma oportunidade?', 'Podes enviar uma mensagem pelo formulário de contacto ou escrever diretamente para 16alves02@gmail.com. O LinkedIn também está disponível no rodapé.']
+            ['Que oportunidade procuras?', 'Um estágio curricular remunerado de 680 horas, a partir de fevereiro de 2027, no âmbito do CTeSP em Desenvolvimento de Software.'],
+            ['Como te posicionas profissionalmente?', 'Sou Software Developer generalista. Tenho interesse em desenvolvimento de software, web, backend, APIs, bases de dados e aplicações.'],
+            ['Onde estás disponível para trabalhar?', 'Estou baseado em Oliveira de Azeméis e considero oportunidades em Aveiro, Porto e Coimbra. Tenho preferência por trabalho remoto e disponibilidade para regimes híbrido ou presencial.'],
+            ['Que experiência profissional tens em desenvolvimento?', 'Fiz um estágio de backend na ClickBeauty / Alvocromático, de abril a julho de 2023, e um estágio de desenvolvimento Web na Associação Estamos Juntos, em julho de 2022.'],
+            ['Que projetos devo analisar primeiro?', 'SaborGest demonstra integração Web, API, base de dados e Android; RunLattice é um protótipo de automação; MRDR. é um jogo original em desenvolvimento; RAW. tem uma demo pública; HOOP é um frontend académico individual.'],
+            ['Os projetos estão concluídos e o código é público?', 'Não. O estado está indicado em cada projeto. SaborGest e MRDR. estão em desenvolvimento, RunLattice é um protótipo e RAW. continua em desenvolvimento. Alguns repositórios são privados; as demos públicas estão ligadas.'],
+            ['Que tecnologias utilizas?', 'JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, APIs REST, MySQL/MariaDB, PostgreSQL, Redis, Docker e Prisma. A experiência prática varia por tecnologia e projeto.'],
+            ['Como posso contactar-te?', 'Pelo formulário desta página, por email em 16alves02@gmail.com ou através do LinkedIn, disponível no rodapé.']
           ] : [
-            ['What opportunity are you seeking?', 'I am looking for a paid 680-hour curricular internship starting in February 2027, as part of my Software Development CTeSP programme.'],
-            ['What kind of roles interest you?', 'I position myself as a generalist Software Developer. My interests include software development, web, backend, APIs, databases and applications. I am not tied to a single stack.'],
-            ['Where are you available to work?', 'I am based in Oliveira de Azeméis, Portugal, and consider opportunities in Aveiro, Porto and Coimbra. I am open to remote, hybrid and on-site work, with a preference for remote.'],
-            ['What software development experience do you have?', 'I completed a backend internship at ClickBeauty / Alvocromático from April to July 2023 and a Web development internship at Associação Estamos Juntos in July 2022. I also worked as a CNC machine operator from February 2025 to May 2026.'],
-            ['Which projects best represent your work?', 'SaborGest demonstrates Web, API, database and Android integration; RunLattice explores workflow automation and background execution; MRDR. is a procedural deduction game; RAW. is a social app with a public demo. HOOP, Basket Hub and Tocadiscos Editora add academic work across different stacks.'],
-            ['Are the projects finished and is their source code public?', 'Not all projects are finished. Their current status is stated in the portfolio. Some repositories are private or belong to academic teams; public demos are linked where available. Prototypes are not presented as finished products.'],
-            ['Which technologies have you used?', 'I have worked with JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, REST APIs, MySQL/MariaDB, PostgreSQL, Redis, Docker and Prisma. Practical depth varies by technology and project.'],
-            ['Which languages do you speak?', 'Portuguese: native. English: intermediate. Spanish: basic. The portfolio and CV are available in Portuguese and English.'],
-            ['How can we discuss an opportunity?', 'Send a message through the contact form or email me directly at 16alves02@gmail.com. LinkedIn is also linked in the footer.']
+            ['What opportunity are you seeking?', 'A paid, 680-hour curricular internship starting in February 2027 as part of my Software Development CTeSP.'],
+            ['How do you position yourself professionally?', 'I am a generalist Software Developer interested in software development, web, backend, APIs, databases and applications.'],
+            ['Where are you available to work?', 'I am based in Oliveira de Azeméis and consider opportunities across Aveiro, Porto and Coimbra. I prefer remote work and am also open to hybrid or on-site roles.'],
+            ['What professional software experience do you have?', 'I completed a backend internship at ClickBeauty / Alvocromático from April to July 2023 and a Web development internship at Associação Estamos Juntos in July 2022.'],
+            ['Which projects should I review first?', 'SaborGest demonstrates Web, API, database and Android integration; RunLattice is an automation prototype; MRDR. is an original game in development; RAW. has a public demo; HOOP is an individual academic frontend project.'],
+            ['Are the projects finished and is the source public?', 'No. Each project status is stated. SaborGest and MRDR. are in development, RunLattice is a prototype and RAW. remains in development. Some repositories are private; public demos are linked.'],
+            ['Which technologies have you used?', 'JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, REST APIs, MySQL/MariaDB, PostgreSQL, Redis, Docker and Prisma. Practical depth varies by technology and project.'],
+            ['How can I contact you?', 'Use the contact form, email 16alves02@gmail.com or connect through LinkedIn, linked in the footer.']
           ]).map(([q,a]) => <details className="faq-item" key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div>
         </section>
       </main>

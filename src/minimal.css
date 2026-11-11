@@ -138,6 +138,10 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
 .project-row.featured-project .project-main h3 { font-size:clamp(30px,4.3vw,43px); }
 .project-row.featured-project .project-main>p { max-width:720px; font-size:14px; }
 .project-preview-runlattice { object-fit:contain !important; padding:24px !important; background:#02020E !important; border:1px solid #02020E !important; border-radius:8px !important; filter:none !important; }
+/* The RunLattice SVG is authored in white. Recolour it only on the light theme. */
+.site:not(.dark) .project-preview-runlattice { filter:brightness(0) saturate(100%) !important; background:var(--surface) !important; border-color:var(--line) !important; }
+.site.dark .project-preview-runlattice { filter:none !important; background:#02020E !important; border-color:#02020E !important; }
+
 @media(max-width:720px) {
   .project-group { margin-top:32px; }
   .project-group-heading { display:block; padding-bottom:10px; }
