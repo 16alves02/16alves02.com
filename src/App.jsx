@@ -77,6 +77,7 @@ const projects = [
     descriptionEn: 'A management system for small food businesses, with a PHP web panel, REST API and Kotlin Android kiosk. Covers staff, schedules, clock-ins, reports and stock operations.',
     stack: ['PHP', 'Kotlin', 'MySQL', 'REST API'],
     status: 'Em desenvolvimento · código privado',
+    caseStudy: 'saborgest',
     statusEn: 'In development · private source'
   },
   {
@@ -86,6 +87,7 @@ const projects = [
     descriptionEn: 'An automation prototype with authenticated workspaces, a visual editor, templates and Redis/BullMQ background execution. It includes signed webhooks, scheduling and one live external action for Discord. AI planning produces review-only drafts. It is not production-ready.',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
     status: 'Protótipo em desenvolvimento',
+    caseStudy: 'runlattice',
     href: 'https://github.com/16alves02/RunLattice'
   },
   {
@@ -94,7 +96,8 @@ const projects = [
     description: 'Jogo original de dedução criminal com casos procedurais, suspeitos, álibis, cronologias e pistas interligadas. O motor valida soluções únicas; a estrutura narrativa prevista contempla 20 mundos e 200 casos, ainda em desenvolvimento.',
     descriptionEn: 'An original crime-deduction game with procedural cases, suspects, alibis, timelines and connected clues. Its engine validates unique solutions; the planned narrative structure spans 20 worlds and 200 cases and remains in development.',
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
-    status: 'Em desenvolvimento'
+    status: 'Em desenvolvimento',
+    caseStudy: 'mrdr'
   },
 
   {
@@ -104,7 +107,8 @@ const projects = [
     descriptionEn: 'An academic basketball-store frontend with search, filters, favourites, a cart and a simulated checkout.',
     stack: ['React', 'TypeScript', 'Vite', 'React Router'],
     href: 'https://hoop-16alves02.netlify.app',
-    source: 'https://github.com/16alves02/hoop'
+    source: 'https://github.com/16alves02/hoop',
+    caseStudy: 'hoop'
   },
   {
     name: 'RAW.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
@@ -113,7 +117,8 @@ const projects = [
     stack: ['React', 'JavaScript', 'PWA'],
     status: 'Em desenvolvimento · demo pública', statusEn: 'In development · public demo',
     href: 'https://alv16studios.itch.io/raw-conversation-game',
-    source: 'https://raw-app-bice.vercel.app', sourceLabel: 'Demo web'
+    source: 'https://raw-app-bice.vercel.app', sourceLabel: 'Demo web',
+    caseStudy: 'raw'
   },
   {
     name: 'Basket Hub', year: '2025-26', group: 'other', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
@@ -267,6 +272,7 @@ export default function App() {
                     </div>
                     <div className="project-side">
                       <span className="project-status">{pt ? project.status : (project.statusEn || (project.name === 'RAW.' ? 'Public demo · private source' : project.name === 'RunLattice' ? 'Prototype' : project.name === 'HOOP' ? 'Academic project' : 'In development'))}</span>
+                      {project.caseStudy && <a href={`/projects/${project.caseStudy}.html`}>{pt ? 'Estudo de caso' : 'Case study'} <ArrowUpRight size={16} /></a>}
                       {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
                       {project.source && <a href={project.source} target="_blank" rel="noreferrer">{project.sourceLabel || 'GitHub'} <ArrowUpRight size={15} /></a>}
                     </div>
