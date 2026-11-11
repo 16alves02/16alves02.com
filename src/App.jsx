@@ -82,10 +82,10 @@ const projects = [
   {
     name: 'RunLattice', year: '2026', group: 'personal', featured: true, type: 'PERSONAL · AUTOMATION', typePt: 'PESSOAL · AUTOMAÇÃO',
     image: '/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageAltEn: 'RunLattice logo', imageFit: 'contain',
-    description: 'Plataforma de automação com workspaces e permissões, editor visual, modelos, execução assíncrona com Redis/BullMQ, webhooks assinados, tarefas agendadas e planeamento de workflows por IA sujeito a revisão.',
-    descriptionEn: 'An automation platform with workspaces and roles, a visual editor, templates, Redis/BullMQ background execution, signed webhooks, scheduled triggers and AI workflow planning that remains subject to user review.',
+    description: 'Protótipo de automação com workspaces autenticados, editor visual, modelos e execução assíncrona com Redis/BullMQ. Inclui webhooks assinados, agendamento e uma ação externa funcional para Discord. O planeamento por IA gera apenas rascunhos para revisão. Ainda não está preparado para produção.',
+    descriptionEn: 'An automation prototype with authenticated workspaces, a visual editor, templates and Redis/BullMQ background execution. It includes signed webhooks, scheduling and one live external action for Discord. AI planning produces review-only drafts. It is not production-ready.',
     stack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Redis'],
-    status: 'Protótipo',
+    status: 'Protótipo em desenvolvimento',
     href: 'https://github.com/16alves02/RunLattice'
   },
   {
@@ -151,9 +151,9 @@ const skillGroups = [
 
 const experience = [
   ['fev. 2025 - mai. 2026', 'Feb 2025 - May 2026', 'Operador de máquina CNC', 'CNC Machine Operator', 'Schmidt Light Metal Group'],
-  ['2024', '2024', 'Operador de loja', 'Store Assistant', 'MC'],
-  ['2023', '2023', 'Estágio de desenvolvimento back-end', 'Backend Development Intern', 'ClickBeauty / Alvocromático'],
-  ['2022', '2022', 'Estágio de desenvolvimento Web', 'Web Development Intern', 'Associação Estamos Juntos (AEJ)']
+  ['mai. - ago. 2024', 'May - Aug 2024', 'Operador de loja', 'Store Assistant', 'MC'],
+  ['abr. - jul. 2023', 'Apr - Jul 2023', 'Estágio de desenvolvimento back-end', 'Backend Development Intern', 'ClickBeauty / Alvocromático'],
+  ['jul. 2022', 'Jul 2022', 'Estágio de desenvolvimento Web', 'Web Development Intern', 'Associação Estamos Juntos (AEJ)']
 ];
 
 export default function App() {
