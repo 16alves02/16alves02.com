@@ -140,6 +140,35 @@ const projects = [
     status: 'Projeto académico de grupo', statusEn: 'Academic group project',
     href: 'https://github.com/13alves05/tocadiscos-editora'
   },
+  {
+    name: 'Two of Hearts', year: '2026', group: 'other', type: 'ACADEMIC · VECTOR ILLUSTRATION', typePt: 'ACADÉMICO · ILUSTRAÇÃO VETORIAL',
+    image: 'https://raw.githubusercontent.com/16alves02/two-of-hearts-portuguese-folk-art/main/assets/front.png',
+    imageAlt: 'Ilustração final da carta Two of Hearts', imageAltEn: 'Final Two of Hearts playing-card illustration', imageFit: 'contain',
+    description: 'Ilustração vetorial de uma carta de jogar inspirada nos Lenços de Namorados do Minho, desenvolvida em Affinity e baseada em motivos da tradição popular portuguesa.',
+    descriptionEn: 'A vector playing-card illustration inspired by the Minho love handkerchiefs, developed in Affinity and based on Portuguese folk-art motifs.',
+    stack: ['Affinity', 'Vector illustration', 'Portuguese folk art'],
+    status: 'Projeto académico', statusEn: 'Academic project',
+    href: 'https://github.com/16alves02/two-of-hearts-portuguese-folk-art'
+  },
+  {
+    name: 'Todo App', year: '2025', group: 'other', type: 'PERSONAL · WEB APPLICATION', typePt: 'PESSOAL · APLICAÇÃO WEB',
+    image: 'https://raw.githubusercontent.com/16alves02/todo-app/main/assets/screenshot.png',
+    imageAlt: 'Captura real da aplicação Todo App', imageAltEn: 'Actual Todo App screenshot',
+    description: 'Gestor de tarefas no browser com filtros, tarefas concluídas, armazenamento local e navegação por teclado. Os dados ficam guardados apenas no browser utilizado.',
+    descriptionEn: 'A browser-based task manager with filters, completed tasks, local storage and keyboard navigation. Data stays in the browser where it was created.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'localStorage'],
+    status: 'Demo disponível', statusEn: 'Live demo',
+    href: 'https://todo-app-three-beta-56.vercel.app',
+    source: 'https://github.com/16alves02/todo-app'
+  },
+  {
+    name: 'ArraySorting', year: '2023', group: 'other', type: 'EARLY PROJECT · 12.º ANO', typePt: 'PROJETO INICIAL · 12.º ANO',
+    description: 'Programa de consola em C que demonstra Selection Sort, Insertion Sort, Bubble Sort e um exemplo de Bogo Sort, com menu interativo e validação de entradas.',
+    descriptionEn: 'A C console program demonstrating Selection Sort, Insertion Sort, Bubble Sort and a Bogo Sort example, with an interactive menu and input validation.',
+    stack: ['C', 'Arrays', 'Sorting algorithms'],
+    status: 'Projeto escolar', statusEn: 'School project',
+    href: 'https://github.com/16alves02/ArraySorting'
+  },
 
 ];
 
