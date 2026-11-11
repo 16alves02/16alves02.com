@@ -81,11 +81,19 @@ const projects = [
   {
     name: 'RunLattice', year: '2026', type: 'PERSONAL · AUTOMATION',
     image: 'https://raw.githubusercontent.com/16alves02/RunLattice/main/public/brand/runlattice-logo.svg', imageAlt: 'Logótipo do RunLattice', imageFit: 'contain',
-    description: 'Protótipo de automação com workspaces autenticados, editor visual, modelos, execução assíncrona, webhooks assinados, agendamentos e planeamento de workflows por IA sujeito a revisão. A única ação externa funcional envia mensagens para Discord.',
-    descriptionEn: 'An early-stage automation prototype with authenticated workspaces, a visual editor, templates, background execution, signed webhooks, scheduled triggers and reviewable AI workflow plans. Discord message delivery is its only live external action.',
+    description: 'Protótipo de automação com workspaces autenticados, editor visual, modelos, execução assíncrona, webhooks assinados, agendamentos e planeamento de workflows por IA sujeito a revisão. A única ação externa funcional envia mensagens para Discord; os fluxos de faturação Stripe ainda aguardam validação end-to-end.',
+    descriptionEn: 'An early-stage automation prototype with authenticated workspaces, a visual editor, templates, background execution, signed webhooks, scheduled triggers and reviewable AI workflow plans. Discord message delivery is its only live external action; Stripe billing flows still require end-to-end validation.',
     stack: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Prisma', 'Redis', 'BullMQ'],
     status: 'Protótipo em desenvolvimento', statusEn: 'Prototype in development',
     href: 'https://github.com/16alves02/RunLattice'
+  },
+  {
+    name: 'RAW.', year: '2026', type: 'ALV16 STUDIOS · SOCIAL GAME',
+    description: 'Aplicação interativa de conversas e jogos sociais, com três modos, cartões, baralhos e interface em vários idiomas.',
+    descriptionEn: 'An interactive conversation and party-game app with three modes, cards, decks and a multilingual interface.',
+    stack: ['React', 'JavaScript', 'PWA'],
+    status: 'Demo Web disponível · código privado', statusEn: 'Live web demo · private source',
+    href: 'https://raw-app-bice.vercel.app'
   },
   {
     name: 'MRDR.', year: '2026', type: 'ALV16 STUDIOS · GAME',
@@ -95,14 +103,6 @@ const projects = [
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor'],
     status: 'Versão funcional concluída · publicação pendente', statusEn: 'Functional version complete · release pending',
     href: 'https://github.com/16alves02/mrdr'
-  },
-  {
-    name: 'RAW.', year: '2026', type: 'ALV16 STUDIOS · SOCIAL GAME',
-    description: 'Aplicação interativa de conversas e jogos sociais, com três modos, cartões, baralhos e interface em vários idiomas.',
-    descriptionEn: 'An interactive conversation and party-game app with three modes, cards, decks and a multilingual interface.',
-    stack: ['React', 'JavaScript', 'PWA'],
-    status: 'Demo Web disponível · código privado', statusEn: 'Live web demo · private source',
-    href: 'https://raw-app-bice.vercel.app'
   },
   {
     name: 'HOOP', year: '2025', type: 'ACADEMIC · E-COMMERCE',
