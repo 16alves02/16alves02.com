@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X, BriefcaseBusiness, Camera } from 'lucide-react';
+import portraitBase64 from '../assets/leonardo-portrait.jpg.base64?raw';
 
 const content = {
   'pt-PT': {
@@ -277,8 +278,8 @@ export default function App() {
               <a className="secondary-link" href="#contact"><Mail size={16} /> {pt ? 'Falar comigo' : 'Get in touch'}</a>
             </div>
           </div>
-          <figure className="hero-portrait hero-reveal hero-reveal-3"><img src="/leonardo-portrait.jpg" alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></figure>
-          <div className="hero-meta hero-reveal hero-reveal-5"><span>OLIVEIRA DE AZEMÉIS, PORTUGAL</span><span>{t.availability}</span></div>
+          <figure className="hero-portrait hero-reveal hero-reveal-3"><img src={`data:image/jpeg;base64,${portraitBase64.trim()}`} alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></figure>
+          <div className="hero-meta hero-reveal hero-reveal-5"><span>AVEIRO, PORTUGAL</span><span>{t.availability}</span></div>
         </section>
 
         <section className="section projects-section reveal" id="projects">
@@ -353,19 +354,19 @@ export default function App() {
           <div className="faq-list">{(pt ? [
             ['Que oportunidade procuras?', 'Um estágio curricular remunerado de 680 horas, a partir de fevereiro de 2027, no âmbito do CTeSP em Desenvolvimento de Software.'],
             ['Como te posicionas profissionalmente?', 'Sou Software Developer generalista. Tenho interesse em desenvolvimento de software, web, backend, APIs, bases de dados e aplicações.'],
-            ['Onde estás disponível para trabalhar?', 'Estou baseado em Oliveira de Azeméis e considero oportunidades em Aveiro, Porto e Coimbra. Tenho preferência por trabalho remoto e disponibilidade para regimes híbrido ou presencial.'],
+            ['Onde estás disponível para trabalhar?', 'A localização principal do portefólio é Aveiro. Procuro oportunidades presenciais perto de Oliveira de Azeméis ou em regime híbrido/remoto nos distritos de Aveiro, Porto e Coimbra.'],
             ['Que experiência profissional tens em desenvolvimento?', 'Fiz um estágio de backend na ClickBeauty / Alvocromático, de abril a julho de 2023, e um estágio de desenvolvimento Web na Associação Estamos Juntos, em julho de 2022.'],
-            ['Que projetos devo analisar primeiro?', 'SaborGest demonstra integração Web, API, base de dados e Android; RunLattice é um protótipo de automação; MRDR. é um jogo original em desenvolvimento; RAW. tem uma demo pública; HOOP é um frontend académico individual.'],
-            ['Os projetos estão concluídos e o código é público?', 'Não. O estado está indicado em cada projeto. SaborGest e MRDR. estão em desenvolvimento, RunLattice é um protótipo e RAW. continua em desenvolvimento. Alguns repositórios são privados; as demos públicas estão ligadas.'],
+            ['Que projetos devo analisar primeiro?', 'SaborGest demonstra integração Web, API, base de dados e Android; RunLattice é um protótipo de automação; MRDR. é um jogo original de dedução com versão funcional concluída; RAW. tem demos públicas; HOOP é um frontend académico individual.'],
+            ['Os projetos estão concluídos e o código é público?', 'O estado está indicado em cada projeto. SaborGest está em desenvolvimento; RunLattice é um protótipo; MRDR. tem a versão funcional concluída, com distribuição pública pendente; RAW. tem demos públicas e código privado. Os projetos académicos de grupo estão identificados como tal.'],
             ['Que tecnologias utilizas?', 'JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, APIs REST, MySQL/MariaDB, PostgreSQL, Redis, Docker e Prisma. A experiência prática varia por tecnologia e projeto.'],
             ['Como posso contactar-te?', 'Pelo formulário desta página, por email em 16alves02@gmail.com ou através do LinkedIn, disponível no rodapé.']
           ] : [
             ['What opportunity are you seeking?', 'A paid, 680-hour curricular internship starting in February 2027 as part of my Software Development CTeSP.'],
             ['How do you position yourself professionally?', 'I am a generalist Software Developer interested in software development, web, backend, APIs, databases and applications.'],
-            ['Where are you available to work?', 'I am based in Oliveira de Azeméis and consider opportunities across Aveiro, Porto and Coimbra. I prefer remote work and am also open to hybrid or on-site roles.'],
+            ['Where are you available to work?', 'My portfolio location is Aveiro. I am seeking on-site opportunities near Oliveira de Azeméis, or hybrid/remote roles across the Aveiro, Porto and Coimbra districts.'],
             ['What professional software experience do you have?', 'I completed a backend internship at ClickBeauty / Alvocromático from April to July 2023 and a Web development internship at Associação Estamos Juntos in July 2022.'],
-            ['Which projects should I review first?', 'SaborGest demonstrates Web, API, database and Android integration; RunLattice is an automation prototype; MRDR. is an original game in development; RAW. has a public demo; HOOP is an individual academic frontend project.'],
-            ['Are the projects finished and is the source public?', 'No. Each project status is stated. SaborGest and MRDR. are in development, RunLattice is a prototype and RAW. remains in development. Some repositories are private; public demos are linked.'],
+            ['Which projects should I review first?', 'SaborGest demonstrates Web, API, database and Android integration; RunLattice is an automation prototype; MRDR. is an original deduction game with a completed functional version; RAW. has public demos; HOOP is an individual academic frontend project.'],
+            ['Are the projects finished and is the source public?', 'Each project status is stated. SaborGest is in development; RunLattice is a prototype; MRDR. has a completed functional version, with public distribution pending; RAW. has public demos and private source code. Academic group projects are identified as such.'],
             ['What can RunLattice currently execute?', 'The prototype runs workflows manually, through signed webhooks or on a schedule. Its implemented external action sends messages to Discord webhooks. The worker supports one trigger and at most one condition. Arbitrary code execution and additional provider actions are not implemented yet.'],
             ['Which technologies have you used?', 'JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, REST APIs, MySQL/MariaDB, PostgreSQL, Redis, Docker and Prisma. Practical depth varies by technology and project.'],
             ['How can I contact you?', 'Use the contact form, email 16alves02@gmail.com or connect through LinkedIn, linked in the footer.']
