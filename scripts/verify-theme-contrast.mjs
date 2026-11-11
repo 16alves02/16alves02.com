@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-const css = readFileSync('src/minimal.css', 'utf8');
+const css = readFileSync('src/styles/global.css', 'utf8');
 const app = readFileSync('src/App.jsx', 'utf8');
 
 assert.match(css, /\.site\.dark\s*\{/, 'Dark theme styles must exist');
