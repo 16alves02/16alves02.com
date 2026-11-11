@@ -227,7 +227,7 @@ export default function App() {
           {t.nav.map((label, i) => <a key={label} href={['#projects', '#about', '#experience', '#contact'][i]} onClick={closeMenu}>{label}</a>)}
         </nav>
         <div className="header-actions">
-          <button className="text-button" onClick={() => setLanguage(pt ? 'en' : 'pt-PT')} aria-label={pt ? 'Mudar idioma para inglês' : 'Switch language to Portuguese'}>{pt ? 'EN' : 'PT'}</button>
+          <button className="text-button" onClick={() => setLanguage(pt ? 'en' : 'pt-PT')} aria-label={pt ? 'EN, mudar idioma para inglês' : 'PT, switch language to Portuguese'}>{pt ? 'EN' : 'PT'}</button>
           <button className="icon-button" onClick={() => setDark(!dark)} aria-label={dark ? (pt ? 'Ativar tema claro' : 'Enable light theme') : (pt ? 'Ativar tema escuro' : 'Enable dark theme')} aria-pressed={dark}>{dark ? <Sun size={17} /> : <Moon size={17} />}</button>
           <a className="header-contact" href="#contact">{pt ? "Contacto" : "Contact"} <ArrowUpRight size={15}/></a><a className="cv-link" href={cv} download><Download size={15} />{t.cv}</a>
         </div>
