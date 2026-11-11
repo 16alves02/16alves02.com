@@ -181,10 +181,10 @@ const skillGroups = [
 ];
 
 const experience = [
-  ['fev. 2025 - mai. 2026', 'Feb 2025 - May 2026', 'Operador de máquina CNC', 'CNC Machine Operator', 'Schmidt Light Metal Group'],
-  ['mai. - ago. 2024', 'May - Aug 2024', 'Operador de loja', 'Store Assistant', 'MC'],
-  ['abr. - jul. 2023', 'Apr - Jul 2023', 'Estágio de desenvolvimento back-end', 'Backend Development Intern', 'ClickBeauty / Alvocromático'],
-  ['jul. 2022', 'Jul 2022', 'Estágio de desenvolvimento Web', 'Web Development Intern', 'Associação Estamos Juntos (AEJ)']
+  ['fev. 2025 - mai. 2026', 'Feb 2025 - May 2026', 'Operador de máquina CNC', 'CNC Machine Operator', 'Schmidt Light Metal Group', 'Experiência industrial que reforçou o rigor, a precisão, o controlo de qualidade e a disciplina de processos.', 'Industrial experience that strengthened precision, quality awareness and process discipline.'],
+  ['mai. - ago. 2024', 'May - Aug 2024', 'Operador de loja', 'Store Assistant', 'MC', 'Experiência em operações de loja, organização e trabalho em equipa.', 'Experience in store operations, organisation and teamwork.'],
+  ['abr. - jul. 2023', 'Apr - Jul 2023', 'Estágio de desenvolvimento back-end', 'Backend Development Intern', 'ClickBeauty / Alvocromático', 'Estágio na área de desenvolvimento backend.', 'Internship in backend development.'],
+  ['jul. 2022', 'Jul 2022', 'Estágio de desenvolvimento Web', 'Web Development Intern', 'Associação Estamos Juntos (AEJ)', 'Estágio na área de desenvolvimento Web.', 'Internship in Web development.']
 ];
 
 export default function App() {
@@ -326,7 +326,7 @@ export default function App() {
 
         <section className="section experience-section reveal" id="experience">
           <div className="section-heading"><div><span className="eyebrow-number">04 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{t.educationHeading}<br />{t.educationPlace}</p></div>
-          <div className="experience-list">{experience.map(([datePt, dateEn, rolePt, roleEn, company]) => <div className="experience-row reveal" key={company}><span>{pt ? datePt : dateEn}</span><strong>{pt ? rolePt : roleEn}</strong><span>{company}</span></div>)}</div>
+          <div className="experience-list">{experience.map(([datePt, dateEn, rolePt, roleEn, company, detailPt, detailEn]) => <div className="experience-row reveal" key={company}><span>{pt ? datePt : dateEn}</span><strong>{pt ? rolePt : roleEn}</strong><span>{company}</span><p className="experience-description">{pt ? detailPt : detailEn}</p></div>)}</div>
           <div className="education-note"><span>2020, 2023</span><p>{t.professionalCourse}<br />{t.professionalSchool}</p></div>
         </section>
 
