@@ -166,10 +166,10 @@ export default function App() {
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const socialLinks = [
-    [BriefcaseBusiness, 'LinkedIn · @16alves02', 'https://www.linkedin.com/in/16alves02/'],
-    [Code2, 'GitHub pessoal · @16alves02', 'https://github.com/16alves02'],
-    [Code2, 'GitHub académico · @13alves05', 'https://github.com/13alves05'],
-    [Camera, 'Instagram · @16alves02', 'https://www.instagram.com/16alves02/']
+    [BriefcaseBusiness, 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
+    [Code2, 'GitHub pessoal', 'https://github.com/16alves02'],
+    [Code2, 'GitHub académico', 'https://github.com/13alves05'],
+    [Camera, 'Instagram', 'https://www.instagram.com/16alves02/']
   ];
 
   useEffect(() => {
@@ -345,7 +345,7 @@ export default function App() {
       </main>
 
       <a className="mobile-contact-cta" href="#contact"><Mail size={16}/>{pt ? 'Entrar em contacto' : 'Contact me'}</a>
-      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img className="brand-logo" src="/logo.png" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([Icon, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><Icon size={17} strokeWidth={1.7}/></a>)}</div><nav className="legal-links" aria-label={pt ? 'Informação legal' : 'Legal information'}><a href="/faq.html">FAQ</a><a href="/privacy.html">{t.privacyLabel}</a><a href="/terms.html">{t.termsLabel}</a></nav><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
+      <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img className="brand-logo" src="/logo.png" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([Icon, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><Icon size={17} strokeWidth={1.7}/><span>{label}</span></a>)}</div><nav className="legal-links" aria-label={pt ? 'Informação legal' : 'Legal information'}><a href="/faq.html">FAQ</a><a href="/privacy.html">{t.privacyLabel}</a><a href="/terms.html">{t.termsLabel}</a></nav><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
 }
