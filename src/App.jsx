@@ -130,8 +130,17 @@ const projects = [
     descriptionEn: 'An academic group project for basketball management. The current version includes authentication, sessions and role- and scope-based permissions, alongside team, player, game and event management.',
     stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
     status: 'Projeto académico de grupo · não preparado para produção', statusEn: 'Academic group project · not production-ready',
-    href: 'https://github.com/13alves05/basket-hub',
+    href: 'https://github.com/bmgoliveira-UA/basket-hub',
     caseStudy: 'basket-hub'
+  },
+  {
+    name: 'Nova Imagem by Maura Pereira', year: '2026', group: 'other', type: 'CLIENT WEBSITE', typePt: 'WEBSITE PARA CLIENTE',
+    description: 'Website publicado para um salão de cabeleireiro em Cucujães, com informação sobre serviços, galeria, horário e contactos por telefone e WhatsApp. Não inclui marcações online; a gestão de conteúdos por CMS continua pendente.',
+    descriptionEn: 'Published website for a hair salon in Cucujães, with service information, a gallery, opening hours and phone and WhatsApp contact options. It does not include online booking; CMS-based content editing is still pending.',
+    stack: [],
+    status: 'Website publicado · CMS por configurar', statusEn: 'Website published · CMS setup pending',
+    href: 'https://novaimagembymaurapereira.netlify.app',
+    caseStudy: 'nova-imagem'
   },
   {
     name: 'Tocadiscos Editora', year: '2025-26', group: 'other', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
