@@ -53,7 +53,7 @@ Project descriptions distinguish individual work, group coursework, prototypes, 
 
 ## Technical approach
 
-The portfolio uses React, Vite, semantic HTML and CSS. It includes Portuguese and English content, light and dark themes, responsive navigation, project case studies, CV downloads and a contact form.
+The portfolio uses React, Vite, Framer Motion, semantic HTML and CSS. It includes Portuguese and English content, light and dark themes, responsive navigation, project case studies, CV downloads and a contact form.
 
 The contact form uses FormSubmit as a third-party form relay. Submissions are handled by that provider and are subject to its privacy policy and processing practices. The first submission may require confirming the destination email address. There is no custom backend, database, CMS or admin area. The privacy notice documents Cloudflare Web Analytics for aggregate technical and performance metrics. No custom event tracking or conversion measurement is implemented for project clicks, CV downloads or contact submissions.
 
