@@ -21,6 +21,7 @@ const required = [
   'projects/hoop.html',
   'projects/raw.html',
   'projects/basket-hub.html',
+  'projects/nova-imagem.html',
 ];
 
 for (const file of required) {
@@ -45,7 +46,7 @@ assert.match(sitemap, /^<\?xml version="1\.0" encoding="UTF-8"\?>/, 'Sitemap mus
 assert.match(sitemap, /xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9"/, 'Sitemap must use the standard namespace');
 const urls = [...sitemap.matchAll(/<loc>(https:\/\/[^<]+)<\/loc>/g)].map((match) => match[1]);
 assert.ok(urls.length >= 1, 'Sitemap must contain at least one URL');
-for (const page of ['projects/saborgest.html', 'projects/runlattice.html', 'projects/mrdr.html', 'projects/hoop.html', 'projects/raw.html', 'projects/basket-hub.html']) {
+for (const page of ['projects/saborgest.html', 'projects/runlattice.html', 'projects/mrdr.html', 'projects/hoop.html', 'projects/raw.html', 'projects/basket-hub.html', 'projects/nova-imagem.html']) {
   assert.ok(urls.includes(`https://16alves02.pages.dev/${page}`), `Sitemap is missing case study: ${page}`);
 }
 
