@@ -76,3 +76,5 @@ npm run preview
 ```
 
 The production build is generated in `dist/` and deployed with Cloudflare Pages.
+
+The bilingual CV PDFs are generated from `scripts/generate_cvs.py`. To regenerate them locally, install ReportLab with `python -m pip install reportlab` and run `python scripts/generate_cvs.py`. The `Regenerate CV PDFs` GitHub Actions workflow performs this update when the generator changes.
