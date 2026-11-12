@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X, BriefcaseBusiness, Camera } from 'lucide-react';
 import portraitBase64 from '../assets/leonardo-portrait.jpg.base64?raw';
 
@@ -198,6 +199,7 @@ const experience = [
 ];
 
 export default function App() {
+  const shouldReduceMotion = useReducedMotion();
   const [language, setLanguage] = useState('pt-PT');
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -243,25 +245,6 @@ export default function App() {
     if (themeColor) themeColor.content = dark ? '#02020E' : '#FDFDF1';
   }, [dark]);
 
-  useEffect(() => {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const elements = document.querySelectorAll('.reveal');
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      elements.forEach((element) => element.classList.add('is-visible'));
-      return undefined;
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
-    document.documentElement.classList.add('motion-ready');
-    elements.forEach((element) => observer.observe(element));
-    return () => { observer.disconnect(); document.documentElement.classList.remove('motion-ready'); };
-  }, []);
-
   return (
     <div className={dark ? 'site dark' : 'site'}>
       <header className="header">
@@ -279,7 +262,7 @@ export default function App() {
 
       <main id="top">
         <section className="hero hero-with-portrait">
-          <div className="hero-copy">
+          <motion.div className="hero-copy" initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}>
             <div className="eyebrow hero-reveal hero-reveal-1"><span className="status-dot" />{t.role}</div>
             <h1 className="hero-reveal hero-reveal-2">{t.headline}</h1>
             <p className="hero-intro hero-reveal hero-reveal-3">{t.intro}</p>
@@ -287,12 +270,12 @@ export default function App() {
               <a className="primary-link" href="#projects">{t.projects} <ArrowDownRight size={17} /></a>
               <a className="secondary-link" href="#contact"><Mail size={16} /> {pt ? 'Falar comigo' : 'Get in touch'}</a>
             </div>
-          </div>
-          <figure className="hero-portrait hero-reveal hero-reveal-3"><img src={`data:image/jpeg;base64,${portraitBase64.trim()}`} alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></figure>
-          <div className="hero-meta hero-reveal hero-reveal-5"><span>AVEIRO, PORTUGAL</span><span>{t.availability}</span></div>
+          </motion.div>
+          <motion.figure className="hero-portrait hero-reveal hero-reveal-3" initial={shouldReduceMotion ? false : { opacity: 0, y: 18, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}><img src={`data:image/jpeg;base64,${portraitBase64.trim()}`} alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></motion.figure>
+          <motion.div className="hero-meta hero-reveal hero-reveal-5" initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.22 }}><span>AVEIRO, PORTUGAL</span><span>{t.availability}</span></motion.div>
         </section>
 
-        <section className="section projects-section reveal" id="projects">
+        <motion.section className="section projects-section reveal" id="projects" initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
           <div className="section-heading"><div><span className="eyebrow-number">01 / {t.workLabel}</span><h2>{t.projects}</h2></div><p>{t.projectsIntro}</p></div>
           {[
             { key: 'featured', title: pt ? 'Projetos em destaque' : 'Featured projects', description: pt ? 'Os projetos que melhor demonstram a minha experiência e abordagem ao desenvolvimento.' : 'The projects that best demonstrate my experience and approach to software development.' },
@@ -305,7 +288,7 @@ export default function App() {
               </div>
               <div className="project-list">
                 {projects.filter(project => project.group === group.key).map(project => (
-                  <article className={`project-row reveal ${project.featured ? 'featured-project' : ''}`} key={project.name}>
+                  <motion.article className={`project-row reveal ${project.featured ? 'featured-project' : ''}`} key={project.name} initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} whileHover={shouldReduceMotion ? undefined : { x: 4 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
                     <span className="project-index">{String(projects.indexOf(project) + 1).padStart(2, '0')}</span>
                     <div className="project-main">
                       {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''} ${project.name === 'RunLattice' ? 'project-preview-runlattice' : ''}`} src={project.name === 'RunLattice' && !dark ? '/runlattice-logo-light.svg' : project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true; }} />}
@@ -320,29 +303,29 @@ export default function App() {
                       {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
                       {project.source && <a href={project.source} target="_blank" rel="noreferrer">{project.sourceLabel || 'GitHub'} <ArrowUpRight size={15} /></a>}
                     </div>
-                  </article>
+                  </motion.article>
                 ))}
               </div>
             </div>
           ))}
-        </section>
+        </motion.section>
 
-        <section className="section about-section reveal" id="about">
+        <motion.section className="section about-section reveal" id="about" initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.6 }}>
           <div className="section-heading"><div><span className="eyebrow-number">02 / {t.profileLabel}</span><h2>{t.about}</h2></div></div>
           <div className="about-grid"><p className="about-lead">{t.aboutText}</p><div className="about-details"><div><span>{t.focusLabel}</span><p>{t.focusValue}</p></div><div><span>{t.locationLabel}</span><p>{t.locationValue}</p></div><div><span>{t.educationLabel}</span><p>{t.educationValue}</p></div></div></div>
-        </section>
+        </motion.section>
 
-        <section className="section skills-section reveal" id="skills"><div className="section-heading"><div><span className="eyebrow-number">03 / {pt ? 'COMPETÊNCIAS' : 'SKILLS'}</span><h2>{t.skills}</h2></div><p>{t.skillsIntro}</p></div><div className="skills-grid">{skillGroups.map((group, i) => <div className="skill-group" key={group.key}><span>{t.skillsGroups[i]}</span><div className="tags">{group.items.map(item => <span key={item}>{item}</span>)}</div></div>)}</div></section>
+        <motion.section className="section skills-section reveal" id="skills" initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.6 }}><div className="section-heading"><div><span className="eyebrow-number">03 / {pt ? 'COMPETÊNCIAS' : 'SKILLS'}</span><h2>{t.skills}</h2></div><p>{t.skillsIntro}</p></div><div className="skills-grid">{skillGroups.map((group, i) => <motion.div className="skill-group" key={group.key} initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.07 }}><span>{t.skillsGroups[i]}</span><div className="tags">{group.items.map(item => <span key={item}>{item}</span>)}</div></motion.div>)}</div></motion.section>
 
-        <section className="section experience-section reveal" id="experience">
+        <motion.section className="section experience-section reveal" id="experience" initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.6 }}>
           <div className="section-heading"><div><span className="eyebrow-number">04 / {t.backgroundLabel}</span><h2>{t.experience}</h2></div><p>{t.education}<br />{t.educationHeading}<br />{t.educationPlace}</p></div>
-          <div className="experience-list">{experience.map(([datePt, dateEn, rolePt, roleEn, company, detailPt, detailEn]) => <div className="experience-row reveal" key={company}><span>{pt ? datePt : dateEn}</span><strong>{pt ? rolePt : roleEn}</strong><span>{company}</span><p className="experience-description">{pt ? detailPt : detailEn}</p></div>)}</div>
+          <div className="experience-list">{experience.map(([datePt, dateEn, rolePt, roleEn, company, detailPt, detailEn]) => <motion.div className="experience-row reveal" key={company} initial={shouldReduceMotion ? false : { opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}><span>{pt ? datePt : dateEn}</span><strong>{pt ? rolePt : roleEn}</strong><span>{company}</span><p className="experience-description">{pt ? detailPt : detailEn}</p></motion.div>)}</div>
           <div className="education-note"><span>2020, 2023</span><p>{t.professionalCourse}<br />{t.professionalSchool}</p></div>
-        </section>
+        </motion.section>
 
-        <section className="internship-note reveal"><div><span className="eyebrow-number">{t.nextStep}</span><p>{t.internshipText}</p></div></section>
+        <motion.section className="internship-note reveal" initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.55 }}><div><span className="eyebrow-number">{t.nextStep}</span><p>{t.internshipText}</p></div></motion.section>
 
-        <section className="contact-section reveal" id="contact">
+        <motion.section className="contact-section reveal" id="contact" initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.6 }}>
           <div className="contact-copy"><span className="eyebrow-number">05 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
           <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST" onInvalid={() => setFormError(pt ? "Verifica os campos obrigatórios e o formato do email." : "Please check the required fields and email format.")} onSubmit={() => { setFormError(""); setIsSubmitting(true); }}>
             <input type="hidden" name="_subject" value={pt ? "Novo contacto através do portefólio" : "New message from the portfolio"} />
@@ -358,8 +341,8 @@ export default function App() {
             <button type="submit" disabled={isSubmitting}>{isSubmitting ? t.sending : t.send} <ArrowUpRight size={17} /></button>
             <small>{t.direct} <a href="mailto:16alves02@gmail.com">16alves02@gmail.com</a></small>
           </form>
-        </section>
-        <section className="section faq-section reveal" id="faq">
+        </motion.section>
+        <motion.section className="section faq-section reveal" id="faq" initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.6 }}>
           <div className="section-heading"><div><span className="eyebrow-number">06 / FAQ</span><h2>{pt ? 'Perguntas para recrutadores' : 'Recruiter questions'}</h2></div><p>{pt ? 'Informação prática sobre o meu perfil, experiência e disponibilidade.' : 'Practical information about my profile, experience and availability.'}</p></div>
           <div className="faq-list">{(pt ? [
             ['Que oportunidade procuras?', 'Um estágio curricular remunerado de 680 horas, a partir de fevereiro de 2027, no âmbito do CTeSP em Desenvolvimento de Software.'],
@@ -381,7 +364,7 @@ export default function App() {
             ['Which technologies have you used?', 'JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL, React, Next.js, REST APIs, MySQL/MariaDB, PostgreSQL, Redis, Docker and Prisma. Practical depth varies by technology and project.'],
             ['How can I contact you?', 'Use the contact form, email 16alves02@gmail.com or connect through LinkedIn, linked in the footer.']
           ]).map(([q,a]) => <details className="faq-item" key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div>
-        </section>
+        </motion.section>
       </main>
 
       <a className="mobile-contact-cta" href="#contact"><Mail size={16}/>{pt ? 'Entrar em contacto' : 'Contact me'}</a>
