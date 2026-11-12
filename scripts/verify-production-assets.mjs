@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 const root = resolve('dist');
 const required = [
   'index.html',
+  '35A725EC-3FA5-4077-B167-C2185A787C71.png',
   '404.html',
   'privacy.html',
   'terms.html',
