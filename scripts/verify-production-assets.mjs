@@ -59,4 +59,10 @@ assert.match(app, /href=\{cv\}/, 'CV link must be selected dynamically by langua
 assert.match(app, /setLanguage\(/, 'Language switch must be available');
 assert.match(app, /setDark\(/, 'Theme switch must be available');
 
+
+const caseStudyIds = [...app.matchAll(/caseStudy:\s*'([^']+)'/g)].map((match) => match[1]);
+assert.ok(caseStudyIds.length > 0, 'Homepage must expose project case studies');
+for (const id of caseStudyIds) {
+  assert.ok(existsSync(resolve(root, 'projects', id + '.html')), 'Homepage links to a missing case study: ' + id);
+}
 console.log(`Production verification passed (${required.length} required assets, ${urls.length} sitemap URLs).`);
