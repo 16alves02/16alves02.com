@@ -192,7 +192,7 @@ function ProjectArtwork({ project, dark, pt }) {
   if (project.name === 'SaborGest') {
     return (
       <div className="project-art project-art-saborgest" role="img" aria-label={pt ? 'Diagrama de arquitetura do SaborGest: gestão web, API REST e quiosque Android' : 'SaborGest architecture diagram: web management, REST API and Android kiosk'}>
-        <div className="art-overline"><span>SABORGEST / SYSTEM MAP</span><span>01 — 03</span></div>
+        <div className="art-overline"><span>SABORGEST / SYSTEM MAP</span><img className="saborgest-art-logo" src="https://raw.githubusercontent.com/16alves02/SaborGest/main/web/assets/saborgest-logo.svg" alt="" loading="lazy" decoding="async" /></div>
         <div className="art-flow">
           <div className="art-node"><span>01</span><strong>WEB MANAGEMENT</strong><small>PHP · MANAGEMENT PANEL</small></div>
           <div className="art-connector">↕</div>
