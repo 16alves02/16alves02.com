@@ -126,8 +126,8 @@ const projects = [
   },
   {
     name: 'Basket Hub', year: '2025-26', group: 'other', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
-    description: 'Projeto académico de grupo para gestão de basquetebol. A versão atual inclui autenticação, sessões e permissões por função e âmbito, além da gestão de equipas, jogadores, jogos e eventos.',
-    descriptionEn: 'An academic group project for basketball management. The current version includes authentication, sessions and role- and scope-based permissions, alongside team, player, game and event management.',
+    description: 'Projeto académico de grupo para gestão de basquetebol, com equipas, jogadores, jogos, eventos, inscrições e classificações.',
+    descriptionEn: 'An academic group project for basketball management, covering teams, players, games, events, registrations and standings.',
     stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
     status: 'Projeto académico de grupo · não preparado para produção', statusEn: 'Academic group project · not production-ready',
     href: 'https://github.com/bmgoliveira-UA/basket-hub',
