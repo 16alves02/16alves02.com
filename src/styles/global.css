@@ -507,9 +507,15 @@ body::-webkit-scrollbar {
   color: var(--accent);
   font-style: normal;
 }
+.project-art-mrdr {
+  background: #0d0d10;
+}
 .project-art-mrdr img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
   padding: 0;
-  object-fit: cover;
+  object-fit: contain;
 }
 .project-art-mrdr figcaption {
   position: absolute;
