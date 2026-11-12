@@ -362,6 +362,13 @@ body::-webkit-scrollbar {
 .art-overline {
   padding: 19px 21px 0;
 }
+.saborgest-art-logo {
+  display: block;
+  width: clamp(112px, 24%, 166px);
+  height: auto;
+  object-fit: contain;
+  opacity: .9;
+}
 .art-flow {
   display: grid;
   max-width: 480px;
