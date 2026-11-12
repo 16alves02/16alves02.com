@@ -24,7 +24,7 @@ jobs:
         run: |
           base="https://16alves02.pages.dev"
           marker='name="portfolio-build" content="2026-11-10-static-prerender"'
-          pages=( "/" "/projects/saborgest.html" "/projects/runlattice.html" "/projects/mrdr.html" "/projects/hoop.html" "/projects/raw.html" )
+          pages=( "/" "/projects/saborgest.html" "/projects/runlattice.html" "/projects/mrdr.html" "/projects/hoop.html" "/projects/raw.html" "/projects/basket-hub.html" "/projects/nova-imagem.html" )
           for attempt in {1..30}; do
             root="$(curl --location --fail --silent --show-error --max-time 20 --user-agent "PortfolioLighthouseCheck/1.0 (https://github.com/16alves02/16alves02.com)" "$base/" 2>/dev/null || true)"
             ready=true
@@ -34,7 +34,7 @@ jobs:
               grep -Fq 'application/ld+json' <<< "$html" || ready=false
             done
             if [ "$ready" = true ]; then
-              echo "Homepage and all five case studies are live."
+              echo "Homepage and all seven case studies are live."
               exit 0
             fi
             echo "Waiting for the complete Cloudflare Pages release ($attempt/30)..."
@@ -53,7 +53,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p lighthouse-reports
-          pages=( "homepage:/" "saborgest:/projects/saborgest.html" "runlattice:/projects/runlattice.html" "mrdr:/projects/mrdr.html" "hoop:/projects/hoop.html" "raw:/projects/raw.html" )
+          pages=( "homepage:/" "saborgest:/projects/saborgest.html" "runlattice:/projects/runlattice.html" "mrdr:/projects/mrdr.html" "hoop:/projects/hoop.html" "raw:/projects/raw.html" "basket-hub:/projects/basket-hub.html" "nova-imagem:/projects/nova-imagem.html" )
           for entry in "${pages[@]}"; do
             name="${entry%%:*}"
             path="${entry#*:}"
