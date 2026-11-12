@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="index,follow">
-<meta name="description" content="Estudo de caso do Basket Hub, projeto académico de grupo para gestão de basquetebol e controlo de acessos.">
+<meta name="description" content="Estudo de caso do Basket Hub, projeto académico de grupo para gestão de basquetebol.">
 <link rel="canonical" href="https://16alves02.pages.dev/projects/basket-hub.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Basket Hub | Leonardo Alves">
-<meta property="og:description" content="Projeto académico de grupo com gestão de basquetebol, autenticação e permissões por função e âmbito.">
+<meta property="og:description" content="Projeto académico de grupo para gestão de basquetebol.">
 <meta property="og:url" content="https://16alves02.pages.dev/projects/basket-hub.html">
 <meta name="twitter:card" content="summary">
 <title>Basket Hub | Estudo de caso | Leonardo Alves</title>
@@ -30,7 +30,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);f
 [data-lang=en]{display:none}body.en [data-lang=pt]{display:none}body.en [data-lang=en]{display:block}body.en a[data-lang=en]{display:inline}
 @media(max-width:650px){.wrap{width:calc(100% - 40px)}.hero{padding:52px 0 36px}.grid{grid-template-columns:1fr;gap:12px}.block{grid-template-columns:1fr;gap:6px}.lead{font-size:16px}footer{flex-direction:column}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Basket Hub","description":"Academic group project for basketball management, authentication and role- and scope-based access control.","creator":{"@type":"Person","name":"Leonardo Alves","url":"https://16alves02.pages.dev/"},"inLanguage":["pt-PT","en"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Basket Hub","description":"Academic group project for basketball management.","creator":{"@type":"Person","name":"Leonardo Alves","url":"https://16alves02.pages.dev/"},"inLanguage":["pt-PT","en"]}</script>
 </head>
 <body>
 <div class="wrap">
@@ -38,8 +38,8 @@ footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);f
 <header class="hero">
 <div class="eyebrow">ACADÉMICO · PROJETO DE GRUPO</div>
 <h1>Basket Hub<span>.</span></h1>
-<p class="lead" data-lang="pt">Plataforma académica de gestão de basquetebol. A evolução mais recente acrescenta autenticação, sessões e permissões por função e âmbito às áreas de gestão da aplicação.</p>
-<p class="lead" data-lang="en">An academic basketball management platform. Its latest iteration adds authentication, sessions and role- and scope-based permissions to the application's management areas.</p>
+<p class="lead" data-lang="pt">Plataforma académica de gestão de basquetebol, com áreas para equipas, jogadores, jogos, eventos, inscrições e classificações.</p>
+<p class="lead" data-lang="en">An academic basketball management platform covering teams, players, games, events, registrations and standings.</p>
 <div class="tags"><span>Kotlin</span><span>Ktor</span><span>Thymeleaf</span><span>Exposed</span><span>H2</span></div>
 <div class="links"><a href="https://github.com/bmgoliveira-UA/basket-hub" target="_blank" rel="noreferrer">GitHub</a></div>
 </header>
@@ -50,16 +50,16 @@ footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);f
 <section><span class="eyebrow">ABORDAGEM</span><h2>A solução</h2><p>Aplicação Web académica desenvolvida em Kotlin com Ktor, páginas Thymeleaf e persistência H2. O trabalho foi desenvolvido em grupo e não é apresentado como projeto individual.</p></section>
 </div>
 <section class="block"><div><span class="eyebrow">FUNCIONALIDADES</span><h2>O que foi construído</h2></div><ul>
-<li>Gestão de equipas, jogadores, jogos, eventos, inscrições e pavilhões.</li>
-<li>Bootstrap inicial de administrador, limitado ao ambiente de desenvolvimento e protegido por token de utilização única.</li>
-<li>Autenticação com sessões Bearer opacas, expiração e revogação.</li>
-<li>Controlo de acesso por função e âmbito para administradores, gestores de equipa e organizadores.</li>
-<li>Verificações de autorização associadas às equipas e eventos atribuídos a cada utilizador.</li>
+<li>Gestão de equipas, jogadores, jogos, eventos, inscrições, pavilhões, organizadores e patrocinadores.</li>
+<li>Rotas Ktor para operações de consulta, criação, atualização e remoção de registos.</li>
+<li>Páginas renderizadas no servidor com Thymeleaf.</li>
+<li>Cálculo de classificações e geração de agendamentos/chaveamentos de eventos.</li>
+<li>Áreas de estatísticas associadas a jogadores e jogos.</li>
 </ul></section>
 <section class="block"><div><span class="eyebrow">ARQUITETURA</span><h2>Stack técnica</h2></div><p>Kotlin e Ktor para a aplicação de servidor, Thymeleaf para as páginas, Exposed para acesso a dados e H2 para persistência local. O projeto utiliza Gradle para gestão e validação do build.</p></section>
 <section class="block"><div><span class="eyebrow">COLABORAÇÃO</span><h2>Trabalho de grupo</h2></div><p>Este é um projeto académico coletivo. O repositório ligado corresponde à entrega do grupo; as funcionalidades e decisões não devem ser interpretadas como trabalho exclusivo de Leonardo Alves.</p></section>
-<section class="block"><div><span class="eyebrow">ESTADO ATUAL</span><h2>Limitações</h2></div><div class="note"><p>A base de segurança foi integrada na branch main, mas a aplicação não está preparada para produção. O arranque em ambiente de produção permanece bloqueado até a proteção das rotas e a validação de segurança estarem completas.</p></div></section>
-<section class="block"><div><span class="eyebrow">PRÓXIMOS PASSOS</span><h2>Validação necessária</h2></div><p>Alargar os testes HTTP e de IDOR, fechar as regras de autorização para inscrições, implementar recuperação e alteração de palavra-passe e limitação de tentativas, validar concorrência na proteção do último administrador e rever HTTPS, CORS e segredos de alojamento.</p></section>
+<section class="block"><div><span class="eyebrow">ESTADO ATUAL</span><h2>Limitações</h2></div><div class="note"><p>A aplicação não está preparada para produção: as rotas não têm autenticação nem autorização, a configuração CORS permite qualquer origem (`anyHost()`) e a cobertura de testes automatizados é limitada. Estes pontos têm de ser resolvidos antes de qualquer utilização pública.</p></div></section>
+<section class="block"><div><span class="eyebrow">PRÓXIMOS PASSOS</span><h2>Validação necessária</h2></div><p>Implementar autenticação e autorização nas rotas, restringir CORS a origens explícitas, alargar os testes HTTP e de integração, e validar a configuração de base de dados e segredos antes de qualquer deployment.</p></section>
 </div>
 <div data-lang="en">
 <div class="grid">
@@ -67,16 +67,16 @@ footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);f
 <section><span class="eyebrow">APPROACH</span><h2>The solution</h2><p>An academic web application built with Kotlin, Ktor, Thymeleaf pages and H2 persistence. It was developed as a group project and is not presented as individual work.</p></section>
 </div>
 <section class="block"><div><span class="eyebrow">FEATURES</span><h2>What was built</h2></div><ul>
-<li>Management of teams, players, games, events, registrations and venues.</li>
-<li>Initial administrator bootstrap, restricted to development and protected by a one-time token.</li>
-<li>Authentication with opaque Bearer sessions, expiry and revocation.</li>
-<li>Role- and scope-based access control for administrators, team managers and organisers.</li>
-<li>Authorisation checks tied to each user's assigned teams and events.</li>
+<li>Management of teams, players, games, events, registrations, venues, organisers and sponsors.</li>
+<li>Ktor routes for reading, creating, updating and deleting records.</li>
+<li>Server-rendered pages using Thymeleaf.</li>
+<li>Standings calculation and event scheduling/bracket generation.</li>
+<li>Statistics areas related to players and games.</li>
 </ul></section>
 <section class="block"><div><span class="eyebrow">ARCHITECTURE</span><h2>Technology stack</h2></div><p>Kotlin and Ktor for the server application, Thymeleaf for pages, Exposed for data access and H2 for local persistence. The project uses Gradle for build management and validation.</p></section>
 <section class="block"><div><span class="eyebrow">COLLABORATION</span><h2>Group project</h2></div><p>This is collaborative academic work. The linked repository is the group's submission; its features and decisions should not be interpreted as Leonardo Alves's individual work alone.</p></section>
-<section class="block"><div><span class="eyebrow">CURRENT STATUS</span><h2>Limitations</h2></div><div class="note"><p>The security baseline has been merged into the main branch, but the application is not production-ready. Production startup remains blocked until route protection and security validation are complete.</p></div></section>
-<section class="block"><div><span class="eyebrow">NEXT STEPS</span><h2>Further validation</h2></div><p>Expand HTTP and IDOR tests, finalise registration authorisation rules, implement password recovery and change plus rate limiting, validate last-administrator concurrency protection, and review hosting HTTPS, CORS and secrets.</p></section>
+<section class="block"><div><span class="eyebrow">CURRENT STATUS</span><h2>Limitations</h2></div><div class="note"><p>The application is not production-ready: routes have no authentication or authorisation, the CORS configuration allows any origin (`anyHost()`), and automated test coverage is limited. These issues must be addressed before any public deployment.</p></div></section>
+<section class="block"><div><span class="eyebrow">NEXT STEPS</span><h2>Further validation</h2></div><p>Implement route authentication and authorisation, restrict CORS to explicit origins, expand HTTP and integration tests, and validate database and secret configuration before any deployment.</p></section>
 </div>
 </main>
 <footer><span>© 2026 Leonardo Alves · 16alves02</span><a href="/#contact" data-lang="pt">Contacto</a><a href="/#contact" data-lang="en">Contact</a></footer>
