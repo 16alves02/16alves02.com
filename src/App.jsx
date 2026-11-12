@@ -195,6 +195,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
+  const [scrollProgress, setScrollProgress] = useState(0);
   const t = content[language];
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
@@ -235,8 +236,44 @@ export default function App() {
     if (themeColor) themeColor.content = dark ? '#02020E' : '#FDFDF1';
   }, [dark]);
 
+  useEffect(() => {
+    let frame = 0;
+
+    const updateProgress = () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollableHeight > 0
+          ? Math.min(100, Math.max(0, Math.round((window.scrollY / scrollableHeight) * 100)))
+          : 0;
+        setScrollProgress(progress);
+        frame = 0;
+      });
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    return () => {
+      window.removeEventListener('scroll', updateProgress);
+      window.removeEventListener('resize', updateProgress);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
     <div className={dark ? 'site dark' : 'site'}>
+      <div
+        className="scroll-progress"
+        role="progressbar"
+        aria-label={pt ? 'Progresso da página' : 'Page scroll progress'}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={scrollProgress}
+      >
+        <span style={{ transform: `scaleX(${scrollProgress / 100})` }} />
+      </div>
       <header className="header">
         <a className="wordmark brand-lockup" href="#top"><img className="brand-logo" src="/logo.png" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? (pt ? 'Fechar menu' : 'Close menu') : (pt ? 'Abrir menu' : 'Open menu')} aria-expanded={menuOpen} aria-controls="primary-navigation">{menuOpen ? <X /> : <Menu />}</button>
