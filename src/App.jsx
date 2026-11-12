@@ -195,6 +195,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
+  const [contactToast, setContactToast] = useState('');
   const t = content[language];
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
@@ -204,6 +205,35 @@ export default function App() {
     [Code2, 'GitHub académico', 'https://github.com/13alves05'],
     [Camera, 'Instagram', 'https://www.instagram.com/16alves02/']
   ];
+
+  const handleContactSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    setFormError('');
+    setContactToast('');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+      const result = await response.json();
+      if (!response.ok || !(result.success === true || result.success === 'true')) {
+        throw new Error(result.message || 'Message could not be sent.');
+      }
+      form.reset();
+      setContactToast(pt ? 'Mensagem enviada com sucesso. Obrigado pelo contacto!' : 'Message sent successfully. Thank you for reaching out!');
+    } catch {
+      setFormError(pt
+        ? 'Não foi possível enviar a mensagem. Tenta novamente ou escreve diretamente para 16alves02@gmail.com.'
+        : 'Your message could not be sent. Please try again or email 16alves02@gmail.com directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     document.documentElement.lang = pt ? 'pt-PT' : 'en';
@@ -317,11 +347,10 @@ export default function App() {
 
         <motion.section className="contact-section reveal" id="contact" initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.6 }}>
           <div className="contact-copy"><span className="eyebrow-number">05 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
-          <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST" onInvalid={() => setFormError(pt ? "Verifica os campos obrigatórios e o formato do email." : "Please check the required fields and email format.")} onSubmit={() => { setFormError(""); setIsSubmitting(true); }}>
+          <form className="contact-form" action="https://formsubmit.co/ajax/16alves02@gmail.com" method="POST" onInvalid={() => setFormError(pt ? "Verifica os campos obrigatórios e o formato do email." : "Please check the required fields and email format.")} onSubmit={handleContactSubmit}>
             <input type="hidden" name="_subject" value={pt ? "Novo contacto através do portefólio" : "New message from the portfolio"} />
             <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://16alves02.pages.dev/thanks.html" />
             <input type="text" name="_honey" className="honeypot" tabIndex="-1" aria-hidden="true" autoComplete="off" />
             <label>{t.name}<input name="name" required maxLength="100" autoComplete="name" /></label>
             <label>{t.email}<input type="email" name="email" required maxLength="254" autoComplete="email" /></label>
@@ -358,6 +387,7 @@ export default function App() {
       </main>
 
       <a className="mobile-contact-cta" href="#contact"><Mail size={16}/>{pt ? 'Entrar em contacto' : 'Contact me'}</a>
+      {contactToast && <div className="contact-toast" role="status" aria-live="polite"><span>{contactToast}</span><button type="button" onClick={() => setContactToast('')} aria-label={pt ? 'Fechar aviso' : 'Dismiss notification'}><X size={16} /></button></div>}
       <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img className="brand-logo" src="/logo.png" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([Icon, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><Icon size={17} strokeWidth={1.7}/><span>{label}</span></a>)}</div><nav className="legal-links" aria-label={pt ? 'Informação legal' : 'Legal information'}><a href="/faq.html">FAQ</a><a href="/privacy.html">{t.privacyLabel}</a><a href="/terms.html">{t.termsLabel}</a></nav><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
