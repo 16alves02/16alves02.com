@@ -12,39 +12,6 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 
-/* Motion polish: progressive reveals and restrained interaction feedback. */
-.hero-reveal { opacity: 1; transform: none; }
-html.motion-ready .hero-reveal { animation: hero-enter .62s cubic-bezier(.2,.7,.2,1) both; }
-html.motion-ready .hero-reveal-1 { animation-delay: .04s; }
-html.motion-ready .hero-reveal-2 { animation-delay: .12s; }
-html.motion-ready .hero-reveal-3 { animation-delay: .22s; }
-html.motion-ready .hero-reveal-4 { animation-delay: .32s; }
-html.motion-ready .hero-reveal-5 { animation-delay: .42s; }
-@keyframes hero-enter { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(22px); }
-.reveal { transition: opacity .58s ease, transform .58s cubic-bezier(.2,.7,.2,1); }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
-.project-row.reveal:nth-child(2) { transition-delay: .06s; }
-.project-row.reveal:nth-child(3) { transition-delay: .12s; }
-.project-row.reveal:nth-child(4) { transition-delay: .18s; }
-.project-row.reveal:nth-child(5) { transition-delay: .24s; }
-.experience-row.reveal:nth-child(2) { transition-delay: .06s; }
-.experience-row.reveal:nth-child(3) { transition-delay: .12s; }
-.experience-row.reveal:nth-child(4) { transition-delay: .18s; }
-.hero-links a, .project-side a, .socials a, .icon-button, .text-button, .cv-link { transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
-.hero-links a:hover, .project-side a:hover, .socials a:hover { transform: translateY(-2px); }
-.primary-link, .contact-form button { transition: color .2s ease, background-color .2s ease, transform .2s ease; }
-.primary-link:hover, .contact-form button:hover { transform: translateY(-2px); }
-.project-row { transition: border-color .2s ease; }
-.project-row:hover { border-color: var(--accent); }
-.project-main h3 { transition: color .2s ease, letter-spacing .2s ease; }
-.project-row:hover .project-main h3 { color: var(--accent); letter-spacing: -.065em; }
-@media (prefers-reduced-motion: reduce) {
-  html.motion-ready .hero-reveal, html.motion-ready .reveal, .hero-links a, .project-side a, .socials a, .icon-button, .text-button, .cv-link, .project-main h3, .project-row {
-    animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important;
-  }
-}
-
 /* Project previews sourced from each project's own repository. */
 .project-preview{display:block;width:100%;max-width:560px;height:190px;margin:0 0 22px;border:1px solid var(--line);border-radius:3px;background:var(--surface);object-fit:cover;object-position:center;transition:transform .35s ease,border-color .2s ease}.project-preview-contain{object-fit:contain;padding:22px}.project-row:hover .project-preview{border-color:var(--accent)}
 @media(max-width:720px){.project-preview{height:160px;max-width:100%;margin-bottom:18px}.project-preview-contain{padding:18px}}
@@ -114,8 +81,6 @@ html.motion-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(2
 
 /* Consistent motion: restrained, transform/opacity-only transitions. */
 @media (prefers-reduced-motion: no-preference) {
-  .project-row{transition:transform .28s cubic-bezier(.2,.7,.2,1),border-color .28s ease}
-  .project-row:hover{transform:translateX(5px)}
   .primary-link,.secondary-link,.cv-link,.header-contact,.icon-button,.text-button{transition:transform .22s ease,color .22s ease,background .22s ease,border-color .22s ease}
   .primary-link:hover,.cv-link:hover,.header-contact:hover{transform:translateY(-2px)}
   .faq-item summary{transition:color .2s ease}
