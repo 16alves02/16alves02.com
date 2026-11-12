@@ -366,8 +366,11 @@ body::-webkit-scrollbar {
   display: block;
   width: clamp(112px, 24%, 166px);
   height: auto;
+  padding: 5px 7px;
+  border: 1px solid rgba(38, 36, 32, .12);
+  border-radius: 3px;
+  background: #F6F4F1;
   object-fit: contain;
-  opacity: .9;
 }
 .art-flow {
   display: grid;
