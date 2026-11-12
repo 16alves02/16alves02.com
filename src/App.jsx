@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight, Download, Code2, Mail, Moon, Sun, Menu, X, BriefcaseBusiness, Camera } from 'lucide-react';
-import portraitBase64 from '../assets/leonardo-portrait.jpg.base64?raw';
 
 const content = {
   'pt-PT': {
@@ -271,7 +270,7 @@ export default function App() {
               <a className="secondary-link" href="#contact"><Mail size={16} /> {pt ? 'Falar comigo' : 'Get in touch'}</a>
             </div>
           </motion.div>
-          <motion.figure className="hero-portrait hero-reveal hero-reveal-3" initial={shouldReduceMotion ? false : { opacity: 0, y: 18, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}><img src={`data:image/jpeg;base64,${portraitBase64.trim()}`} alt={pt ? 'Retrato a preto e branco de Leonardo Alves' : 'Black and white portrait of Leonardo Alves'} fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></motion.figure>
+          <motion.figure className="hero-portrait hero-reveal hero-reveal-3" initial={shouldReduceMotion ? false : { opacity: 0, y: 18, scale: 0.985 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}><img src="/35A725EC-3FA5-4077-B167-C2185A787C71.png" alt={pt ? 'Retrato de Leonardo Alves' : 'Portrait of Leonardo Alves'} width="800" height="1000" fetchPriority="high" decoding="async" /><figcaption>LEONARDO ALVES <span>·</span> 16ALVES02</figcaption></motion.figure>
           <motion.div className="hero-meta hero-reveal hero-reveal-5" initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.22 }}><span>AVEIRO, PORTUGAL</span><span>{t.availability}</span></motion.div>
         </section>
 
