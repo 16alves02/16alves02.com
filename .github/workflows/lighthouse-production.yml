@@ -43,8 +43,11 @@ jobs:
           echo "The homepage or one or more case studies did not become available."
           exit 1
 
-      - name: Set up Chrome
+      - name: Set up stable Chrome
         uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+          install-dependencies: true
 
       - name: Install Lighthouse
         run: npm install --global lighthouse@12.8.2
