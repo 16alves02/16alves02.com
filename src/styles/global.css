@@ -121,3 +121,11 @@
 .socials a span { font-size:10px; line-height:1; white-space:nowrap; }
 .socials a:hover { background:var(--surface); border-color:var(--accent); }
 @media(max-width:720px) { .socials { gap:7px; } .socials a { padding:6px 8px; } .socials a span { font-size:9px; } }
+
+/* Contact form feedback stays on the page after AJAX submission. */
+.contact-toast{position:fixed;z-index:50;right:24px;bottom:24px;display:flex;align-items:center;gap:18px;max-width:min(440px,calc(100vw - 32px));padding:16px 18px;background:var(--text);color:var(--bg);border:1px solid var(--line);box-shadow:0 12px 36px rgba(0,0,0,.2);font-size:13px;line-height:1.55;animation:contact-toast-in .24s ease-out}
+.contact-toast button{display:grid;place-items:center;flex:none;width:28px;height:28px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer}
+.contact-toast button:hover{color:var(--accent)}
+@keyframes contact-toast-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:720px){.contact-toast{right:16px;left:16px;bottom:82px;max-width:none}}
+@media(prefers-reduced-motion:reduce){.contact-toast{animation:none}}
