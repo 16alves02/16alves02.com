@@ -200,8 +200,8 @@ export default function App() {
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const socialLinks = [
     [BriefcaseBusiness, 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
-    [Code2, 'GitHub pessoal', 'https://github.com/16alves02'],
-    [Code2, 'GitHub académico', 'https://github.com/13alves05'],
+    [Code2, pt ? 'GitHub pessoal' : 'Personal GitHub', 'https://github.com/16alves02'],
+    [Code2, pt ? 'GitHub académico' : 'Academic GitHub', 'https://github.com/13alves05'],
     [Camera, 'Instagram', 'https://www.instagram.com/16alves02/']
   ];
 
