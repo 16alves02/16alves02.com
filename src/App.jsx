@@ -188,22 +188,115 @@ const experience = [
   ['jul. 2022', 'Jul 2022', 'Estágio de desenvolvimento Web', 'Web Development Intern', 'Associação Estamos Juntos (AEJ)', 'Estágio na área de desenvolvimento Web.', 'Internship in Web development.']
 ];
 
+function ProjectArtwork({ project, dark, pt }) {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  if (project.name === 'SaborGest') {
+    return (
+      <div className="project-art project-art-saborgest" role="img" aria-label={pt ? 'Diagrama de arquitetura do SaborGest: gestão web, API REST e quiosque Android' : 'SaborGest architecture diagram: web management, REST API and Android kiosk'}>
+        <div className="art-overline"><span>SABORGEST / SYSTEM MAP</span><img className="saborgest-art-logo" src="https://raw.githubusercontent.com/16alves02/SaborGest/main/web/assets/saborgest-logo.svg" alt="" loading="lazy" decoding="async" /></div>
+        <div className="art-flow">
+          <div className="art-node"><span>01</span><strong>WEB MANAGEMENT</strong><small>PHP · MANAGEMENT PANEL</small></div>
+          <div className="art-connector">↕</div>
+          <div className="art-node art-node-accent"><span>02</span><strong>REST API</strong><small>PHP · MYSQL</small></div>
+          <div className="art-connector">↕</div>
+          <div className="art-node"><span>03</span><strong>ANDROID KIOSK</strong><small>KOTLIN · RETROFIT</small></div>
+        </div>
+        <div className="art-foot"><span>PEOPLE</span><span>ATTENDANCE</span><span>STOCK</span></div>
+      </div>
+    );
+  }
+
+  if (project.name === 'RAW.') {
+    return (
+      <div className="project-art project-art-raw" role="img" aria-label={pt ? 'Os três modos de jogo do RAW: The Deep End, Unfiltered e The Lab' : 'The three RAW game modes: The Deep End, Unfiltered and The Lab'}>
+        <div className="raw-art-head"><span>ALV16 STUDIOS / 001</span><span>PLAY MODES</span></div>
+        <div className="raw-art-title">RAW<span>.</span></div>
+        <div className="raw-mode-list">
+          <div><b>01</b><span>THE DEEP END</span></div>
+          <div><b>02</b><span>UNFILTERED</span></div>
+          <div><b>03</b><span>THE LAB</span></div>
+        </div>
+        <div className="raw-art-foot"><span>6 LANGUAGES</span><span>PWA EXPERIENCE</span></div>
+      </div>
+    );
+  }
+
+  if (project.image && !imageFailed) {
+    return (
+      <figure className={'project-art project-art-image ' + (project.name === 'MRDR.' ? 'project-art-mrdr' : 'project-art-runlattice')}>
+        <img
+          src={project.name === 'RunLattice' && !dark ? '/runlattice-logo-light.svg' : project.image}
+          alt={pt ? project.imageAlt : project.imageAltEn}
+          loading="lazy"
+          decoding="async"
+          onError={() => setImageFailed(true)}
+        />
+        {project.name === 'RunLattice' && (
+          <div className="runlattice-art-flow" aria-label={pt ? 'Modelo de execução do protótipo' : 'Prototype execution model'}>
+            <span>TRIGGER</span><i>→</i><span>CONDITION</span><i>→</i><span>DISCORD</span>
+          </div>
+        )}
+        {project.name === 'MRDR.' && <figcaption>ALV16 STUDIOS / CASE FILE 002</figcaption>}
+      </figure>
+    );
+  }
+
+  return (
+    <div className="project-art project-art-fallback">
+      <span>{project.name}</span>
+      <small>{pt ? 'Projeto selecionado' : 'Selected project'}</small>
+    </div>
+  );
+}
+
 export default function App() {
   const shouldReduceMotion = useReducedMotion();
-  const [language, setLanguage] = useState('pt-PT');
+  const [language, setLanguage] = useState('en');
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
+  const [contactToast, setContactToast] = useState('');
+  const [scrollProgress, setScrollProgress] = useState(0);
   const t = content[language];
   const pt = language === 'pt-PT';
   const cv = pt ? '/cv-leonardo-alves-pt.pdf' : '/cv-leonardo-alves-en.pdf';
   const socialLinks = [
     [BriefcaseBusiness, 'LinkedIn', 'https://www.linkedin.com/in/16alves02/'],
-    [Code2, 'GitHub pessoal', 'https://github.com/16alves02'],
-    [Code2, 'GitHub académico', 'https://github.com/13alves05'],
+    [Code2, pt ? 'GitHub pessoal' : 'Personal GitHub', 'https://github.com/16alves02'],
+    [Code2, pt ? 'GitHub académico' : 'Academic GitHub', 'https://github.com/13alves05'],
     [Camera, 'Instagram', 'https://www.instagram.com/16alves02/']
   ];
+
+  const handleContactSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    setFormError('');
+    setContactToast('');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+      const result = await response.json();
+      if (!response.ok || !(result.success === true || result.success === 'true')) {
+        throw new Error(result.message || 'Message could not be sent.');
+      }
+      form.reset();
+      setContactToast(pt ? 'Mensagem enviada com sucesso. Obrigado pelo contacto!' : 'Message sent successfully. Thank you for reaching out!');
+    } catch {
+      setFormError(pt
+        ? 'Não foi possível enviar a mensagem. Tenta novamente ou escreve diretamente para 16alves02@gmail.com.'
+        : 'Your message could not be sent. Please try again or email 16alves02@gmail.com directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   useEffect(() => {
     document.documentElement.lang = pt ? 'pt-PT' : 'en';
@@ -235,8 +328,44 @@ export default function App() {
     if (themeColor) themeColor.content = dark ? '#02020E' : '#FDFDF1';
   }, [dark]);
 
+  useEffect(() => {
+    let frame = 0;
+
+    const updateProgress = () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollableHeight > 0
+          ? Math.min(100, Math.max(0, Math.round((window.scrollY / scrollableHeight) * 100)))
+          : 0;
+        setScrollProgress(progress);
+        frame = 0;
+      });
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+
+    return () => {
+      window.removeEventListener('scroll', updateProgress);
+      window.removeEventListener('resize', updateProgress);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
     <div className={dark ? 'site dark' : 'site'}>
+      <div
+        className="scroll-progress"
+        role="progressbar"
+        aria-label={pt ? 'Progresso da página' : 'Page scroll progress'}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={scrollProgress}
+      >
+        <span style={{ transform: `scaleX(${scrollProgress / 100})` }} />
+      </div>
       <header className="header">
         <a className="wordmark brand-lockup" href="#top"><img className="brand-logo" src="/logo.png" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? (pt ? 'Fechar menu' : 'Close menu') : (pt ? 'Abrir menu' : 'Open menu')} aria-expanded={menuOpen} aria-controls="primary-navigation">{menuOpen ? <X /> : <Menu />}</button>
@@ -277,24 +406,57 @@ export default function App() {
                 <p>{group.description}</p>
               </div>
               <div className="project-list">
-                {projects.filter(project => project.group === group.key).map(project => (
-                  <motion.article className={`project-row reveal ${project.featured ? 'featured-project' : ''}`} key={project.name} initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} whileHover={shouldReduceMotion ? undefined : { x: 4 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
-                    <span className="project-index">{String(projects.indexOf(project) + 1).padStart(2, '0')}</span>
-                    <div className="project-main">
-                      {project.image && <img className={`project-preview ${project.imageFit === 'contain' ? 'project-preview-contain' : ''} ${project.name === 'RunLattice' ? 'project-preview-runlattice' : ''}`} src={project.name === 'RunLattice' && !dark ? '/runlattice-logo-light.svg' : project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true; }} />}
-                      <div className="project-topline"><span>{pt ? project.typePt : project.type}</span><span>{project.year}</span></div>
-                      <h3>{project.name}</h3>
-                      <p>{pt ? project.description : project.descriptionEn}</p>
-                      <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
-                    </div>
-                    <div className="project-side">
-                      <span className="project-status">{pt ? project.status : (project.statusEn || (project.name === 'RAW.' ? 'Public demo · private source' : project.name === 'RunLattice' ? 'Prototype' : project.name === 'HOOP' ? 'Academic project' : 'In development'))}</span>
-                      {project.caseStudy && <a href={`/projects/${project.caseStudy}.html`}>{pt ? 'Estudo de caso' : 'Case study'} <ArrowUpRight size={16} /></a>}
-                      {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
-                      {project.source && <a href={project.source} target="_blank" rel="noreferrer">{project.sourceLabel || 'GitHub'} <ArrowUpRight size={15} /></a>}
-                    </div>
-                  </motion.article>
-                ))}
+                {group.key === 'featured' ? (
+                  projects.filter(project => project.group === group.key).map((project, projectPosition) => (
+                    <motion.article
+                      className={'project-card reveal ' + (projectPosition % 2 ? 'project-card-reverse' : '')}
+                      key={project.name}
+                      initial={shouldReduceMotion ? false : { opacity: 0, y: 22 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.12 }}
+                      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                      <div className="project-card-topline">
+                        <span className="project-card-index">{String(projects.indexOf(project) + 1).padStart(2, '0')}</span>
+                        <span>{pt ? project.typePt : project.type}</span>
+                        <span>{project.year}</span>
+                      </div>
+                      <div className="project-card-layout">
+                        <div className="project-card-copy">
+                          <h3>{project.name}</h3>
+                          <p>{pt ? project.description : project.descriptionEn}</p>
+                          <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
+                          <div className="project-card-status">{pt ? project.status : (project.statusEn || (project.name === 'RAW.' ? 'Public demo · private source' : project.name === 'RunLattice' ? 'Prototype' : 'In development'))}</div>
+                          <div className="project-card-actions">
+                            {project.caseStudy && <a href={'/projects/' + project.caseStudy + '.html'}>{pt ? 'Estudo de caso' : 'Case study'} <ArrowUpRight size={16} /></a>}
+                            {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
+                            {project.source && <a href={project.source} target="_blank" rel="noreferrer">{project.sourceLabel || 'GitHub'} <ArrowUpRight size={15} /></a>}
+                          </div>
+                        </div>
+                        <ProjectArtwork project={project} dark={dark} pt={pt} />
+                      </div>
+                    </motion.article>
+                  ))
+                ) : (
+                  projects.filter(project => project.group === group.key).map(project => (
+                    <motion.article className="project-row reveal" key={project.name} initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
+                      <span className="project-index">{String(projects.indexOf(project) + 1).padStart(2, '0')}</span>
+                      <div className="project-main">
+                        {project.image && <img className={'project-preview ' + (project.imageFit === 'contain' ? 'project-preview-contain' : '')} src={project.image} alt={pt ? project.imageAlt : project.imageAltEn} loading="lazy" decoding="async" onError={(event) => { event.currentTarget.hidden = true; }} />}
+                        <div className="project-topline"><span>{pt ? project.typePt : project.type}</span><span>{project.year}</span></div>
+                        <h3>{project.name}</h3>
+                        <p>{pt ? project.description : project.descriptionEn}</p>
+                        <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
+                      </div>
+                      <div className="project-side">
+                        <span className="project-status">{pt ? project.status : (project.statusEn || 'In development')}</span>
+                        {project.caseStudy && <a href={'/projects/' + project.caseStudy + '.html'}>{pt ? 'Estudo de caso' : 'Case study'} <ArrowUpRight size={16} /></a>}
+                        {project.href ? <a href={project.href} target="_blank" rel="noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a> : <span className="muted">{t.private}</span>}
+                        {project.source && <a href={project.source} target="_blank" rel="noreferrer">{project.sourceLabel || 'GitHub'} <ArrowUpRight size={15} /></a>}
+                      </div>
+                    </motion.article>
+                  ))
+                )}
               </div>
             </div>
           ))}
@@ -317,11 +479,10 @@ export default function App() {
 
         <motion.section className="contact-section reveal" id="contact" initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.08 }} transition={{ duration: 0.6 }}>
           <div className="contact-copy"><span className="eyebrow-number">05 / {t.contactLabel}</span><h2>{t.contact}</h2><p>{t.contactText}</p><a href="mailto:16alves02@gmail.com">16alves02@gmail.com <ArrowUpRight size={16} /></a></div>
-          <form className="contact-form" action="https://formsubmit.co/16alves02@gmail.com" method="POST" onInvalid={() => setFormError(pt ? "Verifica os campos obrigatórios e o formato do email." : "Please check the required fields and email format.")} onSubmit={() => { setFormError(""); setIsSubmitting(true); }}>
+          <form className="contact-form" action="https://formsubmit.co/ajax/16alves02@gmail.com" method="POST" onInvalid={() => setFormError(pt ? "Verifica os campos obrigatórios e o formato do email." : "Please check the required fields and email format.")} onSubmit={handleContactSubmit}>
             <input type="hidden" name="_subject" value={pt ? "Novo contacto através do portefólio" : "New message from the portfolio"} />
             <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://16alves02.pages.dev/thanks.html" />
             <input type="text" name="_honey" className="honeypot" tabIndex="-1" aria-hidden="true" autoComplete="off" />
             <label>{t.name}<input name="name" required maxLength="100" autoComplete="name" /></label>
             <label>{t.email}<input type="email" name="email" required maxLength="254" autoComplete="email" /></label>
@@ -358,6 +519,7 @@ export default function App() {
       </main>
 
       <a className="mobile-contact-cta" href="#contact"><Mail size={16}/>{pt ? 'Entrar em contacto' : 'Contact me'}</a>
+      {contactToast && <div className="contact-toast" role="status" aria-live="polite"><span>{contactToast}</span><button type="button" onClick={() => setContactToast('')} aria-label={pt ? 'Fechar aviso' : 'Dismiss notification'}><X size={16} /></button></div>}
       <footer className="footer"><a className="wordmark brand-lockup" href="#top"><img className="brand-logo" src="/logo.png" alt="" width="34" height="34" /><span>16alves02<span>.</span></span></a><div className="socials">{socialLinks.map(([Icon, label, href]) => <a key={label} href={href} target={href.startsWith("mailto:") ? undefined : "_blank"} rel={href.startsWith("mailto:") ? undefined : "noreferrer"} aria-label={label} title={label}><Icon size={17} strokeWidth={1.7}/><span>{label}</span></a>)}</div><nav className="legal-links" aria-label={pt ? 'Informação legal' : 'Legal information'}><a href="/faq.html">FAQ</a><a href="/privacy.html">{t.privacyLabel}</a><a href="/terms.html">{t.termsLabel}</a></nav><span>© {new Date().getFullYear()} Leonardo Alves · {t.footer}</span></footer>
     </div>
   );
