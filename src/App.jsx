@@ -250,7 +250,7 @@ function ProjectArtwork({ project, dark, pt }) {
 
 export default function App() {
   const shouldReduceMotion = useReducedMotion();
-  const [language, setLanguage] = useState('pt-PT');
+  const [language, setLanguage] = useState('en');
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
