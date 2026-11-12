@@ -3,7 +3,7 @@ name: Regenerate CV PDFs
 on:
   push:
     branches:
-      - docs/recruiter-faq-and-readme-sync
+      - main
     paths:
       - scripts/generate_cvs.py
       - .github/workflows/generate-cvs.yml
