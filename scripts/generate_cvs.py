@@ -42,12 +42,12 @@ def build(path, english=False):
         summary = ("Generalist Software Developer and Software Development student at Escola Superior Aveiro Norte, University of Aveiro. "
                    "Hands-on project experience across web applications, backend development, REST APIs, databases and Android. "
                    "Interested in joining a development team, contributing to real products and improving through code reviews and feedback.")
-        availability = "<b>PAID CURRICULAR INTERNSHIP</b> · 680 hours · February 2027 · Remote preferred; open to on-site or hybrid roles in Aveiro, Porto and Coimbra."
+        availability = "<b>PAID CURRICULAR INTERNSHIP</b> · 680 hours · February 2027 · On-site near Oliveira de Azeméis; hybrid/remote across Aveiro, Porto and Coimbra."
         labels = ["Profile", "Technical skills", "Selected projects", "Software experience", "Education & languages", "Additional experience"]
         skills = [
             ("Languages", "JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL"),
             ("Web & applications", "HTML5, CSS3, React, Next.js, Vite, Android"),
-            ("Backend & data", "REST APIs, MySQL/MariaDB, PostgreSQL, Redis, Prisma"),
+            ("Backend & data", "REST APIs, Ktor, Exposed, MySQL/MariaDB, PostgreSQL, Redis, Prisma"),
             ("Tools & practices", "Git, GitHub, Docker, automated testing"),
         ]
         projects = [
@@ -55,12 +55,16 @@ def build(path, english=False):
              "Developing a web and Android management system for small food businesses, covering staff schedules, attendance and stock operations."),
             ("RunLattice", "Personal project · prototype · Next.js, TypeScript, PostgreSQL, Redis",
              "Designing a workflow automation platform with a visual editor and an accessible no-code direction alongside developer-focused capabilities."),
-            ("MRDR.", "Original game · in development · React, TypeScript, Vite, Capacitor",
-             "Building an original criminal deduction game focused on clue analysis, logical reasoning and case solving."),
+            ("MRDR.", "Original game · functional version complete · React, TypeScript, Vite, Capacitor",
+             "Completed functional version of an original criminal deduction game; public web release, signed Android distribution and iOS validation remain pending."),
             ("HOOP", "Academic project · React, TypeScript, Vite",
              "Basketball e-commerce frontend featuring product browsing, search, filters, favourites, cart and a simulated checkout."),
-            ("RAW.", "ALV16 STUDIOS · public demo · React, JavaScript, PWA",
-             "Interactive conversation and party-game app with multiple play modes, question decks and multilingual content. Source code is private."),
+            ("RAW.", "ALV16 STUDIOS · public demos · React, JavaScript, PWA",
+             "Interactive conversation and party-game app with multiple play modes, 27 decks and six languages. Source code is private."),
+            ("Basket Hub", "Academic group project · Kotlin, Ktor, Thymeleaf, Exposed, H2",
+             "Group-built basketball management application covering teams, players, games, events, registrations and standings. Not production-ready."),
+            ("Nova Imagem by Maura Pereira", "Published client website · Netlify",
+             "Published salon website with services, gallery, opening hours and direct contact. Online booking is not implemented; CMS setup remains pending."),
         ]
         jobs = [
             ("Backend Development Intern", "ClickBeauty / Alvocromático", "Apr–Jul 2023", "Worked on backend features using PHP and MySQL, supported internal web systems and maintained existing code."),
@@ -69,7 +73,7 @@ def build(path, english=False):
         education = "CTeSP in Software Development · Escola Superior Aveiro Norte, University of Aveiro · 2025–2027 (in progress)"
         prior = "Vocational Course in IT Systems Management and Programming · Escola Secundária Dr. Serafim Leite · 2020–2023"
         languages = "Portuguese: native · English: intermediate · Spanish: basic"
-        extra = "CNC Machine Operator · Schmidt Light Metal Group · Feb 2025–May 2026  |  Store Operator · MC · May–Aug 2024"
+        extra = "CNC Machine Operator · Schmidt Light Metal Group · Feb 2025–May 2026 (precision, quality control and process discipline)  |  Store Operator · MC · May–Aug 2024"
         internship = "February 2027 internship"
         filename = "cv-leonardo-alves-en.pdf"
     else:
@@ -77,12 +81,12 @@ def build(path, english=False):
         summary = ("Software Developer generalista e estudante do CTeSP em Desenvolvimento de Software na Escola Superior Aveiro Norte, Universidade de Aveiro. "
                    "Experiência prática em projetos web, desenvolvimento backend, APIs REST, bases de dados e Android. "
                    "Procuro integrar uma equipa de desenvolvimento, contribuir para produtos reais e evoluir através de colaboração e feedback.")
-        availability = "<b>ESTÁGIO CURRICULAR REMUNERADO</b> · 680 horas · fevereiro de 2027 · Preferência por remoto; disponibilidade para oportunidades presenciais ou híbridas em Aveiro, Porto e Coimbra."
+        availability = "<b>ESTÁGIO CURRICULAR REMUNERADO</b> · 680 horas · fevereiro de 2027 · Presencial perto de Oliveira de Azeméis; híbrido/remoto nos distritos de Aveiro, Porto e Coimbra."
         labels = ["Perfil", "Competências técnicas", "Projetos selecionados", "Experiência em desenvolvimento", "Formação e idiomas", "Experiência adicional"]
         skills = [
             ("Linguagens", "JavaScript, TypeScript, PHP, Kotlin, Python, C, SQL"),
             ("Web e aplicações", "HTML5, CSS3, React, Next.js, Vite, Android"),
-            ("Backend e dados", "APIs REST, MySQL/MariaDB, PostgreSQL, Redis, Prisma"),
+            ("Backend e dados", "APIs REST, Ktor, Exposed, MySQL/MariaDB, PostgreSQL, Redis, Prisma"),
             ("Ferramentas e práticas", "Git, GitHub, Docker, testes automatizados"),
         ]
         projects = [
@@ -90,12 +94,16 @@ def build(path, english=False):
              "Desenvolvimento de um sistema Web e Android para pequenos negócios de restauração, com gestão de colaboradores, horários, assiduidade e movimentos de stock."),
             ("RunLattice", "Projeto pessoal · protótipo · Next.js, TypeScript, PostgreSQL, Redis",
              "Conceção de uma plataforma de automação de workflows com editor visual, orientada tanto a utilizadores sem código como a utilizadores técnicos."),
-            ("MRDR.", "Jogo original · em desenvolvimento · React, TypeScript, Vite, Capacitor",
-             "Desenvolvimento de um jogo original de dedução criminal, centrado na análise de pistas, raciocínio lógico e resolução de casos."),
+            ("MRDR.", "Jogo original · versão funcional concluída · React, TypeScript, Vite, Capacitor",
+             "Versão funcional concluída de um jogo original de dedução criminal; a publicação Web, a distribuição Android assinada e a validação iOS continuam pendentes."),
             ("HOOP", "Projeto académico · React, TypeScript, Vite",
              "Frontend de comércio eletrónico de basquetebol, com catálogo, pesquisa, filtros, favoritos, carrinho e finalização de compra simulada."),
-            ("RAW.", "ALV16 STUDIOS · demonstração pública · React, JavaScript, PWA",
-             "Aplicação interativa de conversação e jogos sociais, com vários modos, baralhos de perguntas e conteúdo multilingue. Código-fonte privado."),
+            ("RAW.", "ALV16 STUDIOS · demonstrações públicas · React, JavaScript, PWA",
+             "Aplicação interativa de conversação e jogos sociais, com vários modos, 27 baralhos e seis idiomas. Código-fonte privado."),
+            ("Basket Hub", "Projeto académico de grupo · Kotlin, Ktor, Thymeleaf, Exposed, H2",
+             "Aplicação de gestão de basquetebol desenvolvida em grupo, com equipas, jogadores, jogos, eventos, inscrições e classificações. Não preparada para produção."),
+            ("Nova Imagem by Maura Pereira", "Website para cliente · publicado no Netlify",
+             "Website publicado para um salão, com serviços, galeria, horário e contacto direto. Não inclui marcações online; a configuração do CMS continua pendente."),
         ]
         jobs = [
             ("Estagiário de Desenvolvimento Backend", "ClickBeauty / Alvocromático", "abr.–jul. 2023", "Desenvolvimento de funcionalidades backend com PHP e MySQL, apoio a sistemas Web internos e manutenção de código."),
@@ -104,7 +112,7 @@ def build(path, english=False):
         education = "CTeSP em Desenvolvimento de Software · Escola Superior Aveiro Norte, Universidade de Aveiro · 2025–2027 (em curso)"
         prior = "Curso Profissional de Gestão e Programação de Sistemas Informáticos · Escola Secundária Dr. Serafim Leite · 2020–2023"
         languages = "Português: nativo · Inglês: intermédio · Espanhol: básico"
-        extra = "Operador de Máquina CNC · Schmidt Light Metal Group · fev. 2025–mai. 2026  |  Operador de Loja · MC · mai.–ago. 2024"
+        extra = "Operador de Máquina CNC · Schmidt Light Metal Group · fev. 2025–mai. 2026 (precisão, controlo de qualidade e disciplina de processos)  |  Operador de Loja · MC · mai.–ago. 2024"
         internship = "Estágio curricular 2027"
         filename = "cv-leonardo-alves-pt.pdf"
 
