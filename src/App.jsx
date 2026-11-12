@@ -189,6 +189,8 @@ const experience = [
 ];
 
 function ProjectArtwork({ project, dark, pt }) {
+  const [imageFailed, setImageFailed] = useState(false);
+
   if (project.name === 'SaborGest') {
     return (
       <div className="project-art project-art-saborgest" role="img" aria-label={pt ? 'Diagrama de arquitetura do SaborGest: gestão web, API REST e quiosque Android' : 'SaborGest architecture diagram: web management, REST API and Android kiosk'}>
@@ -220,7 +222,7 @@ function ProjectArtwork({ project, dark, pt }) {
     );
   }
 
-  if (project.image) {
+  if (project.image && !imageFailed) {
     return (
       <figure className={'project-art project-art-image ' + (project.name === 'MRDR.' ? 'project-art-mrdr' : 'project-art-runlattice')}>
         <img
@@ -228,7 +230,7 @@ function ProjectArtwork({ project, dark, pt }) {
           alt={pt ? project.imageAlt : project.imageAltEn}
           loading="lazy"
           decoding="async"
-          onError={(event) => { event.currentTarget.hidden = true; }}
+          onError={() => setImageFailed(true)}
         />
         {project.name === 'RunLattice' && (
           <div className="runlattice-art-flow" aria-label={pt ? 'Modelo de execução do protótipo' : 'Prototype execution model'}>
