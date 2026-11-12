@@ -31,8 +31,9 @@ Technologies and tools used across the projects shown here:
 - **RAW.** - Interactive social conversation and party-game app with three modes, 27 decks and content in six languages. Public web and itch.io demos are available; source code is private.
 - **MRDR.** - Original crime-deduction game built around evidence, suspects, alibis, timelines and connected clues. The functional version is complete; public web release, signed Android distribution and iOS validation remain pending.
 - **HOOP** - Academic basketball-store frontend built with React and TypeScript. Includes product discovery, search, filters, favourites, cart and a simulated checkout. It does not process real purchases.
-- **Basket Hub** - Academic group project for basketball management. The current code includes administrator bootstrap, token sessions and role- and scope-based access control. It is not production-ready and is not an individual-only project.
+- **Basket Hub** - Academic group project for basketball management, covering teams, players, games, events, registrations, venues, organisers, sponsors, standings and statistics. Built with Kotlin, Ktor, Thymeleaf, Exposed and H2. It has no route authentication or authorisation, uses permissive CORS (`anyHost()`), and has limited automated tests; it is not production-ready or individual-only work.
 - **Tocadiscos Editora** - Academic group CLI application for managing a fictional music publisher catalogue, with search, royalty calculations, financial reports, audio playback and reversible change history.
+- **Nova Imagem by Maura Pereira** - Published client website for a hair salon, with service information, gallery, opening hours and direct contact. Online booking is not implemented; Sanity CMS setup remains pending.
 
 Additional academic and personal work includes Two of Hearts, Todo App and ArraySorting.
 
@@ -75,3 +76,5 @@ npm run preview
 ```
 
 The production build is generated in `dist/` and deployed with Cloudflare Pages.
+
+The bilingual CV PDFs are generated from `scripts/generate_cvs.py`. To regenerate them locally, install ReportLab with `python -m pip install reportlab` and run `python scripts/generate_cvs.py`. The `Regenerate CV PDFs` GitHub Actions workflow performs this update when the generator changes.

@@ -21,10 +21,17 @@ const required = [
   'projects/hoop.html',
   'projects/raw.html',
   'projects/basket-hub.html',
+  'projects/nova-imagem.html',
 ];
 
 for (const file of required) {
   assert.ok(existsSync(resolve(root, file)), `Missing production asset: ${file}`);
+}
+
+for (const file of ['cv-leonardo-alves-pt.pdf', 'cv-leonardo-alves-en.pdf']) {
+  const pdf = readFileSync(resolve(root, file));
+  assert.equal(pdf.subarray(0, 5).toString('ascii'), '%PDF-', `${file} must be a valid PDF document`);
+  assert.match(pdf.toString('latin1'), /\/Type\s*\/Page\b/, `${file} must contain at least one PDF page`);
 }
 
 const html = readFileSync(resolve(root, 'index.html'), 'utf8');
@@ -45,7 +52,7 @@ assert.match(sitemap, /^<\?xml version="1\.0" encoding="UTF-8"\?>/, 'Sitemap mus
 assert.match(sitemap, /xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9"/, 'Sitemap must use the standard namespace');
 const urls = [...sitemap.matchAll(/<loc>(https:\/\/[^<]+)<\/loc>/g)].map((match) => match[1]);
 assert.ok(urls.length >= 1, 'Sitemap must contain at least one URL');
-for (const page of ['projects/saborgest.html', 'projects/runlattice.html', 'projects/mrdr.html', 'projects/hoop.html', 'projects/raw.html', 'projects/basket-hub.html']) {
+for (const page of ['projects/saborgest.html', 'projects/runlattice.html', 'projects/mrdr.html', 'projects/hoop.html', 'projects/raw.html', 'projects/basket-hub.html', 'projects/nova-imagem.html']) {
   assert.ok(urls.includes(`https://16alves02.pages.dev/${page}`), `Sitemap is missing case study: ${page}`);
 }
 
@@ -58,4 +65,10 @@ assert.match(app, /href=\{cv\}/, 'CV link must be selected dynamically by langua
 assert.match(app, /setLanguage\(/, 'Language switch must be available');
 assert.match(app, /setDark\(/, 'Theme switch must be available');
 
+
+const caseStudyIds = [...app.matchAll(/caseStudy:\s*'([^']+)'/g)].map((match) => match[1]);
+assert.ok(caseStudyIds.length > 0, 'Homepage must expose project case studies');
+for (const id of caseStudyIds) {
+  assert.ok(existsSync(resolve(root, 'projects', id + '.html')), 'Homepage links to a missing case study: ' + id);
+}
 console.log(`Production verification passed (${required.length} required assets, ${urls.length} sitemap URLs).`);

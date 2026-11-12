@@ -126,15 +126,16 @@ const projects = [
   },
   {
     name: 'Basket Hub', year: '2025-26', group: 'other', type: 'ACADEMIC · BASKETBALL PLATFORM', typePt: 'ACADÉMICO · PLATAFORMA DE BASQUETEBOL',
-    description: 'Projeto académico de grupo para gestão de basquetebol. A versão atual inclui autenticação, sessões e permissões por função e âmbito, além da gestão de equipas, jogadores, jogos e eventos.',
-    descriptionEn: 'An academic group project for basketball management. The current version includes authentication, sessions and role- and scope-based permissions, alongside team, player, game and event management.',
-    stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'H2'],
+    description: 'Projeto académico de grupo para gestão de basquetebol, com equipas, jogadores, jogos, eventos, inscrições e classificações.',
+    descriptionEn: 'An academic group project for basketball management, covering teams, players, games, events, registrations and standings.',
+    stack: ['Kotlin', 'Ktor', 'Thymeleaf', 'Exposed', 'H2'],
     status: 'Projeto académico de grupo · não preparado para produção', statusEn: 'Academic group project · not production-ready',
     href: 'https://github.com/bmgoliveira-UA/basket-hub',
     caseStudy: 'basket-hub'
   },
   {
     name: 'Nova Imagem by Maura Pereira', year: '2026', group: 'other', type: 'CLIENT WEBSITE', typePt: 'WEBSITE PARA CLIENTE',
+    image: 'https://d33wubrfki0l68.cloudfront.net/6af47378b2584cfca32dc1e6/screenshot_2026-11-11-13-55-16-0000.webp', imageAlt: 'Screenshot of the published Nova Imagem by Maura Pereira website', imageAltPt: 'Captura do website publicado Nova Imagem by Maura Pereira', imageFit: 'cover',
     description: 'Website publicado para um salão de cabeleireiro em Cucujães, com informação sobre serviços, galeria, horário e contactos por telefone e WhatsApp. Não inclui marcações online; a gestão de conteúdos por CMS continua pendente.',
     descriptionEn: 'Published website for a hair salon in Cucujães, with service information, a gallery, opening hours and phone and WhatsApp contact options. It does not include online booking; CMS-based content editing is still pending.',
     stack: [],
