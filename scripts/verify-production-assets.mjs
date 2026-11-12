@@ -28,6 +28,12 @@ for (const file of required) {
   assert.ok(existsSync(resolve(root, file)), `Missing production asset: ${file}`);
 }
 
+for (const file of ['cv-leonardo-alves-pt.pdf', 'cv-leonardo-alves-en.pdf']) {
+  const pdf = readFileSync(resolve(root, file));
+  assert.equal(pdf.subarray(0, 5).toString('ascii'), '%PDF-', `${file} must be a valid PDF document`);
+  assert.match(pdf.toString('latin1'), /\/Type\s*\/Page\b/, `${file} must contain at least one PDF page`);
+}
+
 const html = readFileSync(resolve(root, 'index.html'), 'utf8');
 assert.match(html, /<html lang="pt-PT">/i, 'Homepage must declare its primary language');
 assert.match(html, /<title>[^<]+<\/title>/i, 'Homepage must have a title');
