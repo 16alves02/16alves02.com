@@ -135,6 +135,8 @@ export const projects = [
     number: '09',
     name: 'Nova Imagem by Maura Pereira',
     category: 'personal',
+    image: 'https://d33wubrfki0l68.cloudfront.net/6af47378b2584cfca32dc1e6/screenshot_2026-11-11-13-55-16-0000.webp',
+    imageAlt: 'Screenshot of the published Nova Imagem by Maura Pereira website',
     type: 'Client website · hair salon',
     year: '2026',
     description: 'A published website for a hair salon in Cucujães, presenting services, a general and categorised gallery, opening hours and direct phone and WhatsApp contact. Online booking and customer accounts are not part of the website. A Sanity CMS workflow is planned but has not been configured or validated; the salon owner still needs to create the account.',
