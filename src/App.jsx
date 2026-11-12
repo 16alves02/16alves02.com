@@ -133,16 +133,7 @@ const projects = [
     href: 'https://github.com/bmgoliveira-UA/basket-hub',
     caseStudy: 'basket-hub'
   },
-  {
-    name: 'Nova Imagem by Maura Pereira', year: '2026', group: 'other', type: 'CLIENT WEBSITE', typePt: 'WEBSITE PARA CLIENTE',
-    image: 'https://d33wubrfki0l68.cloudfront.net/6af47378b2584cfca32dc1e6/screenshot_2026-11-11-13-55-16-0000.webp', imageAlt: 'Screenshot of the published Nova Imagem by Maura Pereira website', imageAltPt: 'Captura do website publicado Nova Imagem by Maura Pereira', imageFit: 'cover',
-    description: 'Website publicado para um salão de cabeleireiro em Cucujães, com informação sobre serviços, galeria, horário e contactos por telefone e WhatsApp. Não inclui marcações online; a gestão de conteúdos por CMS continua pendente.',
-    descriptionEn: 'Published website for a hair salon in Cucujães, with service information, a gallery, opening hours and phone and WhatsApp contact options. It does not include online booking; CMS-based content editing is still pending.',
-    stack: [],
-    status: 'Website publicado · CMS por configurar', statusEn: 'Website published · CMS setup pending',
-    href: 'https://novaimagembymaurapereira.netlify.app',
-    caseStudy: 'nova-imagem'
-  },
+
   {
     name: 'Tocadiscos Editora', year: '2025-26', group: 'other', type: 'ACADEMIC · GROUP PROJECT', typePt: 'ACADÉMICO · PROJETO DE GRUPO',
     description: 'Aplicação de linha de comandos para gerir autores, álbuns e músicas, com pesquisa, relatórios financeiros, reprodução de áudio e histórico reversível.',
