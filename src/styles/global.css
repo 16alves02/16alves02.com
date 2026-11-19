@@ -974,7 +974,7 @@ body::-webkit-scrollbar {
 .site.dark .project-card-topline { color: #aaa69f; }
 @media (max-width: 720px) {
   .hero-with-portrait { padding-top: 76px; padding-bottom: 40px; }
-  .hero h1 { font-size: clamp(49px, 12vw, 68px); }
+  .hero h1 { font-size: clamp(39px, 10.5vw, 58px); overflow-wrap: anywhere; }
   .hero-capabilities { gap: 8px; margin-top: 21px; font-size: 8px; }
   .hero-portrait { box-shadow: 9px 9px 0 rgba(236, 94, 39, .09); }
   .hero-meta { margin-top: 32px; flex-direction: column; gap: 11px; line-height: 1.6; }
