@@ -253,7 +253,7 @@ function ProjectArtwork({ project, dark, pt }) {
 export default function App() {
   const shouldReduceMotion = useReducedMotion();
   const [language, setLanguage] = useState('en');
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
@@ -385,6 +385,7 @@ export default function App() {
             <div className="eyebrow hero-reveal hero-reveal-1"><span className="status-dot" />{t.role}</div>
             <h1 className="hero-reveal hero-reveal-2">{t.headline}</h1>
             <p className="hero-intro hero-reveal hero-reveal-3">{t.intro}</p>
+            <div className="hero-capabilities hero-reveal hero-reveal-3" aria-label={pt ? "Áreas de desenvolvimento" : "Development areas"}><span>WEB</span><i /><span>BACKEND</span><i /><span>MOBILE</span><i /><span>SYSTEMS</span></div>
             <div className="hero-links hero-reveal hero-reveal-4">
               <a className="primary-link" href="#projects">{t.projects} <ArrowDownRight size={17} /></a>
               <a className="secondary-link" href="#contact"><Mail size={16} /> {pt ? 'Falar comigo' : 'Get in touch'}</a>
