@@ -845,3 +845,140 @@ body::-webkit-scrollbar {
     animation: none !important;
   }
 }
+
+
+/* 2026 editorial direction: cinematic charcoal canvas, restrained orange and clear capability signals. */
+.site {
+  --bg: #0d0d0f;
+  --surface: #161618;
+  --text: #f4f1eb;
+  --muted: #aaa69f;
+  --line: #303034;
+  --accent: #ec5e27;
+  color-scheme: dark;
+}
+.site.dark {
+  --bg: #0d0d0f;
+  --surface: #161618;
+  --text: #f4f1eb;
+  --muted: #aaa69f;
+  --line: #303034;
+  --accent: #ec5e27;
+  color-scheme: dark;
+}
+.site:not(.dark) {
+  --bg: #fdfdf1;
+  --surface: #f2f2e6;
+  --text: #02020e;
+  --muted: #55554f;
+  --line: #ddddd2;
+  --accent: #ec5e27;
+  color-scheme: light;
+}
+.hero-with-portrait {
+  position: relative;
+  isolation: isolate;
+  padding-top: clamp(82px, 10vw, 132px);
+  padding-bottom: 54px;
+}
+.hero-with-portrait::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 calc((var(--max) - 100vw) / 2);
+  background:
+    radial-gradient(ellipse at 76% 28%, rgba(236, 94, 39, .13), transparent 34%),
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  content: "";
+  pointer-events: none;
+}
+.site:not(.dark) .hero-with-portrait::before {
+  background:
+    radial-gradient(ellipse at 76% 28%, rgba(236, 94, 39, .09), transparent 34%),
+    linear-gradient(rgba(2,2,14,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2,2,14,.035) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+}
+.hero-copy { position: relative; z-index: 1; }
+.hero h1 {
+  max-width: 760px;
+  font-size: clamp(54px, 8.3vw, 108px);
+  line-height: .91;
+  letter-spacing: -.09em;
+  margin-top: 34px;
+  margin-bottom: 27px;
+}
+.hero h1 em { color: var(--accent); }
+.hero-intro {
+  max-width: 500px;
+  font-size: clamp(14px, 1.25vw, 16px);
+  line-height: 1.85;
+}
+.hero-capabilities {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+  margin-top: 26px;
+  color: var(--muted);
+  font: 600 9px/1.5 'DM Sans', sans-serif;
+  letter-spacing: .13em;
+}
+.hero-capabilities i {
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.hero-portrait {
+  border: 1px solid var(--line);
+  box-shadow: 14px 14px 0 rgba(236, 94, 39, .09);
+}
+.hero-portrait figcaption {
+  left: 19px;
+  bottom: 18px;
+  letter-spacing: .16em;
+}
+.hero-meta {
+  margin-top: clamp(64px, 8vw, 100px);
+  padding-top: 17px;
+}
+.project-group-featured .project-card {
+  transition: border-color .25s ease, transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.project-group-featured .project-card:hover {
+  border-color: var(--accent);
+}
+.project-card-copy h3 {
+  transition: color .25s ease, transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.project-card:hover .project-card-copy h3 {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+.project-art {
+  border-radius: 2px;
+  transition: border-color .25s ease, transform .45s cubic-bezier(.2,.7,.2,1);
+}
+.project-card:hover .project-art {
+  border-color: rgba(236, 94, 39, .7);
+  transform: translateY(-3px);
+}
+.project-art-image img { transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+.project-card:hover .project-art-image img { transform: scale(1.025); }
+.project-card-actions a { transition: color .2s ease, border-color .2s ease, transform .2s ease; }
+.project-card-actions a:hover { transform: translateY(-2px); }
+.site.dark .project-group-heading,
+.site.dark .project-card-topline { color: #aaa69f; }
+@media (max-width: 720px) {
+  .hero-with-portrait { padding-top: 76px; padding-bottom: 40px; }
+  .hero h1 { font-size: clamp(39px, 10.5vw, 58px); overflow-wrap: anywhere; }
+  .hero-capabilities { gap: 8px; margin-top: 21px; font-size: 8px; }
+  .hero-portrait { box-shadow: 9px 9px 0 rgba(236, 94, 39, .09); }
+  .hero-meta { margin-top: 32px; flex-direction: column; gap: 11px; line-height: 1.6; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card-copy h3, .project-art, .project-art-image img, .project-card-actions a { transition: none; }
+}
