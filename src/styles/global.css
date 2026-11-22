@@ -982,3 +982,65 @@ body::-webkit-scrollbar {
 @media (prefers-reduced-motion: reduce) {
   .project-card-copy h3, .project-art, .project-art-image img, .project-card-actions a { transition: none; }
 }
+
+
+/* 16alves02 editorial polish: stronger orange hierarchy and restrained depth. */
+.site .hero h1 em {
+  color: var(--accent);
+}
+.site .primary-link {
+  background: var(--accent);
+  color: #fff;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.site .primary-link:hover {
+  background: var(--text);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+.site .hero-portrait {
+  border: 1px solid var(--line);
+  box-shadow: 12px 12px 0 rgba(236, 94, 39, .13);
+}
+.site .hero-portrait img {
+  filter: grayscale(1) contrast(1.08);
+}
+.site .project-art {
+  box-shadow: 8px 8px 0 rgba(236, 94, 39, .09);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.site .project-card:hover .project-art {
+  border-color: var(--accent);
+  box-shadow: 11px 11px 0 rgba(236, 94, 39, .13);
+}
+.site .project-card-copy h3 {
+  transition: color .25s ease;
+}
+.site .project-card:hover .project-card-copy h3 {
+  color: var(--accent);
+}
+.site .mobile-contact-cta,
+.site .contact-form button {
+  background: var(--accent);
+  color: #fff;
+}
+.site .mobile-contact-cta:hover,
+.site .contact-form button:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+@media (max-width: 720px) {
+  .site .hero-portrait {
+    box-shadow: 6px 6px 0 rgba(236, 94, 39, .12);
+  }
+  .site .project-art {
+    box-shadow: 5px 5px 0 rgba(236, 94, 39, .08);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site .primary-link,
+  .site .project-art,
+  .site .project-card-copy h3 {
+    transition: none;
+  }
+}
