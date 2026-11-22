@@ -95,8 +95,8 @@ const projects = [
   },
   {
     name: 'RAW.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
-    description: 'Aplicação social de cartas com três modos de jogo, 27 baralhos e conteúdo em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
-    descriptionEn: 'A card-based social app with three play modes, 27 decks and content in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
+    description: 'Aplicação social de cartas com três modos de jogo, 21 baralhos e 3 814 cartas e perguntas e conteúdo em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
+    descriptionEn: 'A card-based social app with three play modes, 21 decks and 3,814 cards and prompts and content in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
     stack: ['React', 'JavaScript', 'PWA'],
     status: 'Demo pública · código privado', statusEn: 'Public demo · private source',
     href: 'https://alv16studios.itch.io/raw-conversation-game',
@@ -252,7 +252,7 @@ function ProjectArtwork({ project, dark, pt }) {
 
 export default function App() {
   const shouldReduceMotion = useReducedMotion();
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('pt-PT');
   const [dark, setDark] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
