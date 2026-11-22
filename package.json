@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.mjs",
+    "build": "vite build && node scripts/prerender.mjs && node scripts/verify-production-assets.mjs && node scripts/verify-theme-contrast.mjs",
     "preview": "vite preview",
     "verify:production": "node scripts/verify-production-assets.mjs",
-    "verify:theme": "node scripts/verify-theme-contrast.mjs"
+    "verify:theme": "node scripts/verify-theme-contrast.mjs",
+    "verify:all": "npm run build"
   },
   "dependencies": {
     "react": "^19.0.0",
