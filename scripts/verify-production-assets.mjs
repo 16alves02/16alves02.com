@@ -5,6 +5,7 @@ import { resolve } from 'node:path';
 const root = resolve('dist');
 const required = [
   'index.html',
+  'faq.html',
   // The user-supplied hero portrait must ship with the production build.
   '35A725EC-3FA5-4077-B167-C2185A787C71.png',
   '404.html',
@@ -42,6 +43,25 @@ assert.match(html, /<meta name="description" content="[^"]+"/i, 'Homepage must h
 assert.match(html, /rel="canonical"/i, 'Homepage must have a canonical URL');
 assert.match(html, /name="viewport"/i, 'Homepage must declare a responsive viewport');
 assert.match(html, /rel="icon"/i, 'Homepage must declare a favicon');
+assert.match(html, /property="og:title"/i, 'Homepage must declare an Open Graph title');
+assert.match(html, /property="og:description"/i, 'Homepage must declare an Open Graph description');
+assert.match(html, /property="og:image"/i, 'Homepage must declare an Open Graph image');
+assert.match(html, /property="og:image:width" content="1200"/i, 'Open Graph image width must be 1200');
+assert.match(html, /property="og:image:height" content="630"/i, 'Open Graph image height must be 630');
+assert.match(html, /name="twitter:card" content="summary_large_image"/i, 'Twitter card must use a large image');
+assert.match(html, /name="twitter:image"/i, 'Twitter card must declare an image');
+const title = html.match(/<title>([^<]+)<\\/title>/i)?.[1] ?? '';
+const description = html.match(/<meta name="description" content="([^"]+)"/i)?.[1] ?? '';
+assert.ok(title.length > 0 && title.length <= 60, 'SEO title must contain 1-60 characters');
+assert.ok(description.length > 0 && description.length <= 155, 'SEO description must contain 1-155 characters');
+const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
+const ogUrl = html.match(/<meta property="og:url" content="([^"]+)"/i)?.[1];
+assert.equal(canonical, ogUrl, 'Canonical URL and Open Graph URL must match');
+assert.match(canonical ?? '', /^https:\\/\\//, 'Canonical URL must be absolute HTTPS');
+const structuredData = html.match(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/i)?.[1];
+assert.ok(structuredData, 'Homepage must include structured Person data');
+assert.equal(JSON.parse(structuredData)['@type'], 'Person', 'Structured data must describe the portfolio owner');
+assert.match(html, /<h1[\\s>]/i, 'Prerendered homepage must include its main heading');
 assert.doesNotMatch(html, /admin/i, 'Homepage must not reference the removed admin area');
 
 const robots = readFileSync(resolve(root, 'robots.txt'), 'utf8');
