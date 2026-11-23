@@ -11,6 +11,7 @@ const server = await createServer({
   root,
   server: { middlewareMode: true },
   appType: 'custom',
+  optimizeDeps: { noDiscovery: true, include: [] },
 });
 
 try {
