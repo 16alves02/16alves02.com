@@ -467,7 +467,7 @@ body::-webkit-scrollbar {
   letter-spacing: .12em;
 }
 .raw-mode-list b {
-  color: #C64B1B;
+  color: var(--accent-text);
   font-size: 9px;
 }
 .project-art-image {
