@@ -54,6 +54,7 @@ assert.match(html, /property="og:image:height" content="630"/i, 'Open Graph imag
 assert.match(html, /property="og:image:type" content="image\/png"/i, 'Open Graph image must use PNG for broad platform compatibility');
 assert.match(html, /property="og:image" content="https:\/\/16alves02\.pages\.dev\/og-cover\.png"/i, 'Open Graph image must point to the production PNG asset');
 assert.match(html, /name="twitter:image" content="https:\/\/16alves02\.pages\.dev\/og-cover\.png"/i, 'Twitter image must match the production Open Graph PNG');
+assert.match(html, /rel="preload" as="image" href="\/portrait-960\.webp"/i, 'Hero portrait must be preloaded for LCP');
 assert.match(html, /name="twitter:card" content="summary_large_image"/i, 'Twitter card must use a large image');
 assert.match(html, /name="twitter:image"/i, 'Twitter card must declare an image');
 
@@ -91,6 +92,7 @@ for (const token of ['16alves02@gmail.com', 'name="name"', 'name="email"', 'name
   if (token === 'prefers-reduced-motion') continue;
   assert.ok(app.includes(token), `App is missing expected accessible/contact feature: ${token}`);
 }
+assert.match(app, /src="\/portrait-960\.webp"/, 'Hero portrait must use the optimized WebP image');
 assert.match(app, /href=\{cv\}/, 'CV link must be selected dynamically by language');
 assert.match(app, /setLanguage\(/, 'Language switch must be available');
 assert.match(app, /setDark\(/, 'Theme switch must be available');
