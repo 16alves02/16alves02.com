@@ -8,6 +8,9 @@ const required = [
   'faq.html',
   // The user-supplied hero portrait must ship with the production build.
   '35A725EC-3FA5-4077-B167-C2185A787C71.png',
+  'portrait-480.webp',
+  'portrait-960.webp',
+  'og-cover.png',
   '404.html',
   'privacy.html',
   'terms.html',
@@ -48,6 +51,9 @@ assert.match(html, /property="og:description"/i, 'Homepage must declare an Open 
 assert.match(html, /property="og:image"/i, 'Homepage must declare an Open Graph image');
 assert.match(html, /property="og:image:width" content="1200"/i, 'Open Graph image width must be 1200');
 assert.match(html, /property="og:image:height" content="630"/i, 'Open Graph image height must be 630');
+assert.match(html, /property="og:image:type" content="image\/png"/i, 'Open Graph image must use PNG for broad platform compatibility');
+assert.match(html, /property="og:image" content="https:\/\/16alves02\.pages\.dev\/og-cover\.png"/i, 'Open Graph image must point to the production PNG asset');
+assert.match(html, /name="twitter:image" content="https:\/\/16alves02\.pages\.dev\/og-cover\.png"/i, 'Twitter image must match the production Open Graph PNG');
 assert.match(html, /name="twitter:card" content="summary_large_image"/i, 'Twitter card must use a large image');
 assert.match(html, /name="twitter:image"/i, 'Twitter card must declare an image');
 
