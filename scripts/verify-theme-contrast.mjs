@@ -63,4 +63,10 @@ for (const accent of allAccentTokens) {
   assert.ok(contrast(accent, '#02020E') >= 3, `Accent ${accent} must meet 3:1 contrast on dark surfaces`);
 }
 
+const lightAccentText = variable(light, 'accent-text');
+const darkAccentText = variable(dark, 'accent-text');
+assert.ok(contrast(lightAccentText, '#FDFDF1') >= 4.5, 'Light-theme accent text must meet WCAG AA');
+assert.ok(contrast(darkAccentText, '#111111') >= 4.5, 'Dark-theme accent text must meet WCAG AA');
+assert.ok(contrast(darkAccentText, '#171717') >= 4.5, 'Dark-theme accent text must meet WCAG AA on project artwork');
+
 console.log(`Theme contrast checks passed across ${allAccentTokens.length} accent declarations and both themes.`);
