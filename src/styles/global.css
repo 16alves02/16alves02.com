@@ -1053,10 +1053,10 @@ body:has(.site:not(.dark)), html:has(.site:not(.dark)) { background: #f5f3ed; }
 body:has(.site.dark), html:has(.site.dark) { background: #111111; }
 .site {
   width: 100%; min-height: 100svh; overflow-x: clip; overflow-y: visible;
-  --accent: #d65a24; background: var(--bg);
+  --accent: #C64B1B; background: var(--bg);
 }
-.site:not(.dark) { --bg:#f5f3ed; --surface:#eeece5; --text:#171715; --muted:#68665f; --line:#d8d5cc; --accent:#c94e20; }
-.site.dark { --bg:#111111; --surface:#191919; --text:#f1eee7; --muted:#aaa69d; --line:#35332f; --accent:#e56b35; }
+.site:not(.dark) { --bg:#f5f3ed; --surface:#eeece5; --text:#171715; --muted:#68665f; --line:#d8d5cc; --accent:#C64B1B; }
+.site.dark { --bg:#111111; --surface:#191919; --text:#f1eee7; --muted:#aaa69d; --line:#35332f; --accent:#C64B1B; }
 .site .hero-with-portrait::before { display:none; content:none; }
 .site .hero-with-portrait { padding-top:clamp(76px,9vw,116px); padding-bottom:clamp(44px,6vw,72px); }
 .site .hero h1 { max-width:760px; margin:26px 0 22px; font-size:clamp(48px,7.2vw,88px); line-height:.98; letter-spacing:-.075em; }
