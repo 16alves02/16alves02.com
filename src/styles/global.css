@@ -449,7 +449,7 @@ body::-webkit-scrollbar {
   color: #fdfdf1;
 }
 .raw-art-title span {
-  color: #ec5e27;
+  color: #C64B1B;
 }
 .raw-mode-list {
   display: grid;
@@ -467,7 +467,7 @@ body::-webkit-scrollbar {
   letter-spacing: .12em;
 }
 .raw-mode-list b {
-  color: #ec5e27;
+  color: #C64B1B;
   font-size: 9px;
 }
 .project-art-image {
@@ -854,7 +854,7 @@ body::-webkit-scrollbar {
   --text: #f4f1eb;
   --muted: #aaa69f;
   --line: #303034;
-  --accent: #ec5e27;
+  --accent: #C64B1B;
   color-scheme: dark;
 }
 .site.dark {
@@ -863,7 +863,7 @@ body::-webkit-scrollbar {
   --text: #f4f1eb;
   --muted: #aaa69f;
   --line: #303034;
-  --accent: #ec5e27;
+  --accent: #C64B1B;
   color-scheme: dark;
 }
 .site:not(.dark) {
@@ -872,7 +872,7 @@ body::-webkit-scrollbar {
   --text: #02020e;
   --muted: #55554f;
   --line: #ddddd2;
-  --accent: #ec5e27;
+  --accent: #C64B1B;
   color-scheme: light;
 }
 .hero-with-portrait {
