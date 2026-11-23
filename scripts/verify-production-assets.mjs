@@ -93,6 +93,7 @@ for (const token of ['16alves02@gmail.com', 'name="name"', 'name="email"', 'name
   assert.ok(app.includes(token), `App is missing expected accessible/contact feature: ${token}`);
 }
 assert.match(app, /src="\/portrait-960\.webp"/, 'Hero portrait must use the optimized WebP image');
+assert.doesNotMatch(app, /framer-motion|motion\./, 'Homepage must not ship the unused motion runtime');
 assert.match(app, /href=\{cv\}/, 'CV link must be selected dynamically by language');
 assert.match(app, /setLanguage\(/, 'Language switch must be available');
 assert.match(app, /setDark\(/, 'Theme switch must be available');
