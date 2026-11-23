@@ -50,11 +50,17 @@ for (const [name, theme] of [['light', light], ['dark', dark]]) {
   const background = variable(theme, 'bg');
   const text = variable(theme, 'text');
   const muted = variable(theme, 'muted');
-  const accent = variable(theme, 'accent');
 
   assert.ok(contrast(text, background) >= 4.5, `${name} theme body text must meet WCAG AA`);
   assert.ok(contrast(muted, background) >= 4.5, `${name} theme muted text must meet WCAG AA`);
-  assert.ok(contrast(accent, background) >= 3, `${name} theme accent controls must meet 3:1 contrast`);
 }
 
-console.log('Theme contrast checks passed against the actual light and dark design tokens.');
+const allAccentTokens = [...css.matchAll(/--accent:\s*(#[0-9a-fA-F]{6})/g)].map((match) => match[1]);
+assert.ok(allAccentTokens.length > 0, 'At least one accent token must be defined');
+for (const accent of allAccentTokens) {
+  assert.ok(contrast('#FFFFFF', accent) >= 4.5, `White text on accent ${accent} must meet WCAG AA`);
+  assert.ok(contrast(accent, '#FDFDF1') >= 3, `Accent ${accent} must meet 3:1 contrast on light surfaces`);
+  assert.ok(contrast(accent, '#02020E') >= 3, `Accent ${accent} must meet 3:1 contrast on dark surfaces`);
+}
+
+console.log(`Theme contrast checks passed across ${allAccentTokens.length} accent declarations and both themes.`);
