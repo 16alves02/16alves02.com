@@ -50,18 +50,21 @@ assert.match(html, /property="og:image:width" content="1200"/i, 'Open Graph imag
 assert.match(html, /property="og:image:height" content="630"/i, 'Open Graph image height must be 630');
 assert.match(html, /name="twitter:card" content="summary_large_image"/i, 'Twitter card must use a large image');
 assert.match(html, /name="twitter:image"/i, 'Twitter card must declare an image');
-const title = html.match(/<title>([^<]+)<\\/title>/i)?.[1] ?? '';
+
+const title = html.match(/<title>([^<]+)<\/title>/i)?.[1] ?? '';
 const description = html.match(/<meta name="description" content="([^"]+)"/i)?.[1] ?? '';
 assert.ok(title.length > 0 && title.length <= 60, 'SEO title must contain 1-60 characters');
 assert.ok(description.length > 0 && description.length <= 155, 'SEO description must contain 1-155 characters');
+
 const canonical = html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
 const ogUrl = html.match(/<meta property="og:url" content="([^"]+)"/i)?.[1];
 assert.equal(canonical, ogUrl, 'Canonical URL and Open Graph URL must match');
-assert.match(canonical ?? '', /^https:\\/\\//, 'Canonical URL must be absolute HTTPS');
-const structuredData = html.match(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/i)?.[1];
+assert.match(canonical ?? '', /^https:\/\//, 'Canonical URL must be absolute HTTPS');
+
+const structuredData = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/i)?.[1];
 assert.ok(structuredData, 'Homepage must include structured Person data');
 assert.equal(JSON.parse(structuredData)['@type'], 'Person', 'Structured data must describe the portfolio owner');
-assert.match(html, /<h1[\\s>]/i, 'Prerendered homepage must include its main heading');
+assert.match(html, /<h1[\s>]/i, 'Prerendered homepage must include its main heading');
 assert.doesNotMatch(html, /admin/i, 'Homepage must not reference the removed admin area');
 
 const robots = readFileSync(resolve(root, 'robots.txt'), 'utf8');
