@@ -63,8 +63,6 @@ def build(path, english=False):
              "Interactive conversation and party-game app with multiple play modes, 27 decks and six languages. Source code is private."),
             ("Basket Hub", "Academic group project · Kotlin, Ktor, Thymeleaf, Exposed, H2",
              "Group-built basketball management application covering teams, players, games, events, registrations and standings. Not production-ready."),
-            ("Nova Imagem by Maura Pereira", "Published client website · Netlify",
-             "Published salon website with services, gallery, opening hours and direct contact. Online booking is not implemented; CMS setup remains pending."),
         ]
         jobs = [
             ("Backend Development Intern", "ClickBeauty / Alvocromático", "Apr–Jul 2023", "Worked on backend features using PHP and MySQL, supported internal web systems and maintained existing code."),
@@ -102,8 +100,6 @@ def build(path, english=False):
              "Aplicação interativa de conversação e jogos sociais, com vários modos, 27 baralhos e seis idiomas. Código-fonte privado."),
             ("Basket Hub", "Projeto académico de grupo · Kotlin, Ktor, Thymeleaf, Exposed, H2",
              "Aplicação de gestão de basquetebol desenvolvida em grupo, com equipas, jogadores, jogos, eventos, inscrições e classificações. Não preparada para produção."),
-            ("Nova Imagem by Maura Pereira", "Website para cliente · publicado no Netlify",
-             "Website publicado para um salão, com serviços, galeria, horário e contacto direto. Não inclui marcações online; a configuração do CMS continua pendente."),
         ]
         jobs = [
             ("Estagiário de Desenvolvimento Backend", "ClickBeauty / Alvocromático", "abr.–jul. 2023", "Desenvolvimento de funcionalidades backend com PHP e MySQL, apoio a sistemas Web internos e manutenção de código."),

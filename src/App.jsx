@@ -94,8 +94,8 @@ const projects = [
   },
   {
     name: 'RAW.', year: '2026', group: 'featured', featured: true, type: 'ALV16 STUDIOS · SOCIAL GAME', typePt: 'ALV16 STUDIOS · JOGO SOCIAL',
-    description: 'Aplicação social de cartas com três modos de jogo, 21 baralhos, 3 814 cartas e perguntas, disponíveis em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
-    descriptionEn: 'A card-based social app with three play modes, 21 decks, 3,814 cards and prompts, available in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
+    description: 'Aplicação social de cartas com três modos de jogo e 27 baralhos temáticos, disponíveis em seis idiomas. Inclui sessões locais, favoritos e experiência PWA preparada para utilização offline.',
+    descriptionEn: 'A card-based social app with three play modes and 27 themed decks, available in six languages. Includes local sessions, favourites and an offline-ready PWA experience.',
     stack: ['React', 'JavaScript', 'PWA'],
     status: 'Demo pública · código privado', statusEn: 'Public demo · private source',
     href: 'https://alv16studios.itch.io/raw-conversation-game',
