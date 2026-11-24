@@ -1,0 +1,48 @@
+/*
+ * Design tokens — reference extraction, not yet wired into the build.
+ *
+ * These are the ACTUAL computed values currently rendered by the site,
+ * reverse-engineered from global.css's cascade (see the note above the
+ * "2026.11 — clean editorial system" block in global.css for how they
+ * were derived and why the four legacy declaration sites were not
+ * deleted in this pass).
+ *
+ * When this file is adopted as the single source of truth:
+ *   1. Delete the color-variable declarations from the three legacy
+ *      blocks in global.css (~line 36 :root, ~line 37 .site/.site.dark,
+ *      ~lines 850-877 "2026 editorial direction"), but KEEP:
+ *        - `color: var(--text)` and the theme-switch transition on
+ *          the base `.site { ... }` rule (currently only set there)
+ *        - `color-scheme: light` / `color-scheme: dark` (currently
+ *          only set in the ~850-877 block)
+ *   2. Import this file before global.css.
+ *   3. Verify with full before/after screenshots — light + dark,
+ *      desktop + mobile — plus `npm run verify:theme`, before trusting
+ *      that nothing shifted.
+ */
+
+:root {
+  --max: 1120px;
+}
+
+.site:not(.dark) {
+  --bg: #f5f3ed;
+  --surface: #eeece5;
+  --text: #171715;
+  --muted: #68665f;
+  --line: #d8d5cc;
+  --accent: #C64B1B;
+  --accent-text: #C64B1B;
+  color-scheme: light;
+}
+
+.site.dark {
+  --bg: #111111;
+  --surface: #191919;
+  --text: #f1eee7;
+  --muted: #aaa69d;
+  --line: #35332f;
+  --accent: #C64B1B;
+  --accent-text: #E56B35;
+  color-scheme: dark;
+}

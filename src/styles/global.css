@@ -1046,7 +1046,25 @@ body::-webkit-scrollbar {
 }
 
 
-/* 2026.11 — clean editorial system: real work first, no synthetic glow or grid. */
+/* 2026.11 — clean editorial system: real work first, no synthetic glow or grid.
+   NOTE for the next CSS pass: this is the 4th and FINAL layer of color-token
+   redeclarations for .site / .site.dark / .site:not(.dark) in this file
+   (earlier ones are at line ~36 :root, ~37 .site/.site.dark, and ~850-877
+   "2026 editorial direction"). Because `.site:not(.dark)` and `.site.dark`
+   both have specificity (0,2,0), the LAST one in source order wins for a
+   given property, so THIS block's --bg/--surface/--text/--muted/--line/
+   --accent/--accent-text values are the ones actually rendered today.
+   The earlier layers are dead weight for those properties, but are NOT
+   safe to delete wholesale: the ~850-877 block is still the only place
+   that sets `color-scheme: light/dark` (verified empirically — nothing
+   later re-sets it), and the ~37 `.site{...}` block is still the only
+   place that sets `color: var(--text)` and the theme-switch
+   `transition: background .2s, color .2s` on the root .site element.
+   A real cleanup should extract a single tokens.css with the values
+   below plus color-scheme, delete the ~36/~37/~850-877 blocks' color
+   vars, and keep color/transition on .site once. Do that with full
+   before/after screenshot diffs (light+dark, desktop+mobile) — not by
+   cascade reasoning alone, which is how this note itself was produced. */
 html, body, #root { min-height: 100%; }
 html, body { margin: 0; overscroll-behavior-y: none; }
 body:has(.site:not(.dark)), html:has(.site:not(.dark)) { background: #f5f3ed; }
