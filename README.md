@@ -1,3 +1,5 @@
+> **Idioma / Language:** [English](README.md) · [Português (Portugal)](README.pt-PT.md)
+
 # Leonardo Alves - Software Developer Portfolio
 
 A bilingual portfolio for Leonardo Alves, Software Developer and Software Development student at Escola Superior Aveiro Norte, Universidade de Aveiro.
