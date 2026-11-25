@@ -28,7 +28,7 @@ Technologies and tools used across the projects shown here:
 
 ## Selected projects
 
-- **SaborGest** - Academic management system for small food businesses, combining a PHP web panel, REST API, MySQL/MariaDB and a Kotlin Android kiosk. Includes staff scheduling, attendance and stock workflows. In development; not production-ready. Public source repository.
+- **SaborGest** - Academic management system for small food businesses, combining a PHP web panel, REST API, MySQL/MariaDB and a Kotlin Android kiosk. Includes staff scheduling, attendance and stock workflows. In development; not production-ready. Private source repository.
 - **RunLattice** - Workflow automation prototype with authenticated workspaces, a visual editor, templates, Redis/BullMQ execution, signed webhooks, scheduled triggers, a live Discord action and reviewable AI workflow plans. Stripe billing flows are implemented but still require sandbox and end-to-end verification. Not production-ready.
 - **RAW.** - Interactive social conversation and party-game app with three modes, 27 decks and content in six languages. Public web and itch.io demos are available; source code is private.
 - **MRDR.** - Original crime-deduction game built around evidence, suspects, alibis, timelines and connected clues. The functional version is complete; public web release, signed Android distribution and iOS validation remain pending.
